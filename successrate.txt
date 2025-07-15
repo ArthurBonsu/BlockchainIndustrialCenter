@@ -1,0 +1,1383 @@
+import os
+import sys
+import json
+import logging
+from typing import Dict, Any, Optional, Tuple
+import time
+from web3 import Web3, HTTPProvider
+from web3.exceptions import ContractLogicError
+from dotenv import load_dotenv
+import uuid
+import random
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# Configure logging with more detail and file output
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("uncertainty_analytics.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Load environment variables
+logger.info("Loading environment variables...")
+load_dotenv()
+
+class UncertaintyAnalyticsManager:
+    def __init__(
+        self, 
+        web3: Web3, 
+        uncertainty_address: str,
+        request_manager_address: str,
+        response_manager_address: str,
+        build_contracts_dir: Optional[str] = None,
+        project_root: Optional[str] = None
+    ):
+        """Initialize Uncertainty Analytics Manager"""
+        logger.info("Initializing UncertaintyAnalyticsManager...")
+        
+        # Determine project root and default paths
+        self.project_root = project_root or os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..")
+        )
+
+        # Build contracts directory
+        self.build_contracts_dir = build_contracts_dir or os.path.join(
+            self.project_root, "build", "contracts"
+        )
+
+        # Blockchain connection
+        self.w3 = web3
+        logger.debug(f"Web3 connected: {self.w3.is_connected()}")
+        logger.debug(f"Web3 chain ID: {self.w3.eth.chain_id}")
+
+        # Contract addresses
+        self.uncertainty_address = Web3.to_checksum_address(uncertainty_address)
+        self.request_manager_address = Web3.to_checksum_address(request_manager_address)
+        self.response_manager_address = Web3.to_checksum_address(response_manager_address)
+        
+        # Contract instances
+        self.uncertainty_contract = None
+        self.request_manager_contract = None
+        self.response_manager_contract = None
+        
+        # ABIs with comprehensive contract definitions
+        logger.debug("Loading contract ABIs...")
+        self.uncertainty_abi = self._get_uncertainty_analytics_abi()
+        self.request_manager_abi = self._get_request_manager_abi()
+        self.response_manager_abi = self._get_response_manager_abi()
+        
+        # Simulation data
+        self.mock_requests = {}
+        self.mock_responses = {}
+        self.mock_processed_requests = set()
+        self.mock_responder_count = {}
+        self.mock_metrics = {
+            "avgProcessingTime": 0,
+            "successRate": 100,
+            "totalCost": Web3.to_wei(0, 'ether'),
+            "disruptionCount": 0
+        }
+        self.next_request_id = 1
+        
+        # Constants from contracts
+        self.BASE_COST = Web3.to_wei(0.001, 'ether')
+        self.MAX_PROCESSING_TIME = 86400  # 1 day in seconds
+        
+        logger.info("UncertaintyAnalyticsManager initialized successfully")
+
+def get_uncertainty_analytics_abi():
+    """
+    Returns the comprehensive ABI for the UncertaintyAnalytics contract
+    """
+    return [
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_processingTime",
+                    "type": "uint256"
+                }
+            ],
+            "name": "calculateUnavailabilityCost",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "contract UncertaintyBase",
+                    "name": "_base",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": False,
+            "inputs": [
+                {
+                    "indexed": True,
+                    "internalType": "uint256",
+                    "name": "requestId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": False,
+                    "internalType": "uint256",
+                    "name": "cost",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": False,
+                    "internalType": "string",
+                    "name": "costType",
+                    "type": "string"
+                }
+            ],
+            "name": "CostRecorded",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_cost",
+                    "type": "uint256"
+                }
+            ],
+            "name": "updateDataHoldingCost",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_level",
+                    "type": "uint256"
+                }
+            ],
+            "name": "updateDisruptionLevel",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_level",
+                    "type": "uint256"
+                }
+            ],
+            "name": "updateEscalationLevel",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "dataHoldingCost",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "disruptionLevel",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "escalationLevel",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "unavailabilityCost",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+
+def get_request_manager_abi():
+    """
+    Returns the comprehensive ABI for the RequestManager contract
+    """
+    return [
+        {
+            "inputs": [
+                {
+                    "internalType": "address", 
+                    "name": "_analytics", 
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": False,
+            "inputs": [
+                {
+                    "indexed": True,
+                    "internalType": "address",
+                    "name": "recipient",
+                    "type": "address"
+                },
+                {
+                    "indexed": False,
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "FundsWithdrawn",
+            "type": "event"
+        },
+        {
+            "anonymous": False,
+            "inputs": [
+                {
+                    "indexed": True,
+                    "internalType": "uint256",
+                    "name": "requestId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": True,
+                    "internalType": "address",
+                    "name": "requester",
+                    "type": "address"
+                },
+                {
+                    "indexed": False,
+                    "internalType": "uint256",
+                    "name": "value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "RequestSubmitted",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "submitRequest",
+            "outputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "", 
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "string", 
+                    "name": "_additionalInfo", 
+                    "type": "string"
+                }
+            ],
+            "name": "submitRequestWithInfo",
+            "outputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "", 
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address", 
+                    "name": "_newOwner", 
+                    "type": "address"
+                }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "withdraw",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "stateMutability": "payable",
+            "type": "receive"
+        },
+        {
+            "inputs": [],
+            "name": "getAnalyticsMetrics",
+            "outputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "avgProcessingTime", 
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256", 
+                    "name": "successRate", 
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256", 
+                    "name": "totalCost", 
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256", 
+                    "name": "disruptionCount", 
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+                {
+                    "internalType": "address", 
+                    "name": "", 
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "VERSION",
+            "outputs": [
+                {
+                    "internalType": "string", 
+                    "name": "", 
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+
+
+def get_response_manager_abi():
+    """
+    Returns the comprehensive ABI for the ResponseManager contract
+    """
+    return [
+        {
+            "inputs": [
+                {
+                    "internalType": "address", 
+                    "name": "_analytics", 
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": False,
+            "inputs": [
+                {
+                    "indexed": True,
+                    "internalType": "address",
+                    "name": "recipient",
+                    "type": "address"
+                },
+                {
+                    "indexed": False,
+                    "internalType": "uint256",
+                    "name": "amount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "FundsWithdrawn",
+            "type": "event"
+        },
+        {
+            "anonymous": False,
+            "inputs": [
+                {
+                    "indexed": True,
+                    "internalType": "uint256",
+                    "name": "requestId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": True,
+                    "internalType": "address",
+                    "name": "responder",
+                    "type": "address"
+                }
+            ],
+            "name": "ResponseSubmitted",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "VERSION",
+            "outputs": [
+                {
+                    "internalType": "string", 
+                    "name": "", 
+                    "type": "string"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getAnalyticsMetrics",
+            "outputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "avgProcessingTime", 
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256", 
+                    "name": "successRate", 
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256", 
+                    "name": "totalCost", 
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256", 
+                    "name": "disruptionCount", 
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address", 
+                    "name": "_responder", 
+                    "type": "address"
+                }
+            ],
+            "name": "getResponderCount",
+            "outputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "count", 
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+                {
+                    "internalType": "address", 
+                    "name": "", 
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "", 
+                    "type": "uint256"
+                }
+            ],
+            "name": "processedRequests",
+            "outputs": [
+                {
+                    "internalType": "bool", 
+                    "name": "", 
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address", 
+                    "name": "", 
+                    "type": "address"
+                }
+            ],
+            "name": "responderCount",
+            "outputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "", 
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "_requestId", 
+                    "type": "uint256"
+                }
+            ],
+            "name": "submitResponse",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256", 
+                    "name": "_requestId", 
+                    "type": "uint256"
+                }
+            ],
+            "name": "submitResponseWithCalculation",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address", 
+                    "name": "_newOwner", 
+                    "type": "address"
+                }
+            ],
+            "name": "transferOwnership",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "withdraw",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "stateMutability": "payable",
+            "type": "receive"
+        }
+    ]
+
+def load_contracts(self):
+        """Load all contracts with verification"""
+        logger.info("Loading contracts...")
+        
+        if not self.w3.is_connected():
+            logger.error("No Web3 connection available")
+            raise ConnectionError("No Web3 connection available")
+
+        # Create contract instances with predefined ABIs
+        try:
+            self.uncertainty_contract = self.w3.eth.contract(
+                address=self.uncertainty_address, 
+                abi=self.uncertainty_abi
+            )
+            logger.debug(f"UncertaintyAnalytics contract loaded at {self.uncertainty_address}")
+            
+            self.request_manager_contract = self.w3.eth.contract(
+                address=self.request_manager_address, 
+                abi=self.request_manager_abi
+            )
+            logger.debug(f"RequestManager contract loaded at {self.request_manager_address}")
+            
+            self.response_manager_contract = self.w3.eth.contract(
+                address=self.response_manager_address, 
+                abi=self.response_manager_abi
+            )
+            logger.debug(f"ResponseManager contract loaded at {self.response_manager_address}")
+
+            logger.info("\n--- Uncertainty Analytics Contracts Verification ---")
+            logger.info(f"UncertaintyAnalytics Address: {self.uncertainty_address}")
+            logger.info(f"RequestManager Address: {self.request_manager_address}")
+            logger.info(f"ResponseManager Address: {self.response_manager_address}")
+            logger.info(f"Network: {self.w3.eth.chain_id}")
+            
+            # Display function names from each contract
+            for name, contract in [
+                ("UncertaintyAnalytics", self.uncertainty_contract),
+                ("RequestManager", self.request_manager_contract),
+                ("ResponseManager", self.response_manager_contract)
+            ]:
+                function_names = [
+                    func for func in dir(contract.functions)
+                    if callable(getattr(contract.functions, func)) and not func.startswith('__')
+                ]
+                logger.info(f"\n{name} Available Functions: {function_names}")
+            
+            # Verify contracts exist on blockchain
+            for name, address in [
+                ("UncertaintyAnalytics", self.uncertainty_address),
+                ("RequestManager", self.request_manager_address),
+                ("ResponseManager", self.response_manager_address)
+            ]:
+                contract_bytecode = self.w3.eth.get_code(address)
+                bytecode_length = len(contract_bytecode)
+                logger.info(f"{name} Contract Bytecode Length: {bytecode_length}")
+                if bytecode_length <= 2:  # Empty bytecode is '0x'
+                    logger.warning(f"WARNING: {name} contract bytecode is empty or very small!")
+
+            logger.info("All contracts loaded successfully")
+            return {
+                "uncertainty_contract": self.uncertainty_contract,
+                "request_manager_contract": self.request_manager_contract,
+                "response_manager_contract": self.response_manager_contract
+            }
+
+        except Exception as e:
+            logger.error(f"Error loading contracts: {e}", exc_info=True)
+            raise
+    
+def submit_request(self, value_in_eth: float, additional_info: str = "") -> bool:
+        """Submit a request to the UncertaintyAnalytics contract with payment"""
+        logger.info(f"Submitting request with value {value_in_eth} ETH...")
+        value_in_wei = Web3.to_wei(value_in_eth, 'ether')
+        
+        try:
+            # Get nonce
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            logger.debug(f"Got nonce: {nonce}")
+            
+            # Prepare transaction parameters
+            tx_params = {
+                'from': self.w3.eth.default_account,
+                'value': value_in_wei,
+                'nonce': nonce,
+                'gas': 200000,
+                'gasPrice': self.w3.eth.gas_price,
+                'chainId': self.w3.eth.chain_id
+            }
+            logger.debug(f"Transaction parameters: {tx_params}")
+            
+            # Get private key from environment variables
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                logger.error("PRIVATE_KEY not found in environment variables")
+                raise ValueError("PRIVATE_KEY not found in environment variables")
+            
+            # Add '0x' prefix if it's missing
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            logger.debug("Got private key from environment")
+            
+            if additional_info:
+                # Use RequestManager's submitRequestWithInfo
+                logger.info(f"Using submitRequestWithInfo with info: {additional_info}")
+                tx = self.request_manager_contract.functions.submitRequestWithInfo(
+                    additional_info
+                ).build_transaction(tx_params)
+            else:
+                # Use standard submitRequest on UncertaintyAnalytics contract
+                logger.info("Using standard submitRequest")
+                tx = self.uncertainty_contract.functions.submitRequest().build_transaction(tx_params)
+            
+            # Sign and send transaction
+            logger.debug("Signing transaction...")
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            logger.debug("Sending transaction...")
+            
+            # Use raw_transaction (not rawTransaction) for sending
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+            
+            logger.info(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for transaction receipt
+            logger.debug("Waiting for transaction receipt...")
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+            
+            tx_status = 'Success' if tx_receipt['status'] == 1 else 'Failed'
+            logger.info(f"Transaction status: {tx_status}")
+            
+            if tx_receipt['status'] != 1:
+                logger.warning("Transaction failed! Investigating...")
+                # Try to get more details about the failure
+                try:
+                    # Get the transaction
+                    tx = self.w3.eth.get_transaction(tx_hash)
+                    logger.debug(f"Transaction details: {tx}")
+                    
+                    # Try to call the function with the same parameters to get revert reason
+                    try:
+                        if additional_info:
+                            self.request_manager_contract.functions.submitRequestWithInfo(
+                                additional_info
+                            ).call(tx_params)
+                        else:
+                            self.uncertainty_contract.functions.submitRequest().call(tx_params)
+                    except Exception as e:
+                        logger.error(f"Contract logic error: {e}")
+                except Exception as inner_e:
+                    logger.error(f"Error investigating failed transaction: {inner_e}")
+            
+            # If transaction was successful, return a success indicator
+            return tx_receipt['status'] == 1
+            
+        except Exception as e:
+            logger.error(f"Error submitting request: {e}", exc_info=True)
+            raise
+
+def get_metrics(self) -> Dict[str, Any]:
+        """Get metrics from contracts"""
+        logger.info("Getting metrics...")
+        try:
+            # Try RequestManager metrics first
+            try:
+                logger.debug("Attempting to get metrics from RequestManager...")
+                metrics = self.request_manager_contract.functions._getAnalyticsMetrics().call()
+                
+                result = {
+                    "avgProcessingTime": metrics[0],
+                    "successRate": metrics[1],
+                    "totalCost": metrics[2],
+                    "disruptionCount": metrics[3]
+                }
+                
+                logger.info(f"\n--- Analytics Metrics (from RequestManager) ---")
+                logger.info(f"Average Processing Time: {result['avgProcessingTime']} seconds")
+                logger.info(f"Success Rate: {result['successRate']}%")
+                logger.info(f"Total Cost: {Web3.from_wei(result['totalCost'], 'ether')} ETH")
+                logger.info(f"Disruption Count: {result['disruptionCount']}")
+                
+                return result
+            except Exception as req_manager_error:
+                logger.warning(f"Error getting metrics from RequestManager: {req_manager_error}")
+                logger.debug("Falling back to ResponseManager metrics...")
+                
+                # Try the ResponseManager contract instead since it also has _getAnalyticsMetrics
+                try:
+                    logger.debug("Attempting to get metrics from ResponseManager...")
+                    metrics = self.response_manager_contract.functions._getAnalyticsMetrics().call()
+                    
+                    result = {
+                        "avgProcessingTime": metrics[0],
+                        "successRate": metrics[1],
+                        "totalCost": metrics[2],
+                        "disruptionCount": metrics[3]
+                    }
+                    
+                    logger.info(f"\n--- Analytics Metrics (from ResponseManager) ---")
+                    logger.info(f"Average Processing Time: {result['avgProcessingTime']} seconds")
+                    logger.info(f"Success Rate: {result['successRate']}%")
+                    logger.info(f"Total Cost: {Web3.from_wei(result['totalCost'], 'ether')} ETH")
+                    logger.info(f"Disruption Count: {result['disruptionCount']}")
+                    
+                    return result
+                except Exception as resp_manager_error:
+                    logger.warning(f"Error getting metrics from ResponseManager: {resp_manager_error}")
+                    
+                    # Get individual metrics directly from UncertaintyAnalytics contract
+                    logger.debug("Attempting to get individual metrics from UncertaintyAnalytics...")
+                    try:
+                        # Based on available functions, we can access these directly
+                        data_holding_cost = self.uncertainty_contract.functions.dataHoldingCost().call()
+                        disruption_level = self.uncertainty_contract.functions.disruptionLevel().call()
+                        escalation_level = self.uncertainty_contract.functions.escalationLevel().call()
+                        unavailability_cost = self.uncertainty_contract.functions.unavailabilityCost().call()
+                        
+                        result = {
+                            "dataHoldingCost": data_holding_cost,
+                            "disruptionLevel": disruption_level,
+                            "escalationLevel": escalation_level,
+                            "unavailabilityCost": unavailability_cost
+                        }
+                        
+                        logger.info(f"\n--- Individual Metrics (from UncertaintyAnalytics) ---")
+                        logger.info(f"Data Holding Cost: {Web3.from_wei(result['dataHoldingCost'], 'ether')} ETH")
+                        logger.info(f"Disruption Level: {result['disruptionLevel']}")
+                        logger.info(f"Escalation Level: {result['escalationLevel']}")
+                        logger.info(f"Unavailability Cost: {Web3.from_wei(result['unavailabilityCost'], 'ether')} ETH")
+                        
+                        return result
+                    except Exception as individual_metrics_error:
+                        logger.error(f"Error getting individual metrics: {individual_metrics_error}")
+                        
+                        # Fall back to simulated metrics
+                        logger.warning("All metrics retrieval failed. Falling back to simulated metrics.")
+                        return self.simulate_get_metrics()
+        
+        except Exception as e:
+            logger.error(f"Error getting metrics: {e}", exc_info=True)
+            raise
+
+def submit_response(self, request_id: int, with_calculation: bool = False) -> bool:
+        """Submit a response to a request"""
+        logger.info(f"Submitting response for request ID {request_id}...")
+        
+        try:
+            # Get nonce
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            logger.debug(f"Got nonce: {nonce}")
+            
+            # Prepare transaction parameters
+            tx_params = {
+                'from': self.w3.eth.default_account,
+                'nonce': nonce,
+                'gas': 200000,
+                'gasPrice': self.w3.eth.gas_price,
+                'chainId': self.w3.eth.chain_id
+            }
+            logger.debug(f"Transaction parameters: {tx_params}")
+            
+            # Get private key from environment variables
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                logger.error("PRIVATE_KEY not found in environment variables")
+                raise ValueError("PRIVATE_KEY not found in environment variables")
+            
+            # Add '0x' prefix if it's missing
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            
+            if with_calculation:
+                # Use ResponseManager's submitResponseWithCalculation
+                logger.info("Using submitResponseWithCalculation")
+                tx = self.response_manager_contract.functions.submitResponseWithCalculation(
+                    request_id
+                ).build_transaction(tx_params)
+            else:
+                # Use standard submitResponse on ResponseManager contract
+                logger.info("Using standard submitResponse")
+                tx = self.response_manager_contract.functions.submitResponse(
+                    request_id
+                ).build_transaction(tx_params)
+            
+            # Sign and send transaction
+            logger.debug("Signing transaction...")
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            logger.debug("Sending transaction...")
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+            
+            logger.info(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for transaction receipt
+            logger.debug("Waiting for transaction receipt...")
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+            
+            tx_status = 'Success' if tx_receipt['status'] == 1 else 'Failed'
+            logger.info(f"Response submitted. Transaction status: {tx_status}")
+            
+            if tx_receipt['status'] != 1:
+                logger.warning("Transaction failed! Investigating...")
+                # Try to get more details about the failure
+                try:
+                    # Try to call the function with the same parameters to get revert reason
+                    try:
+                        if with_calculation:
+                            self.response_manager_contract.functions.submitResponseWithCalculation(
+                                request_id
+                            ).call(tx_params)
+                        else:
+                            self.response_manager_contract.functions.submitResponse(
+                                request_id
+                            ).call(tx_params)
+                    except Exception as e:
+                        logger.error(f"Contract logic error: {e}")
+                except Exception as inner_e:
+                    logger.error(f"Error investigating failed transaction: {inner_e}")
+            
+            return tx_receipt['status'] == 1
+            
+        except Exception as e:
+            logger.error(f"Error submitting response: {e}", exc_info=True)
+            raise
+
+def get_responder_count(self, responder_address: str) -> int:
+        """Get the number of responses submitted by an address"""
+        logger.info(f"Getting responder count for address {responder_address}...")
+        try:
+            count = self.response_manager_contract.functions.getResponderCount(
+                Web3.to_checksum_address(responder_address)
+            ).call()
+            
+            logger.info(f"\n--- Responder Stats ---")
+            logger.info(f"Responder: {responder_address}")
+            logger.info(f"Response Count: {count}")
+            
+            return count
+            
+        except Exception as e:
+            logger.error(f"Error getting responder count: {e}", exc_info=True)
+            raise
+        
+def record_failed_transaction(self, request_id: int, reason: str) -> bool:
+        """Record a failed transaction"""
+        logger.info(f"Recording failed transaction for request ID {request_id} with reason: {reason}")
+        try:
+            # Get nonce
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            logger.debug(f"Got nonce: {nonce}")
+            
+            # Prepare transaction parameters
+            tx_params = {
+                'from': self.w3.eth.default_account,
+                'nonce': nonce,
+                'gas': 200000,
+                'gasPrice': self.w3.eth.gas_price,
+                'chainId': self.w3.eth.chain_id
+            }
+            logger.debug("Transaction parameters prepared")
+            
+            tx = self.uncertainty_contract.functions.recordFailedTransaction(
+                request_id, reason
+            ).build_transaction(tx_params)
+            
+            # Get private key from environment variables
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                logger.error("PRIVATE_KEY not found in environment variables")
+                raise ValueError("PRIVATE_KEY not found in environment variables")
+            
+            # Add '0x' prefix if it's missing
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            logger.debug("Got private key from environment")
+                
+            # Sign and send transaction
+            logger.debug("Signing transaction...")
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            logger.debug("Sending transaction...")
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.raw_transaction)
+            
+            logger.info(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for transaction receipt
+            logger.debug("Waiting for transaction receipt...")
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+            
+            tx_status = 'Success' if tx_receipt['status'] == 1 else 'Failed'
+            logger.info(f"Transaction status: {tx_status}")
+            
+            if tx_receipt['status'] != 1:
+                logger.warning("Transaction failed! Investigating...")
+                # Try to get more details about the failure
+                try:
+                    # Try to call the function with the same parameters to get revert reason
+                    try:
+                        self.uncertainty_contract.functions.recordFailedTransaction(
+                            request_id, reason
+                        ).call(tx_params)
+                    except Exception as e:
+                        logger.error(f"Contract logic error: {e}")
+                except Exception as inner_e:
+                    logger.error(f"Error investigating failed transaction: {inner_e}")
+            
+            return tx_receipt['status'] == 1
+            
+        except Exception as e:
+            logger.error(f"Error recording failed transaction: {e}", exc_info=True)
+            raise
+
+def simulate_submit_request(self, value_in_eth: float, additional_info: str = "") -> Dict[str, Any]:
+        """Simulate submitting a request with a payment"""
+        logger.info(f"Simulating request with value {value_in_eth} ETH...")
+        
+        # Verify value meets requirements
+        if value_in_eth * 10**18 < self.BASE_COST:
+            logger.warning(f"Error: Value must be at least {Web3.from_wei(self.BASE_COST, 'ether')} ETH")
+            return None
+        
+        request_id = self.next_request_id
+        self.next_request_id += 1
+        
+        value_in_wei = Web3.to_wei(value_in_eth, 'ether')
+        timestamp = int(time.time())
+        
+        request = {
+            "id": request_id,
+            "requester": self.w3.eth.default_account,
+            "timestamp": timestamp,
+            "confirmationTime": 0,
+            "executionTime": 0,
+            "value": value_in_wei,
+            "additional_info": additional_info,
+            "status": "Pending",
+            "is_processed": False,
+            "is_valid": True
+        }
+        
+        self.mock_requests[request_id] = request
+        self.mock_metrics["totalCost"] += value_in_wei
+        
+        logger.info(f"\n--- Request Submitted ---")
+        logger.info(f"Request ID: {request_id}")
+        logger.info(f"Requester: {self.w3.eth.default_account}")
+        logger.info(f"Timestamp: {timestamp}")
+        logger.info(f"Value: {value_in_eth} ETH")
+        if additional_info:
+            logger.info(f"Additional Info: {additional_info}")
+            
+        return request
+
+def simulate_submit_response(self, request_id: int, with_calculation: bool = False) -> Dict[str, Any]:
+        """Simulate submitting a response to a request"""
+        logger.info(f"Simulating response for request ID {request_id}...")
+        
+        if request_id not in self.mock_requests:
+            logger.warning(f"Error: Request ID {request_id} not found")
+            return None
+        
+        request = self.mock_requests[request_id]
+        
+        # Check if the request has already been processed (as per ResponseManager contract)
+        if request_id in self.mock_processed_requests:
+            logger.warning(f"Error: Request ID {request_id} already processed")
+            return None
+        
+        if not request["is_valid"]:
+            logger.warning(f"Error: Request ID {request_id} is not valid")
+            return None
+            
+        if request["status"] != "Pending":
+            logger.warning(f"Error: Request ID {request_id} is not pending (status: {request['status']})")
+            return None
+            
+        timestamp = int(time.time())
+        processing_time = timestamp - request["timestamp"]
+        
+        response = {
+            "request_id": request_id,
+            "responder": self.w3.eth.default_account,
+            "timestamp": timestamp,
+            "processing_time": processing_time,
+            "status": "Completed",
+            "is_valid": True
+        }
+        
+        # Mark the request as processed
+        request["is_processed"] = True
+        request["status"] = "Completed"
+        request["confirmationTime"] = timestamp
+        request["executionTime"] = processing_time
+        
+        # Store the response
+        self.mock_responses[request_id] = response
+        
+        # Mark as processed in ResponseManager tracking
+        self.mock_processed_requests.add(request_id)
+        
+        # Update responder count (as per ResponseManager contract)
+        responder = self.w3.eth.default_account
+        self.mock_responder_count[responder] = self.mock_responder_count.get(responder, 0) + 1
+        
+        logger.info(f"\n--- Response Submitted ---")
+        logger.info(f"Request ID: {request_id}")
+        logger.info(f"Responder: {responder}")
+        logger.info(f"Timestamp: {timestamp}")
+        logger.info(f"Processing Time: {processing_time} seconds")
+        
+        if with_calculation:
+            unavailability_cost = 0
+            if processing_time > self.MAX_PROCESSING_TIME:  # 1 day in seconds
+                # Calculate penalty as per contract logic
+                penalty = ((processing_time - self.MAX_PROCESSING_TIME) * self.BASE_COST) // 86400
+                unavailability_cost = penalty
+                logger.info(f"Calculated Unavailability Cost: {Web3.from_wei(unavailability_cost, 'ether')} ETH")
+                response["unavailability_cost"] = unavailability_cost
+                
+                # Update metrics
+                self.mock_metrics["totalCost"] += unavailability_cost
+            
+        return response
+
+def simulate_get_metrics(self) -> Dict[str, Any]:
+        """Simulate getting metrics from the UncertaintyAnalytics contract"""
+        logger.info("Simulating getting metrics...")
+        
+        # Calculate metrics based on mock data
+        if self.mock_responses:
+            # Calculate average processing time for valid responses
+            total_time = 0
+            valid_responses = 0
+            
+            for response in self.mock_responses.values():
+                if response["is_valid"]:
+                    total_time += response["processing_time"]
+                    valid_responses += 1
+            
+            if valid_responses > 0:
+                self.mock_metrics["avgProcessingTime"] = total_time // valid_responses
+            
+            # Calculate success rate if there are any requests
+            if self.mock_requests:
+                # Count failed requests
+                failed_count = sum(1 for req in self.mock_requests.values() if req["status"] == "Failed")
+                total_requests = len(self.mock_requests)
+                
+                if total_requests > 0:
+                    self.mock_metrics["successRate"] = ((total_requests - failed_count) * 100) // total_requests
+                    self.mock_metrics["disruptionCount"] = failed_count
+        
+        logger.info(f"\n--- Analytics Metrics ---")
+        logger.info(f"Average Processing Time: {self.mock_metrics['avgProcessingTime']} seconds")
+        logger.info(f"Success Rate: {self.mock_metrics['successRate']}%")
+        logger.info(f"Total Cost: {Web3.from_wei(self.mock_metrics['totalCost'], 'ether')} ETH")
+        logger.info(f"Disruption Count: {self.mock_metrics['disruptionCount']}")
+        
+        return self.mock_metrics
+
+def simulate_get_responder_count(self, responder_address: str) -> int:
+        """Simulate getting the count of responses from a specific responder"""
+        logger.info(f"Simulating getting responder count for address {responder_address}...")
+        
+        count = self.mock_responder_count.get(responder_address, 0)
+        
+        logger.info(f"\n--- Responder Stats ---")
+        logger.info(f"Responder: {responder_address}")
+        logger.info(f"Response Count: {count}")
+        
+        return count
+
+def simulate_record_failed_transaction(self, request_id: int, reason: str) -> bool:
+        """Simulate recording a failed transaction"""
+        logger.info(f"Simulating recording failed transaction for request ID {request_id} with reason: {reason}")
+        
+        if request_id not in self.mock_requests:
+            logger.warning(f"Error: Request ID {request_id} not found")
+            return False
+            
+        request = self.mock_requests[request_id]
+        if not request["is_valid"]:
+            logger.warning(f"Error: Request ID {request_id} is not valid")
+            return False
+            
+        if request["status"] == "Failed":
+            logger.warning(f"Error: Request ID {request_id} already marked as failed")
+            return False
+            
+        request["status"] = "Failed"
+        self.mock_metrics["disruptionCount"] += 1
+        
+        logger.info(f"\n--- Transaction Failed ---")
+        logger.info(f"Request ID: {request_id}")
+        logger.info(f"Reason: {reason}")
+        
+        return True
+
+def simulate_update_disruption_level(self, level: int) -> bool:
+        """Simulate updating the disruption level"""
+        logger.info(f"Simulating updating disruption level to {level}")
+        logger.info(f"\n--- Disruption Level Updated ---")
+        logger.info(f"New Level: {level}")
+        return True
+
+def simulate_update_escalation_level(self, level: int) -> bool:
+        """Simulate updating the escalation level"""
+        logger.info(f"Simulating updating escalation level to {level}")
+        logger.info(f"\n--- Escalation Level Updated ---")
+        logger.info(f"New Level: {level}")
+        return True
+
+
+def create_web3_connection(network: str = "sepolia") -> Tuple[Web3, Any]:
+    """
+    Create a simple Web3 connection to Sepolia testnet using Infura
+    Returns a tuple of (web3, account)
+    """
+    try:
+        # Retrieve Infura Project ID from environment variables
+        INFURA_PROJECT_ID = os.getenv("INFURA_PROJECT_ID")
+        PRIVATE_KEY = os.getenv("PRIVATE_KEY")
+
+        if not INFURA_PROJECT_ID:
+            logger.error("INFURA_PROJECT_ID not found in environment variables")
+            raise ValueError("INFURA_PROJECT_ID not found in environment variables")
+        if not PRIVATE_KEY:
+            logger.error("PRIVATE_KEY not found in environment variables")
+            raise ValueError("PRIVATE_KEY not found in environment variables")
+
+        # Construct Infura URL for Sepolia
+        sepolia_url = f"https://sepolia.infura.io/v3/{INFURA_PROJECT_ID}"
+        logger.debug(f"Connecting to Sepolia via Infura: {sepolia_url}")
+
+        # Create Web3 instance
+        web3 = Web3(HTTPProvider(sepolia_url))
+
+        # Check connection
+        if not web3.is_connected():
+            logger.error("Failed to connect to Infura Sepolia endpoint")
+            raise ConnectionError("Failed to connect to Infura Sepolia endpoint")
+
+        # Create account from private key
+        account = web3.eth.account.from_key(PRIVATE_KEY)
+        web3.eth.default_account = account.address
+        logger.debug(f"Set default account to: {web3.eth.default_account}")
+
+        logger.info("\n--- Blockchain Connection Details ---")
+        logger.info(f"Connected to Network: Sepolia")
+        logger.info(f"Chain ID: {web3.eth.chain_id}")
+        logger.info(f"Latest Block Number: {web3.eth.block_number}")
+        logger.info(f"Default Account: {web3.eth.default_account}")
+        balance = Web3.from_wei(web3.eth.get_balance(web3.eth.default_account), 'ether')
+        logger.info(f"Account Balance: {balance} ETH")
+
+        return web3, account
+
+    except Exception as e:
+        logger.error(f"Blockchain Connection Error: {e}", exc_info=True)
+        raise
+
+def main():
+    """
+    Main function to interact with Uncertainty Analytics contracts
+    """
+    try:
+        # Create Web3 connection
+        logger.info("\nAttempting to create Web3 connection...")
+        web3, account = create_web3_connection("sepolia")
+        if not web3:
+            logger.critical("CRITICAL: Could not establish blockchain connection. Exiting.")
+            sys.exit(1)
+
+        # Contract addresses
+        UNCERTAINTY_ANALYTICS_ADDRESS = "0xafb69d3380aa2a892625665803fca627fd65ec0f"
+        REQUEST_MANAGER_ADDRESS = "0xc5491f090181c8653ec0228d07499a51d7bf12bd"
+        RESPONSE_MANAGER_ADDRESS = "0xfda50ab71b0e577680c4afe29fdc2272ab19d89b"
+
+        # Create UncertaintyAnalyticsManager instance
+        manager = UncertaintyAnalyticsManager(
+            web3=web3,
+            uncertainty_address=UNCERTAINTY_ANALYTICS_ADDRESS,
+            request_manager_address=REQUEST_MANAGER_ADDRESS,
+            response_manager_address=RESPONSE_MANAGER_ADDRESS
+        )
+
+        # Load contracts
+        try:
+            contracts = manager.load_contracts()
+            logger.info("Contracts loaded successfully")
+        except Exception as contract_error:
+            logger.critical(f"CRITICAL: Failed to load contracts: {contract_error}")
+            sys.exit(1)
+
+        # Check account balance
+        balance = Web3.from_wei(web3.eth.get_balance(web3.eth.default_account), 'ether')
+        logger.info(f"Account Balance: {balance} ETH")
+        if float(balance) < 0.01:
+            logger.warning("WARNING: Account balance is low! This may cause transaction failures.")
+
+        # Try to get metrics first to check if contracts are working
+        try:
+            logger.info("Attempting to get metrics to test contract connectivity...")
+            metrics = manager.get_metrics()
+            logger.info("Successfully retrieved metrics. Contracts are accessible.")
+        except Exception as metrics_error:
+            logger.error(f"Error getting metrics: {metrics_error}")
+            logger.warning("Contract may not be accessible or may have errors. Proceeding with caution.")
+
+        # Submit a test request
+        try:
+            logger.info("\nAttempting to submit a test request...")
+            success = manager.submit_request(0.002, "Test request from diagnostic script")
+            if success:
+                logger.info("Request submitted successfully!")
+            else:
+                logger.warning("Request submission returned False (transaction failed)")
+        except Exception as req_error:
+            logger.error(f"Error submitting request: {req_error}")
+
+        # Try simulation as fallback
+        logger.info("\nAttempting simulation methods as fallback...")
+        mock_request = manager.simulate_submit_request(0.002, "Simulated test request")
+        if mock_request:
+            logger.info("Simulation successful!")
+            
+            # Try simulated response
+            mock_response = manager.simulate_submit_response(mock_request["id"])
+            if mock_response:
+                logger.info("Simulated response successful!")
+                
+                # Get simulated metrics
+                mock_metrics = manager.simulate_get_metrics()
+                logger.info(f"Simulated metrics: {mock_metrics}")
+
+    except Exception as main_error:
+        logger.critical(f"MAIN EXECUTION ERROR: {main_error}", exc_info=True)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+if __name__ == "__main__":
+    # Initialize logging for the main execution
+    logger.info("==== Starting UncertaintyAnalytics Script ====")
+    
+    # Check for diagnostic mode flag
+    if len(sys.argv) > 1 and sys.argv[1] == '--diagnostic':
+        logger.info("Running in diagnostic mode...")
+        diagnostic_contract_interaction()
+    else:
+        logger.info("Running normal interaction mode...")
+        main()
+    
+    logger.info("==== UncertaintyAnalytics Script Completed ====")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,86 @@
+{
+  "phase": "phase2_DataInitializationWithRealCarbonData",
+  "completedPhases": [
+    "phase1_NetworkAndContractValidation",
+    "phase2_DataInitializationWithRealCarbonData"
+  ],
+  "cities": {},
+  "industries": {},
+  "results": {
+    "contractValidation": {
+      "systemStats": {
+        "totalTx": "0",
+        "totalCities": "0",
+        "totalIndustries": "0",
+        "totalCreditsIssued": "0",
+        "avgCityCompliance": "0",
+        "systemUptime": "81504"
+      },
+      "ammPriceTest": "0.001001001001001001",
+      "cityCounter": "0",
+      "industryCounter": "0",
+      "validated": true
+    },
+    "dataProcessing": {
+      "totalDataPoints": "960",
+      "citiesAnalyzed": "8",
+      "topCities": [
+        {
+          "city": "Mumbai",
+          "averageEmissions": "1196",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Sydney",
+          "averageEmissions": "1185",
+          "dataPoints": "120"
+        },
+        {
+          "city": "New York",
+          "averageEmissions": "1183",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Melbourne",
+          "averageEmissions": "1158",
+          "dataPoints": "120"
+        },
+        {
+          "city": "London",
+          "averageEmissions": "1157",
+          "dataPoints": "120"
+        }
+      ]
+    }
+  },
+  "canContinue": true,
+  "topCities": [
+    {
+      "city": "Mumbai",
+      "averageEmissions": "1196",
+      "dataPoints": "120"
+    },
+    {
+      "city": "Sydney",
+      "averageEmissions": "1185",
+      "dataPoints": "120"
+    },
+    {
+      "city": "New York",
+      "averageEmissions": "1183",
+      "dataPoints": "120"
+    },
+    {
+      "city": "Melbourne",
+      "averageEmissions": "1158",
+      "dataPoints": "120"
+    },
+    {
+      "city": "London",
+      "averageEmissions": "1157",
+      "dataPoints": "120"
+    }
+  ],
+  "timestamp": "1752130409739",
+  "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+}

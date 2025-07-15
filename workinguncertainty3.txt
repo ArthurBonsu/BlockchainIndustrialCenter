@@ -1,0 +1,1384 @@
+import os
+import sys
+import json
+import logging
+import time
+import random
+from typing import Dict, Any, Optional
+from web3 import Web3, HTTPProvider
+from dotenv import load_dotenv
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+# Load environment variables
+print("Loading environment variables...")
+load_dotenv()
+
+class ActualDeployedContractsManager:
+    def __init__(
+        self, 
+        web3: Web3, 
+        cost_analytics_address: str,  # This is what you actually deployed at the "UncertaintyAnalytics" address
+        request_manager_address: str,
+        response_manager_address: str
+    ):
+        """Initialize Manager for your ACTUAL deployed contracts"""
+        print("Initializing ActualDeployedContractsManager...")
+        
+        self.w3 = web3
+        self.cost_analytics_address = Web3.to_checksum_address(cost_analytics_address)
+        self.request_manager_address = Web3.to_checksum_address(request_manager_address)
+        self.response_manager_address = Web3.to_checksum_address(response_manager_address)
+        
+        # Use the CORRECT ABIs for what you actually deployed
+        self.cost_analytics_abi = self._get_cost_analytics_abi()
+        self.request_manager_abi = self._get_request_manager_abi()
+        self.response_manager_abi = self._get_response_manager_abi()
+        
+        self.cost_analytics_contract = None
+        self.request_manager_contract = None
+        self.response_manager_contract = None
+        
+        # Track our own metrics since we don't have UncertaintyAnalytics
+        self.local_metrics = {
+            "requests_submitted": 0,
+            "responses_submitted": 0,
+            "total_cost": 0,
+            "failed_transactions": 0,
+            "cost_analytics_calls": 0
+        }
+        
+        print("ActualDeployedContractsManager initialized successfully")
+
+    def _get_cost_analytics_abi(self):
+        """ABI for your deployed CostAnalytics contract"""
+        return [
+            {
+                "inputs": [
+                    {
+                        "internalType": "contract UncertaintyBase",
+                        "name": "_base",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "uint256",
+                        "name": "requestId",
+                        "type": "uint256"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "cost",
+                        "type": "uint256"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "string",
+                        "name": "costType",
+                        "type": "string"
+                    }
+                ],
+                "name": "CostRecorded",
+                "type": "event"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_processingTime",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "calculateUnavailabilityCost",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "dataHoldingCost",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "disruptionLevel",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "escalationLevel",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "unavailabilityCost",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_cost",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateDataHoldingCost",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_level",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateDisruptionLevel",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_level",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateEscalationLevel",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            }
+        ]
+
+    def _get_request_manager_abi(self):
+        """ABI for your deployed RequestManager contract"""
+        return [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_analytics",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "FundsWithdrawn",
+                "type": "event"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "uint256",
+                        "name": "requestId",
+                        "type": "uint256"
+                    },
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "requester",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "value",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "RequestSubmitted",
+                "type": "event"
+            },
+            {
+                "inputs": [],
+                "name": "VERSION",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getAnalyticsMetrics",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "avgProcessingTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "successRate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalCost",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "disruptionCount",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "owner",
+                "outputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "submitRequest",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "_additionalInfo",
+                        "type": "string"
+                    }
+                ],
+                "name": "submitRequestWithInfo",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_newOwner",
+                        "type": "address"
+                    }
+                ],
+                "name": "transferOwnership",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "withdraw",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "stateMutability": "payable",
+                "type": "receive"
+            }
+        ]
+
+    def _get_response_manager_abi(self):
+        """ABI for your deployed ResponseManager contract"""
+        return [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_analytics",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "FundsWithdrawn",
+                "type": "event"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "uint256",
+                        "name": "requestId",
+                        "type": "uint256"
+                    },
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "responder",
+                        "type": "address"
+                    }
+                ],
+                "name": "ResponseSubmitted",
+                "type": "event"
+            },
+            {
+                "inputs": [],
+                "name": "VERSION",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getAnalyticsMetrics",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "avgProcessingTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "successRate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalCost",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "disruptionCount",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_responder",
+                        "type": "address"
+                    }
+                ],
+                "name": "getResponderCount",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "count",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "owner",
+                "outputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "processedRequests",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "responderCount",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_requestId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "submitResponse",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_requestId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "submitResponseWithCalculation",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_newOwner",
+                        "type": "address"
+                    }
+                ],
+                "name": "transferOwnership",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "withdraw",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "stateMutability": "payable",
+                "type": "receive"
+            }
+        ]
+
+    def load_contracts(self):
+        """Load the actual deployed contracts"""
+        print("Loading actual deployed contracts...")
+        
+        try:
+            # Load CostAnalytics (deployed at what you thought was UncertaintyAnalytics address)
+            self.cost_analytics_contract = self.w3.eth.contract(
+                address=self.cost_analytics_address,
+                abi=self.cost_analytics_abi
+            )
+            print(f"✅ CostAnalytics loaded at {self.cost_analytics_address}")
+            
+            # Load RequestManager
+            self.request_manager_contract = self.w3.eth.contract(
+                address=self.request_manager_address,
+                abi=self.request_manager_abi
+            )
+            print(f"✅ RequestManager loaded at {self.request_manager_address}")
+            
+            # Load ResponseManager  
+            self.response_manager_contract = self.w3.eth.contract(
+                address=self.response_manager_address,
+                abi=self.response_manager_abi
+            )
+            print(f"✅ ResponseManager loaded at {self.response_manager_address}")
+            
+            return True
+            
+        except Exception as e:
+            print(f"❌ Error loading contracts: {e}")
+            return False
+
+    def verify_contracts(self):
+        """Verify the actual deployed contracts"""
+        print("\n=== Verifying Actual Deployed Contracts ===")
+        
+        # Test CostAnalytics
+        try:
+            print("Testing CostAnalytics contract...")
+            
+            # Test view functions
+            data_holding_cost = self.cost_analytics_contract.functions.dataHoldingCost().call()
+            print(f"✅ CostAnalytics dataHoldingCost: {data_holding_cost}")
+            
+            unavailability_cost = self.cost_analytics_contract.functions.unavailabilityCost().call()
+            print(f"✅ CostAnalytics unavailabilityCost: {unavailability_cost}")
+            
+            disruption_level = self.cost_analytics_contract.functions.disruptionLevel().call()
+            print(f"✅ CostAnalytics disruptionLevel: {disruption_level}")
+            
+            escalation_level = self.cost_analytics_contract.functions.escalationLevel().call()
+            print(f"✅ CostAnalytics escalationLevel: {escalation_level}")
+            
+        except Exception as e:
+            print(f"❌ CostAnalytics verification failed: {e}")
+        
+        # Test RequestManager
+        try:
+            version = self.request_manager_contract.functions.VERSION().call()
+            print(f"✅ RequestManager VERSION: {version}")
+            
+            owner = self.request_manager_contract.functions.owner().call()
+            print(f"✅ RequestManager Owner: {owner}")
+            
+        except Exception as e:
+            print(f"❌ RequestManager verification failed: {e}")
+        
+        # Test ResponseManager
+        try:
+            version = self.response_manager_contract.functions.VERSION().call()
+            print(f"✅ ResponseManager VERSION: {version}")
+            
+            owner = self.response_manager_contract.functions.owner().call()
+            print(f"✅ ResponseManager Owner: {owner}")
+            
+            count = self.response_manager_contract.functions.getResponderCount(
+                self.w3.eth.default_account
+            ).call()
+            print(f"✅ ResponseManager Responder Count: {count}")
+            
+        except Exception as e:
+            print(f"❌ ResponseManager verification failed: {e}")
+
+    def submit_request_real(self, value_in_eth: float, additional_info: str = "") -> int:
+        """Submit request using working RequestManager"""
+        print(f"\n🚀 SUBMITTING REAL REQUEST - Value: {value_in_eth} ETH")
+        
+        if not self.request_manager_contract:
+            raise Exception("RequestManager contract not loaded")
+            
+        value_in_wei = Web3.to_wei(value_in_eth, 'ether')
+        
+        try:
+            # Get transaction parameters
+            gas_price = self.w3.eth.gas_price
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            
+            print(f"Gas price: {Web3.from_wei(gas_price, 'gwei')} Gwei")
+            print(f"Nonce: {nonce}")
+            
+            # Choose function based on additional_info
+            if additional_info:
+                print(f"Using submitRequestWithInfo with: '{additional_info}'")
+                gas_estimate = self.request_manager_contract.functions.submitRequestWithInfo(
+                    additional_info
+                ).estimate_gas({
+                    'from': self.w3.eth.default_account,
+                    'value': value_in_wei
+                })
+                
+                tx = self.request_manager_contract.functions.submitRequestWithInfo(
+                    additional_info
+                ).build_transaction({
+                    'from': self.w3.eth.default_account,
+                    'value': value_in_wei,
+                    'nonce': nonce,
+                    'gas': int(gas_estimate * 1.2),
+                    'gasPrice': gas_price
+                })
+            else:
+                print("Using basic submitRequest")
+                gas_estimate = self.request_manager_contract.functions.submitRequest().estimate_gas({
+                    'from': self.w3.eth.default_account,
+                    'value': value_in_wei
+                })
+                
+                tx = self.request_manager_contract.functions.submitRequest().build_transaction({
+                    'from': self.w3.eth.default_account,
+                    'value': value_in_wei,
+                    'nonce': nonce,
+                    'gas': int(gas_estimate * 1.2),
+                    'gasPrice': gas_price
+                })
+            
+            print(f"Estimated gas: {gas_estimate}")
+            
+            # Sign and send
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                raise ValueError("PRIVATE_KEY not found")
+            
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+                
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            
+            print(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for confirmation
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=300)
+            
+            if tx_receipt['status'] == 1:
+                print("✅ Transaction successful!")
+                
+                # Parse events
+                logs = self.request_manager_contract.events.RequestSubmitted().process_receipt(tx_receipt)
+                if logs:
+                    request_id = logs[0]['args']['requestId']
+                    requester = logs[0]['args']['requester']
+                    value = logs[0]['args']['value']
+                    
+                    print(f"\n--- REQUEST SUBMITTED TO BLOCKCHAIN ---")
+                    print(f"Request ID: {request_id}")
+                    print(f"Requester: {requester}")
+                    print(f"Value: {Web3.from_wei(value, 'ether')} ETH")
+                    print(f"Block: {tx_receipt['blockNumber']}")
+                print(f"Gas Used: {tx_receipt['gasUsed']}")
+                
+                # Update local metrics
+                self.local_metrics["cost_analytics_calls"] += 1
+                
+                return True
+            else:
+                print("❌ CostAnalytics transaction failed")
+                return False
+                
+        except Exception as e:
+            print(f"❌ Error interacting with CostAnalytics: {e}")
+            raise
+
+    def update_cost_analytics_levels(self, disruption_level: int = 1, escalation_level: int = 1) -> bool:
+        """Update disruption and escalation levels in CostAnalytics"""
+        print(f"\n🚀 UPDATING COST ANALYTICS LEVELS")
+        
+        if not self.cost_analytics_contract:
+            raise Exception("CostAnalytics contract not loaded")
+            
+        try:
+            success_count = 0
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                raise ValueError("PRIVATE_KEY not found")
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            
+            # Update disruption level
+            print(f"Updating disruption level to {disruption_level}")
+            try:
+                gas_price = self.w3.eth.gas_price
+                nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+                
+                gas_estimate = self.cost_analytics_contract.functions.updateDisruptionLevel(
+                    disruption_level
+                ).estimate_gas({'from': self.w3.eth.default_account})
+                
+                tx = self.cost_analytics_contract.functions.updateDisruptionLevel(
+                    disruption_level
+                ).build_transaction({
+                    'from': self.w3.eth.default_account,
+                    'nonce': nonce,
+                    'gas': int(gas_estimate * 1.2),
+                    'gasPrice': gas_price
+                })
+                
+                signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+                tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+                
+                tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=300)
+                
+                if tx_receipt['status'] == 1:
+                    print(f"✅ Disruption level updated successfully")
+                    success_count += 1
+                else:
+                    print(f"❌ Disruption level update failed")
+                    
+                time.sleep(2)  # Wait between transactions
+                
+            except Exception as e:
+                print(f"❌ Error updating disruption level: {e}")
+            
+            # Update escalation level
+            print(f"Updating escalation level to {escalation_level}")
+            try:
+                nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+                
+                gas_estimate = self.cost_analytics_contract.functions.updateEscalationLevel(
+                    escalation_level
+                ).estimate_gas({'from': self.w3.eth.default_account})
+                
+                tx = self.cost_analytics_contract.functions.updateEscalationLevel(
+                    escalation_level
+                ).build_transaction({
+                    'from': self.w3.eth.default_account,
+                    'nonce': nonce,
+                    'gas': int(gas_estimate * 1.2),
+                    'gasPrice': gas_price
+                })
+                
+                signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+                tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+                
+                tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=300)
+                
+                if tx_receipt['status'] == 1:
+                    print(f"✅ Escalation level updated successfully")
+                    success_count += 1
+                else:
+                    print(f"❌ Escalation level update failed")
+                    
+            except Exception as e:
+                print(f"❌ Error updating escalation level: {e}")
+            
+            return success_count > 0
+                
+        except Exception as e:
+            print(f"❌ Error updating cost analytics levels: {e}")
+            raise
+
+    def get_cost_analytics_status(self) -> Dict[str, Any]:
+        """Get current status from CostAnalytics contract"""
+        print(f"\n🔍 GETTING COST ANALYTICS STATUS")
+        
+        try:
+            status = {
+                "dataHoldingCost": self.cost_analytics_contract.functions.dataHoldingCost().call(),
+                "unavailabilityCost": self.cost_analytics_contract.functions.unavailabilityCost().call(),
+                "disruptionLevel": self.cost_analytics_contract.functions.disruptionLevel().call(),
+                "escalationLevel": self.cost_analytics_contract.functions.escalationLevel().call()
+            }
+            
+            print(f"\n--- COST ANALYTICS STATUS ---")
+            print(f"Data Holding Cost: {Web3.from_wei(status['dataHoldingCost'], 'ether')} ETH")
+            print(f"Unavailability Cost: {Web3.from_wei(status['unavailabilityCost'], 'ether')} ETH")
+            print(f"Disruption Level: {status['disruptionLevel']}")
+            print(f"Escalation Level: {status['escalationLevel']}")
+            
+            return status
+            
+        except Exception as e:
+            print(f"❌ Error getting cost analytics status: {e}")
+            raise
+
+    def get_responder_count_real(self, address: str) -> int:
+        """Get responder count from ResponseManager"""
+        try:
+            count = self.response_manager_contract.functions.getResponderCount(
+                Web3.to_checksum_address(address)
+            ).call()
+            print(f"✅ Responder count for {address}: {count}")
+            return count
+        except Exception as e:
+            print(f"❌ Error getting responder count: {e}")
+            return 0
+
+    def display_comprehensive_summary(self):
+        """Display comprehensive summary of all interactions"""
+        print(f"\n" + "="*60)
+        print("📊 COMPREHENSIVE CONTRACT INTERACTION SUMMARY")
+        print("="*60)
+        
+        print(f"🔢 Local Metrics Tracking:")
+        print(f"  Requests Submitted: {self.local_metrics['requests_submitted']}")
+        print(f"  Responses Submitted: {self.local_metrics['responses_submitted']}")
+        print(f"  Cost Analytics Calls: {self.local_metrics['cost_analytics_calls']}")
+        print(f"  Total Cost: {Web3.from_wei(self.local_metrics['total_cost'], 'ether')} ETH")
+        print(f"  Failed Transactions: {self.local_metrics['failed_transactions']}")
+        
+        # Get final cost analytics status
+        try:
+            cost_status = self.get_cost_analytics_status()
+            print(f"\n📈 Final Cost Analytics Status:")
+            print(f"  Data Holding Cost: {Web3.from_wei(cost_status['dataHoldingCost'], 'ether')} ETH")
+            print(f"  Unavailability Cost: {Web3.from_wei(cost_status['unavailabilityCost'], 'ether')} ETH")
+            print(f"  Disruption Level: {cost_status['disruptionLevel']}")
+            print(f"  Escalation Level: {cost_status['escalationLevel']}")
+        except Exception as e:
+            print(f"⚠️  Could not retrieve final cost analytics status: {e}")
+        
+        # Get responder stats
+        try:
+            responder_count = self.get_responder_count_real(self.w3.eth.default_account)
+            print(f"\n👤 Your Responder Stats:")
+            print(f"  Total Responses: {responder_count}")
+        except Exception as e:
+            print(f"⚠️  Could not retrieve responder stats: {e}")
+
+
+def create_web3_connection(network: str = "sepolia"):
+    """Create Web3 connection"""
+    try:
+        INFURA_PROJECT_ID = os.getenv("INFURA_PROJECT_ID")
+        if not INFURA_PROJECT_ID:
+            raise ValueError("INFURA_PROJECT_ID not found in environment variables")
+
+        sepolia_url = f"https://sepolia.infura.io/v3/{INFURA_PROJECT_ID}"
+        web3 = Web3(HTTPProvider(sepolia_url))
+
+        if not web3.is_connected():
+            raise ConnectionError("Failed to connect to Infura Sepolia endpoint")
+
+        web3.eth.default_account = "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+
+        print("\n--- Web3 Connection ---")
+        print(f"Connected to Network: Sepolia")
+        print(f"Chain ID: {web3.eth.chain_id}")
+        print(f"Latest Block Number: {web3.eth.block_number}")
+        print(f"Default Account: {web3.eth.default_account}")
+        print(f"Account Balance: {Web3.from_wei(web3.eth.get_balance(web3.eth.default_account), 'ether')} ETH")
+
+        return web3
+
+    except Exception as e:
+        logging.error(f"Blockchain Connection Error: {e}")
+        return None
+
+
+def main():
+    """Main function for actual deployed contracts interaction"""
+    try:
+        # Your ACTUAL deployed contract addresses with correct labels
+        COST_ANALYTICS_ADDRESS = "0xafb69d3380aa2a892625665803fca627fd65ec0f"    # This is CostAnalytics, not UncertaintyAnalytics!
+        REQUEST_MANAGER_ADDRESS = "0xc5491f090181c8653ec0228d07499a51d7bf12bd"   # This is RequestManager
+        RESPONSE_MANAGER_ADDRESS = "0xfda50ab71b0e577680c4afe29fdc2272ab19d89b"  # This is ResponseManager
+        
+        print("🎯 ACTUAL DEPLOYED CONTRACTS MODE")
+        print("Using your REAL deployed contracts with CORRECT ABIs")
+        print(f"CostAnalytics (not UncertaintyAnalytics): {COST_ANALYTICS_ADDRESS}")
+        print(f"RequestManager: {REQUEST_MANAGER_ADDRESS}")
+        print(f"ResponseManager: {RESPONSE_MANAGER_ADDRESS}")
+        
+        # Create Web3 connection
+        web3 = create_web3_connection("sepolia")
+        if not web3:
+            print("Could not establish blockchain connection. Exiting.")
+            sys.exit(1)
+
+        # Initialize manager for actual deployed contracts
+        manager = ActualDeployedContractsManager(
+            web3=web3,
+            cost_analytics_address=COST_ANALYTICS_ADDRESS,
+            request_manager_address=REQUEST_MANAGER_ADDRESS,
+            response_manager_address=RESPONSE_MANAGER_ADDRESS
+        )
+
+        # Load and verify contracts
+        if not manager.load_contracts():
+            print("❌ Failed to load contracts")
+            sys.exit(1)
+            
+        manager.verify_contracts()
+
+        # Start real blockchain interactions
+        print("\n" + "="*60)
+        print("🚀 STARTING ACTUAL CONTRACT INTERACTIONS")
+        print("="*60)
+
+        # Sample data for comprehensive testing
+        request_scenarios = [
+            {"value": 0.002, "info": "High priority processing request"},
+            {"value": 0.001, "info": ""},  # Basic request without info
+            {"value": 0.005, "info": "Detailed analytics required"},
+            {"value": 0.0015, "info": "Standard processing request"},
+            {"value": 0.003, "info": "Time-sensitive data processing"}
+        ]
+        
+        submitted_request_ids = []
+
+        # Submit multiple requests via RequestManager
+        print("\n=== SUBMITTING REQUESTS VIA REQUEST MANAGER ===")
+        for i, scenario in enumerate(request_scenarios[:3]):  # Submit first 3
+            try:
+                print(f"\n--- Request {i+1}/{len(request_scenarios[:3])} ---")
+                request_id = manager.submit_request_real(
+                    value_in_eth=scenario["value"],
+                    additional_info=scenario["info"]
+                )
+                
+                if request_id > 0:
+                    submitted_request_ids.append(request_id)
+                    print(f"✅ Request {i+1} successful: ID {request_id}")
+                else:
+                    print(f"❌ Request {i+1} failed")
+                    manager.local_metrics["failed_transactions"] += 1
+                
+                # Small delay to avoid nonce issues
+                time.sleep(3)
+                
+            except Exception as e:
+                print(f"❌ Error in request {i+1}: {e}")
+                manager.local_metrics["failed_transactions"] += 1
+                continue
+
+        # Submit responses to requests via ResponseManager
+        if submitted_request_ids:
+            print(f"\n=== SUBMITTING RESPONSES VIA RESPONSE MANAGER ===")
+            for i, request_id in enumerate(submitted_request_ids[:2]):  # Respond to first 2
+                try:
+                    print(f"\n--- Response {i+1} to Request ID {request_id} ---")
+                    success = manager.submit_response_real(
+                        request_id=request_id,
+                        with_calculation=(i % 2 == 0)  # Alternate calculation method
+                    )
+                    
+                    if success:
+                        print(f"✅ Response {i+1} successful")
+                    else:
+                        print(f"❌ Response {i+1} failed")
+                        manager.local_metrics["failed_transactions"] += 1
+                    
+                    # Small delay
+                    time.sleep(3)
+                    
+                except Exception as e:
+                    print(f"❌ Error in response {i+1}: {e}")
+                    manager.local_metrics["failed_transactions"] += 1
+                    continue
+
+        # Interact with CostAnalytics contract
+        print(f"\n=== INTERACTING WITH COST ANALYTICS CONTRACT ===")
+        
+        # Test cost analytics functionality
+        cost_scenarios = [
+            {"processing_time": 1800, "description": "30 minute processing time"},
+            {"processing_time": 7200, "description": "2 hour processing time"},
+            {"processing_time": 86400, "description": "24 hour processing time (max)"}
+        ]
+        
+        for i, scenario in enumerate(cost_scenarios[:2]):  # Test first 2
+            try:
+                print(f"\n--- Cost Analytics Test {i+1}: {scenario['description']} ---")
+                success = manager.interact_with_cost_analytics(
+                    processing_time=scenario["processing_time"]
+                )
+                
+                if success:
+                    print(f"✅ Cost analytics test {i+1} successful")
+                else:
+                    print(f"❌ Cost analytics test {i+1} failed")
+                    
+                time.sleep(3)
+                
+            except Exception as e:
+                print(f"❌ Error in cost analytics test {i+1}: {e}")
+                continue
+
+        # Update cost analytics levels
+        print(f"\n=== UPDATING COST ANALYTICS LEVELS ===")
+        try:
+            success = manager.update_cost_analytics_levels(
+                disruption_level=2,
+                escalation_level=1
+            )
+            
+            if success:
+                print("✅ Cost analytics levels updated successfully")
+            else:
+                print("⚠️  Some level updates may have failed")
+                
+        except Exception as e:
+            print(f"❌ Error updating cost analytics levels: {e}")
+
+        # Additional edge case testing
+        print(f"\n=== ADDITIONAL EDGE CASE TESTING ===")
+        
+        edge_cases = [
+            {"value": 0.0001, "info": "Minimum value test"},
+            {"value": 0.01, "info": "Large value with detailed processing requirements"}
+        ]
+        
+        for i, case in enumerate(edge_cases):
+            try:
+                print(f"\n--- Edge Case {i+1}: {case['info'][:30]}... ---")
+                request_id = manager.submit_request_real(
+                    value_in_eth=case["value"],
+                    additional_info=case["info"]
+                )
+                
+                if request_id > 0:
+                    submitted_request_ids.append(request_id)
+                    print(f"✅ Edge case {i+1} successful: ID {request_id}")
+                    
+                    # Try immediate response
+                    time.sleep(2)
+                    response_success = manager.submit_response_real(
+                        request_id=request_id,
+                        with_calculation=True
+                    )
+                    
+                    if response_success:
+                        print(f"✅ Immediate response successful")
+                        
+                    # Test cost analytics with this request
+                    time.sleep(2)
+                    cost_success = manager.interact_with_cost_analytics(
+                        processing_time=random.randint(3600, 7200)
+                    )
+                    
+                    if cost_success:
+                        print(f"✅ Cost analytics calculation successful")
+                else:
+                    print(f"❌ Edge case {i+1} failed")
+                    
+                time.sleep(3)
+                
+            except Exception as e:
+                print(f"❌ Error in edge case {i+1}: {e}")
+                continue
+
+        # Get final comprehensive status
+        print(f"\n=== FINAL COMPREHENSIVE STATUS ===")
+        try:
+            final_status = manager.get_cost_analytics_status()
+            print("✅ Final cost analytics status retrieved")
+        except Exception as e:
+            print(f"❌ Error getting final status: {e}")
+
+        # Performance metrics
+        print(f"\n=== PERFORMANCE METRICS ===")
+        if submitted_request_ids:
+            total_transactions = (manager.local_metrics["requests_submitted"] + 
+                                manager.local_metrics["responses_submitted"] + 
+                                manager.local_metrics["cost_analytics_calls"])
+            success_rate = ((total_transactions - manager.local_metrics["failed_transactions"]) / 
+                          total_transactions) * 100 if total_transactions > 0 else 0
+            
+            print(f"📈 Overall Success Rate: {success_rate:.1f}%")
+            print(f"📊 Total Transactions: {total_transactions}")
+            print(f"💰 Total Value Processed: {Web3.from_wei(manager.local_metrics['total_cost'], 'ether')} ETH")
+            print(f"🔧 Contracts Successfully Used:")
+            print(f"  ✅ CostAnalytics: {COST_ANALYTICS_ADDRESS}")
+            print(f"  ✅ RequestManager: {REQUEST_MANAGER_ADDRESS}")
+            print(f"  ✅ ResponseManager: {RESPONSE_MANAGER_ADDRESS}")
+
+        # Final comprehensive summary
+        manager.display_comprehensive_summary()
+        
+        print(f"\n" + "="*60)
+        print("🎉 ACTUAL CONTRACT INTERACTION COMPLETE!")
+        print("="*60)
+        print(f"✅ Successfully interacted with {len(submitted_request_ids)} requests")
+        print(f"✅ All transactions are recorded on Sepolia blockchain")
+        print(f"🔍 Check Etherscan for transaction details:")
+        print(f"   CostAnalytics: https://sepolia.etherscan.io/address/{COST_ANALYTICS_ADDRESS}")
+        print(f"   RequestManager: https://sepolia.etherscan.io/address/{REQUEST_MANAGER_ADDRESS}")
+        print(f"   ResponseManager: https://sepolia.etherscan.io/address/{RESPONSE_MANAGER_ADDRESS}")
+        print(f"\n💡 Key Discovery: You deployed CostAnalytics, not UncertaintyAnalytics!")
+        print(f"   This script now works with your ACTUAL deployed contracts.")
+        print("="*60)
+
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()_receipt['blockNumber']}")
+                    print(f"Gas Used: {tx_receipt['gasUsed']}")
+                    if additional_info:
+                        print(f"Additional Info: {additional_info}")
+                    
+                    # Update local metrics
+                    self.local_metrics["requests_submitted"] += 1
+                    self.local_metrics["total_cost"] += value
+                    
+                    return request_id
+                else:
+                    print("⚠️  Request submitted but no event found")
+                    return 0
+            else:
+                print("❌ Transaction failed")
+                return 0
+                
+        except Exception as e:
+            print(f"❌ Error submitting request: {e}")
+            raise
+
+    def submit_response_real(self, request_id: int, with_calculation: bool = False) -> bool:
+        """Submit response using ResponseManager"""
+        print(f"\n🚀 SUBMITTING REAL RESPONSE - Request ID: {request_id}")
+        
+        if not self.response_manager_contract:
+            raise Exception("ResponseManager contract not loaded")
+            
+        try:
+            # Get transaction parameters
+            gas_price = self.w3.eth.gas_price
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            
+            print(f"Gas price: {Web3.from_wei(gas_price, 'gwei')} Gwei")
+            print(f"Nonce: {nonce}")
+            
+            # Choose function
+            if with_calculation:
+                print("Using submitResponseWithCalculation")
+                gas_estimate = self.response_manager_contract.functions.submitResponseWithCalculation(
+                    request_id
+                ).estimate_gas({'from': self.w3.eth.default_account})
+                
+                tx = self.response_manager_contract.functions.submitResponseWithCalculation(
+                    request_id
+                ).build_transaction({
+                    'from': self.w3.eth.default_account,
+                    'nonce': nonce,
+                    'gas': int(gas_estimate * 1.2),
+                    'gasPrice': gas_price
+                })
+            else:
+                print("Using basic submitResponse")
+                gas_estimate = self.response_manager_contract.functions.submitResponse(
+                    request_id
+                ).estimate_gas({'from': self.w3.eth.default_account})
+                
+                tx = self.response_manager_contract.functions.submitResponse(
+                    request_id
+                ).build_transaction({
+                    'from': self.w3.eth.default_account,
+                    'nonce': nonce,
+                    'gas': int(gas_estimate * 1.2),
+                    'gasPrice': gas_price
+                })
+            
+            print(f"Estimated gas: {gas_estimate}")
+            
+            # Sign and send
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                raise ValueError("PRIVATE_KEY not found")
+            
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+                
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            
+            print(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for confirmation
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=300)
+            
+            if tx_receipt['status'] == 1:
+                print("✅ Transaction successful!")
+                
+                # Parse events
+                logs = self.response_manager_contract.events.ResponseSubmitted().process_receipt(tx_receipt)
+                if logs:
+                    logged_request_id = logs[0]['args']['requestId']
+                    responder = logs[0]['args']['responder']
+                    
+                    print(f"\n--- RESPONSE SUBMITTED TO BLOCKCHAIN ---")
+                    print(f"Request ID: {logged_request_id}")
+                    print(f"Responder: {responder}")
+                    print(f"Block: {tx_receipt['blockNumber']}")
+                    print(f"Gas Used: {tx_receipt['gasUsed']}")
+                    
+                    # Update local metrics
+                    self.local_metrics["responses_submitted"] += 1
+                    
+                    return True
+                else:
+                    print("⚠️  Response submitted but no event found")
+                    return True
+            else:
+                print("❌ Transaction failed")
+                return False
+                
+        except Exception as e:
+            print(f"❌ Error submitting response: {e}")
+            raise
+
+def interact_with_cost_analytics(self, processing_time: int = 3600) -> bool:
+    """Interact with CostAnalytics contract"""
+    print(f"\n🚀 INTERACTING WITH COST ANALYTICS")
+    
+    if not self.cost_analytics_contract:
+        raise Exception("CostAnalytics contract not loaded")
+        
+    try:
+        # Get transaction parameters
+        gas_price = self.w3.eth.gas_price
+        nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+        
+        print(f"Gas price: {Web3.from_wei(gas_price, 'gwei')} Gwei")
+        print(f"Nonce: {nonce}")
+        
+        # Use calculateUnavailabilityCost
+        print(f"Calculating unavailability cost for {processing_time} seconds")
+        gas_estimate = self.cost_analytics_contract.functions.calculateUnavailabilityCost(
+            processing_time
+        ).estimate_gas({'from': self.w3.eth.default_account})
+        
+        tx = self.cost_analytics_contract.functions.calculateUnavailabilityCost(
+            processing_time
+        ).build_transaction({
+            'from': self.w3.eth.default_account,
+            'nonce': nonce,
+            'gas': int(gas_estimate * 1.2),
+            'gasPrice': gas_price
+        })
+        
+        print(f"Estimated gas: {gas_estimate}")
+        
+        # Sign and send
+        private_key = os.getenv('PRIVATE_KEY')
+        if not private_key:
+            raise ValueError("PRIVATE_KEY not found")
+        
+        if not private_key.startswith('0x'):
+            private_key = '0x' + private_key
+            
+        signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+        tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+        
+        print(f"Transaction hash: {tx_hash.hex()}")
+        
+        # Wait for confirmation
+        tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash, timeout=300)
+        
+        if tx_receipt['status'] == 1:
+            print("✅ CostAnalytics transaction successful!")
+            
+            # Parse events if any
+            logs = self.cost_analytics_contract.events.CostRecorded().process_receipt(tx_receipt)
+            if logs:
+                for log in logs:
+                    request_id = log['args']['requestId']
+                    cost = log['args']['cost']
+                    cost_type = log['args']['costType']
+                    
+                    print(f"\n--- COST RECORDED ---")
+                    print(f"Request ID: {request_id}")
+                    print(f"Cost: {Web3.from_wei(cost, 'ether')} ETH")
+                    print(f"Cost Type: {cost_type}")
+            
+            print(f"Block: {tx_receipt['blockNumber']}")
+            print(f"Gas Used: {tx_receipt['gasUsed']}")
+            
+            # Update local metrics
+            self.local_metrics["cost_analytics_calls"] += 1
+            
+            return True
+        else:
+            print("❌ CostAnalytics transaction failed")
+            return False
+            
+    except Exception as e:
+        print(f"❌ Error interacting with CostAnalytics: {e}")
+        raise

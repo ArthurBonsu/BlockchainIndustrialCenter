@@ -1,0 +1,170 @@
+[
+  {
+    "operation": "City Registration",
+    "gasUsed": "0xc350",
+    "gasPrice": 20000000000,
+    "costInGwei": 1000000,
+    "timestamp": 1752128994796
+  },
+  {
+    "operation": "City Registration",
+    "gasUsed": "0xc350",
+    "gasPrice": 20000000000,
+    "costInGwei": 1000000,
+    "timestamp": 1752129036000
+  },
+  {
+    "operation": "City Registration",
+    "gasUsed": "0xc350",
+    "gasPrice": 20000000000,
+    "costInGwei": 1000000,
+    "timestamp": 1752129052752
+  },
+  {
+    "operation": "City Registration",
+    "gasUsed": "0xc350",
+    "gasPrice": 20000000000,
+    "costInGwei": 1000000,
+    "timestamp": 1752129075386
+  },
+  {
+    "operation": "City Registration",
+    "gasUsed": "0xc350",
+    "gasPrice": 20000000000,
+    "costInGwei": 1000000,
+    "timestamp": 1752129097800
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x653c",
+    "gasPrice": 20000000000,
+    "costInGwei": 518320,
+    "timestamp": 1752129136665
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x6518",
+    "gasPrice": 20000000000,
+    "costInGwei": 517600,
+    "timestamp": 1752129149721
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x653c",
+    "gasPrice": 20000000000,
+    "costInGwei": 518320,
+    "timestamp": 1752129160670
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x6518",
+    "gasPrice": 20000000000,
+    "costInGwei": 517600,
+    "timestamp": 1752129173653
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x653c",
+    "gasPrice": 20000000000,
+    "costInGwei": 518320,
+    "timestamp": 1752129184480
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x6518",
+    "gasPrice": 20000000000,
+    "costInGwei": 517600,
+    "timestamp": 1752129232717
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x653c",
+    "gasPrice": 20000000000,
+    "costInGwei": 518320,
+    "timestamp": 1752129244752
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x6518",
+    "gasPrice": 20000000000,
+    "costInGwei": 517600,
+    "timestamp": 1752129256691
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x653c",
+    "gasPrice": 20000000000,
+    "costInGwei": 518320,
+    "timestamp": 1752129268838
+  },
+  {
+    "operation": "Industry Registration",
+    "gasUsed": "0x6518",
+    "gasPrice": 20000000000,
+    "costInGwei": 517600,
+    "timestamp": 1752129328354
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129352584
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129449127
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129485591
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129496607
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129509867
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129520795
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129557834
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129605042
+  },
+  {
+    "operation": "Emission Update",
+    "gasUsed": "0x5fbb",
+    "gasPrice": 20000000000,
+    "costInGwei": 490140,
+    "timestamp": 1752129688610
+  }
+]

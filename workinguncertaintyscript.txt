@@ -1,0 +1,1711 @@
+import os
+import sys
+import json
+import logging
+from typing import Dict, Any, Optional
+import time
+from web3 import Web3, HTTPProvider
+from dotenv import load_dotenv
+import uuid
+import random
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
+# Load environment variables
+print("Loading environment variables...")
+load_dotenv()
+
+class UncertaintyAnalyticsManager:
+    def __init__(
+        self, 
+        web3: Web3, 
+        uncertainty_address: str,
+        request_manager_address: str,
+        response_manager_address: str,
+        build_contracts_dir: Optional[str] = None,
+        project_root: Optional[str] = None
+    ):
+        """Initialize Uncertainty Analytics Manager"""
+        print("Initializing UncertaintyAnalyticsManager...")
+        
+        # Determine project root and default paths
+        self.project_root = project_root or os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "..")
+        )
+
+        # Build contracts directory
+        self.build_contracts_dir = build_contracts_dir or os.path.join(
+            self.project_root, "build", "contracts"
+        )
+
+        # Blockchain connection
+        self.w3 = web3
+
+        # Contract addresses
+        self.uncertainty_address = Web3.to_checksum_address(uncertainty_address)
+        self.request_manager_address = Web3.to_checksum_address(request_manager_address)
+        self.response_manager_address = Web3.to_checksum_address(response_manager_address)
+        
+        # Contract instances
+        self.uncertainty_contract = None
+        self.request_manager_contract = None
+        self.response_manager_contract = None
+        
+        # ABIs - Extracted directly from the contract files
+        self.uncertainty_abi = self._get_uncertainty_analytics_abi()
+        self.request_manager_abi = self._get_request_manager_abi()
+        self.response_manager_abi = self._get_response_manager_abi()
+        
+        # Simulation data
+        self.mock_requests = {}
+        self.mock_responses = {}
+        self.mock_processed_requests = set()  # Track processed requests for ResponseManager
+        self.mock_responder_count = {}        # Track responder activity
+        self.mock_metrics = {
+            "avgProcessingTime": 0,           # seconds
+            "successRate": 100,               # percentage
+            "totalCost": Web3.to_wei(0, 'ether'),
+            "disruptionCount": 0
+        }
+        self.next_request_id = 1
+        
+        # Constants from contracts
+        self.BASE_COST = Web3.to_wei(0.001, 'ether')  # From UncertaintyBase
+        self.MAX_PROCESSING_TIME = 86400              # 1 day in seconds
+        
+        print("UncertaintyAnalyticsManager initialized successfully")
+
+    def _get_uncertainty_analytics_abi(self):
+        """Get UncertaintyAnalytics contract ABI"""
+        return [
+            {
+                "inputs": [],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "inputs": [],
+                "name": "base",
+                "outputs": [
+                    {
+                        "internalType": "contract UncertaintyBase",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "costAnalytics",
+                "outputs": [
+                    {
+                        "internalType": "contract CostAnalytics",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_processingTime",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "calculateUnavailabilityCost",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getMetrics",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "avgProcessingTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "successRate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalCost",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "disruptionCount",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "requestManager",
+                "outputs": [
+                    {
+                        "internalType": "contract RequestManager",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_requestId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "_reason",
+                        "type": "string"
+                    }
+                ],
+                "name": "recordFailedTransaction",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "submitRequest",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_requestId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "submitResponse",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_level",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateDisruptionLevel",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_level",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateEscalationLevel",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_cost",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateDataHoldingCost",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "withdraw",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "stateMutability": "payable",
+                "type": "receive"
+            }
+        ]
+
+    def _get_request_manager_abi(self):
+        """Get RequestManager contract ABI"""
+        return [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_analytics",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "FundsWithdrawn",
+                "type": "event"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "uint256",
+                        "name": "requestId",
+                        "type": "uint256"
+                    },
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "requester",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "value",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "RequestSubmitted",
+                "type": "event"
+            },
+            {
+                "inputs": [],
+                "name": "VERSION",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getAnalyticsMetrics",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "avgProcessingTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "successRate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalCost",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "disruptionCount",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "owner",
+                "outputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "submitRequest",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "_additionalInfo",
+                        "type": "string"
+                    }
+                ],
+                "name": "submitRequestWithInfo",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "payable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_newOwner",
+                        "type": "address"
+                    }
+                ],
+                "name": "transferOwnership",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "withdraw",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "stateMutability": "payable",
+                "type": "receive"
+            }
+        ]
+
+    def _get_response_manager_abi(self):
+        """Get ResponseManager contract ABI"""
+        return [
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_analytics",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "constructor"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "recipient",
+                        "type": "address"
+                    },
+                    {
+                        "indexed": False,
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "FundsWithdrawn",
+                "type": "event"
+            },
+            {
+                "anonymous": False,
+                "inputs": [
+                    {
+                        "indexed": True,
+                        "internalType": "uint256",
+                        "name": "requestId",
+                        "type": "uint256"
+                    },
+                    {
+                        "indexed": True,
+                        "internalType": "address",
+                        "name": "responder",
+                        "type": "address"
+                    }
+                ],
+                "name": "ResponseSubmitted",
+                "type": "event"
+            },
+            {
+                "inputs": [],
+                "name": "VERSION",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "getAnalyticsMetrics",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "avgProcessingTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "successRate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalCost",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "disruptionCount",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_responder",
+                        "type": "address"
+                    }
+                ],
+                "name": "getResponderCount",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "count",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "owner",
+                "outputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "processedRequests",
+                "outputs": [
+                    {
+                        "internalType": "bool",
+                        "name": "",
+                        "type": "bool"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "name": "responderCount",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_requestId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "submitResponse",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "_requestId",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "submitResponseWithCalculation",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_newOwner",
+                        "type": "address"
+                    }
+                ],
+                "name": "transferOwnership",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [],
+                "name": "withdraw",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "stateMutability": "payable",
+                "type": "receive"
+            }
+        ]
+
+    def load_contracts(self):
+        """Load all contracts with verification"""
+        print("Loading contracts...")
+        
+        if not self.w3.is_connected():
+            raise ConnectionError("No Web3 connection available")
+
+        # Create contract instances with predefined ABIs
+        try:
+            self.uncertainty_contract = self.w3.eth.contract(
+                address=self.uncertainty_address, 
+                abi=self.uncertainty_abi
+            )
+            
+            self.request_manager_contract = self.w3.eth.contract(
+                address=self.request_manager_address, 
+                abi=self.request_manager_abi
+            )
+            
+            self.response_manager_contract = self.w3.eth.contract(
+                address=self.response_manager_address, 
+                abi=self.response_manager_abi
+            )
+
+            print("\n--- Uncertainty Analytics Contracts Verification ---")
+            print(f"UncertaintyAnalytics Address: {self.uncertainty_address}")
+            print(f"RequestManager Address: {self.request_manager_address}")
+            print(f"ResponseManager Address: {self.response_manager_address}")
+            print(f"Network: {self.w3.eth.chain_id}")
+            
+            # Display function names from each contract
+            for name, contract in [
+                ("UncertaintyAnalytics", self.uncertainty_contract),
+                ("RequestManager", self.request_manager_contract),
+                ("ResponseManager", self.response_manager_contract)
+            ]:
+                function_names = [
+                    func for func in dir(contract.functions)
+                    if callable(getattr(contract.functions, func)) and not func.startswith('__')
+                ]
+                print(f"\n{name} Available Functions: {function_names}")
+            
+            # Verify contracts exist on blockchain
+            for name, address in [
+                ("UncertaintyAnalytics", self.uncertainty_address),
+                ("RequestManager", self.request_manager_address),
+                ("ResponseManager", self.response_manager_address)
+            ]:
+                contract_bytecode = self.w3.eth.get_code(address)
+                bytecode_length = len(contract_bytecode)
+                print(f"{name} Contract Bytecode Length: {bytecode_length}")
+
+            print("All contracts loaded successfully")
+            return {
+                "uncertainty_contract": self.uncertainty_contract,
+                "request_manager_contract": self.request_manager_contract,
+                "response_manager_contract": self.response_manager_contract
+            }
+
+        except Exception as e:
+            logger.error(f"Error loading contracts: {e}")
+            print(f"Error loading contracts: {e}")
+            raise
+    
+    def submit_request(self, value_in_eth: float, additional_info: str = "") -> int:
+        """Submit a request to the UncertaintyAnalytics contract with payment"""
+        print(f"Submitting request with value {value_in_eth} ETH...")
+        value_in_wei = Web3.to_wei(value_in_eth, 'ether')
+        
+        try:
+            # Get nonce
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            print(f"Got nonce: {nonce}")
+            
+            # Prepare transaction parameters
+            tx_params = {
+                'from': self.w3.eth.default_account,
+                'value': value_in_wei,
+                'nonce': nonce,
+                'gas': 200000,
+                'gasPrice': self.w3.eth.gas_price
+            }
+            print("Transaction parameters prepared")
+            
+            if additional_info:
+                # Use RequestManager's submitRequestWithInfo
+                print(f"Using submitRequestWithInfo with info: {additional_info}")
+                tx = self.request_manager_contract.functions.submitRequestWithInfo(
+                    additional_info
+                ).build_transaction(tx_params)
+            else:
+                # Use standard submitRequest
+                print("Using standard submitRequest")
+                tx = self.request_manager_contract.functions.submitRequest().build_transaction(tx_params)
+            
+            # Get private key from environment variables
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                raise ValueError("PRIVATE_KEY not found in environment variables")
+            
+            # Add '0x' prefix if it's missing
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            print("Got private key from environment")
+                
+            # Sign and send transaction
+            print("Signing transaction...")
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            print("Sending transaction...")
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            
+            print(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for transaction receipt
+            print("Waiting for transaction receipt...")
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+            
+            print(f"Transaction status: {'Success' if tx_receipt['status'] == 1 else 'Failed'}")
+            
+            # Parse event logs to get the request ID
+            if tx_receipt['status'] == 1:
+                print("Transaction successful. Looking for RequestSubmitted event...")
+                # Look for RequestSubmitted event
+                event_signature = self.request_manager_contract.events.RequestSubmitted().event_signature_hash
+                for log in tx_receipt['logs']:
+                    if log['topics'][0].hex() == event_signature:
+                        # Parse the logs to get the request ID
+                        parsed_logs = self.request_manager_contract.events.RequestSubmitted().process_receipt(tx_receipt)
+                        request_id = parsed_logs[0]['args']['requestId']
+                        print(f"Request ID: {request_id}")
+                        return request_id
+            
+            return 0  # Request failed
+            
+        except Exception as e:
+            logger.error(f"Error submitting request: {e}")
+            print(f"Error submitting request: {e}")
+            raise
+    
+    def submit_response(self, request_id: int, with_calculation: bool = False) -> bool:
+        """Submit a response to a request via the ResponseManager contract"""
+        print(f"Submitting response for request ID {request_id}...")
+        try:
+            # Get nonce
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            print(f"Got nonce: {nonce}")
+            
+            # Prepare transaction parameters
+            tx_params = {
+                'from': self.w3.eth.default_account,
+                'nonce': nonce,
+                'gas': 200000,
+                'gasPrice': self.w3.eth.gas_price
+            }
+            print("Transaction parameters prepared")
+            
+            if with_calculation:
+                # Use submitResponseWithCalculation
+                print("Using submitResponseWithCalculation")
+                tx = self.response_manager_contract.functions.submitResponseWithCalculation(
+                    request_id
+                ).build_transaction(tx_params)
+            else:
+                # Use standard submitResponse
+                print("Using standard submitResponse")
+                tx = self.response_manager_contract.functions.submitResponse(
+                    request_id
+                ).build_transaction(tx_params)
+            
+            # Get private key from environment variables
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                raise ValueError("PRIVATE_KEY not found in environment variables")
+            
+            # Add '0x' prefix if it's missing
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            print("Got private key from environment")
+                
+            # Sign and send transaction
+            print("Signing transaction...")
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            print("Sending transaction...")
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            
+            print(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for transaction receipt
+            print("Waiting for transaction receipt...")
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+            
+            print(f"Transaction status: {'Success' if tx_receipt['status'] == 1 else 'Failed'}")
+            
+            return tx_receipt['status'] == 1
+            
+        except Exception as e:
+            logger.error(f"Error submitting response: {e}")
+            print(f"Error submitting response: {e}")
+            raise
+    
+    def get_metrics(self) -> Dict[str, Any]:
+        """Get metrics from UncertaintyAnalytics contract"""
+        print("Getting metrics from UncertaintyAnalytics contract...")
+        try:
+            metrics = self.uncertainty_contract.functions.getMetrics().call()
+            
+            result = {
+                "avgProcessingTime": metrics[0],
+                "successRate": metrics[1],
+                "totalCost": metrics[2],
+                "disruptionCount": metrics[3]
+            }
+            
+            print(f"\n--- Analytics Metrics ---")
+            print(f"Average Processing Time: {result['avgProcessingTime']} seconds")
+            print(f"Success Rate: {result['successRate']}%")
+            print(f"Total Cost: {Web3.from_wei(result['totalCost'], 'ether')} ETH")
+            print(f"Disruption Count: {result['disruptionCount']}")
+            
+            return result
+            
+        except Exception as e:
+            logger.error(f"Error getting metrics: {e}")
+            print(f"Error getting metrics: {e}")
+            raise
+    
+    def get_responder_count(self, responder_address: str) -> int:
+        """Get the number of responses submitted by an address"""
+        print(f"Getting responder count for address {responder_address}...")
+        try:
+            count = self.response_manager_contract.functions.getResponderCount(
+                Web3.to_checksum_address(responder_address)
+            ).call()
+            
+            print(f"\n--- Responder Stats ---")
+            print(f"Responder: {responder_address}")
+            print(f"Response Count: {count}")
+            
+            return count
+            
+        except Exception as e:
+            logger.error(f"Error getting responder count: {e}")
+            print(f"Error getting responder count: {e}")
+            raise
+    
+    def record_failed_transaction(self, request_id: int, reason: str) -> bool:
+        """Record a failed transaction"""
+        print(f"Recording failed transaction for request ID {request_id} with reason: {reason}")
+        try:
+            # Get nonce
+            nonce = self.w3.eth.get_transaction_count(self.w3.eth.default_account)
+            print(f"Got nonce: {nonce}")
+            
+            # Prepare transaction parameters
+            tx_params = {
+                'from': self.w3.eth.default_account,
+                'nonce': nonce,
+                'gas': 200000,
+                'gasPrice': self.w3.eth.gas_price
+            }
+            print("Transaction parameters prepared")
+            
+            tx = self.uncertainty_contract.functions.recordFailedTransaction(
+                request_id, reason
+            ).build_transaction(tx_params)
+            
+            # Get private key from environment variables
+            private_key = os.getenv('PRIVATE_KEY')
+            if not private_key:
+                raise ValueError("PRIVATE_KEY not found in environment variables")
+            
+            # Add '0x' prefix if it's missing
+            if not private_key.startswith('0x'):
+                private_key = '0x' + private_key
+            print("Got private key from environment")
+                
+            # Sign and send transaction
+            print("Signing transaction...")
+            signed_tx = self.w3.eth.account.sign_transaction(tx, private_key)
+            print("Sending transaction...")
+            tx_hash = self.w3.eth.send_raw_transaction(signed_tx.rawTransaction)
+            
+            print(f"Transaction hash: {tx_hash.hex()}")
+            
+            # Wait for transaction receipt
+            print("Waiting for transaction receipt...")
+            tx_receipt = self.w3.eth.wait_for_transaction_receipt(tx_hash)
+            
+            print(f"Transaction status: {'Success' if tx_receipt['status'] == 1 else 'Failed'}")
+            
+            return tx_receipt['status'] == 1
+            
+        except Exception as e:
+            logger.error(f"Error recording failed transaction: {e}")
+            print(f"Error recording failed transaction: {e}")
+            raise
+    
+    def simulate_submit_request(self, value_in_eth: float, additional_info: str = "") -> Dict[str, Any]:
+        """Simulate submitting a request with a payment"""
+        print(f"Simulating request with value {value_in_eth} ETH...")
+        
+        # Verify value meets requirements
+        if value_in_eth * 10**18 < self.BASE_COST:
+            print(f"Error: Value must be at least {Web3.from_wei(self.BASE_COST, 'ether')} ETH")
+            return None
+        
+        request_id = self.next_request_id
+        self.next_request_id += 1
+        
+        value_in_wei = Web3.to_wei(value_in_eth, 'ether')
+        timestamp = int(time.time())
+        
+        request = {
+            "id": request_id,
+            "requester": self.w3.eth.default_account,
+            "timestamp": timestamp,
+            "confirmationTime": 0,
+            "executionTime": 0,
+            "value": value_in_wei,
+            "additional_info": additional_info,
+            "status": "Pending",
+            "is_processed": False,
+            "is_valid": True
+        }
+        
+        self.mock_requests[request_id] = request
+        self.mock_metrics["totalCost"] += value_in_wei
+        
+        print(f"\n--- Request Submitted ---")
+        print(f"Request ID: {request_id}")
+        print(f"Requester: {self.w3.eth.default_account}")
+        print(f"Timestamp: {timestamp}")
+        print(f"Value: {value_in_eth} ETH")
+        if additional_info:
+            print(f"Additional Info: {additional_info}")
+            
+        return request
+    
+    def simulate_submit_response(self, request_id: int, with_calculation: bool = False) -> Dict[str, Any]:
+        """Simulate submitting a response to a request"""
+        print(f"Simulating response for request ID {request_id}...")
+        
+        if request_id not in self.mock_requests:
+            print(f"Error: Request ID {request_id} not found")
+            return None
+        
+        request = self.mock_requests[request_id]
+        
+        # Check if the request has already been processed (as per ResponseManager contract)
+        if request_id in self.mock_processed_requests:
+            print(f"Error: Request ID {request_id} already processed")
+            return None
+        
+        if not request["is_valid"]:
+            print(f"Error: Request ID {request_id} is not valid")
+            return None
+            
+        if request["status"] != "Pending":
+            print(f"Error: Request ID {request_id} is not pending (status: {request['status']})")
+            return None
+            
+        timestamp = int(time.time())
+        processing_time = timestamp - request["timestamp"]
+        
+        response = {
+            "request_id": request_id,
+            "responder": self.w3.eth.default_account,
+            "timestamp": timestamp,
+            "processing_time": processing_time,
+            "status": "Completed",
+            "is_valid": True
+        }
+        
+        # Mark the request as processed
+        request["is_processed"] = True
+        request["status"] = "Completed"
+        request["confirmationTime"] = timestamp
+        request["executionTime"] = processing_time
+        
+        # Store the response
+        self.mock_responses[request_id] = response
+        
+        # Mark as processed in ResponseManager tracking
+        self.mock_processed_requests.add(request_id)
+        
+        # Update responder count (as per ResponseManager contract)
+        responder = self.w3.eth.default_account
+        self.mock_responder_count[responder] = self.mock_responder_count.get(responder, 0) + 1
+        
+        print(f"\n--- Response Submitted ---")
+        print(f"Request ID: {request_id}")
+        print(f"Responder: {responder}")
+        print(f"Timestamp: {timestamp}")
+        print(f"Processing Time: {processing_time} seconds")
+        
+        if with_calculation:
+            unavailability_cost = 0
+            if processing_time > self.MAX_PROCESSING_TIME:  # 1 day in seconds
+                # Calculate penalty as per contract logic
+                penalty = ((processing_time - self.MAX_PROCESSING_TIME) * self.BASE_COST) // 86400
+                unavailability_cost = penalty
+                print(f"Calculated Unavailability Cost: {Web3.from_wei(unavailability_cost, 'ether')} ETH")
+                response["unavailability_cost"] = unavailability_cost
+                
+                # Update metrics
+                self.mock_metrics["totalCost"] += unavailability_cost
+            
+        return response
+    
+    def simulate_get_metrics(self) -> Dict[str, Any]:
+        """Simulate getting metrics from the UncertaintyAnalytics contract"""
+        print("Simulating getting metrics...")
+        
+        # Calculate metrics based on mock data
+        if self.mock_responses:
+            # Calculate average processing time for valid responses
+            total_time = 0
+            valid_responses = 0
+            
+            for response in self.mock_responses.values():
+                if response["is_valid"]:
+                    total_time += response["processing_time"]
+                    valid_responses += 1
+            
+            if valid_responses > 0:
+                self.mock_metrics["avgProcessingTime"] = total_time // valid_responses
+            
+            # Calculate success rate if there are any requests
+            if self.mock_requests:
+                # Count failed requests
+                failed_count = sum(1 for req in self.mock_requests.values() if req["status"] == "Failed")
+                total_requests = len(self.mock_requests)
+                
+                if total_requests > 0:
+                    self.mock_metrics["successRate"] = ((total_requests - failed_count) * 100) // total_requests
+                    self.mock_metrics["disruptionCount"] = failed_count
+        
+        print(f"\n--- Analytics Metrics ---")
+        print(f"Average Processing Time: {self.mock_metrics['avgProcessingTime']} seconds")
+        print(f"Success Rate: {self.mock_metrics['successRate']}%")
+        print(f"Total Cost: {Web3.from_wei(self.mock_metrics['totalCost'], 'ether')} ETH")
+        print(f"Disruption Count: {self.mock_metrics['disruptionCount']}")
+        
+        return self.mock_metrics
+    
+    def simulate_get_responder_count(self, responder_address: str) -> int:
+        """Simulate getting the count of responses from a specific responder"""
+        print(f"Simulating getting responder count for address {responder_address}...")
+        
+        count = self.mock_responder_count.get(responder_address, 0)
+        
+        print(f"\n--- Responder Stats ---")
+        print(f"Responder: {responder_address}")
+        print(f"Response Count: {count}")
+        
+        return count
+    
+    def simulate_record_failed_transaction(self, request_id: int, reason: str) -> bool:
+        """Simulate recording a failed transaction"""
+        print(f"Simulating recording failed transaction for request ID {request_id} with reason: {reason}")
+        
+        if request_id not in self.mock_requests:
+            print(f"Error: Request ID {request_id} not found")
+            return False
+            
+        request = self.mock_requests[request_id]
+        if not request["is_valid"]:
+            print(f"Error: Request ID {request_id} is not valid")
+            return False
+            
+        if request["status"] == "Failed":
+            print(f"Error: Request ID {request_id} already marked as failed")
+            return False
+            
+        request["status"] = "Failed"
+        self.mock_metrics["disruptionCount"] += 1
+        
+        print(f"\n--- Transaction Failed ---")
+        print(f"Request ID: {request_id}")
+        print(f"Reason: {reason}")
+        
+        return True
+    
+    def simulate_update_disruption_level(self, level: int) -> bool:
+        """Simulate updating the disruption level"""
+        print(f"Simulating updating disruption level to {level}")
+        print(f"\n--- Disruption Level Updated ---")
+        print(f"New Level: {level}")
+        return True
+    
+    def simulate_update_escalation_level(self, level: int) -> bool:
+        """Simulate updating the escalation level"""
+        print(f"Simulating updating escalation level to {level}")
+        print(f"\n--- Escalation Level Updated ---")
+        print(f"New Level: {level}")
+        return True
+
+  
+def create_web3_connection(network: str = "sepolia"):
+    """
+    Create a simple Web3 connection to Sepolia testnet using Infura
+    """
+    try:
+        # Retrieve Infura Project ID from environment variables
+        INFURA_PROJECT_ID = os.getenv("INFURA_PROJECT_ID")
+
+        if not INFURA_PROJECT_ID:
+            raise ValueError("INFURA_PROJECT_ID not found in environment variables")
+
+        # Construct Infura URL for Sepolia
+        sepolia_url = f"https://sepolia.infura.io/v3/{INFURA_PROJECT_ID}"
+
+        # Create Web3 instance
+        web3 = Web3(HTTPProvider(sepolia_url))
+
+        # Check connection
+        if not web3.is_connected():
+            raise ConnectionError("Failed to connect to Infura Sepolia endpoint")
+
+        # Set the default account
+        web3.eth.default_account = "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+
+        # Basic network information
+        print("\n--- Web3 Connection ---")
+        print(f"Connected to Network: Sepolia")
+        print(f"Chain ID: {web3.eth.chain_id}")
+        print(f"Latest Block Number: {web3.eth.block_number}")
+        print(f"Default Account: {web3.eth.default_account}")
+
+        return web3
+
+    except Exception as e:
+        logging.error(f"Blockchain Connection Error: {e}")
+        print(f"Connection Failed: {e}")
+        return None
+
+
+def main():
+    """
+    Main function to interact with Uncertainty Analytics contracts
+    """
+    try:
+        # Contract addresses from contract_addresses.json
+        UNCERTAINTY_ANALYTICS_ADDRESS = "0xafb69d3380aa2a892625665803fca627fd65ec0f"  # Example address
+        REQUEST_MANAGER_ADDRESS = "0xc5491f090181c8653ec0228d07499a51d7bf12bd"        # Example address
+        RESPONSE_MANAGER_ADDRESS = "0xfda50ab71b0e577680c4afe29fdc2272ab19d89b"       # Example address
+
+        # Create Web3 connection
+        web3 = create_web3_connection("sepolia")
+        if not web3:
+            print("Could not establish blockchain connection. Exiting.")
+            sys.exit(1)
+
+        # Initialize the manager
+        manager = UncertaintyAnalyticsManager(
+            web3=web3, 
+            uncertainty_address=UNCERTAINTY_ANALYTICS_ADDRESS,
+            request_manager_address=REQUEST_MANAGER_ADDRESS,
+            response_manager_address=RESPONSE_MANAGER_ADDRESS,
+        )
+
+        # Use simulation mode flag
+        use_simulation = True
+
+        # Load contracts (either with real ABIs or the default ones)
+        try:
+            contracts = manager.load_contracts()
+            print("Contracts loaded successfully")
+        except ValueError as e:
+            print(f"Warning: {e}")
+            print("Continuing with simulation only...")
+            use_simulation = True
+
+        # Sample request and response simulation scenarios
+        if use_simulation:
+            # Simulate submitting requests
+            print("\n=== Simulating Requests ===")
+            requests = [
+                {"value": 0.002, "info": "High priority processing"},
+                {"value": 0.001, "info": ""},
+                {"value": 0.005, "info": "Requires detailed analytics"},
+                {"value": 0.0015, "info": "Standard processing"},
+                {"value": 0.003, "info": "Time-sensitive data"},
+                {"value": 0.002, "info": "High priority processing"},
+                {"value": 0.001, "info": "Basic system check"},
+                {"value": 0.005, "info": "Requires detailed analytics"},
+                {"value": 0.0015, "info": "Standard processing"},
+                {"value": 0.003, "info": "Time-sensitive data"},
+                {"value": 0.0025, "info": "Network performance monitoring"},
+                {"value": 0.0035, "info": "Security protocol evaluation"},
+                {"value": 0.0018, "info": "Data integrity verification"},
+                {"value": 0.004, "info": "Complex system diagnostic"},
+                {"value": 0.0012, "info": "Routine maintenance check"},
+                {"value": 0.006, "info": "Advanced algorithmic analysis"},
+                {"value": 0.0022, "info": "Performance benchmarking"},
+                {"value": 0.0045, "info": "Critical infrastructure review"},
+                {"value": 0.0017, "info": "Preliminary system scan"},
+                {"value": 0.0038, "info": "Comprehensive network audit"},
+                {"value": 0.002, "info": "High priority processing"},
+                {"value": 0.001, "info": "Basic system check"},
+                {"value": 0.005, "info": "Requires detailed analytics"},
+                {"value": 0.0015, "info": "Standard processing"},
+                {"value": 0.003, "info": "Time-sensitive data"},
+                {"value": 0.0025, "info": "Network performance monitoring"},
+                {"value": 0.0035, "info": "Security protocol evaluation"},
+                {"value": 0.0018, "info": "Data integrity verification"},
+                {"value": 0.004, "info": "Complex system diagnostic"},
+                {"value": 0.0012, "info": "Routine maintenance check"},
+                {"value": 0.006, "info": "Advanced algorithmic analysis"},
+                {"value": 0.0022, "info": "Performance benchmarking"},
+                {"value": 0.0045, "info": "Critical infrastructure review"},
+                {"value": 0.0017, "info": "Preliminary system scan"},
+                {"value": 0.0038, "info": "Comprehensive network audit"},
+                {"value": 0.0023, "info": "Latency optimization request"},
+                {"value": 0.0055, "info": "Deep learning model evaluation"},
+                {"value": 0.0016, "info": "Basic connectivity test"},
+                {"value": 0.0042, "info": "Throughput capacity assessment"},
+                {"value": 0.0019, "info": "Standard security check"},
+                {"value": 0.0031, "info": "Database performance analysis"},
+                {"value": 0.0027, "info": "API response time monitoring"},
+                {"value": 0.0048, "info": "System load balancing optimization"},
+                {"value": 0.0014, "info": "Quick status verification"},
+                {"value": 0.0033, "info": "Resource allocation assessment"},
+                {"value": 0.0029, "info": "Error rate monitoring process"},
+                {"value": 0.0052, "info": "High performance computing analysis"},
+                {"value": 0.0013, "info": "Minimal service verification"},
+                {"value": 0.0037, "info": "Protocol efficiency evaluation"},
+                {"value": 0.0024, "info": "Regular system maintenance"},
+                {"value": 0.0044, "info": "Advanced threat detection scan"},
+    {"value": 0.0019, "info": "Basic integrity check"},
+    {"value": 0.0036, "info": "Data flow optimization request"},
+    {"value": 0.0021, "info": "Bandwidth utilization monitoring"},
+    {"value": 0.0049, "info": "Complex security vulnerability assessment"},
+    {"value": 0.0015, "info": "Standard protocol verification"},
+    {"value": 0.0032, "info": "Network congestion analysis"},
+    {"value": 0.0026, "info": "Memory usage optimization"},
+    {"value": 0.0047, "info": "Comprehensive system evaluation"},
+    {"value": 0.0016, "info": "Basic performance review"},
+    {"value": 0.0034, "info": "Packet loss investigation"},
+    {"value": 0.0028, "info": "General health check request"},
+    {"value": 0.0054, "info": "Artificial intelligence model training"},
+    {"value": 0.0011, "info": "Minimal diagnostic procedure"},
+    {"value": 0.0039, "info": "Extended performance monitoring"},
+    {"value": 0.0025, "info": "Standard throughput assessment"},
+    {"value": 0.0046, "info": "Advanced behavioral analysis"},
+    {"value": 0.0018, "info": "Routine service verification"},
+    {"value": 0.0035, "info": "System scaling evaluation"},
+    {"value": 0.002, "info": "Normal priority processing"},
+    {"value": 0.0043, "info": "Complex pattern recognition"},
+    {"value": 0.0014, "info": "Quick validation check"},
+    {"value": 0.0037, "info": "Data transfer optimization"},
+    {"value": 0.0022, "info": "Regular maintenance procedure"},
+    {"value": 0.0051, "info": "High complexity system integration"},
+    {"value": 0.0017, "info": "Basic health monitoring"},
+    {"value": 0.0033, "info": "Network traffic analysis"},
+    {"value": 0.0028, "info": "Standard system review"},
+    {"value": 0.0056, "info": "Deep neural network training"},
+    {"value": 0.0013, "info": "Minimal service check"},
+    {"value": 0.0039, "info": "Comprehensive resource monitoring"},
+    {"value": 0.0024, "info": "Regular performance assessment"},
+    {"value": 0.0053, "info": "Advanced data mining operation"},
+    {"value": 0.0015, "info": "Simple connectivity verification"},
+    {"value": 0.0036, "info": "System bottleneck analysis"},
+    {"value": 0.0021, "info": "Standard health check"},
+    {"value": 0.005, "info": "High precision analytics request"},
+    {"value": 0.0016, "info": "Basic system validation"},
+    {"value": 0.0032, "info": "Memory leak detection"},
+    {"value": 0.0027, "info": "Server response monitoring"},
+    {"value": 0.0048, "info": "Advanced anomaly detection"},
+    {"value": 0.0013, "info": "Quick system probe"},
+    {"value": 0.0038, "info": "Detailed performance metrics collection"},
+    {"value": 0.0023, "info": "Regular health assessment"},
+    {"value": 0.0052, "info": "Artificial intelligence optimization"},
+    {"value": 0.0017, "info": "Simple data validation"},
+    {"value": 0.0034, "info": "Network latency measurement"},
+    {"value": 0.0028, "info": "Standard system monitoring"},
+    {"value": 0.0047, "info": "Complex algorithm performance testing"},
+    {"value": 0.0015, "info": "Basic status check"},
+    {"value": 0.0036, "info": "Data processing efficiency evaluation"},
+    {"value": 0.0022, "info": "Regular diagnostic procedure"},
+    {"value": 0.0051, "info": "High complexity pattern analysis"},
+    {"value": 0.0016, "info": "Simple integrity verification"},
+    {"value": 0.0033, "info": "Bandwidth saturation assessment"},
+    {"value": 0.0027, "info": "CPU utilization monitoring"},
+    {"value": 0.0049, "info": "Advanced behavioral pattern analysis"},
+    {"value": 0.0014, "info": "Quick service check"},
+    {"value": 0.0037, "info": "Detailed throughput analysis"},
+    {"value": 0.0024, "info": "Regular monitoring procedure"},
+    {"value": 0.0053, "info": "Deep learning optimization"},
+    {"value": 0.0018, "info": "Simple performance validation"},
+    {"value": 0.0035, "info": "System scalability assessment"},
+    {"value": 0.0029, "info": "Standard resource monitoring"},
+    {"value": 0.0055, "info": "High complexity data processing"},
+    {"value": 0.0012, "info": "Minimal integrity check"},
+    {"value": 0.0038, "info": "Comprehensive system analysis"},
+    {"value": 0.0025, "info": "Regular data flow monitoring"},
+    {"value": 0.0046, "info": "Advanced pattern recognition"},
+    {"value": 0.0017, "info": "Basic system verification"},
+    {"value": 0.0034, "info": "Network reliability assessment"},
+    {"value": 0.0028, "info": "Standard performance monitoring"},
+    {"value": 0.0054, "info": "Complex analytics processing"},
+    {"value": 0.0013, "info": "Simple status verification"},
+    {"value": 0.0039, "info": "Detailed system resource analysis"},
+    {"value": 0.0024, "info": "Regular health check procedure"},
+    {"value": 0.0052, "info": "High precision data analysis"},
+    {"value": 0.0016, "info": "Basic integrity verification"},
+    {"value": 0.0033, "info": "Throughput optimization assessment"},
+    {"value": 0.0026, "info": "Memory allocation monitoring"},
+    {"value": 0.0048, "info": "Advanced system integration testing"},
+    {"value": 0.0015, "info": "Simple diagnostic check"},
+    {"value": 0.0037, "info": "Detailed performance evaluation"},
+    {"value": 0.0023, "info": "Regular system validation"},
+    {"value": 0.0051, "info": "Artificial intelligence model evaluation"},
+    {"value": 0.0018, "info": "Basic monitoring procedure"},
+    {"value": 0.0035, "info": "API performance assessment"},
+    {"value": 0.0027, "info": "Database query optimization"},
+    {"value": 0.0049, "info": "Complex security analysis"},
+    {"value": 0.0014, "info": "Quick integrity check"},
+    {"value": 0.0036, "info": "System response time measurement"},
+    {"value": 0.0022, "info": "Regular resource monitoring"},
+    {"value": 0.0053, "info": "Deep neural network optimization"},
+    {"value": 0.0017, "info": "Basic system diagnostic"},
+    {"value": 0.0032, "info": "Network congestion monitoring"},
+    {"value": 0.0028, "info": "Standard throughput assessment"},
+    {"value": 0.0056, "info": "High complexity pattern recognition"},
+    {"value": 0.0013, "info": "Minimal health verification"},
+    {"value": 0.0038, "info": "Detailed resource utilization analysis"},
+    {"value": 0.0025, "info": "Regular performance validation"},
+    {"value": 0.0046, "info": "Advanced anomaly detection analysis"},
+    {"value": 0.0016, "info": "Simple service verification"},
+    {"value": 0.0034, "info": "System load distribution assessment"},
+    {"value": 0.0029, "info": "Standard data flow monitoring"},
+    {"value": 0.0054, "info": "Complex data mining operation"},
+    {"value": 0.0012, "info": "Quick status check"},
+    {"value": 0.0039, "info": "Comprehensive performance analysis"},
+    {"value": 0.0023, "info": "Regular diagnostic procedure"},
+    {"value": 0.0052, "info": "High precision pattern matching"},
+    {"value": 0.0017, "info": "Basic throughput verification"},
+    {"value": 0.0035, "info": "Network traffic pattern analysis"},
+    {"value": 0.0026, "info": "CPU load balancing assessment"},
+    {"value": 0.0047, "info": "Advanced system security audit"},
+    {"value": 0.0014, "info": "Simple monitoring check"},
+    {"value": 0.0037, "info": "Detailed bandwidth analysis"},
+    {"value": 0.0024, "info": "Regular integrity validation"},
+    {"value": 0.0053, "info": "Deep learning model training"},
+    {"value": 0.0018, "info": "Basic resource verification"},
+    {"value": 0.0033, "info": "Memory usage monitoring"},
+    {"value": 0.0028, "info": "Standard diagnostic procedure"},
+    {"value": 0.0055, "info": "High complexity security assessment"},
+    {"value": 0.0012, "info": "Minimal service monitoring"},
+    {"value": 0.0038, "info": "Comprehensive system health analysis"},
+    {"value": 0.0025, "info": "Regular data integrity check"},
+    {"value": 0.0046, "info": "Advanced protocol optimization"},
+    {"value": 0.0017, "info": "Basic performance assessment"},
+    {"value": 0.0034, "info": "System response evaluation"},
+    {"value": 0.0029, "info": "Standard resource verification"},
+    {"value": 0.0051, "info": "Artificial intelligence data processing"},
+    {"value": 0.0015, "info": "Quick health verification"},
+    {"value": 0.0036, "info": "Detailed system monitoring"},
+    {"value": 0.0023, "info": "Regular throughput validation"},
+    {"value": 0.0054, "info": "Complex system optimization"},
+    {"value": 0.0016, "info": "Simple diagnostic procedure"},
+    {"value": 0.0032, "info": "Network reliability monitoring"},
+    {"value": 0.0027, "info": "Database performance optimization"},
+    {"value": 0.0048, "info": "Advanced pattern analysis"},
+    {"value": 0.0013, "info": "Minimal integrity verification"},
+    {"value": 0.0039, "info": "Detailed resource assessment"},
+    {"value": 0.0024, "info": "Regular system health check"},
+    {"value": 0.0052, "info": "High precision anomaly detection"},
+    {"value": 0.0018, "info": "Basic data flow verification"},
+    {"value": 0.0035, "info": "Server load distribution analysis"},
+    {"value": 0.0028, "info": "Standard performance validation"},
+    {"value": 0.0047, "info": "Advanced data processing optimization"},
+    {"value": 0.0015, "info": "Simple system verification"},
+    {"value": 0.0037, "info": "Detailed protocol analysis"},
+    {"value": 0.0022, "info": "Regular monitoring procedure"},
+    {"value": 0.0051, "info": "High complexity resource allocation"},
+    {"value": 0.0016, "info": "Basic status validation"},
+    {"value": 0.0033, "info": "Network traffic optimization"},
+    {"value": 0.0026, "info": "Memory allocation assessment"},
+    {"value": 0.0049, "info": "Complex behavioral analysis"},
+    {"value": 0.0014, "info": "Quick performance check"},
+    {"value": 0.0038, "info": "Comprehensive throughput evaluation"},
+    {"value": 0.0025, "info": "Regular service validation"},
+    {"value": 0.0053, "info": "Deep neural network assessment"},
+    {"value": 0.0017, "info": "Basic integrity assessment"},
+    {"value": 0.0034, "info": "System reliability monitoring"},
+    {"value": 0.0028, "info": "Standard resource optimization"},
+    {"value": 0.0056, "info": "High complexity pattern detection"},
+    {"value": 0.0013, "info": "Minimal performance verification"},
+    {"value": 0.0037, "info": "Detailed data flow analysis"},
+    {"value": 0.0024, "info": "Regular system validation procedure"},
+    {"value": 0.0052, "info": "Artificial intelligence model validation"},
+    {"value": 0.0018, "info": "Basic throughput assessment"},
+    {"value": 0.0035, "info": "API response monitoring"},
+    {"value": 0.0027, "info": "Database query assessment"},
+    {"value": 0.0048, "info": "Advanced security vulnerability scanning"},
+    {"value": 0.0015, "info": "Simple resource verification"},
+    {"value": 0.0036, "info": "System latency analysis"},
+    {"value": 0.0023, "info": "Regular integrity monitoring"},
+    {"value": 0.0051, "info": "High precision data mining"},
+    {"value": 0.0017, "info": "Basic diagnostic assessment"},
+    {"value": 0.0033, "info": "Network bandwidth monitoring"},
+    {"value": 0.0029, "info": "Standard system health validation"},
+    {"value": 0.0054, "info": "Complex algorithm optimization"},
+    {"value": 0.0012, "info": "Quick validation procedure"},
+    {"value": 0.0039, "info": "Comprehensive performance monitoring"},
+    {"value": 0.0025, "info": "Regular resource assessment"},
+    {"value": 0.0046, "info": "Advanced throughput optimization"},
+    {"value": 0.0016, "info": "Simple monitoring assessment"},
+    {"value": 0.0034, "info": "System stability analysis"},
+    {"value": 0.0028, "info": "Standard data integrity verification"},
+    {"value": 0.0047, "info": "Advanced resource allocation analysis"},
+    {"value": 0.0014, "info": "Minimal throughput checking"},
+    {"value": 0.0038, "info": "Detailed system security assessment"},
+    {"value": 0.0023, "info": "Regular performance monitoring procedure"},
+    {"value": 0.0053, "info": "Deep learning pattern recognition"},
+    {"value": 0.0017, "info": "Basic system health validation"},
+    {"value": 0.0035, "info": "Server response time analysis"},
+    {"value": 0.0026, "info": "CPU usage optimization assessment"},
+    {"value": 0.0048, "info": "Advanced algorithm performance analysis"},
+    {"value": 0.0013, "info": "Simple status assessment"},
+    {"value": 0.0037, "info": "Detailed resource monitoring"},
+    {"value": 0.0024, "info": "Regular diagnostic validation"},
+    {"value": 0.0052, "info": "High precision optimization process"},
+    {"value": 0.0018, "info": "Basic monitoring validation"},
+    {"value": 0.0033, "info": "Memory leak testing"},
+    {"value": 0.0028, "info": "Standard integrity assessment"},
+    {"value": 0.0055, "info": "High complexity security verification"},
+    {"value": 0.0012, "info": "Minimal service validation"},
+    {"value": 0.0038, "info": "Comprehensive system monitoring"},
+    {"value": 0.0024, "info": "Regular resource validation"},
+    {"value": 0.0046, "info": "Advanced data flow optimization"},
+    {"value": 0.0017, "info": "Basic health assessment"},
+    {"value": 0.0034, "info": "Network packet analysis"},
+    {"value": 0.0029, "info": "Standard diagnostic assessment"},
+    {"value": 0.0051, "info": "Artificial intelligence pattern analysis"},
+    {"value": 0.0015, "info": "Simple performance validation"},
+    {"value": 0.0036, "info": "Detailed system assessment"},
+    {"value": 0.0022, "info": "Regular validation procedure"},
+    {"value": 0.0053, "info": "Deep neural network evaluation"},
+    {"value": 0.0016, "info": "Basic service assessment"},
+    {"value": 0.0032, "info": "Network throughput monitoring"},
+    {"value": 0.0027, "info": "Database performance verification"},
+    {"value": 0.0049, "info": "Complex system security testing"},
+    {"value": 0.0014, "info": "Quick service validation"},
+    {"value": 0.0037, "info": "Detailed performance optimization"},
+    {"value": 0.0025, "info": "Regular monitoring assessment"},
+    {"value": 0.0047, "info": "Advanced scalability analysis"},
+    {"value": 0.0018, "info": "Basic integrity evaluation"},
+    {"value": 0.0035, "info": "System efficiency monitoring"},
+    {"value": 0.0028, "info": "Standard throughput validation"},
+    {"value": 0.0056, "info": "High complexity resource optimization"},
+    {"value": 0.0013, "info": "Minimal diagnostic assessment"},
+    {"value": 0.0039, "info": "Comprehensive system validation"},
+    {"value": 0.0023, "info": "Regular health monitoring procedure"},
+    {"value": 0.0052, "info": "High precision pattern analysis"},
+    {"value": 0.0017, "info": "Basic resource assessment"},
+    {"value": 0.0034, "info": "Network response monitoring"},
+    {"value": 0.0026, "info": "Memory usage validation"},
+    {"value": 0.0048, "info": "Advanced threat detection analysis"},
+    {"value": 0.0015, "info": "Simple validation assessment"},
+    {"value": 0.0037, "info": "Detailed system optimization"},
+    {"value": 0.0022, "info": "Regular throughput monitoring"},
+    {"value": 0.0051, "info": "High complexity threat analysis"},
+    {"value": 0.0016, "info": "Basic diagnostic validation"},
+    {"value": 0.0033, "info": "Network stability assessment"},
+    {"value": 0.0027, "info": "Database query monitoring"},
+    {"value": 0.0049, "info": "Complex protocol analysis"},
+    {"value": 0.0014, "info": "Quick system validation"},
+    {"value": 0.0038, "info": "Comprehensive performance optimization"},
+    {"value": 0.0025, "info": "Regular integrity assessment"},
+    {"value": 0.0053, "info": "Advanced anomaly pattern detection"},
+    {"value": 0.0017, "info": "Basic service monitoring"},
+    {"value": 0.0035, "info": "System resource allocation analysis"},
+    {"value": 0.0028, "info": "Standard performance assessment"},
+    {"value": 0.0055, "info": "High complexity optimization procedure"},
+    {"value": 0.0012, "info": "Minimal validation procedure"},
+    {"value": 0.0038, "info": "Detailed system health monitoring"},
+    {"value": 0.0024, "info": "Regular resource analysis"},
+    {"value": 0.0046, "info": "Advanced security assessment"},
+    {"value": 0.0017, "info": "Basic performance monitoring"},
+    {"value": 0.0034, "info": "Network latency optimization"},
+    {"value": 0.0029, "info": "Standard monitoring assessment"},
+    {"value": 0.0051, "info": "Artificial intelligence algorithm optimization"},
+    {"value": 0.0015, "info": "Simple throughput verification"},
+    {"value": 0.0036, "info": "System response time monitoring"},
+    {"value": 0.0023, "info": "Regular diagnostic assessment"},
+    {"value": 0.0054, "info": "Complex data analysis procedure"},
+    {"value": 0.0016, "info": "Basic validation procedure"},
+    {"value": 0.0033, "info": "Network congestion assessment"},
+    {"value": 0.0027, "info": "CPU load monitoring"},
+    {"value": 0.0048, "info": "Advanced protocol security testing"},
+    {"value": 0.0013, "info": "Simple resource assessment"},
+    {"value": 0.0037, "info": "Detailed monitoring analysis"},
+    {"value": 0.0024, "info": "Regular system optimization"},
+    {"value": 0.0052, "info": "High precision resource allocation analysis"},
+    {"value": 0.0018, "info": "Basic diagnostic procedure"},
+    {"value": 0.0035, "info": "Server load balancing assessment"},
+    {"value": 0.0028, "info": "Standard integrity monitoring"},
+    {"value": 0.0047, "info": "Advanced data pattern recognition"},
+    {"value": 0.0014, "info": "Quick resource verification"},
+    {"value": 0.0039, "info": "Comprehensive system resource optimization"},
+    {"value": 0.0022, "info": "Regular health assessment procedure"},
+    {"value": 0.0053, "info": "Deep learning algorithm assessment"},
+    {"value": 0.0017, "info": "Basic system optimization procedure"},
+    {"value": 0.0034, "info": "Network traffic pattern monitoring"},
+    {"value": 0.0026, "info": "Memory allocation optimization"},
+    {"value": 0.0049, "info": "Complex resource utilization analysis"},
+    {"value": 0.0015, "info": "Simple monitoring procedure"},
+    {"value": 0.0037, "info": "Detailed throughput optimization"},
+    {"value": 0.0024, "info": "Regular validation assessment"},
+    {"value": 0.0052, "info": "High precision security vulnerability assessment"},
+    {"value": 0.0018, "info": "Basic resource optimization"},
+    {"value": 0.0033, "info": "Memory usage assessment"},
+    {"value": 0.0028, "info": "Standard diagnostic validation"},
+    {"value": 0.0055, "info": "High complexity anomaly detection"},
+    {"value": 0.0012, "info": "Minimal system assessment"},
+    {"value": 0.0038, "info": "Comprehensive throughput analysis"},
+    {"value": 0.0025, "info": "Regular service optimization"},
+    {"value": 0.0046, "info": "Advanced system resource monitoring"},
+    {"value": 0.0016, "info": "Simple health verification procedure"},
+    {"value": 0.0034, "info": "System packet loss analysis"},
+    {"value": 0.0029, "info": "Standard resource validation procedure"},
+    {"value": 0.0051, "info": "Artificial intelligence security assessment"},
+    {"value": 0.0015, "info": "Quick integrity assessment"},
+    {"value": 0.0036, "info": "Detailed validation procedure"},
+    {"value": 0.0023, "info": "Regular throughput assessment procedure"},
+    {"value": 0.0054, "info": "Complex optimization analysis"},
+    {"value": 0.0017, "info": "Basic monitoring analysis"},
+    {"value": 0.0032, "info": "Network reliability assessment procedure"},
+    {"value": 0.0027, "info": "Database optimization procedure"},
+    {"value": 0.0048, "info": "Advanced pattern recognition analysis"},
+    {"value": 0.0013, "info": "Minimal performance assessment"},
+    {"value": 0.0039, "info": "Detailed resource optimization"},
+    {"value": 0.0024, "info": "Regular health verification procedure"},
+    {"value": 0.0052, "info": "High precision analysis procedure"},
+    {"value": 0.0018, "info": "Basic data integrity monitoring"},
+    {"value": 0.0035, "info": "System load analysis procedure"},
+    {"value": 0.0028, "info": "Standard validation analysis"},
+    {"value": 0.0056, "info": "High complexity threat detection"},
+    {"value": 0.0013, "info": "Minimal monitoring analysis"},
+    {"value": 0.0037, "info": "Detailed integrity assessment"},
+    {"value": 0.0023, "info": "Regular system resource validation"},
+    {"value": 0.0051, "info": "High precision pattern detection"},
+    {"value": 0.0016, "info": "Simple throughput assessment procedure"},
+    {"value": 0.0033, "info": "Network traffic optimization procedure"},
+    {"value": 0.0026, "info": "Memory validation procedure"},
+    {"value": 0.0049, "info": "Complex security validation procedure"},
+    {"value": 0.0014, "info": "Quick diagnostic procedure"},
+    {"value": 0.0038, "info": "Comprehensive system efficiency analysis"},
+    {"value": 0.0025, "info": "Regular performance optimization procedure"},
+    {"value": 0.0053, "info": "Deep neural network analysis procedure"},
+    {"value": 0.0017, "info": "Basic health monitoring procedure"},
+    {"value": 0.0034, "info": "System response assessment procedure"},
+    {"value": 0.0028, "info": "Standard resource monitoring procedure"},
+    {"value": 0.0047, "info": "Advanced throughput assessment procedure"},
+    {"value": 0.0015, "info": "Simple system assessment procedure"},
+    {"value": 0.0037, "info": "Detailed resource validation procedure"},
+    {"value": 0.0022, "info": "Regular system analysis procedure"},
+    {"value": 0.0051, "info": "Artificial intelligence optimization procedure"},
+    {"value": 0.0016, "info": "Basic service validation procedure"},
+    {"value": 0.0033, "info": "Network resource assessment procedure"},
+    {"value": 0.0027, "info": "Database performance assessment procedure"},
+    {"value": 0.0048, "info": "Advanced security monitoring procedure"},
+    {"value": 0.0014, "info": "Quick validation analysis procedure"},
+    {"value": 0.0036, "info": "System reliability validation procedure"},
+    {"value": 0.0023, "info": "Regular diagnostic procedure"},
+    {"value": 0.0054, "info": "Complex pattern validation procedure"},
+    {"value": 0.0018, "info": "Basic system validation procedure"},
+    {"value": 0.0035, "info": "Server performance assessment procedure"},
+    {"value": 0.0029, "info": "Standard health assessment procedure"},
+    {"value": 0.0055, "info": "High complexity validation procedure"},
+    {"value": 0.0012, "info": "Minimal health assessment procedure"},
+    {"value": 0.0038, "info": "Comprehensive integrity validation procedure"},
+    {"value": 0.0024, "info": "Regular throughput validation procedure"},
+    {"value": 0.0046, "info": "Advanced system validation procedure"},
+    {"value": 0.0017, "info": "Basic performance validation procedure"},
+    {"value": 0.0034, "info": "Network stability validation procedure"},
+    {"value": 0.0028, "info": "Standard resource optimization procedure"},
+    {"value": 0.0047, "info": "Advanced integrity assessment procedure"},
+    {"value": 0.0013, "info": "Simple diagnostic assessment procedure"},
+    {"value": 0.0039, "info": "Comprehensive performance assessment procedure"},
+    {"value": 0.0025, "info": "Regular monitoring validation procedure"},
+    {"value": 0.0053, "info": "Deep learning assessment procedure"},
+    {"value": 0.0016, "info": "Basic integrity validation procedure"},
+    {"value": 0.0032, "info": "Network performance validation procedure"},
+    {"value": 0.0027, "info": "CPU performance assessment procedure"},
+    {"value": 0.0049, "info": "Complex integrity validation procedure"},
+    {"value": 0.0015, "info": "Simple performance assessment procedure"},
+    {"value": 0.0036, "info": "System health validation procedure"},
+    {"value": 0.0022, "info": "Regular resource validation procedure"},
+    {"value": 0.0052, "info": "High precision validation procedure"},
+    {"value": 0.0018, "info": "Basic system health assessment procedure"},
+    {"value": 0.0033, "info": "Memory performance validation procedure"},
+    {"value": 0.0028, "info": "Standard throughput validation procedure"},
+    {"value": 0.0047, "info": "Advanced health assessment procedure"},
+    {"value": 0.0014, "info": "Minimal validation analysis procedure"},
+    {"value": 0.0037, "info": "Detailed health assessment procedure"},
+    {"value": 0.0023, "info": "Regular system monitoring procedure"},
+    {"value": 0.0054, "info": "Complex health validation procedure"},
+    {"value": 0.0017, "info": "Basic throughput validation procedure"},
+    {"value": 0.0034, "info": "System integrity validation procedure"},
+    {"value": 0.0026, "info": "Memory integrity validation procedure"}
+                
+            ]
+            
+            request_ids = []
+            for req in requests:
+                request = manager.simulate_submit_request(
+                    value_in_eth=req["value"],
+                    additional_info=req["info"]
+                )
+                if request:
+                    request_ids.append(request["id"])
+            
+            # Simulate responses
+            print("\n=== Simulating Responses ===")
+            # Respond to 3 out of 5 requests
+            for request_id in request_ids[:3]:
+                manager.simulate_submit_response(
+                    request_id=request_id,
+                    with_calculation=(request_id % 2 == 0)  # Alternate between with and without calculation
+                )
+            
+            # Simulate a failed transaction
+            print("\n=== Simulating Failed Transaction ===")
+            manager.simulate_record_failed_transaction(
+                request_id=request_ids[3],
+                reason="Network congestion"
+            )
+            
+            # Get metrics
+            print("\n=== Simulating Analytics Metrics ===")
+            metrics = manager.simulate_get_metrics()
+            
+            # Get responder count
+            print("\n=== Simulating Responder Stats ===")
+            responder_count = manager.simulate_get_responder_count(web3.eth.default_account)
+            
+            # Update disruption and escalation levels
+            print("\n=== Simulating Level Updates ===")
+            manager.simulate_update_disruption_level(2)
+            manager.simulate_update_escalation_level(1)
+            
+            print("\n=== Simulation Summary ===")
+            print(f"Total Requests: {len(request_ids)}")
+            print(f"Completed Responses: {len(manager.mock_responses)}")
+            print(f"Failed Transactions: {manager.mock_metrics['disruptionCount']}")
+            print(f"Average Processing Time: {manager.mock_metrics['avgProcessingTime']} seconds")
+            print(f"Success Rate: {manager.mock_metrics['successRate']}%")
+
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

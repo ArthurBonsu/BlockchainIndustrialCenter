@@ -1,0 +1,39 @@
+{
+  "systemPerformance": {
+    "totalDuration": 773190,
+    "totalTransactions": 15,
+    "successfulTransactions": 15,
+    "failedTransactions": 0,
+    "successRate": "100.00",
+    "transactionsPerSecond": "0.02",
+    "avgGasUsed": 0,
+    "totalGasCost": "14590860.000000"
+  },
+  "gasAnalytics": {
+    "City Registration": {
+      "count": 5,
+      "avgGasUsed": 0,
+      "maxGasUsed": 50000,
+      "minGasUsed": 50000,
+      "avgCostGwei": "1000000.000000",
+      "totalCostGwei": "5000000.000000"
+    },
+    "Industry Registration": {
+      "count": 10,
+      "avgGasUsed": 0,
+      "maxGasUsed": 25916,
+      "minGasUsed": 25880,
+      "avgCostGwei": "517960.000000",
+      "totalCostGwei": "5179600.000000"
+    },
+    "Emission Update": {
+      "count": 9,
+      "avgGasUsed": 0,
+      "maxGasUsed": 24507,
+      "minGasUsed": 24507,
+      "avgCostGwei": "490140.000000",
+      "totalCostGwei": "4411260.000000"
+    }
+  },
+  "recommendations": []
+}

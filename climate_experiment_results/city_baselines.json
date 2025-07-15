@@ -1,0 +1,98 @@
+{
+  "Melbourne": {
+    "averageEmissions": 1156,
+    "originalAverage": 1156,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "Sydney": {
+    "averageEmissions": 1151,
+    "originalAverage": 1151,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "Brisbane": {
+    "averageEmissions": 1147,
+    "originalAverage": 1147,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "New York": {
+    "averageEmissions": 1159,
+    "originalAverage": 1159,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "London": {
+    "averageEmissions": 1152,
+    "originalAverage": 1152,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "Tokyo": {
+    "averageEmissions": 1152,
+    "originalAverage": 1152,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "Shanghai": {
+    "averageEmissions": 1158,
+    "originalAverage": 1158,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  },
+  "Mumbai": {
+    "averageEmissions": 1151,
+    "originalAverage": 1151,
+    "dataPoints": 120,
+    "sectors": [
+      "Aviation",
+      "Industry",
+      "Power",
+      "Ground Transport",
+      "Residential"
+    ]
+  }
+}

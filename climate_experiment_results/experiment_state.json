@@ -1,0 +1,265 @@
+{
+  "phase": "phase7_ComprehensiveResultsAndRecommendations",
+  "completedPhases": [
+    "phase1_NetworkAndContractValidation",
+    "phase2_DataInitializationWithRealCarbonData",
+    "phase3_EntityRegistrationAndBaselines",
+    "phase4_EmissionMonitoringSimulation",
+    "phase5_CarbonTradingAndNashAnalysis",
+    "phase6_RenewalTheoryValidation"
+  ],
+  "cities": {
+    "1": {
+      "name": "New York",
+      "baseline": "1159",
+      "registrationBlock": "0x853c90",
+      "txHash": "0x7d026800838549001c3a53d505f7c8e5b21e752e3bc083279d3a226942ab7d08",
+      "gasUsed": "0xc350"
+    },
+    "2": {
+      "name": "Shanghai",
+      "baseline": "1158",
+      "registrationBlock": "0x853c91",
+      "txHash": "0xacc6d7a60432163df357ed011f74c7500caa8da09539c7268a7b6d37d3b12505",
+      "gasUsed": "0xc350"
+    },
+    "3": {
+      "name": "Melbourne",
+      "baseline": "1156",
+      "registrationBlock": "0x853c95",
+      "txHash": "0x0d6f618f62bfd18a84a15d3399eb68b7f3923637fd449ca8454dc074f798be79",
+      "gasUsed": "0xc350"
+    },
+    "4": {
+      "name": "London",
+      "baseline": "1152",
+      "registrationBlock": "0x853c96",
+      "txHash": "0xcdc0fc06569c24841eb618a02b72f07d58b12ab6a6faf33b4830abcd00c6debb",
+      "gasUsed": "0xc350"
+    },
+    "5": {
+      "name": "Tokyo",
+      "baseline": "1152",
+      "registrationBlock": "0x853c98",
+      "txHash": "0x1e4138d7f94eb3ef82637761b2c5f7ebf526569bd6d0ce3b4d73560f8542aaf0",
+      "gasUsed": "0xc350"
+    }
+  },
+  "industries": {
+    "1": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "1",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "842",
+      "txHash": "0xb6d72854f254b2ec6ae2da104fb74f886501aa0bfc272c86b6a00e4de2b6a5de",
+      "gasUsed": "0x653c"
+    },
+    "2": {
+      "name": "Power Generation #2",
+      "cityId": "1",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "550",
+      "txHash": "0x836a688f28f3cdf90785b821912e24f872a8317118159450b8b1356a3c6623d9",
+      "gasUsed": "0x6518"
+    },
+    "3": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "2",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "408",
+      "txHash": "0xe3cdcc3cc7498c2e73a2da77dc396f5590c72cf2ec556d2f08691135f207b4de",
+      "gasUsed": "0x653c"
+    },
+    "4": {
+      "name": "Power Generation #2",
+      "cityId": "2",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "440",
+      "txHash": "0x6119181a87e6f2c3c9ff649dec3852723fac832d1eba498eaaf02929c828b758",
+      "gasUsed": "0x6518"
+    },
+    "5": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "3",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "491",
+      "txHash": "0x5f70690ea12e2db6de8af05f946fdb79973d627ba32d0d77922965a8e0c8d00f",
+      "gasUsed": "0x653c"
+    },
+    "6": {
+      "name": "Power Generation #2",
+      "cityId": "3",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "978",
+      "txHash": "0xdec70a9c87055d56e456acc613e96f1ae4e9f6a7e7529c1cdcd0471342f7a568",
+      "gasUsed": "0x6518"
+    },
+    "7": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "4",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "628",
+      "txHash": "0xa9961e05fb472be6981509a278f3ef1d5e47affcfdd94aed6926b7d6ebb5e90c",
+      "gasUsed": "0x653c"
+    },
+    "8": {
+      "name": "Power Generation #2",
+      "cityId": "4",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "915",
+      "txHash": "0x27a48ff1a8ac332e70acd8c5baba359ba1ec9bc7889c0d48558d6ff634ba63fd",
+      "gasUsed": "0x6518"
+    },
+    "9": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "5",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "711",
+      "txHash": "0xc7f90519781aa0421af8f302610f3fcbd3037e583097bffb304188ae17454db9",
+      "gasUsed": "0x653c"
+    },
+    "10": {
+      "name": "Power Generation #2",
+      "cityId": "5",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "415",
+      "txHash": "0xd78b03e2e931bec3513aea0990e04509f314e2b15dc3849886d681de29d4457b",
+      "gasUsed": "0x6518"
+    }
+  },
+  "results": {
+    "contractValidation": {
+      "systemStats": {
+        "totalTx": "0",
+        "totalCities": "0",
+        "totalIndustries": "0",
+        "totalCreditsIssued": "0",
+        "avgCityCompliance": "0",
+        "systemUptime": "80064"
+      },
+      "ammPriceTest": "0.001001001001001001",
+      "cityCounter": "0",
+      "industryCounter": "0",
+      "validated": true
+    },
+    "dataProcessing": {
+      "totalDataPoints": "960",
+      "citiesAnalyzed": "8",
+      "topCities": [
+        {
+          "city": "New York",
+          "averageEmissions": "1159",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Shanghai",
+          "averageEmissions": "1158",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Melbourne",
+          "averageEmissions": "1156",
+          "dataPoints": "120"
+        },
+        {
+          "city": "London",
+          "averageEmissions": "1152",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Tokyo",
+          "averageEmissions": "1152",
+          "dataPoints": "120"
+        }
+      ]
+    },
+    "emissionMonitoring": {
+      "monthlyResults": [
+        {
+          "month": "1",
+          "updates": "3",
+          "avgReduction": "60.333333333333336",
+          "complianceImprovements": "3",
+          "transactionHashes": [
+            "0xdd4271c470268d0630cd29685ee5e323559c14bd586995ea28f6d170567bb8fd",
+            "0x2e3d7a7b69a8f6ce32221256eeafb94d0ade77594442cae1b9ce4cf43b2eaa4a",
+            "0x8a86973aa2d8a0c40ac92861ba511ac7e48844323dc78bb062ce96b5d0488474"
+          ]
+        },
+        {
+          "month": "2",
+          "updates": "3",
+          "avgReduction": "120.33333333333333",
+          "complianceImprovements": "3",
+          "transactionHashes": [
+            "0x2742809d08e38a2b196a39497f571d389b5f48339e70e9a5ccabd2aeaab6d7da",
+            "0xd3b451d020f6c2fafdead77ed4369bffc7530db63f406bee789999efeeec2900",
+            "0x0b82cc3275dd9f16df7ec2002bae2adbed5946cd4c31fc17ceb7232a173f65a3"
+          ]
+        },
+        {
+          "month": "3",
+          "updates": "3",
+          "avgReduction": "180.33333333333334",
+          "complianceImprovements": "3",
+          "transactionHashes": [
+            "0xcc1806595c9254201026259fef85a748df5b1f76e62a3c08a35a7abf64c0fab5",
+            "0xa3bd340e31f6768879df8861bc67533dc66e5339401378681eb516696cc12c01",
+            "0x3a4662892f551acea523c725f37509f9880eefeb3c6a5f0c20c9b1c86bf295f9"
+          ]
+        }
+      ],
+      "totalMonths": "3",
+      "overallTrend": "improving",
+      "totalUpdates": "9"
+    },
+    "carbonTrading": {
+      "totalTrades": "2",
+      "nashEquilibriums": "0",
+      "priceHistory": [
+        "0.001000800640512409",
+        "0.001001101211332465"
+      ],
+      "transactionHashes": [
+        "0x7911022ebb7d96942cc6259d0936872a37a95dc258a0ceee365f7634edbbb82e",
+        "0xf18393ac9607699d31e37e6dd4186e6d4dfb8218451d385234a5239499c6b2f3"
+      ]
+    },
+    "renewalTheory": {
+      "renewalTests": "2",
+      "successfulRenewals": "2",
+      "transactionHashes": [
+        "0x63d9905f180f4e8094640df195b60e485b7394fb91d15898dfcb797bb25f39dd",
+        "0xc996abe14e626869d34aa93ad72c4aad133592144f3ce68c1590269656f85aa8"
+      ]
+    }
+  },
+  "canContinue": true,
+  "topCities": [
+    {
+      "city": "New York",
+      "averageEmissions": "1159",
+      "dataPoints": "120"
+    },
+    {
+      "city": "Shanghai",
+      "averageEmissions": "1158",
+      "dataPoints": "120"
+    },
+    {
+      "city": "Melbourne",
+      "averageEmissions": "1156",
+      "dataPoints": "120"
+    },
+    {
+      "city": "London",
+      "averageEmissions": "1152",
+      "dataPoints": "120"
+    },
+    {
+      "city": "Tokyo",
+      "averageEmissions": "1152",
+      "dataPoints": "120"
+    }
+  ]
+}

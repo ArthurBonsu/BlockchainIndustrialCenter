@@ -1,0 +1,225 @@
+{
+  "experimentSummary": {
+    "totalCitiesRegistered": "5",
+    "totalIndustriesRegistered": "10",
+    "totalTransactions": "0",
+    "systemUptime": "80844",
+    "avgCityCompliance": "0",
+    "blockchainTransactionsExecuted": true,
+    "realDataCollected": true
+  },
+  "performanceMetrics": {
+    "systemPerformance": {
+      "totalDuration": "773190",
+      "totalTransactions": "15",
+      "successfulTransactions": "15",
+      "failedTransactions": "0",
+      "successRate": "100.00",
+      "transactionsPerSecond": "0.02",
+      "avgGasUsed": "NaN",
+      "totalGasCost": "14590860.000000"
+    },
+    "gasAnalytics": {
+      "City Registration": {
+        "count": "5",
+        "avgGasUsed": "NaN",
+        "maxGasUsed": "50000",
+        "minGasUsed": "50000",
+        "avgCostGwei": "1000000.000000",
+        "totalCostGwei": "5000000.000000"
+      },
+      "Industry Registration": {
+        "count": "10",
+        "avgGasUsed": "NaN",
+        "maxGasUsed": "25916",
+        "minGasUsed": "25880",
+        "avgCostGwei": "517960.000000",
+        "totalCostGwei": "5179600.000000"
+      },
+      "Emission Update": {
+        "count": "9",
+        "avgGasUsed": "NaN",
+        "maxGasUsed": "24507",
+        "minGasUsed": "24507",
+        "avgCostGwei": "490140.000000",
+        "totalCostGwei": "4411260.000000"
+      }
+    },
+    "recommendations": []
+  },
+  "carbonDataAnalysis": {
+    "dataOverview": {
+      "totalDataPoints": "960",
+      "citiesAnalyzed": "8",
+      "sectorsIncluded": [
+        "Aviation",
+        "Industry",
+        "Power",
+        "Ground Transport",
+        "Residential"
+      ]
+    },
+    "topEmitters": [
+      {
+        "city": "New York",
+        "averageEmissions": "1159",
+        "dataPoints": "120"
+      },
+      {
+        "city": "Shanghai",
+        "averageEmissions": "1158",
+        "dataPoints": "120"
+      },
+      {
+        "city": "Melbourne",
+        "averageEmissions": "1156",
+        "dataPoints": "120"
+      },
+      {
+        "city": "London",
+        "averageEmissions": "1152",
+        "dataPoints": "120"
+      },
+      {
+        "city": "Tokyo",
+        "averageEmissions": "1152",
+        "dataPoints": "120"
+      }
+    ],
+    "cityBaselines": {
+      "Melbourne": {
+        "averageEmissions": "1156",
+        "originalAverage": "1156",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "Sydney": {
+        "averageEmissions": "1151",
+        "originalAverage": "1151",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "Brisbane": {
+        "averageEmissions": "1147",
+        "originalAverage": "1147",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "New York": {
+        "averageEmissions": "1159",
+        "originalAverage": "1159",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "London": {
+        "averageEmissions": "1152",
+        "originalAverage": "1152",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "Tokyo": {
+        "averageEmissions": "1152",
+        "originalAverage": "1152",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "Shanghai": {
+        "averageEmissions": "1158",
+        "originalAverage": "1158",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      },
+      "Mumbai": {
+        "averageEmissions": "1151",
+        "originalAverage": "1151",
+        "dataPoints": "120",
+        "sectors": [
+          "Aviation",
+          "Industry",
+          "Power",
+          "Ground Transport",
+          "Residential"
+        ]
+      }
+    }
+  },
+  "policyRecommendations": {
+    "emissions": [
+      "Implement graduated penalty system for emission increases",
+      "Provide carbon credit incentives for significant reductions",
+      "Establish city-level baseline targets using real carbon monitor data"
+    ],
+    "trading": [
+      "Optimize AMM liquidity pools for stable carbon credit pricing",
+      "Implement Nash equilibrium detection for fair trading",
+      "Create renewal incentives for long-term compliance"
+    ],
+    "renewal": [
+      "Set renewal periods based on industry type and emission history",
+      "Provide renewal bonuses for consistent compliance",
+      "Use renewal theory to predict optimal compliance cycles"
+    ]
+  },
+  "reviewerConcerns": {
+    "scopeClarification": "This blockchain system monitors emission MANAGEMENT and regulatory compliance, NOT direct temperature impact in cities. Climate effects are long-term and complex.",
+    "renewalTheoryConnection": "Renewal theory models the cyclical nature of emission permits, compliance renewals, and trading patterns. It helps predict optimal renewal intervals and trading costs.",
+    "experimentResultsIntegration": "All three components (blockchain monitoring, renewal theory, trading analysis) work together: blockchain tracks emissions, renewal theory optimizes compliance cycles, trading provides economic incentives.",
+    "technicalContributions": [
+      "Real-time emission monitoring with carbon credit incentives",
+      "Nash equilibrium detection in carbon trading markets",
+      "Renewal theory application to compliance optimization",
+      "AMM-based pricing for carbon credit trading"
+    ],
+    "limitationsAcknowledged": "This system focuses on regulatory compliance monitoring. Actual climate impact requires long-term implementation and coordination with broader climate policies.",
+    "blockchainEvidence": "This experiment executes real blockchain transactions with verifiable on-chain data for cities, industries, emissions, and trading activities."
+  },
+  "experimentEvidence": {
+    "cityRegistrations": "5",
+    "industryRegistrations": "10",
+    "emissionUpdates": "9",
+    "tradingTransactions": "2",
+    "renewalTransactions": "2"
+  }
+}
