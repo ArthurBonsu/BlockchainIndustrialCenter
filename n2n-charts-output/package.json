@@ -1,0 +1,26 @@
+{
+  "name": "n2n-charts-test",
+  "version": "1.0.0",
+  "description": "N2N Protocol Charts Test Component",
+  "main": "N2NAnalysisDashboard.jsx",
+  "scripts": {
+    "test": "echo \"Import this component into your React app\"",
+    "install-deps": "yarn add recharts html2canvas"
+  },
+  "dependencies": {
+    "recharts": "^2.8.0",
+    "html2canvas": "^1.4.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "keywords": [
+    "n2n",
+    "blockchain",
+    "bgp",
+    "charts",
+    "recharts"
+  ],
+  "author": "N2N Protocol Team"
+}
