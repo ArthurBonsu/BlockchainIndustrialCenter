@@ -1,0 +1,14 @@
+{
+  "experiment": "throughput_scaling",
+  "scaling_data": [
+    {
+      "validator_count": 5,
+      "successful_transactions": 0,
+      "duration": 300.5670893192291,
+      "tps": 0.0
+    }
+  ],
+  "theoretical_comparison": {
+    "error": "Insufficient data for scaling analysis"
+  }
+}

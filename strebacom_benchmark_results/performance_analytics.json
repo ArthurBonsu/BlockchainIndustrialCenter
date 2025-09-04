@@ -1,0 +1,59 @@
+{
+  "transactionMetrics": [
+    {
+      "type": "Validator Registration",
+      "success": true,
+      "time": 14469,
+      "timestamp": 1756449697168
+    },
+    {
+      "type": "Stream Transaction",
+      "success": true,
+      "time": 10163,
+      "timestamp": 1756449710338
+    },
+    {
+      "type": "Stream Transaction",
+      "success": true,
+      "time": 21297,
+      "timestamp": 1756449733650
+    },
+    {
+      "type": "Stream Transaction",
+      "success": true,
+      "time": 9283,
+      "timestamp": 1756449744940
+    }
+  ],
+  "gasMetrics": [
+    {
+      "type": "Validator Registration",
+      "gasUsed": "0xc350",
+      "timestamp": 1756449697168
+    },
+    {
+      "type": "Stream Transaction",
+      "gasUsed": "0x3bdda",
+      "timestamp": 1756449710338
+    },
+    {
+      "type": "Stream Transaction",
+      "gasUsed": "0x40ba2",
+      "timestamp": 1756449733650
+    },
+    {
+      "type": "Stream Transaction",
+      "gasUsed": "0x3bdda",
+      "timestamp": 1756449744940
+    }
+  ],
+  "summary": {
+    "systemPerformance": {
+      "avgGasUsed": 201386,
+      "successRate": 100,
+      "totalTransactions": 4,
+      "architecture": "Enhanced Modular Multi-Contract with Benchmarking"
+    }
+  },
+  "architecture": "Enhanced Stream-Based Consensus with Benchmarking"
+}

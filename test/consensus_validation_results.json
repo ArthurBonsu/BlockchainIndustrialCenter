@@ -1,0 +1,107 @@
+{
+  "timestamp": "2025-08-29T18:34:45.892Z",
+  "experimentResults": [
+    {
+      "name": "Throughput Scaling",
+      "scalingResults": [
+        {
+          "transactionCount": 100,
+          "throughput": 363.84,
+          "processingTime": 275
+        },
+        {
+          "transactionCount": 500,
+          "throughput": 1701.07,
+          "processingTime": 294
+        },
+        {
+          "transactionCount": 1000,
+          "throughput": 3215.41,
+          "processingTime": 311
+        },
+        {
+          "transactionCount": 2000,
+          "throughput": 3687.6,
+          "processingTime": 542
+        }
+      ]
+    },
+    {
+      "name": "Byzantine Resilience",
+      "byzantineResults": [
+        {
+          "byzantineRatio": 0.1,
+          "consensusSuccessRate": 1,
+          "systemStability": true
+        },
+        {
+          "byzantineRatio": 0.2,
+          "consensusSuccessRate": 1,
+          "systemStability": true
+        },
+        {
+          "byzantineRatio": 0.33,
+          "consensusSuccessRate": 1,
+          "systemStability": true
+        },
+        {
+          "byzantineRatio": 0.49,
+          "consensusSuccessRate": 1,
+          "systemStability": true
+        }
+      ]
+    },
+    {
+      "name": "Finality Performance",
+      "averageFinalityTime": 238.35,
+      "medianFinalityTime": 237.99770000000717,
+      "finalityDistribution": {
+        "fast": 500,
+        "medium": 0,
+        "slow": 0
+      }
+    },
+    {
+      "name": "Network Partition Tolerance",
+      "partitionDuration": 5000,
+      "affectedNodes": 25,
+      "totalTransactions": 100,
+      "successRate": 1,
+      "partitionTolerance": true
+    },
+    {
+      "name": "Load Stress Testing",
+      "stressResults": [
+        {
+          "load": 1000,
+          "throughput": 2922.17,
+          "successRate": 1,
+          "processingTime": 342
+        },
+        {
+          "load": 2500,
+          "throughput": 2924.51,
+          "successRate": 1,
+          "processingTime": 855
+        },
+        {
+          "load": 5000,
+          "throughput": 2828.15,
+          "successRate": 1,
+          "processingTime": 1768
+        }
+      ]
+    }
+  ],
+  "systemConfiguration": {
+    "validatorCount": 50,
+    "byzantineRatio": 0.2,
+    "consensusThreshold": 0.51,
+    "finalityThreshold": 0.9,
+    "networkLatency": 100
+  },
+  "summary": {
+    "totalExperiments": 5,
+    "overallPerformance": 100
+  }
+}

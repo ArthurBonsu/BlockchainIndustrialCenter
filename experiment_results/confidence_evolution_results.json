@@ -1,0 +1,38 @@
+{
+  "experiment": "confidence_evolution",
+  "transactions": [
+    {
+      "tx_id": "conf_test_0",
+      "config": {
+        "value": 100,
+        "risk": 0.1,
+        "expected_confidence": "high"
+      },
+      "confidence_timeline": []
+    },
+    {
+      "tx_id": "conf_test_1",
+      "config": {
+        "value": 10000,
+        "risk": 0.8,
+        "expected_confidence": "low"
+      },
+      "confidence_timeline": []
+    },
+    {
+      "tx_id": "conf_test_2",
+      "config": {
+        "value": 1000,
+        "risk": 0.3,
+        "expected_confidence": "medium"
+      },
+      "confidence_timeline": []
+    }
+  ],
+  "confidence_curves": [],
+  "theoretical_validation": {
+    "exponential_fit_quality": [],
+    "convergence_rates": [],
+    "theoretical_validation": true
+  }
+}

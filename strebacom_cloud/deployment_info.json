@@ -1,0 +1,112 @@
+[
+  {
+    "node_id": "validator-0",
+    "service_name": "strebacom-validator-0",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+    "validator_type": "byzantine",
+    "reputation": 0.25,
+    "stake_weight": 1.6857317252917947,
+    "quorum_participation": 0.15,
+    "lambda_base": 8.0
+  },
+  {
+    "node_id": "validator-4",
+    "service_name": "strebacom-validator-4",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.9839646023780526,
+    "stake_weight": 4.0035815969745805,
+    "quorum_participation": 0.9518884414420704,
+    "lambda_base": 12.892534723779903
+  },
+  {
+    "node_id": "validator-3",
+    "service_name": "strebacom-validator-3",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.963897994399299,
+    "stake_weight": 4.235545787192027,
+    "quorum_participation": 0.9409395472673292,
+    "lambda_base": 13.957819213387044
+  },
+  {
+    "node_id": "validator-1",
+    "service_name": "strebacom-validator-1",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.957559646770481,
+    "stake_weight": 4.550902906738987,
+    "quorum_participation": 0.9268999373125221,
+    "lambda_base": 14.265902165564489
+  },
+  {
+    "node_id": "validator-2",
+    "service_name": "strebacom-validator-2",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.9707695181335595,
+    "stake_weight": 4.318702109504536,
+    "quorum_participation": 0.9360039832564242,
+    "lambda_base": 14.255640970143844
+  },
+  {
+    "node_id": "validator-6",
+    "service_name": "strebacom-validator-6",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.9482488918825582,
+    "stake_weight": 4.085611122393274,
+    "quorum_participation": 0.9471322702749079,
+    "lambda_base": 12.658695732190406
+  },
+  {
+    "node_id": "validator-7",
+    "service_name": "strebacom-validator-7",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.984818559412227,
+    "stake_weight": 4.1329562881435296,
+    "quorum_participation": 0.9334563760703075,
+    "lambda_base": 12.563035849718716
+  },
+  {
+    "node_id": "validator-5",
+    "service_name": "strebacom-validator-5",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.9522493842994688,
+    "stake_weight": 3.7753444998467844,
+    "quorum_participation": 0.9298248255158725,
+    "lambda_base": 14.447907426229806
+  },
+  {
+    "node_id": "validator-8",
+    "service_name": "strebacom-validator-8",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.9572518976757255,
+    "stake_weight": 4.045308000288732,
+    "quorum_participation": 0.9528578753000069,
+    "lambda_base": 14.100412852265562
+  },
+  {
+    "node_id": "validator-9",
+    "service_name": "strebacom-validator-9",
+    "region": "us-central1",
+    "url": "https://strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+    "validator_type": "honest",
+    "reputation": 0.976026513601697,
+    "stake_weight": 4.417946444171516,
+    "quorum_participation": 0.9391139086130541,
+    "lambda_base": 12.544742125968854
+  }
+]

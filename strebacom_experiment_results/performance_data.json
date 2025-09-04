@@ -1,0 +1,76 @@
+{
+  "transactionMetrics": [
+    {
+      "type": "Validator Registration",
+      "success": true,
+      "duration": 224681,
+      "timestamp": 1756488936993
+    },
+    {
+      "type": "Stream Transaction",
+      "success": true,
+      "duration": 9137,
+      "timestamp": 1756488948679
+    },
+    {
+      "type": "Stream Transaction",
+      "success": true,
+      "duration": 10186,
+      "timestamp": 1756488961211
+    },
+    {
+      "type": "Stream Transaction",
+      "success": true,
+      "duration": 10138,
+      "timestamp": 1756488973655
+    }
+  ],
+  "gasMetrics": [
+    {
+      "operation": "Validator Registration",
+      "gasUsed": 0,
+      "timestamp": 1756488936993
+    },
+    {
+      "operation": "Stream Transaction",
+      "gasUsed": 0,
+      "timestamp": 1756488948679
+    },
+    {
+      "operation": "Stream Transaction",
+      "gasUsed": 0,
+      "timestamp": 1756488961211
+    },
+    {
+      "operation": "Stream Transaction",
+      "gasUsed": 0,
+      "timestamp": 1756488973655
+    }
+  ],
+  "consensusMetrics": [],
+  "summary": {
+    "systemPerformance": {
+      "totalTransactions": 4,
+      "successRate": 100,
+      "averageDuration": 63535.5,
+      "throughput": 0.0048907767287061695
+    },
+    "gasAnalytics": {
+      "totalGasUsed": 0,
+      "avgGasUsed": 0,
+      "operationBreakdown": {
+        "Validator Registration": {
+          "total": 0,
+          "count": 1,
+          "average": 0
+        },
+        "Stream Transaction": {
+          "total": 0,
+          "count": 3,
+          "average": 0
+        }
+      }
+    },
+    "consensusMetrics": []
+  }
+}

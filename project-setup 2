@@ -128,52 +128,183 @@ blockchain-multi-industry-repo/
 │   ├── 1_initial_migration.js
 │   ├── 2_deploy_contracts.js
 │   └── (multiple initial migration files)
-├── pages/
-│   ├── index.tsx
-│   ├── _app.tsx
-│   └── transactions/
-│       └── index.tsx
-├── python/
-│   ├── BCADN/
-│   │   ├── __init__.py
-│   │   ├── bcadn_test.py
-│   │   └── bcadn_utils.py
-│   ├── N2N/
-│   │   ├── __init__.py
-│   │   ├── n2n_routing.py
-│   │   └── test_n2n_routing.py
-│   ├── blockchainworkflow.py
-│   ├── climatemodule.py
-│   ├── companymodule.py
-│   ├── emmissionsmodule.py
-│   ├── healthmodule.py
-│   ├── renewalmodule.py
-│   ├── sequencerpath.py
-│   ├── setup_blockchain.ipynb
-│   └── __init__.py
-├── scripts/
-│   ├── deploy_ethereum.js
-│   ├── deploy_polkadot.js
-│   └── measure_performance.js
-├── services/
-│   ├── blockchain-service.ts
-│   ├── contract-interactions.ts
-│   ├── cross-chain-service.ts
-│   ├── tatum-blockchain-service.ts
-│   └── transaction-processor.ts
-├── test/
-│   ├── blockchain_registry_test.js
-│   ├── climateintegration_test.js
-│   ├── passchain_flow_test.js
-│   ├── relay_chain_test.js
-│   ├── uncertaintyanalytics_test.js
-│   ├── uncertaintytest1.txt
-│   └── uncertaintytest2.txt
-├── utils/
-│   ├── contract-loader.ts
-│   ├── logger.ts
-│   ├── performance-tracker.ts
-│   └── web3-config.ts
+├───pages
+│   │   app.tsx
+│   │
+│   └───api
+├───passchain
+│       LICENSE
+│
+├───path
+│   └───to
+│       └───project
+│           └───logs
+│                   blockchain_development.log
+│
+├───pays_analysis_charts
+│       chart_10_experimental_info.png
+│       chart_1_performance_metrics_comparison.png
+│       chart_2_baseline_connection_time.png
+│       chart_3_confidence_score_distribution.png
+│       chart_4_performance_under_network_load.png
+│       chart_5_accuracy_vs_network_load.png
+│       chart_6_pays_performance_improvements.png
+│       chart_7_dual_transaction_architecture.png
+│       chart_8_network_cost_distribution.png
+│       chart_9_performance_summary.png
+│
+├───python
+│   │   BCADN.py
+│   │   BCADN2.py
+│   │   climatecomparisonvisualization.py
+│   │   climatevisualization.py
+│   │   generate_visualizations.py
+│   │   n2ndeploymentvisuals.py
+│   │   n2ngraph.txt
+│   │   n2nvisualization.py
+│   │   n2nvisualizationagain.py
+│   │   n2nvisualizationcleaner.py
+│   │   passchainbiggergraph.py
+│   │   passchainefficiencychart.py
+│   │   passchaintransmission.py
+│   │   passchainvisualchart.py
+│   │   passvisual.py
+│   │   SBCPComp.py
+│   │   SBCPCompBackup.py
+│   │   SBCPCore.py
+│   │   SBCPDist.py
+│   │   SBCPDistBackup.py
+│   │   SBCPEvaluationEngine.py
+│   │   SBCPEvaluationEngine2.py
+│   │   SBCPTest.py
+│   │   SBCPValid.py
+│   │   sequencerouterpath.py
+│   │   sequencerpath.py.py
+│   │   test_n2n_routing.py
+│   │   uncertainty.py
+│   │   virtualaccross.py
+│   │   virtualcrosschainvisuals.py
+│   │
+│   └───__pycache__
+│           blockchainworkflow.cpython-313.pyc
+│           climatemodule.cpython-313.pyc
+│           companymodule.cpython-313.pyc
+│           emmissionsmodule.cpython-313.pyc
+│           healthmodule.cpython-313.pyc
+│           renewalmodule.cpython-313.pyc
+│           __init__.cpython-313.pyc
+│
+├───renewal_vs_bcprp_comparison
+│       a_nre_gametheory_behavioral_comparison.pdf
+│       a_nre_gametheory_behavioral_comparison.png
+│       b_temperature_reduction_comparison.pdf
+│       b_temperature_reduction_comparison.png
+│       c_carbon_emission_reward_comparison.pdf
+│       c_carbon_emission_reward_comparison.png
+│       d_behavioral_rewards_comparison.pdf
+│       d_behavioral_rewards_comparison.png
+│       e_cities_climate_improvements_comparison.pdf
+│       e_cities_climate_improvements_comparison.png
+│       f_regulatory_compliance_comparison.pdf
+│       f_regulatory_compliance_comparison.png
+│       g_direct_climate_impact_comparison.pdf
+│       g_direct_climate_impact_comparison.png
+│       h_climate_modeling_integration_comparison.pdf
+│       h_climate_modeling_integration_comparison.png
+│
+├───repository
+├───results
+│   ├───bcadn_analysis
+│   │       network_analysis.json
+│   │       network_analysis.png
+│   │       network_metrics.png
+│   │       network_performance.png
+│   │       network_results.json
+│   │
+│   └───n2n_bcadn_integration
+├───sbcp_validation_results
+│       sbcp_validation_plots.png
+│       sbcp_validation_report.txt
+│       sbcp_validation_results.json
+│
+├───services
+│       tatum-blockchain-service.ts
+│
+├───service_node_results
+│   ├───data
+│   ├───figures
+│   │       cross_chain_transaction_network.png
+│   │       gas_efficiency_analysis.png
+│   │       multi_chain_routing_analysis.png
+│   │       service_node_registration_analysis.png
+│   │
+│   ├───individual_pdf_figures
+│   │       01_gas_consumption_by_industry.pdf
+│   │       02_stake_vs_processing_time.pdf
+│   │       03_processing_fee_distribution.pdf
+│   │       04_gas_efficiency_scores.pdf
+│   │       05_cross_chain_network_topology.pdf
+│   │       06_gas_vs_fees_analysis.pdf
+│   │       07_transaction_success_rate.pdf
+│   │       08_protocol_performance_matrix.pdf
+│   │       09_gas_consumption_breakdown.pdf
+│   │       10_transaction_costs_by_industry.pdf
+│   │       11_processing_time_vs_gas_correlation.pdf
+│   │       12_system_performance_overview.pdf
+│   │       13_multi_chain_routing_matrix.pdf
+│   │       14_system_scalability_projection.pdf
+│   │
+│   ├───latex_tables
+│   │       contract_deployment.tex
+│   │       cross_chain_transactions.tex
+│   │       node_registration.tex
+│   │
+│   ├───pdf_figures
+│   │       cross_chain_transaction_network.pdf
+│   │       gas_efficiency_analysis.pdf
+│   │       multi_chain_routing_analysis.pdf
+│   │       service_node_registration_analysis.pdf
+│   │
+│   ├───processed_data
+│   └───tables
+│           contract_deployment.tex
+│           cross_chain_transactions.tex
+│           node_registration.tex
+│
+├───strebacom_benchmark_results
+│       comprehensive_benchmarks.json
+│       latency_measurements.json
+│       performance_analytics.json
+│       scalability_analysis.json
+│       throughput_benchmarks.json
+│
+├───strebacom_experiment_results
+│       performance_data.json
+│       strebacom_comprehensive_results.json
+│
+├───test
+│       BCADN.js
+│       bCADNshort.js
+│       blockstream.js
+│       carbon-data-processor.js
+│       consensus_validation_results.json
+│       experiment_state.json
+│       n2n-charts-generator.js
+│       n2nrislivetestsuite.js
+│       passchain_flow_test.js
+│       passchain_story_test.js
+│       run-climate-regulation-experiment.js
+│       servicenodes.js
+│       streambasedconsensus.js
+│       streamcharge.js
+│       streamscript.js
+│       strebacom-simulation.js
+│       strebacom_experiment_state.json
+│       uncertainty.js
+│
+└───utils
+        contract-loader.ts
+        logger.ts
 ├── .eslintrc.json
 ├── deployment-script.js
 ├── global.d.ts

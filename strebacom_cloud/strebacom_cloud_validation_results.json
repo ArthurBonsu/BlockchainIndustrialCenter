@@ -1,0 +1,3118 @@
+{
+  "experiment_type": "cloud_distributed_validation_enhanced",
+  "deployment_info": {
+    "total_validators": 10,
+    "byzantine_validators": 1,
+    "regions": [
+      "us-central1"
+    ],
+    "multi_region": false
+  },
+  "paper_claims_tested": {
+    "continuous_validation_streams": true,
+    "blockless_consensus": true,
+    "linear_scalability": false,
+    "constant_time_processing": "False",
+    "near_instantaneous_finality": "True",
+    "byzantine_tolerance": true,
+    "multi_tier_finality": true,
+    "quorum_sensing": true
+  },
+  "transactions": [
+    {
+      "tx_id": "cloud_tx_0",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.004136072790063894,
+      "finality_tier": "none",
+      "processing_time": 0.3199272155761719,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_1",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3936598300933838,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_2",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9976654341581377,
+      "finality_tier": "absolute",
+      "processing_time": 0.3597118854522705,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_3",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9969055706902226,
+      "finality_tier": "absolute",
+      "processing_time": 0.37431955337524414,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_4",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9975772494782861,
+      "finality_tier": "absolute",
+      "processing_time": 0.379610538482666,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_5",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.35897016525268555,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_6",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9986798977839372,
+      "finality_tier": "absolute",
+      "processing_time": 0.32994532585144043,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_7",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7047803090811258,
+      "finality_tier": "none",
+      "processing_time": 5.888129234313965,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": false
+    },
+    {
+      "tx_id": "cloud_tx_8",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9982657890447887,
+      "finality_tier": "absolute",
+      "processing_time": 0.3341827392578125,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_9",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9895609683662009,
+      "finality_tier": "absolute",
+      "processing_time": 0.3836514949798584,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_10",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.00406112564691552,
+      "finality_tier": "none",
+      "processing_time": 0.30665111541748047,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_11",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9876775679666573,
+      "finality_tier": "absolute",
+      "processing_time": 0.36536717414855957,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_12",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9319975876172971,
+      "finality_tier": "economic",
+      "processing_time": 0.3247032165527344,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_13",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9854136211453556,
+      "finality_tier": "absolute",
+      "processing_time": 0.3585958480834961,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_14",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9484966356229112,
+      "finality_tier": "economic",
+      "processing_time": 0.35913872718811035,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_15",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5369458103542445,
+      "finality_tier": "none",
+      "processing_time": 0.35253095626831055,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_16",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7679991612206565,
+      "finality_tier": "provisional",
+      "processing_time": 0.31208205223083496,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_17",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9931163681938088,
+      "finality_tier": "absolute",
+      "processing_time": 0.3692352771759033,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_18",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5621430106222798,
+      "finality_tier": "none",
+      "processing_time": 0.33413028717041016,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_19",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9973934392657634,
+      "finality_tier": "absolute",
+      "processing_time": 0.32047343254089355,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_20",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.015756613552334042,
+      "finality_tier": "none",
+      "processing_time": 0.3709282875061035,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_21",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.605606357386881,
+      "finality_tier": "none",
+      "processing_time": 0.3439822196960449,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_22",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.985184396794481,
+      "finality_tier": "absolute",
+      "processing_time": 0.33119773864746094,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_23",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.34310197830200195,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_24",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989560473668077,
+      "finality_tier": "absolute",
+      "processing_time": 0.3187549114227295,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_25",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6018794686232044,
+      "finality_tier": "none",
+      "processing_time": 0.4643540382385254,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_26",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9868179770146173,
+      "finality_tier": "absolute",
+      "processing_time": 0.38424062728881836,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_27",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9185208294548888,
+      "finality_tier": "economic",
+      "processing_time": 0.3629789352416992,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_28",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9979415514667667,
+      "finality_tier": "absolute",
+      "processing_time": 0.41475605964660645,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_29",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3456852436065674,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_30",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0046300457669544715,
+      "finality_tier": "none",
+      "processing_time": 0.3625655174255371,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_31",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.46950208601111865,
+      "finality_tier": "none",
+      "processing_time": 0.3479158878326416,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_32",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9987477397163571,
+      "finality_tier": "absolute",
+      "processing_time": 0.3810765743255615,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_33",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9552011446261928,
+      "finality_tier": "economic",
+      "processing_time": 0.3006157875061035,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_34",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.998165442023174,
+      "finality_tier": "absolute",
+      "processing_time": 0.32016873359680176,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_35",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9236294959122869,
+      "finality_tier": "economic",
+      "processing_time": 0.31812524795532227,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_36",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9936003060062101,
+      "finality_tier": "absolute",
+      "processing_time": 0.3141655921936035,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_37",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.99857194274793,
+      "finality_tier": "absolute",
+      "processing_time": 0.3258183002471924,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_38",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9600676645132669,
+      "finality_tier": "economic",
+      "processing_time": 0.30683350563049316,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_39",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7943318488898383,
+      "finality_tier": "provisional",
+      "processing_time": 0.339522123336792,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_40",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.012586980376438461,
+      "finality_tier": "none",
+      "processing_time": 0.31497693061828613,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_41",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3213956356048584,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_42",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8411296104506566,
+      "finality_tier": "provisional",
+      "processing_time": 0.3515753746032715,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_43",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8223989402461793,
+      "finality_tier": "provisional",
+      "processing_time": 0.3425889015197754,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_44",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7856000784185819,
+      "finality_tier": "provisional",
+      "processing_time": 0.2942931652069092,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_45",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5412118845578583,
+      "finality_tier": "none",
+      "processing_time": 0.30881285667419434,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_46",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3736608028411865,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_47",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9987597741311914,
+      "finality_tier": "absolute",
+      "processing_time": 0.3446669578552246,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_48",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5636344658829522,
+      "finality_tier": "none",
+      "processing_time": 0.28875231742858887,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_49",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9896747874561425,
+      "finality_tier": "absolute",
+      "processing_time": 0.3455331325531006,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_50",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.002996007499835529,
+      "finality_tier": "none",
+      "processing_time": 0.3167285919189453,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_51",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.991844858498609,
+      "finality_tier": "absolute",
+      "processing_time": 0.31304001808166504,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_52",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9629560803690945,
+      "finality_tier": "economic",
+      "processing_time": 0.3291912078857422,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_53",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3707616329193115,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_54",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 1.0550694465637207,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": false
+    },
+    {
+      "tx_id": "cloud_tx_55",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9894605823178224,
+      "finality_tier": "absolute",
+      "processing_time": 0.3620889186859131,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_56",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9729845811457825,
+      "finality_tier": "economic",
+      "processing_time": 0.35668301582336426,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_57",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9950112157822729,
+      "finality_tier": "absolute",
+      "processing_time": 0.33565187454223633,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_58",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3273634910583496,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_59",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.38180112838745117,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_60",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0009696503178783233,
+      "finality_tier": "none",
+      "processing_time": 0.3068406581878662,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_61",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9970176216932058,
+      "finality_tier": "absolute",
+      "processing_time": 0.32267022132873535,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_62",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7603213567273239,
+      "finality_tier": "provisional",
+      "processing_time": 0.3556864261627197,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_63",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9643348431359048,
+      "finality_tier": "economic",
+      "processing_time": 0.3306703567504883,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_64",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9782538418271058,
+      "finality_tier": "economic",
+      "processing_time": 0.3615274429321289,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_65",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9693078976012334,
+      "finality_tier": "economic",
+      "processing_time": 0.3341357707977295,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_66",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9836705480172373,
+      "finality_tier": "absolute",
+      "processing_time": 0.314532995223999,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_67",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7511690209393466,
+      "finality_tier": "provisional",
+      "processing_time": 0.35324668884277344,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_68",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9984911588057159,
+      "finality_tier": "absolute",
+      "processing_time": 0.38749074935913086,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_69",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9949805243388261,
+      "finality_tier": "absolute",
+      "processing_time": 0.38950109481811523,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_70",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.003331033507501302,
+      "finality_tier": "none",
+      "processing_time": 0.3643524646759033,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_71",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8894194971200695,
+      "finality_tier": "provisional",
+      "processing_time": 0.3604300022125244,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_72",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9722085483534023,
+      "finality_tier": "economic",
+      "processing_time": 0.3293933868408203,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_73",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.977766055502778,
+      "finality_tier": "economic",
+      "processing_time": 0.3532729148864746,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_74",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9901870480686866,
+      "finality_tier": "absolute",
+      "processing_time": 0.3342247009277344,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_75",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3291492462158203,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_76",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7763619939180965,
+      "finality_tier": "provisional",
+      "processing_time": 0.34302425384521484,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_77",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.962842901529856,
+      "finality_tier": "economic",
+      "processing_time": 0.36788249015808105,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_78",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.578791182485642,
+      "finality_tier": "none",
+      "processing_time": 0.2962307929992676,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_79",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8934271061544677,
+      "finality_tier": "provisional",
+      "processing_time": 0.30706214904785156,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_80",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.013463500600544465,
+      "finality_tier": "none",
+      "processing_time": 0.3115525245666504,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_81",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9156609649040423,
+      "finality_tier": "economic",
+      "processing_time": 0.33096766471862793,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_82",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5727098334585174,
+      "finality_tier": "none",
+      "processing_time": 0.3409140110015869,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_83",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989288268232688,
+      "finality_tier": "absolute",
+      "processing_time": 0.3175475597381592,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_84",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.900419242774262,
+      "finality_tier": "economic",
+      "processing_time": 0.2930312156677246,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_85",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6245729727224153,
+      "finality_tier": "none",
+      "processing_time": 0.3514437675476074,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_86",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.42751237296290145,
+      "finality_tier": "none",
+      "processing_time": 0.3403658866882324,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_87",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9035490734334947,
+      "finality_tier": "economic",
+      "processing_time": 0.30225205421447754,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_88",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9718878868817981,
+      "finality_tier": "economic",
+      "processing_time": 0.3261411190032959,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_89",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9754997048642668,
+      "finality_tier": "economic",
+      "processing_time": 0.3355870246887207,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_90",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0003453640015139703,
+      "finality_tier": "none",
+      "processing_time": 0.3013579845428467,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_91",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9968060364300477,
+      "finality_tier": "absolute",
+      "processing_time": 0.3722352981567383,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_92",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6484646372103126,
+      "finality_tier": "none",
+      "processing_time": 0.3473637104034424,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_93",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9873499569574097,
+      "finality_tier": "absolute",
+      "processing_time": 0.35952234268188477,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_94",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9979308759621095,
+      "finality_tier": "absolute",
+      "processing_time": 0.3408217430114746,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_95",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5946175464176897,
+      "finality_tier": "none",
+      "processing_time": 0.43073391914367676,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_96",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9981406144201743,
+      "finality_tier": "absolute",
+      "processing_time": 0.3906853199005127,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_97",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9926268862558568,
+      "finality_tier": "absolute",
+      "processing_time": 0.36744213104248047,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_98",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9803673956930326,
+      "finality_tier": "absolute",
+      "processing_time": 0.3543541431427002,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_99",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32454657554626465,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_100",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0031443258621767223,
+      "finality_tier": "none",
+      "processing_time": 0.30660104751586914,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_101",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3270583152770996,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_102",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.47349704919120794,
+      "finality_tier": "none",
+      "processing_time": 0.3080165386199951,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_103",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6632889294989306,
+      "finality_tier": "none",
+      "processing_time": 0.29071474075317383,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_104",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5522178730229726,
+      "finality_tier": "none",
+      "processing_time": 0.33785533905029297,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_105",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5600998536968909,
+      "finality_tier": "none",
+      "processing_time": 0.3419008255004883,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_106",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9569070440943085,
+      "finality_tier": "economic",
+      "processing_time": 0.32747817039489746,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_107",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9984566465759847,
+      "finality_tier": "absolute",
+      "processing_time": 0.32326793670654297,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_108",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.878779585402432,
+      "finality_tier": "provisional",
+      "processing_time": 0.3472309112548828,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_109",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.98755477437811,
+      "finality_tier": "absolute",
+      "processing_time": 0.3656656742095947,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_110",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.008481117604694721,
+      "finality_tier": "none",
+      "processing_time": 0.3102834224700928,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_111",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9636429739838539,
+      "finality_tier": "economic",
+      "processing_time": 0.307326078414917,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_112",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9988962248507763,
+      "finality_tier": "absolute",
+      "processing_time": 0.3432435989379883,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_113",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.369457483291626,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_114",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7973626126718683,
+      "finality_tier": "provisional",
+      "processing_time": 0.35773253440856934,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_115",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9905601881107174,
+      "finality_tier": "absolute",
+      "processing_time": 0.33153700828552246,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_116",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9928183856779444,
+      "finality_tier": "absolute",
+      "processing_time": 0.3641488552093506,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_117",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6065509603514714,
+      "finality_tier": "none",
+      "processing_time": 0.3388082981109619,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_118",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9915880122976655,
+      "finality_tier": "absolute",
+      "processing_time": 0.3585200309753418,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_119",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9087197669304375,
+      "finality_tier": "economic",
+      "processing_time": 0.36795783042907715,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_120",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.002015632449549387,
+      "finality_tier": "none",
+      "processing_time": 0.3275578022003174,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_121",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39661359786987305,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_122",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9786730821843512,
+      "finality_tier": "economic",
+      "processing_time": 0.3714869022369385,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_123",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9767354329476672,
+      "finality_tier": "economic",
+      "processing_time": 0.3672811985015869,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_124",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7828720074406809,
+      "finality_tier": "provisional",
+      "processing_time": 0.3541910648345947,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_125",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5655984699300847,
+      "finality_tier": "none",
+      "processing_time": 0.3604307174682617,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_126",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.86285041356353,
+      "finality_tier": "provisional",
+      "processing_time": 0.36637449264526367,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_127",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9366643152229555,
+      "finality_tier": "economic",
+      "processing_time": 0.3729243278503418,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_128",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6275732279244253,
+      "finality_tier": "none",
+      "processing_time": 0.3081674575805664,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_129",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3772604465484619,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_130",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0008501740712849593,
+      "finality_tier": "none",
+      "processing_time": 0.3088812828063965,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_131",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3752005100250244,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_132",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.947202696710482,
+      "finality_tier": "economic",
+      "processing_time": 0.3604922294616699,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_133",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.788745972740599,
+      "finality_tier": "provisional",
+      "processing_time": 0.3136603832244873,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_134",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8280692231558955,
+      "finality_tier": "provisional",
+      "processing_time": 0.3497018814086914,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_135",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9934816209767718,
+      "finality_tier": "absolute",
+      "processing_time": 1.2688603401184082,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": false
+    },
+    {
+      "tx_id": "cloud_tx_136",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9866257768289236,
+      "finality_tier": "absolute",
+      "processing_time": 0.3085010051727295,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_137",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9445590188489155,
+      "finality_tier": "economic",
+      "processing_time": 0.3553428649902344,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_138",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989114645148408,
+      "finality_tier": "absolute",
+      "processing_time": 0.3488576412200928,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_139",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.876934880103731,
+      "finality_tier": "provisional",
+      "processing_time": 0.2993659973144531,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_140",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0020770305304164127,
+      "finality_tier": "none",
+      "processing_time": 0.290834903717041,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_141",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9579713470938881,
+      "finality_tier": "economic",
+      "processing_time": 0.359236478805542,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_142",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6407174186603137,
+      "finality_tier": "none",
+      "processing_time": 0.3134348392486572,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_143",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9149483460271393,
+      "finality_tier": "economic",
+      "processing_time": 0.29930591583251953,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_144",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.985533990552741,
+      "finality_tier": "absolute",
+      "processing_time": 0.30882883071899414,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_145",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9952242000999737,
+      "finality_tier": "absolute",
+      "processing_time": 0.36883544921875,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_146",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989364508112621,
+      "finality_tier": "absolute",
+      "processing_time": 0.36611104011535645,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_147",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5487198475423762,
+      "finality_tier": "none",
+      "processing_time": 0.310863733291626,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_148",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.820655029644938,
+      "finality_tier": "provisional",
+      "processing_time": 0.2969193458557129,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_149",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.42018720571497825,
+      "finality_tier": "none",
+      "processing_time": 0.2932143211364746,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_150",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.005884024026470813,
+      "finality_tier": "none",
+      "processing_time": 0.35579872131347656,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_151",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6234561178139659,
+      "finality_tier": "none",
+      "processing_time": 0.29139184951782227,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_152",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9062768850990814,
+      "finality_tier": "economic",
+      "processing_time": 0.3229334354400635,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_153",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9745402229799559,
+      "finality_tier": "economic",
+      "processing_time": 0.3054771423339844,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_154",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3319432735443115,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_155",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5288493683083734,
+      "finality_tier": "none",
+      "processing_time": 0.29404187202453613,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_156",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9362740947424456,
+      "finality_tier": "economic",
+      "processing_time": 0.2996659278869629,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_157",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9440596691785975,
+      "finality_tier": "economic",
+      "processing_time": 0.31101155281066895,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_158",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9821037937403927,
+      "finality_tier": "absolute",
+      "processing_time": 0.35359716415405273,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_159",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8849920518466137,
+      "finality_tier": "provisional",
+      "processing_time": 0.30994367599487305,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_160",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.011387753711765147,
+      "finality_tier": "none",
+      "processing_time": 0.3602468967437744,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_161",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9957657784121029,
+      "finality_tier": "absolute",
+      "processing_time": 0.3140280246734619,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_162",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7527430290511171,
+      "finality_tier": "provisional",
+      "processing_time": 0.3158600330352783,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_163",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.996168555197892,
+      "finality_tier": "absolute",
+      "processing_time": 0.3142125606536865,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_164",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9926916125523373,
+      "finality_tier": "absolute",
+      "processing_time": 0.3261082172393799,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_165",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7761144581944326,
+      "finality_tier": "provisional",
+      "processing_time": 0.30124354362487793,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_166",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9682932697164319,
+      "finality_tier": "economic",
+      "processing_time": 0.29975032806396484,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_167",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9970206486704133,
+      "finality_tier": "absolute",
+      "processing_time": 0.37185144424438477,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_168",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.45006613080838676,
+      "finality_tier": "none",
+      "processing_time": 0.3306920528411865,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_169",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5780212360763913,
+      "finality_tier": "none",
+      "processing_time": 0.3418393135070801,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_170",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.004392563683597195,
+      "finality_tier": "none",
+      "processing_time": 0.29968905448913574,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_171",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9984798089934834,
+      "finality_tier": "absolute",
+      "processing_time": 0.3566782474517822,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_172",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9968517542453125,
+      "finality_tier": "absolute",
+      "processing_time": 0.3391282558441162,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_173",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6094246515952275,
+      "finality_tier": "none",
+      "processing_time": 0.30772948265075684,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_174",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.4871383583248945,
+      "finality_tier": "none",
+      "processing_time": 0.28420424461364746,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_175",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6374847393885987,
+      "finality_tier": "none",
+      "processing_time": 0.3451387882232666,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_176",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9044472612679804,
+      "finality_tier": "economic",
+      "processing_time": 0.31659507751464844,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_177",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8747292901986122,
+      "finality_tier": "provisional",
+      "processing_time": 0.35357165336608887,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_178",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9535620716239636,
+      "finality_tier": "economic",
+      "processing_time": 0.3486917018890381,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_179",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9741226818892247,
+      "finality_tier": "economic",
+      "processing_time": 0.33103299140930176,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_180",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0029520067425991003,
+      "finality_tier": "none",
+      "processing_time": 0.34452342987060547,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_181",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9927152138490702,
+      "finality_tier": "absolute",
+      "processing_time": 0.36668944358825684,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_182",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3470590114593506,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_183",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3267025947570801,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_184",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32526302337646484,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_185",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9819589000782967,
+      "finality_tier": "absolute",
+      "processing_time": 0.3145465850830078,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_186",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8117117479345665,
+      "finality_tier": "provisional",
+      "processing_time": 0.2950460910797119,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_187",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9976153506104799,
+      "finality_tier": "absolute",
+      "processing_time": 0.3771543502807617,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_188",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8259437115732469,
+      "finality_tier": "provisional",
+      "processing_time": 0.2966043949127197,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_189",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9282872346647675,
+      "finality_tier": "economic",
+      "processing_time": 0.32133936882019043,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_190",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.007497291079733848,
+      "finality_tier": "none",
+      "processing_time": 0.3232746124267578,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_191",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9864610228535999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32608938217163086,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_192",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9986249063819114,
+      "finality_tier": "absolute",
+      "processing_time": 0.3496842384338379,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_193",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.4808543163524004,
+      "finality_tier": "none",
+      "processing_time": 0.31303906440734863,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_194",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3221616744995117,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_195",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8132409124238339,
+      "finality_tier": "provisional",
+      "processing_time": 0.327470064163208,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_196",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8876632268619672,
+      "finality_tier": "provisional",
+      "processing_time": 0.30344080924987793,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_197",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.48054253235515,
+      "finality_tier": "none",
+      "processing_time": 0.30332422256469727,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_198",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9761497633189518,
+      "finality_tier": "economic",
+      "processing_time": 0.3172464370727539,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_199",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5536371392652302,
+      "finality_tier": "none",
+      "processing_time": 0.3642754554748535,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_200",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.011203515541202247,
+      "finality_tier": "none",
+      "processing_time": 0.3274846076965332,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_201",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3263397216796875,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_202",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9848504529423668,
+      "finality_tier": "absolute",
+      "processing_time": 0.3317148685455322,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_203",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9788623643808191,
+      "finality_tier": "economic",
+      "processing_time": 0.35504579544067383,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_204",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7782764588697952,
+      "finality_tier": "provisional",
+      "processing_time": 0.30794692039489746,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_205",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9948525706176423,
+      "finality_tier": "absolute",
+      "processing_time": 0.33213090896606445,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_206",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9728354600408898,
+      "finality_tier": "economic",
+      "processing_time": 0.3055281639099121,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_207",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9196162682155125,
+      "finality_tier": "economic",
+      "processing_time": 0.3244938850402832,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_208",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7718585170330471,
+      "finality_tier": "provisional",
+      "processing_time": 0.34648847579956055,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_209",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9981560043154933,
+      "finality_tier": "absolute",
+      "processing_time": 0.3482637405395508,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_210",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0006170192535761565,
+      "finality_tier": "none",
+      "processing_time": 0.3035728931427002,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_211",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8005819903463982,
+      "finality_tier": "provisional",
+      "processing_time": 0.3579738140106201,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_212",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9921012145469738,
+      "finality_tier": "absolute",
+      "processing_time": 0.3349173069000244,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_213",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.994461216285958,
+      "finality_tier": "absolute",
+      "processing_time": 0.32686281204223633,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_214",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7814005766439341,
+      "finality_tier": "provisional",
+      "processing_time": 0.9112157821655273,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_215",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3302431106567383,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_216",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9742723970564059,
+      "finality_tier": "economic",
+      "processing_time": 0.35335803031921387,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_217",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9952371482096635,
+      "finality_tier": "absolute",
+      "processing_time": 0.3352186679840088,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_218",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8606870403632823,
+      "finality_tier": "provisional",
+      "processing_time": 1.2250514030456543,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": false
+    },
+    {
+      "tx_id": "cloud_tx_219",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5771608834220641,
+      "finality_tier": "none",
+      "processing_time": 0.2907853126525879,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_220",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0004796966717167672,
+      "finality_tier": "none",
+      "processing_time": 0.2905924320220947,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_221",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6094660363440967,
+      "finality_tier": "none",
+      "processing_time": 0.29007983207702637,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_222",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9690994490432593,
+      "finality_tier": "economic",
+      "processing_time": 0.3297586441040039,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_223",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9934275445627179,
+      "finality_tier": "absolute",
+      "processing_time": 0.31139349937438965,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_224",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9744894469670861,
+      "finality_tier": "economic",
+      "processing_time": 0.3538954257965088,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_225",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9752295947513983,
+      "finality_tier": "economic",
+      "processing_time": 0.3251502513885498,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_226",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8588329409753034,
+      "finality_tier": "provisional",
+      "processing_time": 0.2965576648712158,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_227",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7965607412456129,
+      "finality_tier": "provisional",
+      "processing_time": 0.3470442295074463,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_228",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8270499947197252,
+      "finality_tier": "provisional",
+      "processing_time": 0.2885563373565674,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_229",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.987966917368443,
+      "finality_tier": "absolute",
+      "processing_time": 0.33992457389831543,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_230",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0051876349310110426,
+      "finality_tier": "none",
+      "processing_time": 0.3091754913330078,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_231",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6014476303215759,
+      "finality_tier": "none",
+      "processing_time": 0.28769850730895996,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_232",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9422328878163964,
+      "finality_tier": "economic",
+      "processing_time": 0.32562875747680664,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_233",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9088428412216771,
+      "finality_tier": "economic",
+      "processing_time": 0.36150574684143066,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_234",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3312697410583496,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_235",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9977557452422734,
+      "finality_tier": "absolute",
+      "processing_time": 0.335895299911499,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_236",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9797033494969443,
+      "finality_tier": "economic",
+      "processing_time": 0.3081932067871094,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_237",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9890852326316921,
+      "finality_tier": "absolute",
+      "processing_time": 0.3199119567871094,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_238",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8711535190916406,
+      "finality_tier": "provisional",
+      "processing_time": 0.2968010902404785,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_239",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9581840205564957,
+      "finality_tier": "economic",
+      "processing_time": 0.362290620803833,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_240",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.003624459211437725,
+      "finality_tier": "none",
+      "processing_time": 0.31201934814453125,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_241",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9961958242975099,
+      "finality_tier": "absolute",
+      "processing_time": 0.3670804500579834,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_242",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.757653097724351,
+      "finality_tier": "provisional",
+      "processing_time": 0.31937098503112793,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_243",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37227630615234375,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_244",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9978762386760036,
+      "finality_tier": "absolute",
+      "processing_time": 0.3721027374267578,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_245",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37407946586608887,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_246",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9617661590770298,
+      "finality_tier": "economic",
+      "processing_time": 0.3058619499206543,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_247",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9834001953119262,
+      "finality_tier": "absolute",
+      "processing_time": 0.3325982093811035,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_248",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.463617436355961,
+      "finality_tier": "none",
+      "processing_time": 0.3287949562072754,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_249",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32914090156555176,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_250",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.002794335514213042,
+      "finality_tier": "none",
+      "processing_time": 0.3043375015258789,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_251",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8919547487760799,
+      "finality_tier": "provisional",
+      "processing_time": 0.31054162979125977,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_252",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989391580499112,
+      "finality_tier": "absolute",
+      "processing_time": 0.35397958755493164,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_253",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8219657829377465,
+      "finality_tier": "provisional",
+      "processing_time": 0.35547685623168945,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_254",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.993923329051369,
+      "finality_tier": "absolute",
+      "processing_time": 0.33533382415771484,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_255",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.531009969709733,
+      "finality_tier": "none",
+      "processing_time": 0.30553412437438965,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_256",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7632473634718213,
+      "finality_tier": "provisional",
+      "processing_time": 0.3217902183532715,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_257",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989102196229046,
+      "finality_tier": "absolute",
+      "processing_time": 0.33225035667419434,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_258",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9989318050747233,
+      "finality_tier": "absolute",
+      "processing_time": 0.37685537338256836,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_259",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.46899459048956893,
+      "finality_tier": "none",
+      "processing_time": 0.2915661334991455,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_260",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.011054171835231164,
+      "finality_tier": "none",
+      "processing_time": 0.3417320251464844,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_261",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9074872414914902,
+      "finality_tier": "economic",
+      "processing_time": 0.320035457611084,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_262",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3834099769592285,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_263",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9645780129341787,
+      "finality_tier": "economic",
+      "processing_time": 0.30266690254211426,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_264",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.562191835757551,
+      "finality_tier": "none",
+      "processing_time": 0.3038933277130127,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_265",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37540268898010254,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_266",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9925839975916609,
+      "finality_tier": "absolute",
+      "processing_time": 0.36235690116882324,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_267",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9862853713194167,
+      "finality_tier": "absolute",
+      "processing_time": 0.3348574638366699,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_268",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9399801608444391,
+      "finality_tier": "economic",
+      "processing_time": 0.34998440742492676,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_269",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9631852208852679,
+      "finality_tier": "economic",
+      "processing_time": 0.32177114486694336,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_270",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0052244085544917995,
+      "finality_tier": "none",
+      "processing_time": 0.357464075088501,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_271",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8706632012345791,
+      "finality_tier": "provisional",
+      "processing_time": 0.3219161033630371,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_272",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7011994355517163,
+      "finality_tier": "none",
+      "processing_time": 0.3453185558319092,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_273",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9768470197230436,
+      "finality_tier": "economic",
+      "processing_time": 0.35554981231689453,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_274",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9935146705073692,
+      "finality_tier": "absolute",
+      "processing_time": 0.36532092094421387,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_275",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3744833469390869,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_276",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36890196800231934,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_277",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9542446588535846,
+      "finality_tier": "economic",
+      "processing_time": 0.35785603523254395,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_278",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7772961544707644,
+      "finality_tier": "provisional",
+      "processing_time": 0.31219959259033203,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_279",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9892244422169916,
+      "finality_tier": "absolute",
+      "processing_time": 0.36481165885925293,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_280",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.007370704912829429,
+      "finality_tier": "none",
+      "processing_time": 0.353884220123291,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_281",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7909822020875632,
+      "finality_tier": "provisional",
+      "processing_time": 0.3618466854095459,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_282",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.38535003673957835,
+      "finality_tier": "none",
+      "processing_time": 0.3079216480255127,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_283",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9969481015702202,
+      "finality_tier": "absolute",
+      "processing_time": 0.33597230911254883,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_284",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.5939660771730705,
+      "finality_tier": "none",
+      "processing_time": 0.34681153297424316,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_285",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9819707829948044,
+      "finality_tier": "absolute",
+      "processing_time": 0.31607532501220703,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_286",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.953246492357515,
+      "finality_tier": "economic",
+      "processing_time": 0.30344486236572266,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_287",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9629838019770148,
+      "finality_tier": "economic",
+      "processing_time": 0.3638288974761963,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_288",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9791388938381328,
+      "finality_tier": "economic",
+      "processing_time": 0.3069930076599121,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_289",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9961474009047909,
+      "finality_tier": "absolute",
+      "processing_time": 0.3706669807434082,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_290",
+      "entry_validator": "strebacom-validator-0-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.0030199163622891545,
+      "finality_tier": "none",
+      "processing_time": 0.3140745162963867,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_291",
+      "entry_validator": "strebacom-validator-4-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.8793523521171844,
+      "finality_tier": "provisional",
+      "processing_time": 0.3597228527069092,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_292",
+      "entry_validator": "strebacom-validator-3-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9373477547822514,
+      "finality_tier": "economic",
+      "processing_time": 0.3262176513671875,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_293",
+      "entry_validator": "strebacom-validator-1-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.6954815091331265,
+      "finality_tier": "none",
+      "processing_time": 0.29320406913757324,
+      "consensus_achieved": false,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_294",
+      "entry_validator": "strebacom-validator-2-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.7862038570595979,
+      "finality_tier": "provisional",
+      "processing_time": 0.3432741165161133,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_295",
+      "entry_validator": "strebacom-validator-6-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9570837137338578,
+      "finality_tier": "economic",
+      "processing_time": 0.3208644390106201,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_296",
+      "entry_validator": "strebacom-validator-7-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9898670399035336,
+      "finality_tier": "absolute",
+      "processing_time": 0.3221583366394043,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_297",
+      "entry_validator": "strebacom-validator-5-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9353322932182683,
+      "finality_tier": "economic",
+      "processing_time": 0.376023530960083,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_298",
+      "entry_validator": "strebacom-validator-8-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.882880366345671,
+      "finality_tier": "provisional",
+      "processing_time": 0.372730016708374,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    },
+    {
+      "tx_id": "cloud_tx_299",
+      "entry_validator": "strebacom-validator-9-lev2gdpyda-uc.a.run.app",
+      "confidence": 0.9604758728337873,
+      "finality_tier": "economic",
+      "processing_time": 0.4020724296569824,
+      "consensus_achieved": true,
+      "continuous_validation": true,
+      "near_instantaneous": true
+    }
+  ],
+  "performance_metrics": {
+    "total_time": 122.88417887687683,
+    "successful_transactions": 300,
+    "success_rate": 1.0,
+    "throughput_tps": 2.441323225999528,
+    "average_confidence": 0.795725733047552,
+    "confidence_std": 0.3042173165132171,
+    "average_processing_time": 0.3655462408065796,
+    "processing_time_std": 0.3332075168188524,
+    "constant_time_processing": "False",
+    "validator_load_distribution": {
+      "https://strebacom-validator-0-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-4-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-3-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-1-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-2-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-6-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-7-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-5-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-8-lev2gdpyda-uc.a.run.app": 30,
+      "https://strebacom-validator-9-lev2gdpyda-uc.a.run.app": 30
+    },
+    "p95_processing_time": 0.3836809515953064,
+    "p99_processing_time": 1.0567692661285384
+  },
+  "consensus_analysis": {
+    "total_finality_rate": 0.75,
+    "finality_distribution": {
+      "provisional": 45,
+      "economic": 64,
+      "absolute": 116,
+      "none": 75
+    },
+    "provisional_rate": 0.15,
+    "economic_rate": 0.21333333333333335,
+    "absolute_rate": 0.38666666666666666,
+    "consensus_efficiency": 1.0,
+    "byzantine_resilience": 0.1,
+    "average_finality_confidence": 0.9477600130358127
+  },
+  "scalability_analysis": {
+    "scalability_data": [
+      {
+        "validator_count": 1,
+        "successful_transactions": 0.0,
+        "processing_time": 0.0002319812774658203,
+        "throughput": 0.0,
+        "average_confidence": 0.0,
+        "iterations": 3
+      },
+      {
+        "validator_count": 2,
+        "successful_transactions": 0.0,
+        "processing_time": 0.0002235571543375651,
+        "throughput": 0.0,
+        "average_confidence": 0.0,
+        "iterations": 3
+      },
+      {
+        "validator_count": 3,
+        "successful_transactions": 0.0,
+        "processing_time": 0.00021251042683919272,
+        "throughput": 0.0,
+        "average_confidence": 0.0,
+        "iterations": 3
+      },
+      {
+        "validator_count": 5,
+        "successful_transactions": 0.0,
+        "processing_time": 0.0001796881357828776,
+        "throughput": 0.0,
+        "average_confidence": 0.0,
+        "iterations": 3
+      },
+      {
+        "validator_count": 7,
+        "successful_transactions": 0.0,
+        "processing_time": 0.00015823046366373697,
+        "throughput": 0.0,
+        "average_confidence": 0.0,
+        "iterations": 3
+      },
+      {
+        "validator_count": 10,
+        "successful_transactions": 0.0,
+        "processing_time": 0.0001475811004638672,
+        "throughput": 0.0,
+        "average_confidence": 0.0,
+        "iterations": 3
+      }
+    ],
+    "error": "Insufficient data for correlation analysis"
+  },
+  "network_analysis": {},
+  "validator_metrics": {}
+}

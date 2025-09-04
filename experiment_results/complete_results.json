@@ -1,0 +1,80 @@
+{
+  "experiment_config": {
+    "num_validators": 5,
+    "byzantine_fraction": 0.2,
+    "num_transactions": 100,
+    "transaction_rate": 10.0,
+    "network_latency_ms": 50.0,
+    "experiment_duration": 300,
+    "use_docker": false,
+    "validator_base_port": 8000,
+    "results_dir": "./experiment_results"
+  },
+  "total_duration": 24120.335325956345,
+  "results": {
+    "confidence_evolution": {
+      "experiment": "confidence_evolution",
+      "transactions": [
+        {
+          "tx_id": "conf_test_0",
+          "config": {
+            "value": 100,
+            "risk": 0.1,
+            "expected_confidence": "high"
+          },
+          "confidence_timeline": []
+        },
+        {
+          "tx_id": "conf_test_1",
+          "config": {
+            "value": 10000,
+            "risk": 0.8,
+            "expected_confidence": "low"
+          },
+          "confidence_timeline": []
+        },
+        {
+          "tx_id": "conf_test_2",
+          "config": {
+            "value": 1000,
+            "risk": 0.3,
+            "expected_confidence": "medium"
+          },
+          "confidence_timeline": []
+        }
+      ],
+      "confidence_curves": [],
+      "theoretical_validation": {
+        "exponential_fit_quality": [],
+        "convergence_rates": [],
+        "theoretical_validation": true
+      }
+    },
+    "throughput_scaling": {
+      "experiment": "throughput_scaling",
+      "scaling_data": [
+        {
+          "validator_count": 5,
+          "successful_transactions": 0,
+          "duration": 300.5670893192291,
+          "tps": 0.0
+        }
+      ],
+      "theoretical_comparison": {
+        "error": "Insufficient data for scaling analysis"
+      }
+    },
+    "byzantine_resilience": {
+      "error": "coroutine ignored GeneratorExit"
+    },
+    "network_latency_impact": {
+      "error": "no running event loop"
+    },
+    "fraud_detection": {
+      "error": "no running event loop"
+    },
+    "consensus_convergence": {
+      "error": "no running event loop"
+    }
+  }
+}

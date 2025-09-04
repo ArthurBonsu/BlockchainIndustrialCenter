@@ -1,0 +1,8 @@
+flask==2.3.3
+aiohttp==3.8.6
+numpy==1.24.3
+requests==2.31.0
+google-cloud-run==0.10.3
+google-auth==2.23.3
+werkzeug==2.3.7
+gunicorn==21.2.0

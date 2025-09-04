@@ -1,0 +1,1668 @@
+{
+  "experiment_type": "local_strebacom_validation",
+  "paper_claims": {
+    "continuous_validation": true,
+    "blockless_consensus": true,
+    "distributed_validators": 10,
+    "byzantine_tolerance": 0.2
+  },
+  "transactions": [
+    {
+      "tx_id": "strebacom_tx_0",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.2806398868560791,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_1",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3640756607055664,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_2",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43713951110839844,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_3",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3779444694519043,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_4",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39384984970092773,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_5",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.35744810104370117,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_6",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3736765384674072,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_7",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.45522141456604004,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_8",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3560662269592285,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_9",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3920309543609619,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_10",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40593433380126953,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_11",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36079978942871094,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_12",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3979222774505615,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_13",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39089298248291016,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_14",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4093763828277588,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_15",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37357592582702637,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_16",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.34555888175964355,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_17",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3293952941894531,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_18",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.35030651092529297,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_19",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43881916999816895,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_20",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40308403968811035,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_21",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3767108917236328,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_22",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3909952640533447,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_23",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4041323661804199,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_24",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.45728611946105957,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_25",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4071946144104004,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_26",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3739907741546631,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_27",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.29321980476379395,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_28",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.34372901916503906,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_29",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.390408992767334,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_30",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32790088653564453,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_31",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3584563732147217,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_32",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4176759719848633,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_33",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3916802406311035,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_34",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36041855812072754,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_35",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3082880973815918,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_36",
+      "confidence": 0.0,
+      "finality_tier": "none",
+      "processing_time": 0.346508264541626,
+      "validator_count": 10,
+      "consensus_achieved": false
+    },
+    {
+      "tx_id": "strebacom_tx_37",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3780629634857178,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_38",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39138221740722656,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_39",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39110541343688965,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_40",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39392828941345215,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_41",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4275388717651367,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_42",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39104270935058594,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_43",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3305017948150635,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_44",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3593626022338867,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_45",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43816423416137695,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_46",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37517619132995605,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_47",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39562177658081055,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_48",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.44074392318725586,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_49",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3737363815307617,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_50",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37604665756225586,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_51",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4396703243255615,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_52",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.360607385635376,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_53",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.45390892028808594,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_54",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3297433853149414,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_55",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36351823806762695,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_56",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42102789878845215,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_57",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.435957670211792,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_58",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37921714782714844,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_59",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4082322120666504,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_60",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3876032829284668,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_61",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3759500980377197,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_62",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3565034866333008,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_63",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.44169163703918457,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_64",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42392587661743164,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_65",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39443373680114746,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_66",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3481473922729492,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_67",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3898947238922119,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_68",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4035978317260742,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_69",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.46564650535583496,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_70",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.2852299213409424,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_71",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43535590171813965,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_72",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.38905882835388184,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_73",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.47656750679016113,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_74",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.346515417098999,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_75",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4241220951080322,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_76",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32869958877563477,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_77",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32809019088745117,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_78",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43548059463500977,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_79",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4080193042755127,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_80",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37450432777404785,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_81",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3893702030181885,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_82",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37552738189697266,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_83",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39745092391967773,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_84",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42272067070007324,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_85",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3450758457183838,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_86",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37725305557250977,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_87",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4038732051849365,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_88",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.41170549392700195,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_89",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3796517848968506,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_90",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4259982109069824,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_91",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36043405532836914,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_92",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3784477710723877,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_93",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40242791175842285,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_94",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42005252838134766,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_95",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3568572998046875,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_96",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4220442771911621,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_97",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43755412101745605,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_98",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.35868048667907715,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_99",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39621758460998535,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_100",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.45249485969543457,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_101",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36156725883483887,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_102",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39063596725463867,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_103",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.43445491790771484,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_104",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.31429052352905273,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_105",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4422647953033447,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_106",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.29720640182495117,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_107",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3267796039581299,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_108",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4196622371673584,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_109",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4913671016693115,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_110",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.45102930068969727,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_111",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.38431429862976074,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_112",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4266486167907715,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_113",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.404573917388916,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_114",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.38854193687438965,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_115",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.45357322692871094,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_116",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.35887932777404785,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_117",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.35489535331726074,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_118",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3937075138092041,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_119",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4365556240081787,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_120",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.363231897354126,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_121",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4248800277709961,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_122",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4330472946166992,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_123",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3930230140686035,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_124",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39319944381713867,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_125",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39036059379577637,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_126",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4212210178375244,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_127",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4703965187072754,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_128",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3187723159790039,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_129",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3788330554962158,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_130",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36070942878723145,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_131",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3775653839111328,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_132",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32374048233032227,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_133",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4168555736541748,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_134",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3309977054595947,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_135",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3587310314178467,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_136",
+      "confidence": 0.0,
+      "finality_tier": "none",
+      "processing_time": 0.39131951332092285,
+      "validator_count": 10,
+      "consensus_achieved": false
+    },
+    {
+      "tx_id": "strebacom_tx_137",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40967774391174316,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_138",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42800283432006836,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_139",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39159226417541504,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_140",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.34522461891174316,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_141",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3767566680908203,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_142",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3934338092803955,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_143",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3750605583190918,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_144",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4388866424560547,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_145",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.32827162742614746,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_146",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.41698598861694336,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_147",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.33063292503356934,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_148",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.34611964225769043,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_149",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3862893581390381,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_150",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42395997047424316,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_151",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39058685302734375,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_152",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39322972297668457,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_153",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40781688690185547,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_154",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.424623966217041,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_155",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.426715612411499,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_156",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.38272762298583984,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_157",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36081862449645996,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_158",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39050912857055664,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_159",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39319872856140137,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_160",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3145277500152588,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_161",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40610694885253906,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_162",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36269450187683105,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_163",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3455088138580322,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_164",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39439892768859863,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_165",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4530019760131836,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_166",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.42679548263549805,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_167",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3124418258666992,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_168",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4283583164215088,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_169",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3084909915924072,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_170",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3957631587982178,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_171",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.44033026695251465,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_172",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4078986644744873,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_173",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.40544629096984863,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_174",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3281862735748291,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_175",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3902592658996582,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_176",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37790465354919434,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_177",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4102480411529541,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_178",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.39461588859558105,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_179",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.33133840560913086,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_180",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4220848083496094,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_181",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4249305725097656,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_182",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3013644218444824,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_183",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37706446647644043,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_184",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36099672317504883,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_185",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.36057257652282715,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_186",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3259391784667969,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_187",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3735318183898926,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_188",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.33245372772216797,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_189",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37224316596984863,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_190",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4364326000213623,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_191",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3900930881500244,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_192",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4196643829345703,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_193",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3775794506072998,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_194",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.388690710067749,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_195",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.37561702728271484,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_196",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3439323902130127,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_197",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.4214057922363281,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_198",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3568239212036133,
+      "validator_count": 10,
+      "consensus_achieved": true
+    },
+    {
+      "tx_id": "strebacom_tx_199",
+      "confidence": 0.999,
+      "finality_tier": "absolute",
+      "processing_time": 0.3554508686065674,
+      "validator_count": 10,
+      "consensus_achieved": true
+    }
+  ],
+  "performance_metrics": {
+    "total_time": 77.32557272911072,
+    "throughput_tps": 2.586466455290878,
+    "average_confidence": 0.9890100000000001,
+    "confidence_std": 0.09939924496695132,
+    "average_processing_time": 0.3865983486175537,
+    "constant_time_processing": "True",
+    "byzantine_resilience": 0.2
+  },
+  "consensus_analysis": {
+    "total_finality_rate": 0.99,
+    "finality_distribution": {
+      "provisional": 0,
+      "economic": 0,
+      "absolute": 198,
+      "none": 2
+    },
+    "provisional_rate": 0.0,
+    "economic_rate": 0.0,
+    "absolute_rate": 0.99,
+    "consensus_efficiency": 0.99
+  },
+  "scalability_analysis": {
+    "scalability_data": [
+      {
+        "validator_count": 3,
+        "processing_time": 0.1404571533203125,
+        "confidence": 0.999,
+        "finality_tier": "absolute",
+        "throughput": 7.119608908202064
+      },
+      {
+        "validator_count": 5,
+        "processing_time": 0.20113515853881836,
+        "confidence": 0.999,
+        "finality_tier": "absolute",
+        "throughput": 4.971781200585096
+      },
+      {
+        "validator_count": 7,
+        "processing_time": 0.2651040554046631,
+        "confidence": 0.999,
+        "finality_tier": "absolute",
+        "throughput": 3.772103744220619
+      },
+      {
+        "validator_count": 10,
+        "processing_time": 0.3783247470855713,
+        "confidence": 0.999,
+        "finality_tier": "absolute",
+        "throughput": 2.64323179412267
+      }
+    ],
+    "linear_correlation": -0.968516073526108,
+    "validates_linear_scaling": "True",
+    "scaling_efficiency": 0.37126081336821254
+  }
+}
