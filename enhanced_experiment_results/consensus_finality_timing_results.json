@@ -1,0 +1,326 @@
+{
+  "experiment": "consensus_finality_timing",
+  "timing_measurements": [
+    {
+      "tx_id": "timing_test_0",
+      "tx_characteristics": {
+        "tx_id": "timing_test_0",
+        "from_addr": "timing_addr_0",
+        "to_addr": "timing_addr_1",
+        "value": 3536.2287807142666,
+        "timestamp": 1757566901.1359842,
+        "risk_score": 0.7127396179074682,
+        "complexity_class": 1
+      },
+      "consensus_duration": 16.837125301361084,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_1",
+      "tx_characteristics": {
+        "tx_id": "timing_test_1",
+        "from_addr": "timing_addr_1",
+        "to_addr": "timing_addr_2",
+        "value": 3637.8087566316353,
+        "timestamp": 1757566918.177161,
+        "risk_score": 0.13027660069306143,
+        "complexity_class": 1
+      },
+      "consensus_duration": 16.850322723388672,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_2",
+      "tx_characteristics": {
+        "tx_id": "timing_test_2",
+        "from_addr": "timing_addr_2",
+        "to_addr": "timing_addr_3",
+        "value": 2855.1105771365947,
+        "timestamp": 1757566935.2347414,
+        "risk_score": 0.6824998875759708,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.813292741775513,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_3",
+      "tx_characteristics": {
+        "tx_id": "timing_test_3",
+        "from_addr": "timing_addr_3",
+        "to_addr": "timing_addr_4",
+        "value": 1078.4598425312356,
+        "timestamp": 1757566952.2495663,
+        "risk_score": 0.0785895431875428,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.90140986442566,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_4",
+      "tx_characteristics": {
+        "tx_id": "timing_test_4",
+        "from_addr": "timing_addr_4",
+        "to_addr": "timing_addr_5",
+        "value": 2427.1484344821124,
+        "timestamp": 1757566969.3551621,
+        "risk_score": 0.3433607022451212,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.896661520004272,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_5",
+      "tx_characteristics": {
+        "tx_id": "timing_test_5",
+        "from_addr": "timing_addr_5",
+        "to_addr": "timing_addr_6",
+        "value": 3691.067276747602,
+        "timestamp": 1757566986.4576182,
+        "risk_score": 0.4772816372869335,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.931954383850098,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_6",
+      "tx_characteristics": {
+        "tx_id": "timing_test_6",
+        "from_addr": "timing_addr_6",
+        "to_addr": "timing_addr_7",
+        "value": 4098.021491284648,
+        "timestamp": 1757567003.5963755,
+        "risk_score": 0.13241709732387888,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.936275243759155,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_7",
+      "tx_characteristics": {
+        "tx_id": "timing_test_7",
+        "from_addr": "timing_addr_7",
+        "to_addr": "timing_addr_8",
+        "value": 2372.020669099393,
+        "timestamp": 1757567020.7471614,
+        "risk_score": 0.5235036393863008,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.8408465385437,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_8",
+      "tx_characteristics": {
+        "tx_id": "timing_test_8",
+        "from_addr": "timing_addr_8",
+        "to_addr": "timing_addr_9",
+        "value": 4548.671452917849,
+        "timestamp": 1757567037.7899384,
+        "risk_score": 0.7004736667986025,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.87857747077942,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_9",
+      "tx_characteristics": {
+        "tx_id": "timing_test_9",
+        "from_addr": "timing_addr_9",
+        "to_addr": "timing_addr_10",
+        "value": 2281.019077034725,
+        "timestamp": 1757567054.8711965,
+        "risk_score": 0.5254064773846848,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.871878147125244,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_10",
+      "tx_characteristics": {
+        "tx_id": "timing_test_10",
+        "from_addr": "timing_addr_10",
+        "to_addr": "timing_addr_11",
+        "value": 3017.270847328442,
+        "timestamp": 1757567071.9475298,
+        "risk_score": 0.5997062295824225,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.933814764022827,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_11",
+      "tx_characteristics": {
+        "tx_id": "timing_test_11",
+        "from_addr": "timing_addr_11",
+        "to_addr": "timing_addr_12",
+        "value": 3089.5805972302874,
+        "timestamp": 1757567089.0858421,
+        "risk_score": 0.245425977299454,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.832844018936157,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_12",
+      "tx_characteristics": {
+        "tx_id": "timing_test_12",
+        "from_addr": "timing_addr_12",
+        "to_addr": "timing_addr_13",
+        "value": 2308.7462587062596,
+        "timestamp": 1757567106.121263,
+        "risk_score": 0.5063333671197029,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.887139081954956,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_13",
+      "tx_characteristics": {
+        "tx_id": "timing_test_13",
+        "from_addr": "timing_addr_13",
+        "to_addr": "timing_addr_14",
+        "value": 1870.1405167991068,
+        "timestamp": 1757567123.2117589,
+        "risk_score": 0.11181194218396096,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.94614028930664,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_14",
+      "tx_characteristics": {
+        "tx_id": "timing_test_14",
+        "from_addr": "timing_addr_14",
+        "to_addr": "timing_addr_15",
+        "value": 1539.1935603277966,
+        "timestamp": 1757567140.3606765,
+        "risk_score": 0.12193720361099576,
+        "complexity_class": 1
+      },
+      "consensus_duration": 16.864859580993652,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_15",
+      "tx_characteristics": {
+        "tx_id": "timing_test_15",
+        "from_addr": "timing_addr_15",
+        "to_addr": "timing_addr_16",
+        "value": 4536.606662207692,
+        "timestamp": 1757567157.4259586,
+        "risk_score": 0.41476165613209526,
+        "complexity_class": 3
+      },
+      "consensus_duration": 16.89112877845764,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_16",
+      "tx_characteristics": {
+        "tx_id": "timing_test_16",
+        "from_addr": "timing_addr_16",
+        "to_addr": "timing_addr_17",
+        "value": 412.20224937242267,
+        "timestamp": 1757567174.5211558,
+        "risk_score": 0.30599201990862473,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.88272261619568,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_17",
+      "tx_characteristics": {
+        "tx_id": "timing_test_17",
+        "from_addr": "timing_addr_17",
+        "to_addr": "timing_addr_18",
+        "value": 1503.9212230476542,
+        "timestamp": 1757567191.6069567,
+        "risk_score": 0.3572730612809359,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.93111491203308,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_18",
+      "tx_characteristics": {
+        "tx_id": "timing_test_18",
+        "from_addr": "timing_addr_18",
+        "to_addr": "timing_addr_19",
+        "value": 3213.0127246188886,
+        "timestamp": 1757567208.7411048,
+        "risk_score": 0.6504059811362526,
+        "complexity_class": 2
+      },
+      "consensus_duration": 16.8784396648407,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    },
+    {
+      "tx_id": "timing_test_19",
+      "tx_characteristics": {
+        "tx_id": "timing_test_19",
+        "from_addr": "timing_addr_19",
+        "to_addr": "timing_addr_20",
+        "value": 2781.6835218725046,
+        "timestamp": 1757567225.8240988,
+        "risk_score": 0.5000381256139884,
+        "complexity_class": 1
+      },
+      "consensus_duration": 16.931868314743042,
+      "consensus_achieved": false,
+      "finality_confidence": 0.0,
+      "participating_validators": 0
+    }
+  ],
+  "finality_analysis": {}
+}

@@ -278,6 +278,13 @@ blockchain-multi-industry-repo/
 │       scalability_analysis.json
 │       throughput_benchmarks.json
 │
+├───strebacom_cloud
+│       cloud_deployment_orchestrator.py
+│       Dockerfile
+│       requirements.txt
+│       strebacom_cloud_config.py
+│       strebacom_cloud_validator.py
+│
 ├───strebacom_experiment_results
 │       performance_data.json
 │       strebacom_comprehensive_results.json
@@ -305,6 +312,7 @@ blockchain-multi-industry-repo/
 └───utils
         contract-loader.ts
         logger.ts
+
 ├── .eslintrc.json
 ├── deployment-script.js
 ├── global.d.ts

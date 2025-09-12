@@ -1,0 +1,5689 @@
+{
+  "experiment_metadata": {
+    "config": {
+      "num_validators": 7,
+      "byzantine_fraction": 0.2,
+      "num_transactions": 50,
+      "transaction_batch_size": 5,
+      "experiment_duration": 120,
+      "results_dir": "./enhanced_experiment_results",
+      "consensus_timeout": 15.0,
+      "network_stabilization_time": 5.0
+    },
+    "total_duration": 5774.765262126923,
+    "timestamp": 1757571322.6654642,
+    "network_size": 7,
+    "byzantine_fraction": 0.2
+  },
+  "experiment_results": {
+    "network_consensus_validation": {
+      "experiment": "network_consensus_validation",
+      "test_transactions": [
+        {
+          "scenario": {
+            "value": 100,
+            "risk_score": 0.1,
+            "expected_consensus": true,
+            "description": "Low risk transaction"
+          },
+          "tx_data": {
+            "tx_id": "consensus_test_0",
+            "from_addr": "test_addr_0",
+            "to_addr": "test_addr_1",
+            "value": 100,
+            "timestamp": 1757565559.3694222,
+            "risk_score": 0.1,
+            "complexity_class": 2
+          },
+          "consensus_result": {
+            "tx_id": "consensus_test_0",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "scenario": {
+            "value": 5000,
+            "risk_score": 0.3,
+            "expected_consensus": true,
+            "description": "Medium value transaction"
+          },
+          "tx_data": {
+            "tx_id": "consensus_test_1",
+            "from_addr": "test_addr_1",
+            "to_addr": "test_addr_2",
+            "value": 5000,
+            "timestamp": 1757565576.2421005,
+            "risk_score": 0.3,
+            "complexity_class": 2
+          },
+          "consensus_result": {
+            "tx_id": "consensus_test_1",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "scenario": {
+            "value": 50000,
+            "risk_score": 0.9,
+            "expected_consensus": false,
+            "description": "High risk transaction"
+          },
+          "tx_data": {
+            "tx_id": "consensus_test_2",
+            "from_addr": "test_addr_2",
+            "to_addr": "test_addr_3",
+            "value": 50000,
+            "timestamp": 1757565593.109499,
+            "risk_score": 0.9,
+            "complexity_class": 2
+          },
+          "consensus_result": {
+            "tx_id": "consensus_test_2",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_2",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "scenario": {
+            "value": 1000000,
+            "risk_score": 0.5,
+            "expected_consensus": false,
+            "description": "Excessive value transaction"
+          },
+          "tx_data": {
+            "tx_id": "consensus_test_3",
+            "from_addr": "test_addr_3",
+            "to_addr": "test_addr_4",
+            "value": 1000000,
+            "timestamp": 1757565609.9772832,
+            "risk_score": 0.5,
+            "complexity_class": 2
+          },
+          "consensus_result": {
+            "tx_id": "consensus_test_3",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "scenario": {
+            "value": 250,
+            "risk_score": 0.2,
+            "expected_consensus": true,
+            "description": "Normal transaction"
+          },
+          "tx_data": {
+            "tx_id": "consensus_test_4",
+            "from_addr": "test_addr_4",
+            "to_addr": "test_addr_5",
+            "value": 250,
+            "timestamp": 1757565626.8436677,
+            "risk_score": 0.2,
+            "complexity_class": 2
+          },
+          "consensus_result": {
+            "tx_id": "consensus_test_4",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "consensus_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        }
+      ],
+      "consensus_statistics": {
+        "total_tests": 5,
+        "successful_consensus": 0,
+        "success_rate": 0.0,
+        "average_consensus_time": NaN
+      },
+      "validator_agreement": {}
+    },
+    "gossip_propagation_efficiency": {
+      "experiment": "gossip_propagation_efficiency",
+      "propagation_tests": [
+        {
+          "tx_id": "gossip_test_0",
+          "propagation_times": [
+            0.2679297924041748,
+            0.5321979522705078,
+            0.7912111282348633,
+            1.056518793106079,
+            1.324678897857666,
+            1.5867278575897217,
+            1.8585479259490967
+          ],
+          "max_propagation_time": 1.8585479259490967,
+          "min_propagation_time": 0.2679297924041748,
+          "average_propagation_time": 1.0596874782017298
+        },
+        {
+          "tx_id": "gossip_test_1",
+          "propagation_times": [
+            0.263089656829834,
+            0.5310301780700684,
+            0.7925658226013184,
+            1.053800344467163,
+            1.320206880569458,
+            1.585470199584961,
+            1.8526232242584229
+          ],
+          "max_propagation_time": 1.8526232242584229,
+          "min_propagation_time": 0.263089656829834,
+          "average_propagation_time": 1.056969472340175
+        },
+        {
+          "tx_id": "gossip_test_2",
+          "propagation_times": [
+            0.2667055130004883,
+            0.5338859558105469,
+            0.8002181053161621,
+            1.068178653717041,
+            1.3333892822265625,
+            1.602356195449829,
+            1.8677294254302979
+          ],
+          "max_propagation_time": 1.8677294254302979,
+          "min_propagation_time": 0.2667055130004883,
+          "average_propagation_time": 1.0674947329929896
+        },
+        {
+          "tx_id": "gossip_test_3",
+          "propagation_times": [
+            0.26308679580688477,
+            0.5307760238647461,
+            0.7953226566314697,
+            1.0599582195281982,
+            1.3260626792907715,
+            1.5940320491790771,
+            1.8544588088989258
+          ],
+          "max_propagation_time": 1.8544588088989258,
+          "min_propagation_time": 0.26308679580688477,
+          "average_propagation_time": 1.0605281761714391
+        },
+        {
+          "tx_id": "gossip_test_4",
+          "propagation_times": [
+            0.2638387680053711,
+            0.5310087203979492,
+            0.7989451885223389,
+            1.0611777305603027,
+            1.326833724975586,
+            1.5920817852020264,
+            1.8598918914794922
+          ],
+          "max_propagation_time": 1.8598918914794922,
+          "min_propagation_time": 0.2638387680053711,
+          "average_propagation_time": 1.0619682584490096
+        },
+        {
+          "tx_id": "gossip_test_5",
+          "propagation_times": [
+            0.26569032669067383,
+            0.5328915119171143,
+            0.7999227046966553,
+            1.0610923767089844,
+            1.3287832736968994,
+            1.5945734977722168,
+            1.857818841934204
+          ],
+          "max_propagation_time": 1.857818841934204,
+          "min_propagation_time": 0.26569032669067383,
+          "average_propagation_time": 1.0629675047738212
+        },
+        {
+          "tx_id": "gossip_test_6",
+          "propagation_times": [
+            0.2635197639465332,
+            0.5285861492156982,
+            0.7942805290222168,
+            1.0609474182128906,
+            1.3285424709320068,
+            1.5927164554595947,
+            1.8569953441619873
+          ],
+          "max_propagation_time": 1.8569953441619873,
+          "min_propagation_time": 0.2635197639465332,
+          "average_propagation_time": 1.0607983044215612
+        },
+        {
+          "tx_id": "gossip_test_7",
+          "propagation_times": [
+            0.2700154781341553,
+            0.541250467300415,
+            0.8066651821136475,
+            1.0748963356018066,
+            1.3491532802581787,
+            1.6195435523986816,
+            1.8796238899230957
+          ],
+          "max_propagation_time": 1.8796238899230957,
+          "min_propagation_time": 0.2700154781341553,
+          "average_propagation_time": 1.0773068836757116
+        },
+        {
+          "tx_id": "gossip_test_8",
+          "propagation_times": [
+            0.2710585594177246,
+            0.5342316627502441,
+            0.7942922115325928,
+            1.0577354431152344,
+            1.3336317539215088,
+            1.5955488681793213,
+            1.8630661964416504
+          ],
+          "max_propagation_time": 1.8630661964416504,
+          "min_propagation_time": 0.2710585594177246,
+          "average_propagation_time": 1.0642235279083252
+        },
+        {
+          "tx_id": "gossip_test_9",
+          "propagation_times": [
+            0.25531530380249023,
+            0.532782793045044,
+            0.801924467086792,
+            1.0719079971313477,
+            1.334165334701538,
+            1.6010243892669678,
+            1.8695387840270996
+          ],
+          "max_propagation_time": 1.8695387840270996,
+          "min_propagation_time": 0.25531530380249023,
+          "average_propagation_time": 1.0666655812944685
+        }
+      ],
+      "network_efficiency": {
+        "average_propagation_time": 1.0638609920229232,
+        "median_propagation_time": 1.0610198974609375,
+        "propagation_time_std": 0.5322618714633717,
+        "fastest_propagation": 0.25531530380249023,
+        "slowest_propagation": 1.8796238899230957
+      }
+    },
+    "byzantine_fault_tolerance": {
+      "experiment": "byzantine_fault_tolerance",
+      "byzantine_tests": [
+        {
+          "tx_id": "byzantine_test_0",
+          "consensus_result": {
+            "tx_id": "byzantine_test_0",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_0",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_1",
+          "consensus_result": {
+            "tx_id": "byzantine_test_1",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_2",
+          "consensus_result": {
+            "tx_id": "byzantine_test_2",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_3",
+          "consensus_result": {
+            "tx_id": "byzantine_test_3",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_4",
+          "consensus_result": {
+            "tx_id": "byzantine_test_4",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_5",
+          "consensus_result": {
+            "tx_id": "byzantine_test_5",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_5",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_6",
+          "consensus_result": {
+            "tx_id": "byzantine_test_6",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_7",
+          "consensus_result": {
+            "tx_id": "byzantine_test_7",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_8",
+          "consensus_result": {
+            "tx_id": "byzantine_test_8",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_9",
+          "consensus_result": {
+            "tx_id": "byzantine_test_9",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_10",
+          "consensus_result": {
+            "tx_id": "byzantine_test_10",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_11",
+          "consensus_result": {
+            "tx_id": "byzantine_test_11",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_12",
+          "consensus_result": {
+            "tx_id": "byzantine_test_12",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_12",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_13",
+          "consensus_result": {
+            "tx_id": "byzantine_test_13",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "byzantine_test_14",
+          "consensus_result": {
+            "tx_id": "byzantine_test_14",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "byzantine_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        }
+      ],
+      "safety_analysis": {
+        "total_tests": 15,
+        "safety_violations": 0,
+        "safety_violation_rate": 0.0,
+        "safety_maintained": true
+      },
+      "liveness_analysis": {
+        "consensus_failures": 15,
+        "liveness_rate": 0.0,
+        "liveness_maintained": false
+      }
+    },
+    "throughput_under_load": {
+      "experiment": "throughput_under_load",
+      "load_tests": [
+        {
+          "load_level": 5,
+          "batch_duration": 85.09032034873962,
+          "successful_consensus": 0,
+          "throughput_tps": 0.0,
+          "success_rate": 0.0,
+          "consensus_results": [
+            {
+              "tx_id": "load_test_5_0",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_5_1",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_1",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_5_2",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_2",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_5_3",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_5_4",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_5_4",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "load_level": 10,
+          "batch_duration": 170.14753937721252,
+          "successful_consensus": 0,
+          "throughput_tps": 0.0,
+          "success_rate": 0.0,
+          "consensus_results": [
+            {
+              "tx_id": "load_test_10_0",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_1",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_2",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_3",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_3",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_4",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_5",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_6",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_7",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_8",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_8",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_10_9",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_10_9",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "load_level": 15,
+          "batch_duration": 254.35680437088013,
+          "successful_consensus": 0,
+          "throughput_tps": 0.0,
+          "success_rate": 0.0,
+          "consensus_results": [
+            {
+              "tx_id": "load_test_15_0",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_1",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_2",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_3",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_4",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_5",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_6",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_7",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_7",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_8",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_9",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_10",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_11",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_11",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_12",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_13",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_15_14",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_15_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "load_level": 20,
+          "batch_duration": 339.1925435066223,
+          "successful_consensus": 0,
+          "throughput_tps": 0.0,
+          "success_rate": 0.0,
+          "consensus_results": [
+            {
+              "tx_id": "load_test_20_0",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_0",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_1",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_1",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_2",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_2",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_3",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_3",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_4",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_4",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_5",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_5",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_6",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_6",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_7",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_7",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_8",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_8",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_9",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_9",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_10",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_10",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_11",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_11",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_12",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_12",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_13",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_13",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_14",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_14",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_15",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_15",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_16",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_16",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_17",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_17",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_18",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.0,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_18",
+                  "status": "pending",
+                  "confidence": 0.4511883639059735,
+                  "votes": 2
+                }
+              ]
+            },
+            {
+              "tx_id": "load_test_20_19",
+              "status": "timeout",
+              "results": [
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6671289163019205,
+                  "votes": 1
+                },
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                },
+                {
+                  "tx_id": "load_test_20_19",
+                  "status": "pending",
+                  "confidence": 0.6988057880877978,
+                  "votes": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "performance_metrics": {
+        "peak_throughput": 0.0,
+        "average_throughput": 0.0,
+        "throughput_degradation": 0,
+        "average_success_rate": 0.0,
+        "load_scalability": "poor"
+      }
+    },
+    "consensus_finality_timing": {
+      "experiment": "consensus_finality_timing",
+      "timing_measurements": [
+        {
+          "tx_id": "timing_test_0",
+          "tx_characteristics": {
+            "tx_id": "timing_test_0",
+            "from_addr": "timing_addr_0",
+            "to_addr": "timing_addr_1",
+            "value": 3536.2287807142666,
+            "timestamp": 1757566901.1359842,
+            "risk_score": 0.7127396179074682,
+            "complexity_class": 1
+          },
+          "consensus_duration": 16.837125301361084,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_1",
+          "tx_characteristics": {
+            "tx_id": "timing_test_1",
+            "from_addr": "timing_addr_1",
+            "to_addr": "timing_addr_2",
+            "value": 3637.8087566316353,
+            "timestamp": 1757566918.177161,
+            "risk_score": 0.13027660069306143,
+            "complexity_class": 1
+          },
+          "consensus_duration": 16.850322723388672,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_2",
+          "tx_characteristics": {
+            "tx_id": "timing_test_2",
+            "from_addr": "timing_addr_2",
+            "to_addr": "timing_addr_3",
+            "value": 2855.1105771365947,
+            "timestamp": 1757566935.2347414,
+            "risk_score": 0.6824998875759708,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.813292741775513,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_3",
+          "tx_characteristics": {
+            "tx_id": "timing_test_3",
+            "from_addr": "timing_addr_3",
+            "to_addr": "timing_addr_4",
+            "value": 1078.4598425312356,
+            "timestamp": 1757566952.2495663,
+            "risk_score": 0.0785895431875428,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.90140986442566,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_4",
+          "tx_characteristics": {
+            "tx_id": "timing_test_4",
+            "from_addr": "timing_addr_4",
+            "to_addr": "timing_addr_5",
+            "value": 2427.1484344821124,
+            "timestamp": 1757566969.3551621,
+            "risk_score": 0.3433607022451212,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.896661520004272,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_5",
+          "tx_characteristics": {
+            "tx_id": "timing_test_5",
+            "from_addr": "timing_addr_5",
+            "to_addr": "timing_addr_6",
+            "value": 3691.067276747602,
+            "timestamp": 1757566986.4576182,
+            "risk_score": 0.4772816372869335,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.931954383850098,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_6",
+          "tx_characteristics": {
+            "tx_id": "timing_test_6",
+            "from_addr": "timing_addr_6",
+            "to_addr": "timing_addr_7",
+            "value": 4098.021491284648,
+            "timestamp": 1757567003.5963755,
+            "risk_score": 0.13241709732387888,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.936275243759155,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_7",
+          "tx_characteristics": {
+            "tx_id": "timing_test_7",
+            "from_addr": "timing_addr_7",
+            "to_addr": "timing_addr_8",
+            "value": 2372.020669099393,
+            "timestamp": 1757567020.7471614,
+            "risk_score": 0.5235036393863008,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.8408465385437,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_8",
+          "tx_characteristics": {
+            "tx_id": "timing_test_8",
+            "from_addr": "timing_addr_8",
+            "to_addr": "timing_addr_9",
+            "value": 4548.671452917849,
+            "timestamp": 1757567037.7899384,
+            "risk_score": 0.7004736667986025,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.87857747077942,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_9",
+          "tx_characteristics": {
+            "tx_id": "timing_test_9",
+            "from_addr": "timing_addr_9",
+            "to_addr": "timing_addr_10",
+            "value": 2281.019077034725,
+            "timestamp": 1757567054.8711965,
+            "risk_score": 0.5254064773846848,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.871878147125244,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_10",
+          "tx_characteristics": {
+            "tx_id": "timing_test_10",
+            "from_addr": "timing_addr_10",
+            "to_addr": "timing_addr_11",
+            "value": 3017.270847328442,
+            "timestamp": 1757567071.9475298,
+            "risk_score": 0.5997062295824225,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.933814764022827,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_11",
+          "tx_characteristics": {
+            "tx_id": "timing_test_11",
+            "from_addr": "timing_addr_11",
+            "to_addr": "timing_addr_12",
+            "value": 3089.5805972302874,
+            "timestamp": 1757567089.0858421,
+            "risk_score": 0.245425977299454,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.832844018936157,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_12",
+          "tx_characteristics": {
+            "tx_id": "timing_test_12",
+            "from_addr": "timing_addr_12",
+            "to_addr": "timing_addr_13",
+            "value": 2308.7462587062596,
+            "timestamp": 1757567106.121263,
+            "risk_score": 0.5063333671197029,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.887139081954956,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_13",
+          "tx_characteristics": {
+            "tx_id": "timing_test_13",
+            "from_addr": "timing_addr_13",
+            "to_addr": "timing_addr_14",
+            "value": 1870.1405167991068,
+            "timestamp": 1757567123.2117589,
+            "risk_score": 0.11181194218396096,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.94614028930664,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_14",
+          "tx_characteristics": {
+            "tx_id": "timing_test_14",
+            "from_addr": "timing_addr_14",
+            "to_addr": "timing_addr_15",
+            "value": 1539.1935603277966,
+            "timestamp": 1757567140.3606765,
+            "risk_score": 0.12193720361099576,
+            "complexity_class": 1
+          },
+          "consensus_duration": 16.864859580993652,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_15",
+          "tx_characteristics": {
+            "tx_id": "timing_test_15",
+            "from_addr": "timing_addr_15",
+            "to_addr": "timing_addr_16",
+            "value": 4536.606662207692,
+            "timestamp": 1757567157.4259586,
+            "risk_score": 0.41476165613209526,
+            "complexity_class": 3
+          },
+          "consensus_duration": 16.89112877845764,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_16",
+          "tx_characteristics": {
+            "tx_id": "timing_test_16",
+            "from_addr": "timing_addr_16",
+            "to_addr": "timing_addr_17",
+            "value": 412.20224937242267,
+            "timestamp": 1757567174.5211558,
+            "risk_score": 0.30599201990862473,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.88272261619568,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_17",
+          "tx_characteristics": {
+            "tx_id": "timing_test_17",
+            "from_addr": "timing_addr_17",
+            "to_addr": "timing_addr_18",
+            "value": 1503.9212230476542,
+            "timestamp": 1757567191.6069567,
+            "risk_score": 0.3572730612809359,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.93111491203308,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_18",
+          "tx_characteristics": {
+            "tx_id": "timing_test_18",
+            "from_addr": "timing_addr_18",
+            "to_addr": "timing_addr_19",
+            "value": 3213.0127246188886,
+            "timestamp": 1757567208.7411048,
+            "risk_score": 0.6504059811362526,
+            "complexity_class": 2
+          },
+          "consensus_duration": 16.8784396648407,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        },
+        {
+          "tx_id": "timing_test_19",
+          "tx_characteristics": {
+            "tx_id": "timing_test_19",
+            "from_addr": "timing_addr_19",
+            "to_addr": "timing_addr_20",
+            "value": 2781.6835218725046,
+            "timestamp": 1757567225.8240988,
+            "risk_score": 0.5000381256139884,
+            "complexity_class": 1
+          },
+          "consensus_duration": 16.931868314743042,
+          "consensus_achieved": false,
+          "finality_confidence": 0.0,
+          "participating_validators": 0
+        }
+      ],
+      "finality_analysis": {}
+    },
+    "network_partition_recovery": {
+      "experiment": "network_partition_recovery",
+      "resilience_tests": [
+        {
+          "tx_id": "resilience_test_0",
+          "result": {
+            "tx_id": "resilience_test_0",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_0",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_1",
+          "result": {
+            "tx_id": "resilience_test_1",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_1",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_2",
+          "result": {
+            "tx_id": "resilience_test_2",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_2",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_3",
+          "result": {
+            "tx_id": "resilience_test_3",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_3",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_4",
+          "result": {
+            "tx_id": "resilience_test_4",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_4",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_5",
+          "result": {
+            "tx_id": "resilience_test_5",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_5",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_6",
+          "result": {
+            "tx_id": "resilience_test_6",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_6",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_7",
+          "result": {
+            "tx_id": "resilience_test_7",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_7",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_8",
+          "result": {
+            "tx_id": "resilience_test_8",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_8",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_9",
+          "result": {
+            "tx_id": "resilience_test_9",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_9",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_10",
+          "result": {
+            "tx_id": "resilience_test_10",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_10",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_11",
+          "result": {
+            "tx_id": "resilience_test_11",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_11",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_12",
+          "result": {
+            "tx_id": "resilience_test_12",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_12",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_13",
+          "result": {
+            "tx_id": "resilience_test_13",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_13",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_14",
+          "result": {
+            "tx_id": "resilience_test_14",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_14",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_15",
+          "result": {
+            "tx_id": "resilience_test_15",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_15",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_16",
+          "result": {
+            "tx_id": "resilience_test_16",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_16",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_17",
+          "result": {
+            "tx_id": "resilience_test_17",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_17",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_18",
+          "result": {
+            "tx_id": "resilience_test_18",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_18",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_19",
+          "result": {
+            "tx_id": "resilience_test_19",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.6671289163019205,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_19",
+                "status": "pending",
+                "confidence": 0.6988057880877978,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_20",
+          "result": {
+            "tx_id": "resilience_test_20",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_20",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_21",
+          "result": {
+            "tx_id": "resilience_test_21",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_21",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_22",
+          "result": {
+            "tx_id": "resilience_test_22",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_22",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_23",
+          "result": {
+            "tx_id": "resilience_test_23",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_23",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        },
+        {
+          "tx_id": "resilience_test_24",
+          "result": {
+            "tx_id": "resilience_test_24",
+            "status": "timeout",
+            "results": [
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.0,
+                "votes": 1
+              },
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              },
+              {
+                "tx_id": "resilience_test_24",
+                "status": "pending",
+                "confidence": 0.4511883639059735,
+                "votes": 2
+              }
+            ]
+          },
+          "analysis": {
+            "consensus_achieved": false,
+            "consensus_time": null,
+            "participating_validators": 0,
+            "conflicting_decisions": 0,
+            "average_confidence": 0.0
+          }
+        }
+      ],
+      "recovery_metrics": {
+        "burst_size": 25,
+        "successful_consensus": 0,
+        "failed_consensus": 25,
+        "resilience_rate": 0.0,
+        "network_stability": "degraded"
+      }
+    }
+  },
+  "summary_analysis": {
+    "overall_performance": "poor",
+    "consensus_reliability": 0.0,
+    "network_efficiency": "unknown",
+    "byzantine_tolerance": "partial",
+    "key_findings": [
+      "Peak throughput: 0.00 TPS with poor scalability"
+    ],
+    "recommendations": [
+      "Consider adjusting consensus parameters to improve reliability",
+      "Review Byzantine fault tolerance mechanisms"
+    ]
+  }
+}

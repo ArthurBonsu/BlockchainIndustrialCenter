@@ -1,0 +1,886 @@
+{
+  "experiment": "byzantine_fault_tolerance",
+  "byzantine_tests": [
+    {
+      "tx_id": "byzantine_test_0",
+      "consensus_result": {
+        "tx_id": "byzantine_test_0",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_1",
+      "consensus_result": {
+        "tx_id": "byzantine_test_1",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_2",
+      "consensus_result": {
+        "tx_id": "byzantine_test_2",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_3",
+      "consensus_result": {
+        "tx_id": "byzantine_test_3",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_4",
+      "consensus_result": {
+        "tx_id": "byzantine_test_4",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_5",
+      "consensus_result": {
+        "tx_id": "byzantine_test_5",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_5",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_6",
+      "consensus_result": {
+        "tx_id": "byzantine_test_6",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_7",
+      "consensus_result": {
+        "tx_id": "byzantine_test_7",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_8",
+      "consensus_result": {
+        "tx_id": "byzantine_test_8",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_9",
+      "consensus_result": {
+        "tx_id": "byzantine_test_9",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_10",
+      "consensus_result": {
+        "tx_id": "byzantine_test_10",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_11",
+      "consensus_result": {
+        "tx_id": "byzantine_test_11",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_12",
+      "consensus_result": {
+        "tx_id": "byzantine_test_12",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_12",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_13",
+      "consensus_result": {
+        "tx_id": "byzantine_test_13",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "byzantine_test_14",
+      "consensus_result": {
+        "tx_id": "byzantine_test_14",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "byzantine_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    }
+  ],
+  "safety_analysis": {
+    "total_tests": 15,
+    "safety_violations": 0,
+    "safety_violation_rate": 0.0,
+    "safety_maintained": true
+  },
+  "liveness_analysis": {
+    "consensus_failures": 15,
+    "liveness_rate": 0.0,
+    "liveness_maintained": false
+  }
+}

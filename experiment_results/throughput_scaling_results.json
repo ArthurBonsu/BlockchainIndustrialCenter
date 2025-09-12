@@ -3,12 +3,31 @@
   "scaling_data": [
     {
       "validator_count": 5,
-      "successful_transactions": 0,
-      "duration": 300.5670893192291,
-      "tps": 0.0
+      "successful_transactions": 192,
+      "duration": 300.426682472229,
+      "tps": 0.6390910368547181
+    },
+    {
+      "validator_count": 10,
+      "successful_transactions": 99,
+      "duration": 301.0302731990814,
+      "tps": 0.32887057819107773
     }
   ],
   "theoretical_comparison": {
-    "error": "Insufficient data for scaling analysis"
+    "scaling_data": [
+      [
+        5,
+        0.6390910368547181,
+        1.0
+      ],
+      [
+        10,
+        0.32887057819107773,
+        0.2572955645017429
+      ]
+    ],
+    "average_efficiency": 0.6286477822508715,
+    "linear_correlation": -1.0
   }
 }

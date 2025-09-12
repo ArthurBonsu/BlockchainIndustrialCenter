@@ -2,12 +2,12 @@
 STREBACOM CLOUD VALIDATION REPORT - ENHANCED
 Distributed Blockless Consensus on Google Cloud Run
 ================================================================================
-Generated: 2025-09-04 13:33:05
+Generated: 2025-09-09 19:45:55
 
 DEPLOYMENT SUMMARY:
 --------------------------------------------------
-  Total Validators: 10
-  Byzantine Validators: 1
+  Total Validators: 15
+  Byzantine Validators: 0
   Deployment Regions: us-central1
   Multi-Region: ✗
 
@@ -17,30 +17,30 @@ PAPER CLAIMS VALIDATION:
   Blockless Consensus: ✓ VALIDATED
   Linear Scalability: ✗ FAILED
   Constant Time Processing: ✗ FAILED
-  Near Instantaneous Finality: ✓ VALIDATED
+  Near Instantaneous Finality: ✗ FAILED
   Byzantine Tolerance: ✓ VALIDATED
   Multi Tier Finality: ✓ VALIDATED
   Quorum Sensing: ✓ VALIDATED
 
 PERFORMANCE METRICS:
 --------------------------------------------------
-  Throughput: 2.44 TPS
-  Success Rate: 100.00%
-  Average Confidence: 0.7957
-  Average Processing Time: 0.3655s
-  P95 Processing Time: 0.3837s
-  P99 Processing Time: 1.0568s
+  Throughput: 0.32 TPS
+  Success Rate: 97.20%
+  Average Confidence: 0.9990
+  Average Processing Time: 2.9863s
+  P95 Processing Time: 12.2474s
+  P99 Processing Time: 12.9415s
   Constant-Time Processing: ✗
 
 CONSENSUS ANALYSIS:
 --------------------------------------------------
-  Total Finality Rate: 75.00%
-  Provisional Finality: 15.00%
-  Economic Finality: 21.33%
-  Absolute Finality: 38.67%
-  Average Finality Confidence: 0.9478
-  Byzantine Resilience: 10.0%
-  Consensus Efficiency: 100.00%
+  Total Finality Rate: 100.00%
+  Provisional Finality: 0.00%
+  Economic Finality: 0.00%
+  Absolute Finality: 100.00%
+  Average Finality Confidence: 0.9990
+  Byzantine Resilience: 0.0%
+  Consensus Efficiency: 97.20%
 
 SCALABILITY ANALYSIS:
 --------------------------------------------------
@@ -49,17 +49,17 @@ SCALABILITY ANALYSIS:
   3 validators: 0.00 TPS (Confidence: 0.000)
   5 validators: 0.00 TPS (Confidence: 0.000)
   7 validators: 0.00 TPS (Confidence: 0.000)
-  10 validators: 0.00 TPS (Confidence: 0.000)
+  15 validators: 0.00 TPS (Confidence: 0.000)
 
 CONCLUSION:
 --------------------------------------------------
 ⚠ STREBACOM VALIDATION: PARTIAL SUCCESS
    Core consensus mechanism validated
    Some optimizations needed to fully match paper claims
-   Achieved 6/8 paper claims (75%)
+   Achieved 5/8 paper claims (62%)
 
 RECOMMENDATIONS:
 --------------------------------------------------
-  - Optimize validator processing for consistent timing
+  - Optimize validator processing for more consistent timing
   - Improve inter-validator communication for linear scaling
 ================================================================================

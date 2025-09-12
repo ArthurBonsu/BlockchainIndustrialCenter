@@ -8,7 +8,68 @@
         "risk": 0.1,
         "expected_confidence": "high"
       },
-      "confidence_timeline": []
+      "confidence_timeline": [
+        {
+          "timestamp": 1757511918.5419512,
+          "validator_id": 0,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511918.810647,
+          "validator_id": 1,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511919.09485,
+          "validator_id": 2,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511919.3783057,
+          "validator_id": 3,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511919.646097,
+          "validator_id": 4,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511919.923956,
+          "validator_id": 5,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511920.2066615,
+          "validator_id": 6,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511920.4893148,
+          "validator_id": 7,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511920.7704964,
+          "validator_id": 8,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511921.05176,
+          "validator_id": 9,
+          "confidence": 0.999,
+          "vote": true
+        }
+      ]
     },
     {
       "tx_id": "conf_test_1",
@@ -17,7 +78,68 @@
         "risk": 0.8,
         "expected_confidence": "low"
       },
-      "confidence_timeline": []
+      "confidence_timeline": [
+        {
+          "timestamp": 1757511921.5819764,
+          "validator_id": 0,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.5969205,
+          "validator_id": 1,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.6113193,
+          "validator_id": 2,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.627436,
+          "validator_id": 3,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.6427977,
+          "validator_id": 4,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.6589901,
+          "validator_id": 5,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.6736631,
+          "validator_id": 6,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.6901047,
+          "validator_id": 7,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.7054677,
+          "validator_id": 8,
+          "confidence": 0.0,
+          "vote": false
+        },
+        {
+          "timestamp": 1757511921.7217717,
+          "validator_id": 9,
+          "confidence": 0.0,
+          "vote": false
+        }
+      ]
     },
     {
       "tx_id": "conf_test_2",
@@ -26,13 +148,93 @@
         "risk": 0.3,
         "expected_confidence": "medium"
       },
-      "confidence_timeline": []
+      "confidence_timeline": [
+        {
+          "timestamp": 1757511922.2494924,
+          "validator_id": 0,
+          "confidence": 0.0009627700784067272,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.2661877,
+          "validator_id": 1,
+          "confidence": 0.003708916261275119,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.2815583,
+          "validator_id": 2,
+          "confidence": 0.7786856689816382,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.2964206,
+          "validator_id": 3,
+          "confidence": 0.894203689146525,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.3130052,
+          "validator_id": 4,
+          "confidence": 0.9766063268357048,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.3287277,
+          "validator_id": 5,
+          "confidence": 0.9954141069291617,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.3448377,
+          "validator_id": 6,
+          "confidence": 0.9986648559958959,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.3585124,
+          "validator_id": 7,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.3748558,
+          "validator_id": 8,
+          "confidence": 0.999,
+          "vote": true
+        },
+        {
+          "timestamp": 1757511922.3900316,
+          "validator_id": 9,
+          "confidence": 0.999,
+          "vote": true
+        }
+      ]
     }
   ],
   "confidence_curves": [],
   "theoretical_validation": {
     "exponential_fit_quality": [],
-    "convergence_rates": [],
+    "convergence_rates": [
+      {
+        "tx_id": "conf_test_0",
+        "is_monotonic": true,
+        "max_confidence": 0.999,
+        "confidence_range": 0.999
+      },
+      {
+        "tx_id": "conf_test_1",
+        "is_monotonic": true,
+        "max_confidence": 0.0,
+        "confidence_range": 0.0
+      },
+      {
+        "tx_id": "conf_test_2",
+        "is_monotonic": true,
+        "max_confidence": 0.999,
+        "confidence_range": 0.9980372299215933
+      }
+    ],
     "theoretical_validation": true
   }
 }

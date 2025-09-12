@@ -1,0 +1,1462 @@
+{
+  "experiment": "network_partition_recovery",
+  "resilience_tests": [
+    {
+      "tx_id": "resilience_test_0",
+      "result": {
+        "tx_id": "resilience_test_0",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_0",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_1",
+      "result": {
+        "tx_id": "resilience_test_1",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_1",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_2",
+      "result": {
+        "tx_id": "resilience_test_2",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_2",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_3",
+      "result": {
+        "tx_id": "resilience_test_3",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_4",
+      "result": {
+        "tx_id": "resilience_test_4",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_4",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_5",
+      "result": {
+        "tx_id": "resilience_test_5",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_5",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_6",
+      "result": {
+        "tx_id": "resilience_test_6",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_6",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_7",
+      "result": {
+        "tx_id": "resilience_test_7",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_7",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_8",
+      "result": {
+        "tx_id": "resilience_test_8",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_8",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_9",
+      "result": {
+        "tx_id": "resilience_test_9",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_9",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_10",
+      "result": {
+        "tx_id": "resilience_test_10",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_10",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_11",
+      "result": {
+        "tx_id": "resilience_test_11",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_11",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_12",
+      "result": {
+        "tx_id": "resilience_test_12",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_12",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_13",
+      "result": {
+        "tx_id": "resilience_test_13",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_13",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_14",
+      "result": {
+        "tx_id": "resilience_test_14",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_14",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_15",
+      "result": {
+        "tx_id": "resilience_test_15",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_15",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_16",
+      "result": {
+        "tx_id": "resilience_test_16",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_16",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_17",
+      "result": {
+        "tx_id": "resilience_test_17",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_17",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_18",
+      "result": {
+        "tx_id": "resilience_test_18",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_18",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_19",
+      "result": {
+        "tx_id": "resilience_test_19",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_19",
+            "status": "pending",
+            "confidence": 0.6988057880877978,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_20",
+      "result": {
+        "tx_id": "resilience_test_20",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_20",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_21",
+      "result": {
+        "tx_id": "resilience_test_21",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_21",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_22",
+      "result": {
+        "tx_id": "resilience_test_22",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_22",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_23",
+      "result": {
+        "tx_id": "resilience_test_23",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_23",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "tx_id": "resilience_test_24",
+      "result": {
+        "tx_id": "resilience_test_24",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          },
+          {
+            "tx_id": "resilience_test_24",
+            "status": "pending",
+            "confidence": 0.4511883639059735,
+            "votes": 2
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    }
+  ],
+  "recovery_metrics": {
+    "burst_size": 25,
+    "successful_consensus": 0,
+    "failed_consensus": 25,
+    "resilience_rate": 0.0,
+    "network_stability": "degraded"
+  }
+}

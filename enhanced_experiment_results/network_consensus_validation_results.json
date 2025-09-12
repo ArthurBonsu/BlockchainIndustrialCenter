@@ -1,0 +1,372 @@
+{
+  "experiment": "network_consensus_validation",
+  "test_transactions": [
+    {
+      "scenario": {
+        "value": 100,
+        "risk_score": 0.1,
+        "expected_consensus": true,
+        "description": "Low risk transaction"
+      },
+      "tx_data": {
+        "tx_id": "consensus_test_0",
+        "from_addr": "test_addr_0",
+        "to_addr": "test_addr_1",
+        "value": 100,
+        "timestamp": 1757565559.3694222,
+        "risk_score": 0.1,
+        "complexity_class": 2
+      },
+      "consensus_result": {
+        "tx_id": "consensus_test_0",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_0",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "scenario": {
+        "value": 5000,
+        "risk_score": 0.3,
+        "expected_consensus": true,
+        "description": "Medium value transaction"
+      },
+      "tx_data": {
+        "tx_id": "consensus_test_1",
+        "from_addr": "test_addr_1",
+        "to_addr": "test_addr_2",
+        "value": 5000,
+        "timestamp": 1757565576.2421005,
+        "risk_score": 0.3,
+        "complexity_class": 2
+      },
+      "consensus_result": {
+        "tx_id": "consensus_test_1",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_1",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "scenario": {
+        "value": 50000,
+        "risk_score": 0.9,
+        "expected_consensus": false,
+        "description": "High risk transaction"
+      },
+      "tx_data": {
+        "tx_id": "consensus_test_2",
+        "from_addr": "test_addr_2",
+        "to_addr": "test_addr_3",
+        "value": 50000,
+        "timestamp": 1757565593.109499,
+        "risk_score": 0.9,
+        "complexity_class": 2
+      },
+      "consensus_result": {
+        "tx_id": "consensus_test_2",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_2",
+            "status": "pending",
+            "confidence": 0.6671289163019205,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "scenario": {
+        "value": 1000000,
+        "risk_score": 0.5,
+        "expected_consensus": false,
+        "description": "Excessive value transaction"
+      },
+      "tx_data": {
+        "tx_id": "consensus_test_3",
+        "from_addr": "test_addr_3",
+        "to_addr": "test_addr_4",
+        "value": 1000000,
+        "timestamp": 1757565609.9772832,
+        "risk_score": 0.5,
+        "complexity_class": 2
+      },
+      "consensus_result": {
+        "tx_id": "consensus_test_3",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_3",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    },
+    {
+      "scenario": {
+        "value": 250,
+        "risk_score": 0.2,
+        "expected_consensus": true,
+        "description": "Normal transaction"
+      },
+      "tx_data": {
+        "tx_id": "consensus_test_4",
+        "from_addr": "test_addr_4",
+        "to_addr": "test_addr_5",
+        "value": 250,
+        "timestamp": 1757565626.8436677,
+        "risk_score": 0.2,
+        "complexity_class": 2
+      },
+      "consensus_result": {
+        "tx_id": "consensus_test_4",
+        "status": "timeout",
+        "results": [
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          },
+          {
+            "tx_id": "consensus_test_4",
+            "status": "pending",
+            "confidence": 0.0,
+            "votes": 1
+          }
+        ]
+      },
+      "analysis": {
+        "consensus_achieved": false,
+        "consensus_time": null,
+        "participating_validators": 0,
+        "conflicting_decisions": 0,
+        "average_confidence": 0.0
+      }
+    }
+  ],
+  "consensus_statistics": {
+    "total_tests": 5,
+    "successful_consensus": 0,
+    "success_rate": 0.0,
+    "average_consensus_time": NaN
+  },
+  "validator_agreement": {}
+}
