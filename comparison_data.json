@@ -1,0 +1,48 @@
+{
+  "strebacom": {
+    "cloud": {
+      "throughput_tps": 2.44,
+      "finality_time_ms": 365.5,
+      "success_rate": 100.0,
+      "finality_rate": 75.0,
+      "byzantine_tolerance": 10.0,
+      "claims_validated": 6,
+      "p95_latency_ms": 383.7,
+      "p99_latency_ms": 1056.8,
+      "confidence_avg": 0.7957
+    },
+    "local": {
+      "throughput_tps": 2.59,
+      "finality_rate": 99.0,
+      "confidence_avg": 0.989
+    },
+    "simulation": {
+      "throughput_tps": 3687.6,
+      "finality_time_ms": 238.35,
+      "byzantine_tolerance": 49.0
+    }
+  },
+  "damysus": {
+    "production": {
+      "throughput_improvement": 87.5,
+      "latency_decrease": 45.0,
+      "finality_time_ms": 45.0,
+      "byzantine_tolerance": 33.3,
+      "requires_sgx": true,
+      "phases": 2
+    },
+    "estimated": {
+      "throughput_tps": 1875,
+      "deployment_cost_monthly": 100,
+      "setup_time_hours": 8
+    }
+  },
+  "comparison_summary": {
+    "infrastructure_advantage": "90% cost reduction",
+    "deployment_advantage": "No SGX required",
+    "finality_achieved": "365.5ms (cloud)",
+    "throughput_achieved": "2.44 TPS (cloud)",
+    "claims_validated": "6/8 (75%)",
+    "key_innovation": "True blockless consensus with continuous finality"
+  }
+}
