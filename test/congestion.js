@@ -643,108 +643,137 @@ const AdjustableLayer1Blockchain_ABI = [
 ];
 
 class Layer1BlockchainTestSuite {
-    // Fixed constructor with proper Web3 v4.x account setup
-constructor() {
-    // FORCE FRESH START - DELETE ANY EXISTING STATE
-    this.clearExistingState();
-    
-    // Initialize Web3 v4.x with STRING format to avoid BigInt
-    try {
-        console.log('🔌 Initializing Web3 v4.x connection with STRING format...');
+    constructor() {
+        // FORCE FRESH START - DELETE ANY EXISTING STATE
+        this.clearExistingState();
         
-        const providerUrl = process.env.ETHEREUM_PROVIDER_URL || 
-            `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
-        console.log(`📡 Provider URL: ${providerUrl.substring(0, 50)}...`);
+        // Initialize Web3 v4.x with STRING format to avoid BigInt
+        try {
+            console.log('🔌 Initializing Web3 v4.x connection with STRING format...');
+            
+            const providerUrl = process.env.ETHEREUM_PROVIDER_URL || 
+                `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
+            console.log(`📡 Provider URL: ${providerUrl.substring(0, 50)}...`);
+            
+            this.web3 = new Web3(providerUrl);
+            
+            // Configure Web3 v4.x to return strings instead of BigInt
+            this.web3.defaultReturnFormat = {
+                number: 'str',  // Return numbers as strings instead of BigInt
+                bytes: 'HEX'
+            };
+            
+            console.log('✅ Web3 v4.x initialized successfully with STRING format');
+            console.log(`📦 Web3 version: 4.16.0`);
+            
+        } catch (error) {
+            console.error('❌ Web3 initialization failed:', error.message);
+            throw error;
+        }
         
-        this.web3 = new Web3(providerUrl);
+        // FIXED: Proper account setup with normalization
+        try {
+            console.log('🔑 Setting up account with proper signing...');
+            
+            let privateKey = process.env.PRIVATE_KEY || process.env.ETHEREUM_PRIVATE_KEY;
+            
+            if (!privateKey) {
+                throw new Error('PRIVATE_KEY not found in environment variables');
+            }
+            
+            // Normalize private key (following working pattern)
+            privateKey = this._normalizePrivateKey(privateKey);
+            
+            // CRITICAL FIX: Properly add account to wallet for signing
+            this.account = this.web3.eth.accounts.privateKeyToAccount(privateKey);
+            this.web3.eth.accounts.wallet.add(this.account);
+            
+            // Set default account for all transactions
+            this.web3.eth.defaultAccount = this.account.address;
+            
+            console.log(`👤 Account loaded and wallet configured: ${this.account.address}`);
+            console.log(`🔐 Account added to wallet for automatic signing`);
+            
+            // Verify wallet contains the account
+            const walletAccount = this.web3.eth.accounts.wallet[0];
+            if (walletAccount && walletAccount.address.toLowerCase() === this.account.address.toLowerCase()) {
+                console.log('✅ Account properly added to wallet for transaction signing');
+            } else {
+                throw new Error('Account not properly added to wallet');
+            }
+            
+        } catch (error) {
+            console.error('❌ Account setup failed:', error.message);
+            throw error;
+        }
         
-        // Configure Web3 v4.x to return strings instead of BigInt
-        this.web3.defaultReturnFormat = {
-            number: 'str',  // Return numbers as strings instead of BigInt
+        // Initialize performance metrics
+        this.performanceMetrics = {
+            transactionCount: 0,
+            batchCount: 0,
+            compressionEvents: 0,
+            stateTransitions: {},
+            gasUsed: [],
+            timestamps: []
+        };
+        
+        // Initialize contract instance with STRING return format
+        this.layer1Contract = new this.web3.eth.Contract(
+            AdjustableLayer1Blockchain_ABI, 
+            CONTRACT_ADDRESS
+        );
+        
+        // CRITICAL: Set contract to return strings instead of BigInt
+        this.layer1Contract.defaultReturnFormat = {
+            number: 'str',
             bytes: 'HEX'
         };
         
-        console.log('✅ Web3 v4.x initialized successfully with STRING format');
-        console.log(`📦 Web3 version: 4.16.0`);
+        // FORCE FRESH STATE - NO LOADING FROM FILE
+        this.experimentState = {
+            phase: 'initialization',
+            completedPhases: [],
+            transactions: {},
+            batches: {},
+            results: {},
+            canContinue: false
+        };
         
-    } catch (error) {
-        console.error('❌ Web3 initialization failed:', error.message);
-        throw error;
+        console.log('🔄 FORCED FRESH START - All previous state cleared');
     }
-    
-    // FIXED: Proper account setup for Web3 v4.x
-    try {
-        console.log('🔑 Setting up account with proper signing...');
-        
-        let privateKey = process.env.PRIVATE_KEY || process.env.ETHEREUM_PRIVATE_KEY;
-        
-        if (!privateKey) {
-            throw new Error('PRIVATE_KEY not found in environment variables');
-        }
-        
-        // Clean and format private key
+
+    // FIXED: Private key normalization method (following working pattern)
+    _normalizePrivateKey(privateKey) {
+        if (!privateKey) return null;
         privateKey = privateKey.trim().replace(/\s/g, '');
-        if (privateKey.length === 64) {
-            privateKey = '0x' + privateKey;
+        if (privateKey.startsWith('0x')) {
+            return privateKey;
         }
-        
-        // CRITICAL FIX: Properly add account to wallet for signing
-        this.account = this.web3.eth.accounts.privateKeyToAccount(privateKey);
-        this.web3.eth.accounts.wallet.add(this.account);
-        
-        // Set default account for all transactions
-        this.web3.eth.defaultAccount = this.account.address;
-        
-        console.log(`👤 Account loaded and wallet configured: ${this.account.address}`);
-        console.log(`🔐 Account added to wallet for automatic signing`);
-        
-        // Verify wallet contains the account
-        const walletAccount = this.web3.eth.accounts.wallet[0];
-        if (walletAccount && walletAccount.address.toLowerCase() === this.account.address.toLowerCase()) {
-            console.log('✅ Account properly added to wallet for transaction signing');
-        } else {
-            throw new Error('Account not properly added to wallet');
-        }
-        
-    } catch (error) {
-        console.error('❌ Account setup failed:', error.message);
-        throw error;
+        return '0x' + privateKey;
     }
-    
-    // Initialize contract with proper configuration
-    this.layer1Contract = new this.web3.eth.Contract(
-        AdjustableLayer1Blockchain_ABI, 
-        CONTRACT_ADDRESS
-    );
-    
-    // Set contract to return strings instead of BigInt
-    this.layer1Contract.defaultReturnFormat = {
-        number: 'str',
-        bytes: 'HEX'
-    };
-    
-    // FORCE FRESH STATE - NO LOADING FROM FILE
-    this.experimentState = {
-        phase: 'initialization',
-        completedPhases: [],
-        transactions: {},
-        batches: {},
-        results: {},
-        canContinue: false
-    };
-    
-    // Initialize performance metrics
-    this.performanceMetrics = {
-        transactionCount: 0,
-        batchCount: 0,
-        compressionEvents: 0,
-        stateTransitions: {},
-        gasUsed: [],
-        timestamps: []
-    };
-    
-    console.log('🔄 FORCED FRESH START - All previous state cleared');
-}
+
+    // FIXED: Safe BigInt to Number conversion (following working pattern)
+    _safeBigIntToNumber(value) {
+        try {
+            if (typeof value === 'bigint') {
+                return Number(value);
+            }
+            if (typeof value === 'string') {
+                // Handle hex strings
+                if (value.startsWith('0x')) {
+                    return parseInt(value, 16);
+                }
+                return parseInt(value, 10);
+            }
+            if (typeof value === 'number') {
+                return value;
+            }
+            return 0;
+        } catch (error) {
+            console.error('Error converting value:', error);
+            return 0;
+        }
+    }
 
     /**
      * Clear any existing state files to force fresh start
@@ -800,17 +829,7 @@ constructor() {
      * Safe number converter for calculations
      */
     toSafeNumber(value) {
-        if (typeof value === 'string') {
-            const num = parseInt(value, 10);
-            return isNaN(num) ? 0 : num;
-        }
-        if (typeof value === 'bigint') {
-            return Number(value);
-        }
-        if (typeof value === 'number') {
-            return value;
-        }
-        return 0;
+        return this._safeBigIntToNumber(value);
     }
 
     /**
@@ -930,7 +949,7 @@ constructor() {
             
             // Test contract deployment
             const code = await this.web3.eth.getCode(CONTRACT_ADDRESS);
-            const isDeployed = code !== '0x';
+            const isDeployed = code !== '0x' && code !== '0x0';
             console.log(`${isDeployed ? '✅' : '❌'} Layer1 Contract: ${isDeployed ? 'Deployed' : 'Not deployed'}`);
             
             if (!isDeployed) {
@@ -959,12 +978,12 @@ constructor() {
             const stats = await this.layer1Contract.methods.getSystemStats().call();
             
             const processedStats = {
-                totalTransactions: this.toSafeNumber(stats.totalTx || stats[0]),
-                totalBatches: this.toSafeNumber(stats.totalBatches || stats[1]),
-                avgCompression: this.toSafeNumber(stats.avgCompression || stats[2]),
-                networkLoad: this.toSafeNumber(stats.networkLoad || stats[3]),
-                validated: this.toSafeNumber(stats.validated || stats[4]),
-                layers: this.toSafeNumber(stats.layers || stats[5])
+                totalTransactions: this._safeBigIntToNumber(stats.totalTx || stats[0]),
+                totalBatches: this._safeBigIntToNumber(stats.totalBatches || stats[1]),
+                avgCompression: this._safeBigIntToNumber(stats.avgCompression || stats[2]),
+                networkLoad: this._safeBigIntToNumber(stats.networkLoad || stats[3]),
+                validated: this._safeBigIntToNumber(stats.validated || stats[4]),
+                layers: this._safeBigIntToNumber(stats.layers || stats[5])
             };
             
             console.log('📊 Initial System Statistics:');
@@ -999,202 +1018,214 @@ constructor() {
         }
     }
 
-   // Updated phase2_TransactionSubmission method with smaller amounts
-// Fixed transaction submission method with proper signing
-async phase2_TransactionSubmission() {
-    console.log('📤 Submitting transactions with different priorities...');
-    console.log('🚨 THIS WILL EXECUTE REAL BLOCKCHAIN TRANSACTIONS');
-    
-    const priorities = ['Critical', 'Urgent', 'Economic', 'Standard', 'Low'];
-    const priorityValues = [0, 1, 2, 3, 4]; // Enum values
-    
-    // Use your actual wallet addresses as receivers
-    const receiverAddresses = [
-        '0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF',
-        '0x9429bc1eFdbEb339b815fdBE20F93F56812f655A',
-        '0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A',
-        '0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF',
-        '0x9429bc1eFdbEb339b815fdBE20F93F56812f655A'
-    ];
-    
-    this.experimentState.transactions = {};
-    let successfulTxCount = 0;
-    
-    // Track transaction IDs manually starting from current counter
-    const startingTxId = await this.layer1Contract.methods.transactionCounter().call();
-    let expectedTxId = this.toSafeNumber(startingTxId) + 1;
-    
-    for (let i = 0; i < 5; i++) {
+    // FIXED: Transaction submission with proper gas calculation
+    async phase2_TransactionSubmission() {
+        console.log('📤 Submitting transactions with different priorities...');
+        console.log('🚨 THIS WILL EXECUTE REAL BLOCKCHAIN TRANSACTIONS');
+        
+        const priorities = ['Critical', 'Urgent', 'Economic', 'Standard', 'Low'];
+        const priorityValues = [0, 1, 2, 3, 4]; // Enum values
+        
+        // Use your actual wallet addresses as receivers
+        const receiverAddresses = [
+            '0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF',
+            '0x9429bc1eFdbEb339b815fdBE20F93F56812f655A',
+            '0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A',
+            '0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF',
+            '0x9429bc1eFdbEb339b815fdBE20F93F56812f655A'
+        ];
+        
+        this.experimentState.transactions = {};
+        let successfulTxCount = 0;
+        
+        // Track transaction IDs manually starting from current counter
+        const startingTxId = await this.layer1Contract.methods.transactionCounter().call();
+        let expectedTxId = this._safeBigIntToNumber(startingTxId) + 1;
+        
+        for (let i = 0; i < 5; i++) {
+            try {
+                console.log(`\n🔄 Submitting ${priorities[i]} priority transaction...`);
+                
+                const receiver = receiverAddresses[i];
+                const amount = (1 + i).toString(); // Small amounts: 1, 2, 3, 4, 5 wei
+                
+                console.log(`   📤 Sending ${amount} wei to ${receiver}`);
+                console.log(`   🔐 Using account: ${this.account.address}`);
+                
+                // Get gas estimate
+                const gasEstimate = await this.layer1Contract.methods.submitTransaction(
+                    receiver,
+                    amount,
+                    priorityValues[i]
+                ).estimateGas({ 
+                    from: this.account.address 
+                });
+                
+                // FIXED: Proper gas calculation
+                const gasValue = this._safeBigIntToNumber(gasEstimate);
+                const gasWithBuffer = gasValue + 50000; // Add fixed buffer instead of percentage
+                
+                console.log(`   ⛽ Gas estimate: ${gasValue}`);
+                console.log(`   ⛽ Gas with buffer: ${gasWithBuffer}`);
+                
+                // Get current gas price
+                const gasPrice = await this.web3.eth.getGasPrice();
+                const gasPriceValue = this._safeBigIntToNumber(gasPrice);
+                console.log(`   ⛽ Gas price: ${gasPriceValue} wei`);
+                
+                // FIXED: Send transaction with proper gas values
+                const tx = await this.layer1Contract.methods.submitTransaction(
+                    receiver,
+                    amount,
+                    priorityValues[i]
+                ).send({ 
+                    from: this.account.address,
+                    gas: gasWithBuffer,
+                    gasPrice: gasPrice.toString() // Send as string to avoid BigInt issues
+                });
+                
+                console.log(`   🔐 Transaction signed and sent successfully`);
+                
+                // Extract transaction ID from events
+                let txId = expectedTxId.toString();
+                
+                // Try to get txId from event
+                if (tx.events && tx.events.TransactionSubmitted) {
+                    const event = tx.events.TransactionSubmitted;
+                    if (event.returnValues && event.returnValues.txId) {
+                        txId = event.returnValues.txId.toString();
+                    }
+                }
+                
+                this.experimentState.transactions[txId] = this.toSafeString({
+                    txId: txId,
+                    priority: priorities[i],
+                    amount: amount,
+                    receiver: receiver,
+                    txHash: tx.transactionHash,
+                    blockNumber: tx.blockNumber,
+                    gasUsed: tx.gasUsed,
+                    status: tx.status,
+                    signed: true
+                });
+                
+                this.performanceMetrics.transactionCount++;
+                this.performanceMetrics.gasUsed.push(this._safeBigIntToNumber(tx.gasUsed));
+                successfulTxCount++;
+                expectedTxId++;
+                
+                console.log(`   ✅ Transaction ${txId} submitted and signed!`);
+                console.log(`      Priority: ${priorities[i]}`);
+                console.log(`      Receiver: ${receiver}`);
+                console.log(`      Amount: ${amount} wei`);
+                console.log(`      Block: ${this._safeBigIntToNumber(tx.blockNumber)}`);
+                console.log(`      Gas Used: ${this._safeBigIntToNumber(tx.gasUsed)}`);
+                console.log(`      Tx Hash: ${tx.transactionHash}`);
+                console.log(`      Status: ${tx.status ? 'SUCCESS' : 'FAILED'}`);
+                
+                // Wait between transactions to avoid nonce conflicts
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                
+            } catch (error) {
+                console.error(`   ❌ Failed to submit ${priorities[i]} transaction:`, error.message);
+                
+                // Log more detailed error information
+                if (error.code) {
+                    console.error(`      Error code: ${error.code}`);
+                }
+                if (error.reason) {
+                    console.error(`      Reason: ${error.reason}`);
+                }
+                if (error.data) {
+                    console.error(`      Data: ${JSON.stringify(error.data)}`);
+                }
+                
+                // Continue with other transactions
+            }
+        }
+        
+        console.log(`\n📊 Successfully submitted ${successfulTxCount} transactions`);
+        console.log(`📊 Transaction IDs stored: ${Object.keys(this.experimentState.transactions).join(', ')}`);
+        
+        // Verify all transactions were signed
+        const signedTxs = Object.values(this.experimentState.transactions).filter(tx => tx.signed);
+        console.log(`🔐 Confirmed signed transactions: ${signedTxs.length}/${successfulTxCount}`);
+    }
+
+    async phase3_BatchCreation() {
+        console.log('📦 Creating transaction batches...');
+        
+        const txIds = Object.keys(this.experimentState.transactions);
+        
+        if (txIds.length < 2) {
+            console.log('⚠️ Not enough transactions for batching');
+            console.log(`   Available transactions: ${txIds.length}`);
+            return;
+        }
+        
         try {
-            console.log(`\n🔄 Submitting ${priorities[i]} priority transaction...`);
+            // Create batch with first 3 transactions (or all available if less)
+            const batchTxIds = txIds.slice(0, Math.min(3, txIds.length));
+            console.log(`🔄 Creating batch with transactions: ${batchTxIds.join(', ')}`);
+            console.log(`🔐 Using account: ${this.account.address}`);
             
-            const receiver = receiverAddresses[i];
-            const amount = (1 + i).toString(); // Small amounts: 1, 2, 3, 4, 5 wei
-            
-            console.log(`   📤 Sending ${amount} wei to ${receiver}`);
-            console.log(`   🔐 Using account: ${this.account.address}`);
-            
-            // FIXED: Proper gas estimation with explicit from address
-            const gasEstimate = await this.layer1Contract.methods.submitTransaction(
-                receiver,
-                amount,
-                priorityValues[i]
-            ).estimateGas({ 
+            const gasEstimate = await this.layer1Contract.methods.createBatch(batchTxIds).estimateGas({ 
                 from: this.account.address 
             });
             
-            console.log(`   ⛽ Gas estimate: ${gasEstimate}`);
+            const gasValue = this._safeBigIntToNumber(gasEstimate);
+            const gasWithBuffer = gasValue + 50000;
             
-            // Get current gas price
+            console.log(`   ⛽ Gas estimate: ${gasValue}`);
+            console.log(`   ⛽ Gas with buffer: ${gasWithBuffer}`);
+            
             const gasPrice = await this.web3.eth.getGasPrice();
-            console.log(`   ⛽ Gas price: ${gasPrice}`);
             
-            // FIXED: Proper transaction sending with explicit parameters
-            const tx = await this.layer1Contract.methods.submitTransaction(
-                receiver,
-                amount,
-                priorityValues[i]
-            ).send({ 
+            const tx = await this.layer1Contract.methods.createBatch(batchTxIds).send({ 
                 from: this.account.address,
-                gas: Math.floor(this.toSafeNumber(gasEstimate) * 1.2), // 20% buffer
-                gasPrice: gasPrice,
-                // Web3 v4.x will automatically sign because account is in wallet
+                gas: gasWithBuffer,
+                gasPrice: gasPrice.toString()
             });
             
-            console.log(`   🔐 Transaction signed and sent successfully`);
+            console.log(`   🔐 Batch creation transaction signed and sent`);
             
-            // Extract transaction ID from events
-            let txId = expectedTxId.toString();
+            // Get batch ID from current batch counter
+            const currentBatchCounter = await this.layer1Contract.methods.batchCounter().call();
+            let batchId = currentBatchCounter.toString();
             
-            // Try to get txId from event
-            if (tx.events && tx.events.TransactionSubmitted) {
-                const event = tx.events.TransactionSubmitted;
-                if (event.returnValues && event.returnValues.txId) {
-                    txId = event.returnValues.txId.toString();
+            // Try to get from event as well
+            if (tx.events && tx.events.BatchCreated && tx.events.BatchCreated.returnValues) {
+                const eventBatchId = tx.events.BatchCreated.returnValues.batchId;
+                if (eventBatchId) {
+                    batchId = eventBatchId.toString();
                 }
             }
             
-            this.experimentState.transactions[txId] = this.toSafeString({
-                txId: txId,
-                priority: priorities[i],
-                amount: amount,
-                receiver: receiver,
+            this.experimentState.batches[batchId] = this.toSafeString({
+                batchId: batchId,
+                transactionIds: batchTxIds,
                 txHash: tx.transactionHash,
                 blockNumber: tx.blockNumber,
                 gasUsed: tx.gasUsed,
-                signed: true // Confirm it was signed
+                signed: true
             });
             
-            this.performanceMetrics.transactionCount++;
-            this.performanceMetrics.gasUsed.push(this.toSafeNumber(tx.gasUsed));
-            successfulTxCount++;
-            expectedTxId++;
+            this.performanceMetrics.batchCount++;
             
-            console.log(`   ✅ Transaction ${txId} submitted and signed!`);
-            console.log(`      Priority: ${priorities[i]}`);
-            console.log(`      Receiver: ${receiver}`);
-            console.log(`      Amount: ${amount} wei`);
-            console.log(`      Block: ${this.toSafeNumber(tx.blockNumber)}`);
-            console.log(`      Gas Used: ${this.toSafeNumber(tx.gasUsed)}`);
-            console.log(`      Tx Hash: ${tx.transactionHash}`);
+            console.log(`   ✅ Batch ${batchId} created and signed!`);
+            console.log(`      Transactions in batch: ${batchTxIds.length}`);
+            console.log(`      Block: ${this._safeBigIntToNumber(tx.blockNumber)}`);
+            console.log(`      Gas Used: ${this._safeBigIntToNumber(tx.gasUsed)}`);
             console.log(`      Status: ${tx.status ? 'SUCCESS' : 'FAILED'}`);
             
-            // Wait between transactions to avoid nonce conflicts
-            await new Promise(resolve => setTimeout(resolve, 3000));
-            
         } catch (error) {
-            console.error(`   ❌ Failed to submit ${priorities[i]} transaction:`, error.message);
-            
-            // Log more detailed error information
-            if (error.code) {
-                console.error(`      Error code: ${error.code}`);
-            }
+            console.error('   ❌ Failed to create batch:', error.message);
             if (error.reason) {
                 console.error(`      Reason: ${error.reason}`);
             }
-            
-            // Continue with other transactions
         }
     }
-    
-    console.log(`\n📊 Successfully submitted ${successfulTxCount} transactions`);
-    console.log(`📊 Transaction IDs stored: ${Object.keys(this.experimentState.transactions).join(', ')}`);
-    
-    // Verify all transactions were signed
-    const signedTxs = Object.values(this.experimentState.transactions).filter(tx => tx.signed);
-    console.log(`🔐 Confirmed signed transactions: ${signedTxs.length}/${successfulTxCount}`);
-}
 
-    async phase3_BatchCreation() {
-    console.log('📦 Creating transaction batches...');
-    
-    const txIds = Object.keys(this.experimentState.transactions);
-    
-    if (txIds.length < 2) {
-        console.log('⚠️ Not enough transactions for batching');
-        console.log(`   Available transactions: ${txIds.length}`);
-        return;
-    }
-    
-    try {
-        // Create batch with first 3 transactions (or all available if less)
-        const batchTxIds = txIds.slice(0, Math.min(3, txIds.length));
-        console.log(`🔄 Creating batch with transactions: ${batchTxIds.join(', ')}`);
-        console.log(`🔐 Using account: ${this.account.address}`);
-        
-        const gasEstimate = await this.layer1Contract.methods.createBatch(batchTxIds).estimateGas({ 
-            from: this.account.address 
-        });
-        
-        console.log(`   ⛽ Gas estimate: ${gasEstimate}`);
-        
-        const gasPrice = await this.web3.eth.getGasPrice();
-        
-        // FIXED: Proper transaction sending with signing
-        const tx = await this.layer1Contract.methods.createBatch(batchTxIds).send({ 
-            from: this.account.address,
-            gas: Math.floor(this.toSafeNumber(gasEstimate) * 1.2), // 20% buffer
-            gasPrice: gasPrice
-        });
-        
-        console.log(`   🔐 Batch creation transaction signed and sent`);
-        
-        // Get batch ID from current batch counter
-        const currentBatchCounter = await this.layer1Contract.methods.batchCounter().call();
-        let batchId = currentBatchCounter.toString();
-        
-        // Try to get from event as well
-        if (tx.events && tx.events.BatchCreated && tx.events.BatchCreated.returnValues) {
-            const eventBatchId = tx.events.BatchCreated.returnValues.batchId;
-            if (eventBatchId) {
-                batchId = eventBatchId.toString();
-            }
-        }
-        
-        this.experimentState.batches[batchId] = this.toSafeString({
-            batchId: batchId,
-            transactionIds: batchTxIds,
-            txHash: tx.transactionHash,
-            blockNumber: tx.blockNumber,
-            gasUsed: tx.gasUsed,
-            signed: true
-        });
-        
-        this.performanceMetrics.batchCount++;
-        
-        console.log(`   ✅ Batch ${batchId} created and signed!`);
-        console.log(`      Transactions in batch: ${batchTxIds.length}`);
-        console.log(`      Block: ${this.toSafeNumber(tx.blockNumber)}`);
-        console.log(`      Gas Used: ${this.toSafeNumber(tx.gasUsed)}`);
-        console.log(`      Status: ${tx.status ? 'SUCCESS' : 'FAILED'}`);
-        
-    } catch (error) {
-        console.error('   ❌ Failed to create batch:', error.message);
-        if (error.reason) {
-            console.error(`      Reason: ${error.reason}`);
-        }
-    }
-}
     async phase4_CompressionCycle() {
         console.log('🗜️ Testing adaptive compression...');
         
@@ -1213,19 +1244,25 @@ async phase2_TransactionSubmission() {
                     from: this.account.address 
                 });
                 
-                console.log(`   ⛽ Gas estimate: ${gasEstimate}`);
+                const gasValue = this._safeBigIntToNumber(gasEstimate);
+                const gasWithBuffer = gasValue + 50000;
+                
+                console.log(`   ⛽ Gas estimate: ${gasValue}`);
+                console.log(`   ⛽ Gas with buffer: ${gasWithBuffer}`);
+                
+                const gasPrice = await this.web3.eth.getGasPrice();
                 
                 const tx = await this.layer1Contract.methods.compressBatch(batchId).send({ 
                     from: this.account.address,
-                    gas: this.toSafeNumber(gasEstimate) + 50000,
-                    gasPrice: await this.web3.eth.getGasPrice()
+                    gas: gasWithBuffer,
+                    gasPrice: gasPrice.toString()
                 });
                 
                 this.performanceMetrics.compressionEvents++;
                 
                 console.log(`   ✅ Batch compressed!`);
-                console.log(`      Block: ${this.toSafeNumber(tx.blockNumber)}`);
-                console.log(`      Gas Used: ${this.toSafeNumber(tx.gasUsed)}`);
+                console.log(`      Block: ${this._safeBigIntToNumber(tx.blockNumber)}`);
+                console.log(`      Gas Used: ${this._safeBigIntToNumber(tx.gasUsed)}`);
                 
                 // Check for compression events
                 if (tx.events && tx.events.TransactionCompressed) {
@@ -1274,12 +1311,18 @@ async phase2_TransactionSubmission() {
                     from: this.account.address 
                 });
                 
-                console.log(`   ⛽ Gas estimate: ${gasEstimate}`);
+                const gasValue = this._safeBigIntToNumber(gasEstimate);
+                const gasWithBuffer = gasValue + 50000;
+                
+                console.log(`   ⛽ Gas estimate: ${gasValue}`);
+                console.log(`   ⛽ Gas with buffer: ${gasWithBuffer}`);
+                
+                const gasPrice = await this.web3.eth.getGasPrice();
                 
                 const tx = await this.layer1Contract.methods[states[i]](batchId).send({ 
                     from: this.account.address,
-                    gas: this.toSafeNumber(gasEstimate) + 50000,
-                    gasPrice: await this.web3.eth.getGasPrice()
+                    gas: gasWithBuffer,
+                    gasPrice: gasPrice.toString()
                 });
                 
                 // Track state transitions
@@ -1289,8 +1332,8 @@ async phase2_TransactionSubmission() {
                 this.performanceMetrics.stateTransitions[stateNames[i]]++;
                 
                 console.log(`   ✅ Transitioned to ${stateNames[i]}!`);
-                console.log(`      Block: ${this.toSafeNumber(tx.blockNumber)}`);
-                console.log(`      Gas Used: ${this.toSafeNumber(tx.gasUsed)}`);
+                console.log(`      Block: ${this._safeBigIntToNumber(tx.blockNumber)}`);
+                console.log(`      Gas Used: ${this._safeBigIntToNumber(tx.gasUsed)}`);
                 
                 // Check for state change events
                 if (tx.events && tx.events.TransactionStateChanged) {
@@ -1365,96 +1408,101 @@ async phase2_TransactionSubmission() {
         return priorities[priorityNum] || `Priority ${priorityNum}`;
     }
 
-    // Updated phase7_InfiniteSpaceManagement method with smaller amounts
-async phase7_InfiniteSpaceManagement() {
-    console.log('♾️ Testing infinite space management with modular layers...');
-    
-    try {
-        // Get current system stats
-        const stats = await this.layer1Contract.methods.getSystemStats().call();
-        const currentLayers = this.toSafeNumber(stats.layers || stats[5]);
-        const currentTxCount = this.toSafeNumber(stats.totalTx || stats[0]);
+    async phase7_InfiniteSpaceManagement() {
+        console.log('♾️ Testing infinite space management with modular layers...');
         
-        console.log(`   📊 Current system state:`);
-        console.log(`      Modular layers: ${currentLayers}`);
-        console.log(`      Total transactions: ${currentTxCount}`);
-        
-        // Submit more transactions to potentially trigger layer expansion
-        console.log('\n   🔄 Submitting additional transactions to test layer expansion...');
-        
-        // Use your actual wallet addresses as receivers
-        const receiverAddresses = [
-            '0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF',
-            '0x9429bc1eFdbEb339b815fdBE20F93F56812f655A',
-            '0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A'  // Your main wallet
-        ];
-        
-        let newTxCount = 0;
-        for (let i = 0; i < 3; i++) {
-            try {
-                const receiver = receiverAddresses[i];
-                const amount = '1'; // Just 1 wei for testing
-                
-                console.log(`      🔄 Submitting transaction ${i+1} (${amount} wei) to ${receiver}...`);
-                
-                const gasEstimate = await this.layer1Contract.methods.submitTransaction(
-                    receiver,
-                    amount,
-                    3 // Standard priority
-                ).estimateGas({ from: this.account.address });
-                
-                const tx = await this.layer1Contract.methods.submitTransaction(
-                    receiver,
-                    amount,
-                    3 // Standard priority
-                ).send({ 
-                    from: this.account.address,
-                    gas: this.toSafeNumber(gasEstimate) + 50000,
-                    gasPrice: await this.web3.eth.getGasPrice()
-                });
-                
-                newTxCount++;
-                console.log(`      ✅ Transaction ${i+1} submitted successfully`);
-                console.log(`         Amount: ${amount} wei`);
-                console.log(`         Block: ${this.toSafeNumber(tx.blockNumber)}`);
-                console.log(`         Gas Used: ${this.toSafeNumber(tx.gasUsed)}`);
-                console.log(`         Tx Hash: ${tx.transactionHash}`);
-                
-                // Check for layer expansion event
-                if (tx.events && tx.events.ModularLayerAdded) {
-                    console.log(`   🎉 New modular layer added! Total layers: ${tx.events.ModularLayerAdded.returnValues.newLayerCount}`);
+        try {
+            // Get current system stats
+            const stats = await this.layer1Contract.methods.getSystemStats().call();
+            const currentLayers = this._safeBigIntToNumber(stats.layers || stats[5]);
+            const currentTxCount = this._safeBigIntToNumber(stats.totalTx || stats[0]);
+            
+            console.log(`   📊 Current system state:`);
+            console.log(`      Modular layers: ${currentLayers}`);
+            console.log(`      Total transactions: ${currentTxCount}`);
+            
+            // Submit more transactions to potentially trigger layer expansion
+            console.log('\n   🔄 Submitting additional transactions to test layer expansion...');
+            
+            // Use your actual wallet addresses as receivers
+            const receiverAddresses = [
+                '0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF',
+                '0x9429bc1eFdbEb339b815fdBE20F93F56812f655A',
+                '0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A'
+            ];
+            
+            let newTxCount = 0;
+            for (let i = 0; i < 3; i++) {
+                try {
+                    const receiver = receiverAddresses[i];
+                    const amount = '1'; // Just 1 wei for testing
+                    
+                    console.log(`      🔄 Submitting transaction ${i+1} (${amount} wei) to ${receiver}...`);
+                    
+                    const gasEstimate = await this.layer1Contract.methods.submitTransaction(
+                        receiver,
+                        amount,
+                        3 // Standard priority
+                    ).estimateGas({ from: this.account.address });
+                    
+                    const gasValue = this._safeBigIntToNumber(gasEstimate);
+                    const gasWithBuffer = gasValue + 50000;
+                    
+                    const gasPrice = await this.web3.eth.getGasPrice();
+                    
+                    const tx = await this.layer1Contract.methods.submitTransaction(
+                        receiver,
+                        amount,
+                        3 // Standard priority
+                    ).send({ 
+                        from: this.account.address,
+                        gas: gasWithBuffer,
+                        gasPrice: gasPrice.toString()
+                    });
+                    
+                    newTxCount++;
+                    console.log(`      ✅ Transaction ${i+1} submitted successfully`);
+                    console.log(`         Amount: ${amount} wei`);
+                    console.log(`         Block: ${this._safeBigIntToNumber(tx.blockNumber)}`);
+                    console.log(`         Gas Used: ${this._safeBigIntToNumber(tx.gasUsed)}`);
+                    console.log(`         Tx Hash: ${tx.transactionHash}`);
+                    
+                    // Check for layer expansion event
+                    if (tx.events && tx.events.ModularLayerAdded) {
+                        console.log(`   🎉 New modular layer added! Total layers: ${tx.events.ModularLayerAdded.returnValues.newLayerCount}`);
+                    }
+                    
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                } catch (error) {
+                    console.error(`      ❌ Transaction ${i+1} failed:`, error.message);
                 }
-                
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-            } catch (error) {
-                console.error(`      ❌ Transaction ${i+1} failed:`, error.message);
             }
+            
+            // Get updated stats
+            const updatedStats = await this.layer1Contract.methods.getSystemStats().call();
+            const newLayers = this._safeBigIntToNumber(updatedStats.layers || updatedStats[5]);
+            const newTotalTx = this._safeBigIntToNumber(updatedStats.totalTx || updatedStats[0]);
+            
+            console.log(`\n   📊 Updated system state:`);
+            console.log(`      Modular layers: ${newLayers}`);
+            console.log(`      Total transactions: ${newTotalTx}`);
+            console.log(`      New transactions added: ${newTxCount}`);
+            
+            if (newLayers > currentLayers) {
+                console.log(`   ✅ Successfully demonstrated infinite space expansion!`);
+                console.log(`      Layers increased from ${currentLayers} to ${newLayers}`);
+            } else {
+                console.log(`   📊 Layer count maintained at ${newLayers} (threshold not reached)`);
+            }
+            
+            console.log('\n✅ Infinite space management test completed');
+            
+        } catch (error) {
+            console.error('   ❌ Failed to test infinite space management:', error.message);
         }
-        
-        // Get updated stats
-        const updatedStats = await this.layer1Contract.methods.getSystemStats().call();
-        const newLayers = this.toSafeNumber(updatedStats.layers || updatedStats[5]);
-        const newTotalTx = this.toSafeNumber(updatedStats.totalTx || updatedStats[0]);
-        
-        console.log(`\n   📊 Updated system state:`);
-        console.log(`      Modular layers: ${newLayers}`);
-        console.log(`      Total transactions: ${newTotalTx}`);
-        console.log(`      New transactions added: ${newTxCount}`);
-        
-        if (newLayers > currentLayers) {
-            console.log(`   ✅ Successfully demonstrated infinite space expansion!`);
-            console.log(`      Layers increased from ${currentLayers} to ${newLayers}`);
-        } else {
-            console.log(`   📊 Layer count maintained at ${newLayers} (threshold not reached)`);
-        }
-        
-        console.log('\n✅ Infinite space management test completed');
-        
-    } catch (error) {
-        console.error('   ❌ Failed to test infinite space management:', error.message);
     }
-}
+
     async phase8_Results() {
         console.log('📋 Generating comprehensive results...');
         
@@ -1462,12 +1510,12 @@ async phase7_InfiniteSpaceManagement() {
         const finalStats = await this.layer1Contract.methods.getSystemStats().call();
         
         const processedStats = {
-            totalTransactions: this.toSafeNumber(finalStats.totalTx || finalStats[0]),
-            totalBatches: this.toSafeNumber(finalStats.totalBatches || finalStats[1]),
-            avgCompression: this.toSafeNumber(finalStats.avgCompression || finalStats[2]),
-            networkLoad: this.toSafeNumber(finalStats.networkLoad || finalStats[3]),
-            validated: this.toSafeNumber(finalStats.validated || finalStats[4]),
-            layers: this.toSafeNumber(finalStats.layers || finalStats[5])
+            totalTransactions: this._safeBigIntToNumber(finalStats.totalTx || finalStats[0]),
+            totalBatches: this._safeBigIntToNumber(finalStats.totalBatches || finalStats[1]),
+            avgCompression: this._safeBigIntToNumber(finalStats.avgCompression || finalStats[2]),
+            networkLoad: this._safeBigIntToNumber(finalStats.networkLoad || finalStats[3]),
+            validated: this._safeBigIntToNumber(finalStats.validated || finalStats[4]),
+            layers: this._safeBigIntToNumber(finalStats.layers || finalStats[5])
         };
         
         const comprehensiveResults = {

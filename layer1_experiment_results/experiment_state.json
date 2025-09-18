@@ -9,8 +9,77 @@
     "phase6_DualLayerProcessing",
     "phase7_InfiniteSpaceManagement"
   ],
-  "transactions": {},
-  "batches": {},
+  "transactions": {
+    "1": {
+      "txId": "1",
+      "priority": "Critical",
+      "amount": "1",
+      "receiver": "0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF",
+      "txHash": "0x987b012469bb2a99b10e229c58794b418ccfb245d64437c2601f558941b4d09e",
+      "blockNumber": "0x8cc65c",
+      "gasUsed": "0x44945",
+      "status": "0x1",
+      "signed": true
+    },
+    "2": {
+      "txId": "2",
+      "priority": "Urgent",
+      "amount": "2",
+      "receiver": "0x9429bc1eFdbEb339b815fdBE20F93F56812f655A",
+      "txHash": "0x3bec809274f9ee84ff9328e28355e011204721970a97f8dfdc7187f7bee29db9",
+      "blockNumber": "0x8cc65d",
+      "gasUsed": "0x3cea9",
+      "status": "0x1",
+      "signed": true
+    },
+    "3": {
+      "txId": "3",
+      "priority": "Economic",
+      "amount": "3",
+      "receiver": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "txHash": "0xefdda77a7bddabffc62532f13d5951790e20ef959ffb508b78d902f21b728f6b",
+      "blockNumber": "0x8cc65e",
+      "gasUsed": "0x3cea9",
+      "status": "0x1",
+      "signed": true
+    },
+    "4": {
+      "txId": "4",
+      "priority": "Standard",
+      "amount": "4",
+      "receiver": "0xcAfc8C0EC2Df5Ef7Ffc33f119Cf4C80CfFc5F5aF",
+      "txHash": "0x00621763fd110be4afe1f6b646354c6be286a81c31cc009ad436faa6bc6b7c13",
+      "blockNumber": "0x8cc65f",
+      "gasUsed": "0x3cea9",
+      "status": "0x1",
+      "signed": true
+    },
+    "5": {
+      "txId": "5",
+      "priority": "Low",
+      "amount": "5",
+      "receiver": "0x9429bc1eFdbEb339b815fdBE20F93F56812f655A",
+      "txHash": "0xf5b08b6ec01b9d48a8817b72c73f700dac099357d106d545a95421a89748476a",
+      "blockNumber": "0x8cc660",
+      "gasUsed": "0x3cea9",
+      "status": "0x1",
+      "signed": true
+    }
+  },
+  "batches": {
+    "1": {
+      "batchId": "1",
+      "transactionIds": [
+        "1",
+        "2",
+        "3"
+      ],
+      "txHash": "0xe7de4e2c4f3530d2dcf4db96c32c24bf954c51be06027e62a16b060b72bb7840",
+      "blockNumber": "0x8cc661",
+      "gasUsed": "0x4ef74",
+      "signed": true
+    }
+  },
   "results": {
     "initialValidation": {
       "systemStats": {

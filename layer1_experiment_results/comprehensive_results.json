@@ -1,26 +1,31 @@
 {
   "experimentSummary": {
-    "transactionsSubmitted": "0",
-    "transactionsTracked": "0",
-    "batchesCreated": "0",
-    "batchesTracked": "0",
-    "compressionEvents": "0",
-    "stateTransitions": {},
+    "transactionsSubmitted": "5",
+    "transactionsTracked": "5",
+    "batchesCreated": "1",
+    "batchesTracked": "1",
+    "compressionEvents": "1",
+    "stateTransitions": {
+      "Moving": "1",
+      "Stacked": "1",
+      "Decompressed": "1",
+      "Validated": "1"
+    },
     "finalSystemStats": {
-      "totalTransactions": "0",
-      "totalBatches": "0",
-      "avgCompression": "0",
-      "networkLoad": "0",
-      "validated": "0",
+      "totalTransactions": "8",
+      "totalBatches": "1",
+      "avgCompression": "30",
+      "networkLoad": "5",
+      "validated": "3",
       "layers": "1"
     },
     "blockchainTransactionsExecuted": true,
     "realDataCollected": true
   },
   "gasAnalysis": {
-    "totalGasUsed": "0",
-    "avgGasPerTx": "0",
-    "transactionsWithGasData": "0"
+    "totalGasUsed": "1278953",
+    "avgGasPerTx": "255790",
+    "transactionsWithGasData": "5"
   },
   "paperConceptsValidated": {
     "sixStateLifecycle": "✅ Demonstrated (Pending → Compressed → Moving → Stacked → Decompressed → Validated)",
@@ -31,9 +36,23 @@
     "priorityBasedProcessing": "✅ Five priority levels tested (Critical, Urgent, Economic, Standard, Low)"
   },
   "experimentEvidence": {
-    "transactionHashes": [],
-    "batchCreationHashes": [],
-    "blocksUsed": [],
+    "transactionHashes": [
+      "0x987b012469bb2a99b10e229c58794b418ccfb245d64437c2601f558941b4d09e",
+      "0x3bec809274f9ee84ff9328e28355e011204721970a97f8dfdc7187f7bee29db9",
+      "0xefdda77a7bddabffc62532f13d5951790e20ef959ffb508b78d902f21b728f6b",
+      "0x00621763fd110be4afe1f6b646354c6be286a81c31cc009ad436faa6bc6b7c13",
+      "0xf5b08b6ec01b9d48a8817b72c73f700dac099357d106d545a95421a89748476a"
+    ],
+    "batchCreationHashes": [
+      "0xe7de4e2c4f3530d2dcf4db96c32c24bf954c51be06027e62a16b060b72bb7840"
+    ],
+    "blocksUsed": [
+      "0x8cc65c",
+      "0x8cc65d",
+      "0x8cc65e",
+      "0x8cc65f",
+      "0x8cc660"
+    ],
     "contractAddress": "0xec8795a7d1d39844744632b1718432de99b730f7",
     "accountUsed": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
   }
