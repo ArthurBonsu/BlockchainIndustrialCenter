@@ -1,0 +1,17 @@
+{
+  "connector_approach": {
+    "avg_processing_time": 87.8043984425253,
+    "accuracy": 0.964,
+    "total_transactions": 1000
+  },
+  "our_approach": {
+    "avg_processing_time": 16.390435731795097,
+    "accuracy": 0.989,
+    "total_transactions": 1000
+  },
+  "performance_improvements": {
+    "processing_time_improvement_percent": 81.33301289852366,
+    "accuracy_improvement_percent": 2.500000000000002,
+    "speedup_factor": 5.3570508972008195
+  }
+}
