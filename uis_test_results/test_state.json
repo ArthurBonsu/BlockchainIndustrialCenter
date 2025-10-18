@@ -1,0 +1,102 @@
+{
+  "phase": "phase2_SchemaTransformationGraph",
+  "completedPhases": [
+    "phase1_DataSourceRegistration",
+    "phase2_SchemaTransformationGraph"
+  ],
+  "dataSources": {
+    "oracle:pricefeed:v1": {
+      "type": "oracle",
+      "schemaId": "oracle:pricefeed:v1",
+      "name": "Financial Oracle",
+      "capabilities": [
+        "price",
+        "volume",
+        "ratings"
+      ],
+      "versionHash": "0xc3624382d7117acca133326c19795bf9da7337449a379116fb56d292f2e8c13b",
+      "txHash": "0x7c55175b85ffd2b32ec1051c3b65acfcc22b1aa65418c243cc35880a7c63fce2",
+      "blockNumber": "0x900658",
+      "gasUsed": "0x493e0",
+      "address": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+    },
+    "db:postgresql:v1": {
+      "type": "database",
+      "schemaId": "db:postgresql:v1",
+      "name": "Transaction Database",
+      "capabilities": [
+        "transactions",
+        "balances",
+        "history"
+      ],
+      "versionHash": "0xc5f8afb32a4e64879e08fbb485e1d3cb2ff2398bb8e6f447606fd3bc31374b35",
+      "txHash": "0xb1e940debf7457fbe7a956b05413f083881022d1576b73b547b1bc74ee8374e4",
+      "blockNumber": "0x900659",
+      "gasUsed": "0x493e0",
+      "address": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+    }
+  },
+  "queries": {},
+  "transformations": {
+    "oracle:pricefeed:v1_to_UIS:1.0": {
+      "from": "oracle:pricefeed:v1",
+      "to": "UIS:1.0",
+      "confidence": 98,
+      "bidirectional": true,
+      "ruleHash": "0x03ac808eca979ce6ab8c1ff953ff8d701757d3fddd2a9b5977eeb9d87d2002b7",
+      "txHash": "0xfd109b828f9128f500821b01d15196f026183ab678528f2fc0b35470c42f7bb5",
+      "gasUsed": "0x6c26"
+    },
+    "db:postgresql:v1_to_UIS:1.0": {
+      "from": "db:postgresql:v1",
+      "to": "UIS:1.0",
+      "confidence": 95,
+      "bidirectional": true,
+      "ruleHash": "0x4ff5ffb9f2ddd0365f1381841cde46e857e9aef59de3e454f626116492a0b36c",
+      "txHash": "0x7947c7902f68bf0972fd687b35044e0fc154fdd638e47361e71118f8a191b33a",
+      "gasUsed": "0x6c02"
+    },
+    "mcp:gpt4:v1_to_UIS:1.0": {
+      "from": "mcp:gpt4:v1",
+      "to": "UIS:1.0",
+      "confidence": 90,
+      "bidirectional": true,
+      "ruleHash": "0x03591cecf57e299f9dfb678795b125eb16d6e788c8cce05192b48d644ba74cb3",
+      "txHash": "0x714b96c3167e9d4d9dd17da399cce47a66757c45f09161de589713ec379ecc76",
+      "gasUsed": "0x6bc6"
+    }
+  },
+  "proofs": {},
+  "consensusResults": {},
+  "performanceMetrics": {
+    "gasUsed": [
+      {
+        "operation": "DataSource Registration",
+        "gasUsed": 300000,
+        "timestamp": 1760797576437
+      },
+      {
+        "operation": "DataSource Registration",
+        "gasUsed": 300000,
+        "timestamp": 1760797588621
+      },
+      {
+        "operation": "Transformation Registration",
+        "gasUsed": 27686,
+        "timestamp": 1760797611786
+      },
+      {
+        "operation": "Transformation Registration",
+        "gasUsed": 27650,
+        "timestamp": 1760797623988
+      },
+      {
+        "operation": "Transformation Registration",
+        "gasUsed": 27590,
+        "timestamp": 1760797635282
+      }
+    ],
+    "transactionTimes": [],
+    "consensusTimes": []
+  }
+}
