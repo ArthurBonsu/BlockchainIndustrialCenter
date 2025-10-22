@@ -1,8 +1,14 @@
 {
-  "phase": "phase2_SchemaTransformationGraph",
+  "phase": "phase8_ComprehensiveAnalysis",
   "completedPhases": [
     "phase1_DataSourceRegistration",
-    "phase2_SchemaTransformationGraph"
+    "phase2_SchemaTransformationGraph",
+    "phase3_QueryProcessingSimulation",
+    "phase4_ByzantineConsensusTest",
+    "phase5_VerificationPipeline",
+    "phase6_ReputationDynamics",
+    "phase7_ProofAnchoring",
+    "phase8_ComprehensiveAnalysis"
   ],
   "dataSources": {
     "oracle:pricefeed:v1": {
@@ -15,8 +21,8 @@
         "ratings"
       ],
       "versionHash": "0xc3624382d7117acca133326c19795bf9da7337449a379116fb56d292f2e8c13b",
-      "txHash": "0x7c55175b85ffd2b32ec1051c3b65acfcc22b1aa65418c243cc35880a7c63fce2",
-      "blockNumber": "0x900658",
+      "txHash": "0xe8f5048e9eca1d97664d868333e698ee9d728f8e9ee6e45bbf49c2e84774ee2a",
+      "blockNumber": "0x906e9b",
       "gasUsed": "0x493e0",
       "address": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
     },
@@ -30,13 +36,82 @@
         "history"
       ],
       "versionHash": "0xc5f8afb32a4e64879e08fbb485e1d3cb2ff2398bb8e6f447606fd3bc31374b35",
-      "txHash": "0xb1e940debf7457fbe7a956b05413f083881022d1576b73b547b1bc74ee8374e4",
-      "blockNumber": "0x900659",
+      "txHash": "0x2fe29044155d9eb892e3308706b3331eb992fc4c95008fd9e5569612559184d8",
+      "blockNumber": "0x906e9c",
+      "gasUsed": "0x493e0",
+      "address": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+    },
+    "mcp:gpt4:v1": {
+      "type": "ai_model",
+      "schemaId": "mcp:gpt4:v1",
+      "name": "Risk Assessment Model",
+      "capabilities": [
+        "risk_score",
+        "predictions",
+        "analysis"
+      ],
+      "versionHash": "0x3c9ad8029655fea275b17bd3bfe5d33717c89a539771edc7f43a4de5a9cadbce",
+      "txHash": "0xcdfbbec5ea6c152cdddac8721639c83050f19808bf42867476af9e840a9d7c06",
+      "blockNumber": "0x906e9d",
       "gasUsed": "0x493e0",
       "address": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
     }
   },
-  "queries": {},
+  "queries": {
+    "0xcc0235999c693ec96b4045ef56dc02dc3ca102a20d302a70f04b0d54bd18ff23": {
+      "description": "Fetch AAPL price with risk assessment",
+      "queryData": {
+        "symbol": "AAPL",
+        "requiredSources": [
+          "oracle",
+          "ai_model"
+        ]
+      },
+      "queryHash": "0x42eba3c5c1005d023337f231b9a554c650f490a43e416b483ea652c78bb519ad",
+      "taskId": "0xcc0235999c693ec96b4045ef56dc02dc3ca102a20d302a70f04b0d54bd18ff23",
+      "txHash": "0x81fbb2640dc8376c91e0c0965212a75bdc1038ac0b5992685f409fc5f8a2c5f9",
+      "gasUsed": "0x24417",
+      "queryTime": 10975,
+      "status": "created"
+    },
+    "0xc6061c2450657bc7ed08025d9a9a31b1b629d0d0bed79a7087cf0649e2206061": {
+      "description": "Transaction history with market data",
+      "queryData": {
+        "userId": "user123",
+        "requiredSources": [
+          "database",
+          "oracle"
+        ]
+      },
+      "queryHash": "0xf81cfe3f2979e1ecb338d0ba095a213282b997515f4479d3fa35052bfeac44e8",
+      "taskId": "0xc6061c2450657bc7ed08025d9a9a31b1b629d0d0bed79a7087cf0649e2206061",
+      "txHash": "0xc4adc158787beffbdb84e03227b012d3e8e9c2ecde0d186df1a65e52b7a35b29",
+      "gasUsed": "0x24423",
+      "queryTime": 33645,
+      "status": "created"
+    },
+    "0x09cf6d80ba88ff03e7b0e68762982214e2326599d7b1139238ab2c459650916d": {
+      "description": "Comprehensive portfolio analysis",
+      "queryData": {
+        "portfolio": [
+          "AAPL",
+          "GOOGL",
+          "MSFT"
+        ],
+        "requiredSources": [
+          "oracle",
+          "database",
+          "ai_model"
+        ]
+      },
+      "queryHash": "0xeed3f21e4e288a54bab5ba90ae8a9944a1e78481806426252a7344a2dc7f9610",
+      "taskId": "0x09cf6d80ba88ff03e7b0e68762982214e2326599d7b1139238ab2c459650916d",
+      "txHash": "0x59f2529cd50705a67fa4abaee40fe0e84813d969878574a752dacdd76a2eecb8",
+      "gasUsed": "0x24423",
+      "queryTime": 12568,
+      "status": "created"
+    }
+  },
   "transformations": {
     "oracle:pricefeed:v1_to_UIS:1.0": {
       "from": "oracle:pricefeed:v1",
@@ -44,7 +119,7 @@
       "confidence": 98,
       "bidirectional": true,
       "ruleHash": "0x03ac808eca979ce6ab8c1ff953ff8d701757d3fddd2a9b5977eeb9d87d2002b7",
-      "txHash": "0xfd109b828f9128f500821b01d15196f026183ab678528f2fc0b35470c42f7bb5",
+      "txHash": "0xc33ab2b998070e97eba89363e66cad44d4cc99dfc32b6c7911858c6398ca5c4e",
       "gasUsed": "0x6c26"
     },
     "db:postgresql:v1_to_UIS:1.0": {
@@ -53,7 +128,7 @@
       "confidence": 95,
       "bidirectional": true,
       "ruleHash": "0x4ff5ffb9f2ddd0365f1381841cde46e857e9aef59de3e454f626116492a0b36c",
-      "txHash": "0x7947c7902f68bf0972fd687b35044e0fc154fdd638e47361e71118f8a191b33a",
+      "txHash": "0xdc441f33595823a4309938ab0068d0f70562e1e3dc687a6c85d95d30fce5229c",
       "gasUsed": "0x6c02"
     },
     "mcp:gpt4:v1_to_UIS:1.0": {
@@ -62,41 +137,122 @@
       "confidence": 90,
       "bidirectional": true,
       "ruleHash": "0x03591cecf57e299f9dfb678795b125eb16d6e788c8cce05192b48d644ba74cb3",
-      "txHash": "0x714b96c3167e9d4d9dd17da399cce47a66757c45f09161de589713ec379ecc76",
+      "txHash": "0x3af48e08871c7a0b4d07a07a6765d670eaea3d8dd4917faeff073e7ba67548d1",
       "gasUsed": "0x6bc6"
     }
   },
-  "proofs": {},
-  "consensusResults": {},
+  "proofs": {
+    "sample_proof": {
+      "taskId": "0xc5bf27f730c642e5e6c2ad5f216e5080af9472036c8ca44a2d7d020ecc97ea64",
+      "outputHash": "0xbb4a21ae83cf621e58aa112d269ee2177bb022af2c452db29d7b4cc05e259c47",
+      "evidenceBundle": {
+        "sourceSignatures": [
+          "sig1",
+          "sig2",
+          "sig3"
+        ],
+        "transformationLogs": [
+          "transform1",
+          "transform2"
+        ],
+        "consensusMetadata": {
+          "agreementRatio": 0.85,
+          "participantCount": 5
+        }
+      },
+      "timestamp": 1761132586070
+    }
+  },
+  "consensusResults": {
+    "Strong Consensus": {
+      "name": "Strong Consensus",
+      "votes": {
+        "result1": 5,
+        "result2": 2
+      },
+      "expected": "consensus",
+      "agreementRatio": 0.7142857142857143,
+      "consensusReached": true,
+      "passed": true
+    },
+    "Split Vote": {
+      "name": "Split Vote",
+      "votes": {
+        "result1": 3,
+        "result2": 3,
+        "result3": 1
+      },
+      "expected": "no_consensus",
+      "agreementRatio": 0.42857142857142855,
+      "consensusReached": false,
+      "passed": true
+    },
+    "Byzantine Attack": {
+      "name": "Byzantine Attack",
+      "votes": {
+        "result1": 4,
+        "byzantine": 2,
+        "absent": 1
+      },
+      "expected": "consensus",
+      "agreementRatio": 0.5714285714285714,
+      "consensusReached": false,
+      "passed": false
+    }
+  },
   "performanceMetrics": {
     "gasUsed": [
       {
         "operation": "DataSource Registration",
         "gasUsed": 300000,
-        "timestamp": 1760797576437
+        "timestamp": 1761132412978
       },
       {
         "operation": "DataSource Registration",
         "gasUsed": 300000,
-        "timestamp": 1760797588621
+        "timestamp": 1761132424396
+      },
+      {
+        "operation": "DataSource Registration",
+        "gasUsed": 300000,
+        "timestamp": 1761132436683
       },
       {
         "operation": "Transformation Registration",
         "gasUsed": 27686,
-        "timestamp": 1760797611786
+        "timestamp": 1761132449301
       },
       {
         "operation": "Transformation Registration",
         "gasUsed": 27650,
-        "timestamp": 1760797623988
+        "timestamp": 1761132473050
       },
       {
         "operation": "Transformation Registration",
         "gasUsed": 27590,
-        "timestamp": 1760797635282
+        "timestamp": 1761132486265
+      },
+      {
+        "operation": "Query Creation",
+        "gasUsed": 148503,
+        "timestamp": 1761132498249
+      },
+      {
+        "operation": "Query Creation",
+        "gasUsed": 148515,
+        "timestamp": 1761132545055
+      },
+      {
+        "operation": "Query Creation",
+        "gasUsed": 148515,
+        "timestamp": 1761132568933
       }
     ],
-    "transactionTimes": [],
+    "transactionTimes": [
+      10975,
+      33645,
+      12568
+    ],
     "consensusTimes": []
   }
 }

@@ -1,7 +1,7 @@
 
 UIS BLOCKCHAIN VALIDATION TEST - SUMMARY REPORT
 ================================================
-Execution Time: 2025-10-17T07:18:08.627Z
+Execution Time: 2025-10-22T11:29:48.478Z
 Network: Sepolia
 Contract: 0x8e15ed6dc1d23103ad62f04babab1ac7a201ed83
 
@@ -15,9 +15,9 @@ TEST RESULTS
 
 PERFORMANCE METRICS
 -------------------
-Total Gas Used: 1462659
-Average Gas per TX: 162517
-Estimated Cost: 0.029253 ETH
+Total Gas Used: 1428459
+Average Gas per TX: 158717
+Estimated Cost: 0.028569 ETH
 
 MANUSCRIPT VALIDATION
 ---------------------

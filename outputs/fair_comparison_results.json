@@ -1,0 +1,81 @@
+{
+  "uis_projection": {
+    "sources": 8656,
+    "uis_transformations": 17312,
+    "total_gas": 915902901.3333333,
+    "cost_eth": 18.318058026666666,
+    "verification_time_ms": 93131.66666666666,
+    "throughput_queries_per_sec": 9.287925696594428,
+    "consistency_rate": 0.95
+  },
+  "traditional_projection": {
+    "sources": 8656,
+    "pairwise_mappings": 37458840,
+    "total_gas": 18729420000000,
+    "cost_eth": 374588.4,
+    "verification_time_ms": 3745884000,
+    "throughput_queries_per_sec": 2.6695968161320533e-07,
+    "consistency_rate": 0.8
+  },
+  "mcp_reality": {
+    "total_servers": 8656,
+    "valid_servers": 8656,
+    "validity_rate": 0.491,
+    "markets": 6,
+    "cross_market_overlap": 0.329,
+    "indexed_in_4plus_markets": 0.055,
+    "unified_verification": false,
+    "consistency_rate": 0.65,
+    "maintenance_risk": 0.219
+  },
+  "complexity": {
+    "system_count": 8656,
+    "traditional_o_n2": 37458840,
+    "uis_o_n": 17312,
+    "centralized_o_1": 8656,
+    "uis_vs_traditional_ratio": 2163.75,
+    "uis_reduction_percent": 99.95378393991912
+  },
+  "consistency": {
+    "uis_verified_queries": {
+      "percentage": 95,
+      "method": "7-stage pipeline + blockchain anchoring",
+      "false_positive_rate": 0.001,
+      "false_negative_rate": 0.001
+    },
+    "mcp_reality_queries": {
+      "percentage": 65,
+      "method": "No unified verification (6 independent markets)",
+      "false_positive_rate": 0.15,
+      "false_negative_rate": 0.1,
+      "inconsistency_rate": 0.25
+    },
+    "traditional_approach_queries": {
+      "percentage": 80,
+      "method": "Pairwise mapping (no blockchain)",
+      "false_positive_rate": 0.05,
+      "false_negative_rate": 0.05
+    }
+  },
+  "privacy": {
+    "uis_approach": {
+      "private_verification": true,
+      "zero_knowledge_proofs": true,
+      "sensitive_data_exposure": 0,
+      "misconfiguration_risk": "Mitigated by smart contracts"
+    },
+    "mcp_reality": {
+      "private_verification": false,
+      "zero_knowledge_proofs": false,
+      "sensitive_servers_exposed": 901,
+      "percentage_of_ecosystem": 11.2,
+      "authentication_misconfiguration_rate": 43
+    },
+    "traditional_pairwise": {
+      "private_verification": false,
+      "zero_knowledge_proofs": false,
+      "requires_shared_secrets": true,
+      "man_in_middle_risk": "High"
+    }
+  }
+}

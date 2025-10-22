@@ -3,6 +3,19 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
+const {
+    MCPEcosystemData,
+    DependencyMonocultureAnalyzer,
+    ServerMaintenanceAnalyzer,
+    SensitiveDataExposureAnalyzer,
+    ClientProtocolAnalyzer,
+    ComplexityAnalyzer,
+    ByzantineConsensusValidator,
+    VerificationPipelineMetrics,
+    ComparativeReportGenerator
+} = require('./modelcontextcompare');
+
+
 // Contract ABI - PASTE YOUR DEPLOYED CONTRACT ABI HERE
 const UISOrchestrator_ABI = [
 	{
@@ -791,6 +804,230 @@ class UISTestSuite {
         this.initializeSystem();
     }
 
+
+async runComparativeAnalysis() {
+    console.log('\n' + '='.repeat(80));
+    console.log('📊 COMPARATIVE ANALYSIS: UIS vs. Guo et al. MCP Measurement Study');
+    console.log('='.repeat(80));
+    
+    const reportGen = new ComparativeReportGenerator();
+    const report = reportGen.generateFullReport();
+    
+    // Market Scale Analysis
+    console.log('\n📈 MARKET SCALE ANALYSIS');
+    console.log('-'.repeat(80));
+    const marketStats = report.sections.marketScale.data;
+    console.log(`Total raw entries collected: ${marketStats.totals.raw.toLocaleString()}`);
+    console.log(`Valid entries after filtering: ${marketStats.totals.valid.toLocaleString()}`);
+    console.log(`Validity rate: ${(marketStats.totals.validityRate * 100).toFixed(1)}%`);
+    console.log(`Key Finding: ${report.sections.marketScale.keyFinding}`);
+    
+    console.log('\nMarket-by-market breakdown:');
+    Object.entries(marketStats.markets).forEach(([market, data]) => {
+        console.log(`  ${market.padEnd(20)} | Raw: ${data.raw.toString().padEnd(6)} | Valid: ${data.valid.toString().padEnd(5)} | Rate: ${(data.validityRate * 100).toFixed(1)}%`);
+    });
+    
+    console.log('\nCross-market entity overlap:');
+    Object.entries(marketStats.crossMarketOverlap).forEach(([category, rate]) => {
+        const displayName = category
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^./, str => str.toUpperCase())
+            .trim();
+        console.log(`  ${displayName.padEnd(25)} ${(rate * 100).toFixed(1)}%`);
+    });
+    
+    // Dependency Monoculture Analysis
+    console.log('\n⚠️ DEPENDENCY MONOCULTURE RISKS');
+    console.log('-'.repeat(80));
+    console.log(`Key Finding: ${report.sections.dependencyRisks.keyFinding}`);
+    
+    const riskData = report.sections.dependencyRisks.data;
+    console.log('\nLanguage-specific monoculture risks:');
+    console.log('Language      | Servers  | % Ecosystem | Top Library  | Concentration | Risk Level');
+    console.log('-'.repeat(88));
+    riskData.forEach(risk => {
+        console.log(
+            `${risk.language.padEnd(13)} | ${risk.servers.toString().padEnd(8)} | ${risk.percentage.padEnd(10)}% | ` +
+            `${risk.topLibrary.padEnd(12)} | ${risk.concentration.padEnd(13)}% | ${risk.severity}`
+        );
+    });
+    
+    // Cascade impact examples
+    console.log('\nVulnerability cascade scenarios:');
+    const javaRisk = reportGen.monoculture.getVulnerabilityCascadeImpact('Java', 8060);
+    if (javaRisk) {
+        console.log(`  Java (Spring): ${javaRisk.affectedServers} servers affected (${javaRisk.percentageOfEcosystem}% of ecosystem)`);
+        console.log(`                 Example: ${javaRisk.exampleVulnerability}`);
+    }
+    
+    // Server Maintenance Analysis
+    console.log('\n🔧 SERVER MAINTENANCE & SECURITY POSTURE');
+    console.log('-'.repeat(80));
+    const maintenance = report.sections.maintenanceSecurity.data;
+    console.log(`Key Finding: ${report.sections.maintenanceSecurity.keyFinding}`);
+    
+    console.log('\nMaintenance distribution across 8,060 servers:');
+    Object.entries(maintenance.distribution).forEach(([category, data]) => {
+        const displayName = category
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^./, str => str.toUpperCase())
+            .trim();
+        console.log(`  ${displayName.padEnd(30)} ${data.servers.toString().padEnd(5)} servers (${(data.percentage * 100).toFixed(1)}%)`);
+    });
+    
+    console.log('\nVulnerability risk assessment:');
+    console.log(`  Actively maintained (≤90 days): ${maintenance.vulnerable.activelyMaintained} servers - LOW RISK`);
+    console.log(`  Abandoned (≥1 year): ${maintenance.vulnerable.riskZone} servers - HIGH RISK (${maintenance.vulnerable.percentageAtRisk}%)`);
+    console.log(`  Implication: ${maintenance.vulnerable.implication}`);
+    
+    // Sensitive Data Exposure
+    console.log('\n🔐 SENSITIVE DATA EXPOSURE ANALYSIS');
+    console.log('-'.repeat(80));
+    const exposure = report.sections.sensitiveExposure.data;
+    console.log(`Key Finding: ${report.sections.sensitiveExposure.keyFinding}`);
+    
+    console.log('\nAuthentication-related services exposure:');
+    console.log(`  Total sensitive API servers: ${exposure.authentication.totalSensitiveServers}`);
+    console.log(`  Authentication servers: ${exposure.authentication.authenticationServers}`);
+    console.log(`  As percentage of ecosystem: ${exposure.authentication.authAsPercentageOfEcosystem}%`);
+    console.log(`  Better maintained than average: ${exposure.authentication.maintenanceStatus}`);
+    console.log(`  Primary risk: ${exposure.authentication.primaryRisk}`);
+    
+    console.log(`\nCritical sensitivity category servers: ${exposure.criticalServers}`);
+    
+    // Client Protocol Analysis
+    console.log('\n📡 CLIENT PROTOCOL STANDARDIZATION');
+    console.log('-'.repeat(80));
+    const protocols = report.sections.clientEvolution.data;
+    console.log(`Key Finding: ${report.sections.clientEvolution.keyFinding}`);
+    
+    console.log('\nInteraction protocol distribution:');
+    Object.entries(protocols.protocols.dominantProtocol === 'SSE' ? 
+        { SSE: protocols.protocols.dominantPercentage, STDIO: protocols.protocols.alternativePercentage } 
+        : {}
+    ).forEach(([proto, pct]) => {
+        console.log(`  ${proto}: ${pct}%`);
+    });
+    console.log(`  Diversity Index: ${protocols.protocols.diversityIndex} (0=homogeneous, 1=diverse)`);
+    console.log(`  Convergence Phase: ${protocols.protocols.convergencePhase}`);
+    
+    console.log('\nConnection mode distribution:');
+    console.log(`  Single-server clients: ${protocols.connectionModes.singleServerPercentage}% (${protocols.connectionModes.singleServerClients} clients)`);
+    console.log(`  Multi-server clients: ${protocols.connectionModes.multiServerPercentage}% (${protocols.connectionModes.multiServerClients} clients)`);
+    console.log(`  Evolutionary trend: ${protocols.connectionModes.trend}`);
+    
+    // Complexity Analysis
+    console.log('\n📐 SCHEMA INTEGRATION COMPLEXITY ANALYSIS');
+    console.log('-'.repeat(80));
+    const complexity = report.sections.complexityAnalysis.data;
+    console.log(`Key Finding: ${report.sections.complexityAnalysis.keyFinding}`);
+    
+    console.log('\nComplexity comparison (Systems count vs. Mappings required):');
+    console.log('Systems | Traditional O(N²) | UIS O(N) | Reduction Ratio | % Savings');
+    console.log('-'.repeat(70));
+    complexity.comparisonTable.slice(0, 5).forEach(row => {
+        console.log(
+            `${row.systems.toString().padEnd(7)} | ` +
+            `${row.traditional.toString().padEnd(16)} | ` +
+            `${row.uis.toString().padEnd(8)} | ` +
+            `${row.ratio.padEnd(14)}x | ${row.percentReduction.padEnd(8)}%`
+        );
+    });
+    
+    console.log('\nReal-world MCP ecosystem scenario:');
+    const realWorld = complexity.realWorld;
+    console.log(`  Scenario: ${realWorld.scenario}`);
+    console.log(`  Traditional pairwise: ${realWorld.traditionaMappings.toLocaleString()} mappings`);
+    console.log(`  UIS linear: ${realWorld.uisTransformations.toLocaleString()} transformations`);
+    console.log(`  Complexity reduction: ${realWorld.complexityReduction}`);
+    console.log(`  Practical implication: ${realWorld.practicalImplication}`);
+    
+    // Byzantine Consensus
+    console.log('\n🛡️ BYZANTINE CONSENSUS VALIDATION');
+    console.log('-'.repeat(80));
+    const byzantine = report.sections.byzantineCensensus.data;
+    console.log(`Key Finding: ${report.sections.byzantineCensensus.keyFinding}`);
+    
+    console.log('\nByzantine fault tolerance test configurations:');
+    console.log('Total | Honest | Byzantine | %Byz | Safety | Liveness | Status');
+    console.log('-'.repeat(64));
+    byzantine.forEach(config => {
+        console.log(
+            `${config.totalNodes.toString().padEnd(5)} | ` +
+            `${config.honestNodes.toString().padEnd(6)} | ` +
+            `${config.byzantineNodes.toString().padEnd(9)} | ` +
+            `${config.percentByzantine.padEnd(4)}% | ` +
+            `${(config.safetyHolds ? 'PASS' : 'FAIL').padEnd(6)} | ` +
+            `${(config.livenessHolds ? 'PASS' : 'FAIL').padEnd(8)} | ` +
+            config.status
+        );
+    });
+    
+    console.log('\nSafety Property: No two conflicting values can both achieve consensus');
+    console.log('Liveness Property: Consensus terminates with sufficient honest participation');
+    
+    // Verification Pipeline
+    console.log('\n✅ VERIFICATION PIPELINE PERFORMANCE');
+    console.log('-'.repeat(80));
+    const verification = report.sections.verificationPipeline.data;
+    console.log(`Key Finding: ${report.sections.verificationPipeline.keyFinding}`);
+    
+    console.log('\nSeven-stage verification pipeline:');
+    verification.stages.forEach((stage, idx) => {
+        console.log(`  Stage ${idx + 1}: ${stage.name.padEnd(30)} ${stage.duration} ms`);
+    });
+    console.log(`\n  Total pipeline execution: ${verification.totalTime} ms`);
+    console.log(`  Throughput: ${verification.throughput} verifications/second`);
+    console.log(`  Average stage time: ${verification.avgStageTime} ms`);
+    
+    // Save comparative report
+    this.testState.comparativeReport = report;
+    
+    return report;
+}
+
+/**
+ * Save comparative results to JSON
+ */
+async saveComparativeResults() {
+    try {
+        const outputDir = 'uis_test_results';
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir);
+        }
+        
+        const safeReport = JSON.parse(JSON.stringify(this.testState.comparativeReport, (key, value) =>
+            typeof value === 'bigint' ? value.toString() : value
+        ));
+        
+        fs.writeFileSync(
+            path.join(outputDir, 'comparative_analysis.json'),
+            JSON.stringify(safeReport, null, 2)
+        );
+        
+        console.log('\n💾 Comparative analysis saved to uis_test_results/comparative_analysis.json');
+    } catch (error) {
+        console.error('Failed to save comparative results:', error.message);
+    }
+
+    
+console.log('\n📊 Phase 9: Comparative Analysis with Guo et al. Study');
+console.log('Testing UIS against real MCP ecosystem measurements...');
+await this.runComparativeAnalysis();
+this.saveComparativeResults();
+}
+
+// ============================================================================
+// UPDATE runCompleteUISTest METHOD
+// ============================================================================
+
+// Add this before the final report generation, inside runCompleteUISTest():
+
+
+
+
+
+
     /**
      * Initialize Web3 and account setup
      */
@@ -921,6 +1158,12 @@ class UISTestSuite {
     /**
      * Execute all test phases sequentially
      */
+
+
+
+
+
+    
     async executeAllTestPhases() {
         const phases = [
             { name: 'phase1_DataSourceRegistration', desc: 'Data Source Registration & Schema Setup' },
@@ -1769,6 +2012,17 @@ async function runUISValidationTest() {
     }
 }
 
+/**
+ * Run comprehensive comparative analysis against Guo et al. data
+ */
+
+
+// ============================================================================
+// USAGE IN TEST RUNNER
+// ============================================================================
+
+// The comparative analysis will now run automatically as part of
+// runCompleteUISTest() and generate results in uis_test_results/comparative_analysis.json
 // Export for use in other modules
 module.exports = {
     UISTestSuite,
@@ -1841,4 +2095,9 @@ Interoperable Model Context Protocols Across Heterogeneous Data Systems"
         // Default: run the test
         runUISValidationTest().catch(console.error);
     }
+
+
+
+
+    
 }

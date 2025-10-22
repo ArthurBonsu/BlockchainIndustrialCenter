@@ -1,5 +1,5 @@
 {
-  "executionTime": "2025-10-17T07:18:08.627Z",
+  "executionTime": "2025-10-22T11:29:48.478Z",
   "network": "Sepolia",
   "contract": "0x8e15ed6dc1d23103ad62f04babab1ac7a201ed83",
   "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
@@ -9,9 +9,9 @@
   "transformationsCreated": 3,
   "consensusTests": 3,
   "gasMetrics": {
-    "total": 1462659,
-    "average": 162517,
-    "costETH": 0.02925318
+    "total": 1428459,
+    "average": 158717,
+    "costETH": 0.028569180000000003
   },
   "manuscriptValidation": {
     "schemaIntegration": "✅ O(N) Complexity Achieved",
