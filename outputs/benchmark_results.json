@@ -1,0 +1,44 @@
+{
+  "BlockSOP": {
+    "response_time_ms": 84.8840227819164,
+    "throughput_tps": 3.8169727279822627,
+    "gas_cost_eth": 1.1760016e-20,
+    "success_rate": 32.4,
+    "transaction_cost_usd": 2.940004e-17,
+    "storage_overhead_mb": 29.7,
+    "construction_time_sec": 2.5,
+    "verification_time_ms": 67.90721822553313,
+    "vo_size_kb": 186,
+    "failed_transactions": 6760,
+    "scalability_nodes": 4520,
+    "completion_rate": 32.4
+  },
+  "FlexIM": {
+    "response_time_ms": 100.04778561300373,
+    "throughput_tps": 9.945247602468422,
+    "gas_cost_eth": 2.075294e-21,
+    "success_rate": 99.5,
+    "transaction_cost_usd": 5.188235e-18,
+    "storage_overhead_mb": 29.7,
+    "construction_time_sec": 2.5,
+    "verification_time_ms": 45,
+    "vo_size_kb": 186,
+    "failed_transactions": 50,
+    "scalability_nodes": 8192,
+    "completion_rate": 99.5
+  },
+  "RekShare": {
+    "response_time_ms": 107.20760346153585,
+    "throughput_tps": 905.73,
+    "gas_cost_eth": 2.2425319999999997e-21,
+    "success_rate": 100.0,
+    "transaction_cost_usd": 5.606329999999999e-18,
+    "storage_overhead_mb": 3.2,
+    "construction_time_sec": 0.35,
+    "verification_time_ms": 32,
+    "vo_size_kb": 128,
+    "failed_transactions": 0,
+    "scalability_nodes": 16384,
+    "completion_rate": 100.0
+  }
+}
