@@ -1,0 +1,33 @@
+{
+  "name": "uis-blockchain-test",
+  "version": "1.0.0",
+  "description": "Universal Interoperable Schema (UIS) Blockchain Validation Test Suite",
+  "main": "UISTest.js",
+  "scripts": {
+    "test": "node UISTest.js",
+    "deploy": "npx hardhat run scripts/deploy.js --network sepolia",
+    "compile": "npx hardhat compile",
+    "help": "node UISTest.js --help"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "uis",
+    "interoperability",
+    "schema",
+    "byzantine",
+    "consensus"
+  ],
+  "author": "UIS Research Team",
+  "license": "MIT",
+  "dependencies": {
+    "web3": "^4.16.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "hardhat": "^2.19.0",
+    "@nomiclabs/hardhat-ethers": "^2.2.3",
+    "ethers": "^5.7.2"
+  }
+}
