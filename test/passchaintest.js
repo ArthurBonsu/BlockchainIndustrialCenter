@@ -1277,6 +1277,34 @@ const REAL_BLOCKCHAIN_METRICS = {
     }
 };
 
+// const testnetConfig = {
+//     polkadot_rococo: {
+//         chain: 'Polkadot Rococo',
+//         rpc: 'wss://rococo-rpc.polkadot.io',  // No API key needed!
+//         blockTime: 6,
+//         targetConnectionTime: 25,
+//         targetAccuracy: 85,
+//         targetCost: 1500000,
+//         account: {
+//             address: '1YOUR_ROCOCO_ADDRESS',  // From Talisman
+//             mnemonic: 'your 12-24 words...'   // From Talisman backup
+//         }
+//     },
+//     cosmos_juno: {
+//         chain: 'Cosmos Juno Testnet',
+//         rpc: 'https://rpc.uni.junonetwork.io',  // Or your All That Node endpoint
+//         blockTime: 5,
+//         targetConnectionTime: 22,
+//         targetAccuracy: 88,
+//         targetCost: 500000,
+//         account: {
+//             address: 'juno1YOUR_JUNO_ADDRESS',  // From wallet
+//             mnemonic: 'your 12-24 words...'     // From wallet
+//         },
+//         apiKey: 'YOUR_ALLTHATNODE_API_KEY'     // Optional, from their dashboard
+//     }
+// };
+
 class EnhancedMultiBlockchainPassChainTest {
     constructor() {
         console.log('🌍 ENHANCED Multi-Blockchain PassChain Test Suite');
