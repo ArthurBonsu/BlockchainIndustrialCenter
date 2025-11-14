@@ -2,7 +2,7 @@
  * ENHANCED PassChain Multi-Blockchain Real-Environment Test Suite
  * 
  * IMPROVEMENTS OVER ORIGINAL:
- * 1. Real blockchain testing (Ethereum, Polkadot, Cosmos) instead of mock data
+ * 1. Real blockchain testing (Ethereum, Polkadot) instead of mock data
  * 2. Empirical threat modeling with 6 critical threat models
  * 3. Component composition security analysis
  * 4. Rigorous statistical analysis with proper confidence intervals
@@ -14,8 +14,6 @@
 
 const { Web3 } = require('web3');
 const { ApiPromise, WsProvider, Keyring } = require('@polkadot/api');
-const { CosmWasmClient, SigningCosmWasmClient } = require('@cosmjs/cosmwasm-stargate');
-const { DirectSecp256k1HdWallet } = require('@cosmjs/proto-signing');
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
@@ -1248,7 +1246,6 @@ const PaceChannel_abi = [
 		"type": "function"
 	}
 ];
-
 // ENHANCED METRICS - Real blockchain benchmarks
 const REAL_BLOCKCHAIN_METRICS = {
     ethereum_sepolia: {
@@ -1272,46 +1269,8 @@ const REAL_BLOCKCHAIN_METRICS = {
             address: 'Use POLKADOT_URI env variable',
             mnemonic: 'Your 12-24 words from wallet backup'
         }
-    },
-	
-    cosmos_juno: {
-        chain: 'Cosmos Juno',
-        rpc: 'https://rpc.uni.junonetwork.io',
-        blockTime: 5,
-        targetConnectionTime: 22,
-        targetAccuracy: 88,
-        targetCost: 500000,
-        // Note: Cosmos testnet connection requires COSMOS_MNEMONIC
     }
 };
-
-// const testnetConfig = {
-//     polkadot_rococo: {
-//         chain: 'Polkadot Rococo',
-//         rpc: 'wss://rococo-rpc.polkadot.io',  // No API key needed!
-//         blockTime: 6,
-//         targetConnectionTime: 25,
-//         targetAccuracy: 85,
-//         targetCost: 1500000,
-//         account: {
-//             address: '1YOUR_ROCOCO_ADDRESS',  // From Talisman
-//             mnemonic: 'your 12-24 words...'   // From Talisman backup
-//         }
-//     },
-//     cosmos_juno: {
-//         chain: 'Cosmos Juno Testnet',
-//         rpc: 'https://rpc.uni.junonetwork.io',  // Or your All That Node endpoint
-//         blockTime: 5,
-//         targetConnectionTime: 22,
-//         targetAccuracy: 88,
-//         targetCost: 500000,
-//         account: {
-//             address: 'juno1YOUR_JUNO_ADDRESS',  // From wallet
-//             mnemonic: 'your 12-24 words...'     // From wallet
-//         },
-//         apiKey: 'YOUR_ALLTHATNODE_API_KEY'     // Optional, from their dashboard
-//     }
-// };
 
 class EnhancedMultiBlockchainPassChainTest {
     constructor() {
@@ -1331,13 +1290,6 @@ class EnhancedMultiBlockchainPassChainTest {
             },
             polkadot: {
                 api: null,
-                account: null,
-                isConnected: false,
-                results: []
-            },
-            cosmos: {
-                client: null,
-                signingClient: null,
                 account: null,
                 isConnected: false,
                 results: []
@@ -1429,8 +1381,7 @@ class EnhancedMultiBlockchainPassChainTest {
         
         const tasks = [
             this.connectEthereum(),
-            this.connectPolkadot(),
-            this.connectCosmos()
+            this.connectPolkadot()
         ];
         
         const results = await Promise.allSettled(tasks);
@@ -1515,41 +1466,6 @@ class EnhancedMultiBlockchainPassChainTest {
         }
     }
 
-    async connectCosmos() {
-        try {
-            const client = await CosmWasmClient.connect(REAL_BLOCKCHAIN_METRICS.cosmos_juno.rpc);
-            const chainId = await client.getChainId();
-            const height = await client.getHeight();
-            console.log(`   🟠 Cosmos: ${chainId} (Block ${height})`);
-            
-            const mnemonic = process.env.COSMOS_MNEMONIC || 
-                'notice oak worry limit wrap speak medal online prefer cluster roof addict';
-            const wallet = await DirectSecp256k1HdWallet.fromMnemonic(mnemonic, { prefix: "juno" });
-            const [account] = await wallet.getAccounts();
-            
-            const signingClient = await SigningCosmWasmClient.connectWithSigner(
-                REAL_BLOCKCHAIN_METRICS.cosmos_juno.rpc,
-                wallet
-            );
-            
-            this.blockchains.cosmos.client = client;
-            this.blockchains.cosmos.signingClient = signingClient;
-            this.blockchains.cosmos.account = account;
-            this.blockchains.cosmos.isConnected = true;
-            
-            this.metrics.connectionMetrics.push({
-                blockchain: 'cosmos',
-                chainId,
-                height,
-                timestamp: Date.now(),
-                connectionTimeMs: 0
-            });
-            
-        } catch (error) {
-            throw new Error(`Cosmos connection failed: ${error.message}`);
-        }
-    }
-
     /**
      * PHASE 2: Intra-Chain Performance Testing
      */
@@ -1559,8 +1475,7 @@ class EnhancedMultiBlockchainPassChainTest {
         
         const tests = [
             { name: 'Ethereum', fn: () => this.testEthereumPerformance() },
-            { name: 'Polkadot', fn: () => this.testPolkadotPerformance() },
-            { name: 'Cosmos', fn: () => this.testCosmosPerformance() }
+            { name: 'Polkadot', fn: () => this.testPolkadotPerformance() }
         ];
         
         for (const test of tests) {
@@ -1640,39 +1555,6 @@ class EnhancedMultiBlockchainPassChainTest {
         }
     }
 
-    async testCosmosPerformance() {
-        const client = this.blockchains.cosmos.client;
-        console.log('   🧪 Executing 5 PassChain transactions...');
-        
-        for (let i = 0; i < 5; i++) {
-            const startTime = Date.now();
-            
-            try {
-                const height = await client.getHeight();
-                
-                const txMetric = {
-                    blockchain: 'cosmos',
-                    iteration: i + 1,
-                    type: i % 2 === 0 ? 'speculative' : 'confirmable',
-                    startTime,
-                    height,
-                    processingTimeMs: Date.now() - startTime,
-                    timestamp: Date.now()
-                };
-                
-                this.metrics.transactionMetrics.push(txMetric);
-                this.blockchains.cosmos.results.push(txMetric);
-                
-                console.log(`     TX ${i+1}: ${txMetric.type} (${txMetric.processingTimeMs}ms)`);
-                
-            } catch (error) {
-                console.error(`     ❌ Transaction ${i+1} failed: ${error.message}`);
-            }
-            
-            await this.sleep(100);
-        }
-    }
-
     /**
      * PHASE 3: Cross-Chain Bridge Testing
      */
@@ -1681,9 +1563,7 @@ class EnhancedMultiBlockchainPassChainTest {
         console.log('='.repeat(80));
         
         const bridges = [
-            { from: 'ethereum', to: 'polkadot', name: 'Ethereum ↔ Polkadot' },
-            { from: 'ethereum', to: 'cosmos', name: 'Ethereum ↔ Cosmos' },
-            { from: 'polkadot', to: 'cosmos', name: 'Polkadot ↔ Cosmos' }
+            { from: 'ethereum', to: 'polkadot', name: 'Ethereum ↔ Polkadot' }
         ];
         
         for (const bridge of bridges) {
@@ -1794,8 +1674,7 @@ class EnhancedMultiBlockchainPassChainTest {
             chainTimings: {
                 ethereum: '12 seconds',
                 polkadot: '6 seconds',
-                cosmos: '5 seconds',
-                maxSkew: '7 seconds'
+                maxSkew: '6 seconds'
             },
             mitigations: [
                 'Conservative timeout calculation: timeout = max_latency * 1.5 + buffer',
@@ -1909,7 +1788,6 @@ class EnhancedMultiBlockchainPassChainTest {
             networkCharacteristics: {
                 ethereum: { blockTime: 12, latencyVar: 'High' },
                 polkadot: { blockTime: 6, latencyVar: 'Low' },
-                cosmos: { blockTime: 5, latencyVar: 'Medium' },
                 congestedNetwork: 'Can have unbounded delays'
             },
             mitigations: [
@@ -1965,7 +1843,7 @@ class EnhancedMultiBlockchainPassChainTest {
         const report = {
             title: 'Enhanced PassChain Multi-Blockchain Test Report',
             timestamp: new Date().toISOString(),
-            testEnvironment: 'Real Ethereum Sepolia + Polkadot Rococo + Cosmos Juno',
+            testEnvironment: 'Real Ethereum Sepolia + Polkadot Rococo',
             
             connectionMetrics: this.analyzeConnectionMetrics(),
             transactionMetrics: this.analyzeTransactionMetrics(),
@@ -2106,7 +1984,7 @@ class EnhancedMultiBlockchainPassChainTest {
             
             console.log('\n🎉 ENHANCED TEST COMPLETED SUCCESSFULLY');
             console.log('='.repeat(80));
-            console.log('📊 Real empirical data collected from 3 blockchains');
+            console.log('📊 Real empirical data collected from 2 blockchains');
             console.log('🛡️  6 threat models identified and analyzed');
             console.log('🌉 Cross-chain bridge testing completed');
             console.log('📈 Comprehensive security analysis provided');

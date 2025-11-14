@@ -1,0 +1,121 @@
+NEXT_PUBLIC_DEBUG=
+ETHEREUM_PROVIDER_URL=
+POLKADOT_PROVIDER_URL=
+NEXT_PUBLIC_TATUM_API_KEY=
+ETHERSCAN_API_KEY=
+
+# Contract Addresses
+METADATA_PARSER_ADDRESS=
+PACECHAIN_CHANNEL_ADDRESS=
+RELAY_CHAIN_ADDRESS=
+PRIVATE_KEY=
+TATUM_ETHEREUM_ENDPOINT=
+INFURA_PROJECT_ID=
+CHAIN=
+WALLET_ADDRESS=
+TATUM_ADDRESS=  
+INFURA_PROJECT_SECRET=
+
+
+
+# Ethereum Network Configuration
+MNEMONIC=
+
+# Network Selection (development, ethereum_testnet, tatum_testnet)
+NETWORK=
+
+# Gas Configuration
+GAS_PRICE=
+GAS_LIMIT=
+
+
+# Optional: Custom RPC URL
+# CUSTOM_RPC_URL="your custom rpc url here"
+
+pandas>=2.0.0
+web3>=6.0.0
+python-dotenv>=1.0.0
+numpy>=1.24.0
+asyncio>=3.4.3
+aiohttp>=3.8.0
+python-json-logger>=2.0.0
+
+
+# ==================== GOOGLE CLOUD CONFIGURATION (ADD THIS) ====================
+# PassChain Google Cloud Project (uses custom prefix to avoid conflicts)
+PASSCHAIN_GCP_PROJECT_ID=
+PASSCHAIN_CLOUD_RUN_REGION=
+
+# PassChain Cloud Service Configuration  
+PASSCHAIN_MAX_CONCURRENT_TESTS=
+PASSCHAIN_TEST_TIMEOUT=
+PASSCHAIN_LOG_LEVEL=
+PASSCHAIN_CORS_ORIGIN=
+
+
+
+gcloud run deploy passchain-cloud-service \
+  --image gcr.io/passchain-multichain-research/passchain-service:latest \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --memory 2Gi \
+  --cpu 2 \
+  --timeout 900 \
+  --port 8080 \
+  --set-env-vars \
+    ETHEREUM_RPC_URL="https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID",\
+    POLKADOT_WS_URL="wss://rococo-rpc.polkadot.io",\
+    ETHEREUM_PRIVATE_KEY="your_private_key",\
+    ASSET_TRANSFER_ADDRESS="0x10906193b9c3a0d5ea7251047c55f5398d6d4990",\
+    CONFIDENCE_CALCULATOR_ADDRESS="0xea2b8197b9c1fb936cdfcf6633c1837fc9726e5c",\
+    PACCHAIN_CHANNEL_ADDRESS="0xe75bfd5ba206ed5c059efeb0dd1c603f03c6553c",\
+    SPECULATIVE_TX_ADDRESS="0x9eaac685f82cfd9e9966a1819bc8206a6fe602ca",\
+    PASSCHAIN_GCP_PROJECT_ID="passchain-multichain-research",\
+    PASSCHAIN_CLOUD_RUN_REGION="us-central1",\
+    PASSCHAIN_MAX_CONCURRENT_TESTS="5",\
+    PASSCHAIN_TEST_TIMEOUT="300000",\
+    PASSCHAIN_LOG_LEVEL="info",\
+    PASSCHAIN_CORS_ORIGIN="*"
+
+
+gcloud run deploy passchain-cloud-service `
+  --image gcr.io/passchain-multichain-research/passchain-service:latest `
+  --platform managed `
+  --region us-central1 `
+  --allow-unauthenticated `
+  --memory 2Gi `
+  --cpu 2 `
+  --timeout 900 `
+  --port 8080 `
+  --set-env-vars ETHEREUM_RPC_URL="https://sepolia.infura.io/v3/c40c60ab0b4b46e9a64552092d9e8b5c", `
+    POLKADOT_WS_URL="wss://rococo-rpc.polkadot.io", `
+    ETHEREUM_PRIVATE_KEY="a7340bfea91a83a22a941f0dab4014254c65cf4f74391f901308d46ad14bb8d9", `
+    INFURA_PROJECT_SECRET="1503e9e069134e0b94ac7e4bba38ff0b", `
+    ASSET_TRANSFER_ADDRESS="0x10906193b9c3a0d5ea7251047c55f5398d6d4990", `
+    CONFIDENCE_CALCULATOR_ADDRESS="0xea2b8197b9c1fb936cdfcf6633c1837fc9726e5c", `
+    METADATA_PARSER_ADDRESS="0x65C7dEBC72689bEea81cC670b621fF57f97795db", `
+PACECHAIN_CHANNEL_ADDRESS="0xCdB1B7246Ba7dF364C773b8311e5B905B2b23386", `
+RELAY_CHAIN_ADDRESS="0xcdA245B0b4e2006eb200c6F2505B2c914a379D74", `
+    PACCHAIN_CHANNEL_ADDRESS="0xe75bfd5ba206ed5c059efeb0dd1c603f03c6553c", `
+    SPECULATIVE_TX_ADDRESS="0x9eaac685f82cfd9e9966a1819bc8206a6fe602ca", `
+    PASSCHAIN_GCP_PROJECT_ID="passchain-multichain-research", `
+    PASSCHAIN_CLOUD_RUN_REGION="us-central1", `
+    PASSCHAIN_MAX_CONCURRENT_TESTS="5", `
+    PASSCHAIN_TEST_TIMEOUT="300000", `
+    PASSCHAIN_LOG_LEVEL="info", `
+    PASSCHAIN_CORS_ORIGIN="*"
+
+
+
+# Contract Addresses
+METADATA_PARSER_ADDRESS=0x65C7dEBC72689bEea81cC670b621fF57f97795db
+PACECHAIN_CHANNEL_ADDRESS=0xCdB1B7246Ba7dF364C773b8311e5B905B2b23386
+RELAY_CHAIN_ADDRESS=0xcdA245B0b4e2006eb200c6F2505B2c914a379D74
+PRIVATE_KEY=a7340bfea91a83a22a941f0dab4014254c65cf4f74391f901308d46ad14bb8d9
+TATUM_ETHEREUM_ENDPOINT=https://ethereum-sepolia.gateway.tatum.io/
+INFURA_PROJECT_ID=c40c60ab0b4b46e9a64552092d9e8b5c
+CHAIN=11155111
+WALLET_ADDRESS=0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+TATUM_ADDRESS=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045  
+INFURA_PROJECT_SECRET=1503e9e069134e0b94ac7e4bba38ff0b

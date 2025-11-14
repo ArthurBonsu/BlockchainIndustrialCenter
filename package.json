@@ -26,12 +26,19 @@
     "passchain:benchmark": "node test/benchmark.js",
     "passchain:comprehensive": "node test/benchmark.js comprehensive",
     "passchain:test": "node test/passchain-enhanced-multichain.js",
-    "passchain:simulation": "node passchain_story_test.js"
+    "passchain:simulation": "node passchain_story_test.js",
+    "cloud:start": "node passchain_cloud/passchain_cloud_service.js",
+    "cloud:dev": "nodemon passchain_cloud/passchain_cloud_service.js",
+    "cloud:test": "node passchain_cloud/passchain_cloud_validator.js",
+    "cloud:deploy": "./passchain_cloud/cloud_deployment_orchestrator.sh",
+    "cloud:local-test": "./passchain_cloud/local_test.sh",
+    "cloud:logs": "gcloud run logs tail passchain-cloud-service --region=us-central1"
   },
   "overrides": {
     "whatwg-url": "^11.0.0"
   },
   "dependencies": {
+     "@google-cloud/storage": "^7.17.3",
     "@chainlink/contracts": "0.8",
     "@cosmjs/cosmwasm-stargate": "^0.31.0",
     "@cosmjs/proto-signing": "^0.31.0",
@@ -65,9 +72,23 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "truffle-hdwallet-provider": "^1.0.17",
-    "web3": "^4.16.0"
+    "web3": "^4.16.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0",
+    "winston": "^3.11.0",
+    "chartjs-node-canvas": "^4.1.6",
+    "chart.js": "^4.4.0",
+    "simple-statistics": "^7.8.3",
+    "plotly": "^1.0.6",
+    "canvas": "^2.11.2",
+    "jspdf": "^2.5.1",
+    "sharp": "^0.32.6"
   },
   "devDependencies": {
+
     "@next/bundle-analyzer": "^14.0.4",
     "@parity/hardhat-polkadot": "^0.1.9",
     "@types/node": "^20.10.6",
@@ -83,6 +104,7 @@
     "solc": "^0.8.28",
     "truffle": "^5.11.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "nodemon": "^3.0.2"
   }
 }

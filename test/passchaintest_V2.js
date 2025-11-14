@@ -1273,7 +1273,6 @@ const REAL_BLOCKCHAIN_METRICS = {
             mnemonic: 'Your 12-24 words from wallet backup'
         }
     },
-	
     cosmos_juno: {
         chain: 'Cosmos Juno',
         rpc: 'https://rpc.uni.junonetwork.io',
@@ -1390,31 +1389,19 @@ class EnhancedMultiBlockchainPassChainTest {
 
     /**
      * Normalize and validate Ethereum private key
-     * Handles: whitespace removal, 0x prefix, length validation
+     * Matches the proven working pattern from your existing code
      */
     _normalizePrivateKey() {
-        let privateKey = process.env.PRIVATE_KEY || process.env.ETHEREUM_PRIVATE_KEY;
+        let privateKey = process.env.PRIVATE_KEY;
         
         if (!privateKey) {
-            throw new Error('PRIVATE_KEY environment variable not set. Set PRIVATE_KEY or ETHEREUM_PRIVATE_KEY in .env file');
+            throw new Error('PRIVATE_KEY not found in environment variables');
         }
         
-        // Remove all whitespace
+        // Format private key (same as working code)
         privateKey = privateKey.trim().replace(/\s/g, '');
-        
-        // Check if it's a valid hex string (should be 64 chars without 0x or 66 with 0x)
-        if (privateKey.length === 64 && !privateKey.startsWith('0x')) {
+        if (privateKey.length === 64) {
             privateKey = '0x' + privateKey;
-        }
-        
-        // Validate final format
-        if (!privateKey.startsWith('0x') || privateKey.length !== 66) {
-            throw new Error(`Invalid PRIVATE_KEY format. Expected 64 hex characters or 0x-prefixed hex. Got: ${privateKey.length} chars`);
-        }
-        
-        // Validate it's hex
-        if (!/^0x[0-9a-fA-F]{64}$/.test(privateKey)) {
-            throw new Error('PRIVATE_KEY must be valid hexadecimal characters');
         }
         
         return privateKey;
