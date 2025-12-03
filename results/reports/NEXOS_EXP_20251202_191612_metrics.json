@@ -1,0 +1,63 @@
+{
+  "experiment_id": "NEXOS_EXP_20251202_191612",
+  "timestamp": "2025-12-02T19:16:15.210897",
+  "duration_ms": 2849.335193634033,
+  "summary": {
+    "total_records_processed": 0,
+    "total_bytes_processed": 0,
+    "total_errors": 0,
+    "sources_processed": 0
+  },
+  "latency": {
+    "count": 40,
+    "mean_ms": 70.75432133873245,
+    "median_ms": 52.859742949978454,
+    "std_dev_ms": 37.28939750846529,
+    "min_ms": 39.191776338111964,
+    "max_ms": 158.82007828669,
+    "p95_ms": 149.3086818309906,
+    "p99_ms": 158.82007828669,
+    "breakdown": {
+      "auth_mean_ms": 3.098761603162769,
+      "policy_mean_ms": 5.110553566362804,
+      "transform_mean_ms": 49.19515252113342,
+      "transfer_mean_ms": 12.133836621923672,
+      "decrypt_mean_ms": 1.2160170261497847
+    }
+  },
+  "stages": {
+    "ingestion": {
+      "count": 0,
+      "total_ms": 0
+    },
+    "transformation": {
+      "count": 0,
+      "total_ms": 0
+    },
+    "classification": {
+      "count": 0,
+      "total_ms": 0
+    },
+    "blockchain_registration": {
+      "count": 0,
+      "total_ms": 0
+    },
+    "processing": {
+      "count": 0,
+      "total_ms": 0
+    },
+    "export": {
+      "count": 0,
+      "total_ms": 0
+    }
+  },
+  "throughput": {
+    "total_records": 0,
+    "total_bytes": 0,
+    "elapsed_seconds": 2.849602222442627,
+    "records_per_second": 0.0,
+    "bytes_per_second": 0.0,
+    "mb_per_second": 0.0
+  },
+  "sources": {}
+}

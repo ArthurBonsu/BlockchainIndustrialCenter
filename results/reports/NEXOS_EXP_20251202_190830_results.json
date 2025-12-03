@@ -1,0 +1,646 @@
+{
+  "experiment_id": "NEXOS_EXP_20251202_190830",
+  "timestamp": "2025-12-02T19:08:32.944571",
+  "configuration": {
+    "records_per_source": 1000,
+    "num_iterations": 5,
+    "num_organizations": 4
+  },
+  "duration_ms": 2835.6964588165283,
+  "phases": {
+    "data_generation": {
+      "phase_duration_ms": 379.29344177246094,
+      "summary": {
+        "total_sources": 8,
+        "total_records": 11386,
+        "total_bytes": 4646632,
+        "total_generation_time_ms": 377.2432804107666,
+        "throughput_records_per_sec": 30182.114808253697,
+        "sources": [
+          {
+            "source": "Org_1/Db_1",
+            "format": "CSV",
+            "data_type": "structured",
+            "category": "relational",
+            "record_count": 1000,
+            "file_size_bytes": 132272,
+            "generation_time_ms": 17.215967178344727,
+            "output_path": "results\\data\\raw\\org1_patient_records.csv"
+          },
+          {
+            "source": "Org_1/Db_2",
+            "format": "JSON",
+            "data_type": "semi-structured",
+            "category": "document",
+            "record_count": 1000,
+            "file_size_bytes": 1164408,
+            "generation_time_ms": 87.29147911071777,
+            "output_path": "results\\data\\raw\\org1_medical_documents.json"
+          },
+          {
+            "source": "Org_2/Db_3",
+            "format": "CSV",
+            "data_type": "structured",
+            "category": "relational",
+            "record_count": 1000,
+            "file_size_bytes": 101040,
+            "generation_time_ms": 12.151241302490234,
+            "output_path": "results\\data\\raw\\org2_transactions.csv"
+          },
+          {
+            "source": "Org_2/Db_4",
+            "format": "JSON",
+            "data_type": "semi-structured",
+            "category": "real_time",
+            "record_count": 1000,
+            "file_size_bytes": 383344,
+            "generation_time_ms": 17.96126365661621,
+            "output_path": "results\\data\\raw\\org2_market_data.json"
+          },
+          {
+            "source": "Org_3/Db_5",
+            "format": "CSV",
+            "data_type": "structured",
+            "category": "real_time",
+            "record_count": 1000,
+            "file_size_bytes": 71310,
+            "generation_time_ms": 9.315013885498047,
+            "output_path": "results\\data\\raw\\org3_sensor_readings.csv"
+          },
+          {
+            "source": "Org_3/Db_6",
+            "format": "Kafka/NDJSON",
+            "data_type": "semi-structured",
+            "category": "real_time",
+            "record_count": 1000,
+            "simulated_throughput_eps": 100,
+            "file_size_bytes": 437739,
+            "generation_time_ms": 11.300802230834961,
+            "output_path": "results\\data\\raw\\org3_event_stream.ndjson"
+          },
+          {
+            "source": "Org_4/Db_7",
+            "format": "SQLite",
+            "data_type": "structured",
+            "category": "relational",
+            "record_count": 4386,
+            "table_counts": {
+              "citizens": 1000,
+              "licenses": 967,
+              "transactions": 2419
+            },
+            "file_size_bytes": 724992,
+            "generation_time_ms": 51.07998847961426,
+            "output_path": "results\\data\\raw\\org4_public_records.db"
+          },
+          {
+            "source": "Org_4/Db_8",
+            "format": "XML",
+            "data_type": "semi-structured",
+            "category": "document",
+            "record_count": 1000,
+            "file_size_bytes": 1631527,
+            "generation_time_ms": 170.9275245666504,
+            "output_path": "results\\data\\raw\\org4_document_archive.xml"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "source": "Org_1/Db_1",
+          "format": "CSV",
+          "data_type": "structured",
+          "category": "relational",
+          "record_count": 1000,
+          "file_size_bytes": 132272,
+          "generation_time_ms": 17.215967178344727,
+          "output_path": "results\\data\\raw\\org1_patient_records.csv"
+        },
+        {
+          "source": "Org_1/Db_2",
+          "format": "JSON",
+          "data_type": "semi-structured",
+          "category": "document",
+          "record_count": 1000,
+          "file_size_bytes": 1164408,
+          "generation_time_ms": 87.29147911071777,
+          "output_path": "results\\data\\raw\\org1_medical_documents.json"
+        },
+        {
+          "source": "Org_2/Db_3",
+          "format": "CSV",
+          "data_type": "structured",
+          "category": "relational",
+          "record_count": 1000,
+          "file_size_bytes": 101040,
+          "generation_time_ms": 12.151241302490234,
+          "output_path": "results\\data\\raw\\org2_transactions.csv"
+        },
+        {
+          "source": "Org_2/Db_4",
+          "format": "JSON",
+          "data_type": "semi-structured",
+          "category": "real_time",
+          "record_count": 1000,
+          "file_size_bytes": 383344,
+          "generation_time_ms": 17.96126365661621,
+          "output_path": "results\\data\\raw\\org2_market_data.json"
+        },
+        {
+          "source": "Org_3/Db_5",
+          "format": "CSV",
+          "data_type": "structured",
+          "category": "real_time",
+          "record_count": 1000,
+          "file_size_bytes": 71310,
+          "generation_time_ms": 9.315013885498047,
+          "output_path": "results\\data\\raw\\org3_sensor_readings.csv"
+        },
+        {
+          "source": "Org_3/Db_6",
+          "format": "Kafka/NDJSON",
+          "data_type": "semi-structured",
+          "category": "real_time",
+          "record_count": 1000,
+          "simulated_throughput_eps": 100,
+          "file_size_bytes": 437739,
+          "generation_time_ms": 11.300802230834961,
+          "output_path": "results\\data\\raw\\org3_event_stream.ndjson"
+        },
+        {
+          "source": "Org_4/Db_7",
+          "format": "SQLite",
+          "data_type": "structured",
+          "category": "relational",
+          "record_count": 4386,
+          "table_counts": {
+            "citizens": 1000,
+            "licenses": 967,
+            "transactions": 2419
+          },
+          "file_size_bytes": 724992,
+          "generation_time_ms": 51.07998847961426,
+          "output_path": "results\\data\\raw\\org4_public_records.db"
+        },
+        {
+          "source": "Org_4/Db_8",
+          "format": "XML",
+          "data_type": "semi-structured",
+          "category": "document",
+          "record_count": 1000,
+          "file_size_bytes": 1631527,
+          "generation_time_ms": 170.9275245666504,
+          "output_path": "results\\data\\raw\\org4_document_archive.xml"
+        }
+      ]
+    },
+    "nexos_processing": {
+      "phase_duration_ms": 2015.974998474121,
+      "iterations": [
+        {
+          "iteration": 1,
+          "duration_ms": 377.2144317626953,
+          "records_processed": 11386,
+          "sources_processed": 8
+        },
+        {
+          "iteration": 2,
+          "duration_ms": 431.3838481903076,
+          "records_processed": 11386,
+          "sources_processed": 8
+        },
+        {
+          "iteration": 3,
+          "duration_ms": 388.51237297058105,
+          "records_processed": 11386,
+          "sources_processed": 8
+        },
+        {
+          "iteration": 4,
+          "duration_ms": 384.3686580657959,
+          "records_processed": 11386,
+          "sources_processed": 8
+        },
+        {
+          "iteration": 5,
+          "duration_ms": 433.5598945617676,
+          "records_processed": 11386,
+          "sources_processed": 8
+        }
+      ],
+      "export_result": {
+        "output_path": "results\\data\\unified_data.json",
+        "records_exported": 11386,
+        "file_size_bytes": 19804332,
+        "export_time_ms": 428.4186363220215
+      },
+      "pipeline_stats": {
+        "pipeline": {
+          "sources_processed": 8,
+          "total_records": 11386,
+          "total_processing_time_ms": 426.13959312438965,
+          "stages": {}
+        },
+        "data_generation": {
+          "records_processed": 11386,
+          "bytes_processed": 5192121,
+          "transformation_time_ms": 422.1363067626953,
+          "errors": 0,
+          "by_source": {
+            "Org1/Db_2": {
+              "records": 1000,
+              "bytes": 961862,
+              "time_ms": 33.66994857788086
+            },
+            "Org1/Db_1": {
+              "records": 1000,
+              "bytes": 295184,
+              "time_ms": 27.047395706176758
+            },
+            "Org2/Db_4": {
+              "records": 1000,
+              "bytes": 298341,
+              "time_ms": 27.90522575378418
+            },
+            "Org2/Db_3": {
+              "records": 1000,
+              "bytes": 256951,
+              "time_ms": 26.29852294921875
+            },
+            "Org3/Db_6": {
+              "records": 1000,
+              "bytes": 457739,
+              "time_ms": 26.909828186035156
+            },
+            "Org3/Db_5": {
+              "records": 1000,
+              "bytes": 220220,
+              "time_ms": 25.522470474243164
+            },
+            "Org4/Db_2": {
+              "records": 1000,
+              "bytes": 1415385,
+              "time_ms": 129.7128200531006
+            },
+            "Org4/Db_7": {
+              "records": 4386,
+              "bytes": 1286439,
+              "time_ms": 125.07009506225586
+            }
+          },
+          "throughput_records_per_sec": 26972.33054251517,
+          "throughput_bytes_per_sec": 12299631.462210996
+        },
+        "classification": {
+          "total_classified": 11386,
+          "by_classification": {
+            "PII": 3211,
+            "INTERNAL": 2756,
+            "FINANCIAL": 3419,
+            "TELEMETRY": 2000
+          },
+          "by_security_level": {
+            "3": 6630,
+            "2": 4756
+          }
+        },
+        "batch_processing": {
+          "batches_processed": 7,
+          "records_processed": 10386,
+          "total_time_ms": 2.504587173461914,
+          "partition_times_ms": [
+            0.049591064453125,
+            0.045299530029296875,
+            0.04220008850097656,
+            0.04315376281738281,
+            0.04744529724121094,
+            0.04315376281738281,
+            0.04220008850097656,
+            0.04267692565917969,
+            0.04506111145019531,
+            0.043392181396484375,
+            0.043392181396484375,
+            0.04291534423828125,
+            0.05078315734863281,
+            0.04458427429199219,
+            0.04744529724121094,
+            0.046253204345703125,
+            0.044345855712890625,
+            0.04291534423828125,
+            0.042438507080078125,
+            0.04315376281738281,
+            0.06270408630371094,
+            0.05412101745605469,
+            0.047206878662109375,
+            0.04315376281738281,
+            0.1957416534423828,
+            0.194549560546875,
+            0.1914501190185547,
+            0.20575523376464844
+          ],
+          "avg_partition_time_ms": 0.06739582334245954,
+          "throughput_records_per_sec": 4146791.1798191336
+        },
+        "stream_processing": {
+          "windows_processed": 1,
+          "records_processed": 1000,
+          "total_time_ms": 0
+        }
+      }
+    },
+    "baseline_comparison": {
+      "phase_duration_ms": 0.6225109100341797,
+      "iterations": [
+        {
+          "iteration": 1,
+          "duration_ms": 21253.15254957485,
+          "baseline_result": {
+            "num_sources": 8,
+            "integration_pairs": 56,
+            "theoretical_complexity": "O(8\u00b2) = 64",
+            "total_transform_time_ms": 212.5315254957485,
+            "total_time_ms": 0.05841255187988281,
+            "avg_integration_time_ms": 3.79520581242408
+          }
+        },
+        {
+          "iteration": 2,
+          "duration_ms": 21503.106514886756,
+          "baseline_result": {
+            "num_sources": 8,
+            "integration_pairs": 56,
+            "theoretical_complexity": "O(8\u00b2) = 64",
+            "total_transform_time_ms": 215.03106514886758,
+            "total_time_ms": 0.04482269287109375,
+            "avg_integration_time_ms": 3.839840449086921
+          }
+        },
+        {
+          "iteration": 3,
+          "duration_ms": 21077.909800931782,
+          "baseline_result": {
+            "num_sources": 8,
+            "integration_pairs": 56,
+            "theoretical_complexity": "O(8\u00b2) = 64",
+            "total_transform_time_ms": 210.77909800931783,
+            "total_time_ms": 0.04315376281738281,
+            "avg_integration_time_ms": 3.7639124644521043
+          }
+        },
+        {
+          "iteration": 4,
+          "duration_ms": 20479.20217594577,
+          "baseline_result": {
+            "num_sources": 8,
+            "integration_pairs": 56,
+            "theoretical_complexity": "O(8\u00b2) = 64",
+            "total_transform_time_ms": 204.79202175945773,
+            "total_time_ms": 0.0400543212890625,
+            "avg_integration_time_ms": 3.657000388561745
+          }
+        },
+        {
+          "iteration": 5,
+          "duration_ms": 20769.438639869135,
+          "baseline_result": {
+            "num_sources": 8,
+            "integration_pairs": 56,
+            "theoretical_complexity": "O(8\u00b2) = 64",
+            "total_transform_time_ms": 207.69438639869134,
+            "total_time_ms": 0.043392181396484375,
+            "avg_integration_time_ms": 3.7088283285480594
+          }
+        }
+      ],
+      "complexity_analysis": {
+        "baseline_complexity": "O(n\u00b2) = O(8\u00b2) = 64",
+        "nexos_complexity": "O(n) = O(8) = 8",
+        "reduction_factor": "8x fewer integrations"
+      }
+    },
+    "blockchain_operations": {
+      "phase_duration_ms": 2.5615692138671875,
+      "organizations_registered": 4,
+      "data_identities_registered": 100,
+      "network_stats": {
+        "network": {
+          "total_registrations": 100,
+          "total_access_checks": 0,
+          "consensus_rounds": 0,
+          "sync_operations": 1
+        },
+        "nodes": {
+          "Br_1": {
+            "node_id": "Br_1",
+            "is_primary": true,
+            "chain_length": 2,
+            "pending_transactions": 0,
+            "chain_valid": true,
+            "blocks_created": 1,
+            "transactions_processed": 100,
+            "contracts_executed": 100,
+            "total_gas_used": 2100000,
+            "avg_block_time_ms": 0.5011558532714844,
+            "block_times": [
+              0.5011558532714844
+            ]
+          },
+          "Br_2": {
+            "node_id": "Br_2",
+            "is_primary": false,
+            "chain_length": 2,
+            "pending_transactions": 0,
+            "chain_valid": true,
+            "blocks_created": 0,
+            "transactions_processed": 0,
+            "contracts_executed": 0,
+            "total_gas_used": 0,
+            "avg_block_time_ms": 0,
+            "block_times": []
+          }
+        }
+      },
+      "chain_integrity": {
+        "Br_1": true,
+        "Br_2": true
+      }
+    },
+    "metrics": {
+      "phase_duration_ms": 0.31876564025878906,
+      "resource_allocation_efficiency": 0.2470598638982746,
+      "data_isolation_metric": 1.0,
+      "latency_statistics": {
+        "count": 40,
+        "mean_ms": 70.56752038200638,
+        "median_ms": 52.97954828597699,
+        "std_dev_ms": 37.86461180501071,
+        "min_ms": 38.84215630967522,
+        "max_ms": 162.878916177315,
+        "p95_ms": 153.65751030762976,
+        "p99_ms": 162.878916177315,
+        "breakdown": {
+          "auth_mean_ms": 3.098761603162769,
+          "policy_mean_ms": 5.110553566362804,
+          "transform_mean_ms": 49.00835156440735,
+          "transfer_mean_ms": 12.133836621923672,
+          "decrypt_mean_ms": 1.2160170261497847
+        }
+      },
+      "throughput_statistics": {
+        "total_records": 11386,
+        "total_bytes": 5192121,
+        "elapsed_seconds": 0.4221363067626953,
+        "records_per_second": 26972.33054251517,
+        "bytes_per_second": 12299631.462210996,
+        "mb_per_second": 12.299631462210996
+      },
+      "pipeline_statistics": {
+        "pipeline": {
+          "sources_processed": 8,
+          "total_records": 11386,
+          "total_processing_time_ms": 426.13959312438965,
+          "stages": {}
+        },
+        "data_generation": {
+          "records_processed": 11386,
+          "bytes_processed": 5192121,
+          "transformation_time_ms": 422.1363067626953,
+          "errors": 0,
+          "by_source": {
+            "Org1/Db_2": {
+              "records": 1000,
+              "bytes": 961862,
+              "time_ms": 33.66994857788086
+            },
+            "Org1/Db_1": {
+              "records": 1000,
+              "bytes": 295184,
+              "time_ms": 27.047395706176758
+            },
+            "Org2/Db_4": {
+              "records": 1000,
+              "bytes": 298341,
+              "time_ms": 27.90522575378418
+            },
+            "Org2/Db_3": {
+              "records": 1000,
+              "bytes": 256951,
+              "time_ms": 26.29852294921875
+            },
+            "Org3/Db_6": {
+              "records": 1000,
+              "bytes": 457739,
+              "time_ms": 26.909828186035156
+            },
+            "Org3/Db_5": {
+              "records": 1000,
+              "bytes": 220220,
+              "time_ms": 25.522470474243164
+            },
+            "Org4/Db_2": {
+              "records": 1000,
+              "bytes": 1415385,
+              "time_ms": 129.7128200531006
+            },
+            "Org4/Db_7": {
+              "records": 4386,
+              "bytes": 1286439,
+              "time_ms": 125.07009506225586
+            }
+          },
+          "throughput_records_per_sec": 26972.33054251517,
+          "throughput_bytes_per_sec": 12299631.462210996
+        },
+        "classification": {
+          "total_classified": 11386,
+          "by_classification": {
+            "PII": 3211,
+            "INTERNAL": 2756,
+            "FINANCIAL": 3419,
+            "TELEMETRY": 2000
+          },
+          "by_security_level": {
+            "3": 6630,
+            "2": 4756
+          }
+        },
+        "batch_processing": {
+          "batches_processed": 7,
+          "records_processed": 10386,
+          "total_time_ms": 2.504587173461914,
+          "partition_times_ms": [
+            0.049591064453125,
+            0.045299530029296875,
+            0.04220008850097656,
+            0.04315376281738281,
+            0.04744529724121094,
+            0.04315376281738281,
+            0.04220008850097656,
+            0.04267692565917969,
+            0.04506111145019531,
+            0.043392181396484375,
+            0.043392181396484375,
+            0.04291534423828125,
+            0.05078315734863281,
+            0.04458427429199219,
+            0.04744529724121094,
+            0.046253204345703125,
+            0.044345855712890625,
+            0.04291534423828125,
+            0.042438507080078125,
+            0.04315376281738281,
+            0.06270408630371094,
+            0.05412101745605469,
+            0.047206878662109375,
+            0.04315376281738281,
+            0.1957416534423828,
+            0.194549560546875,
+            0.1914501190185547,
+            0.20575523376464844
+          ],
+          "avg_partition_time_ms": 0.06739582334245954,
+          "throughput_records_per_sec": 4146791.1798191336
+        },
+        "stream_processing": {
+          "windows_processed": 1,
+          "records_processed": 1000,
+          "total_time_ms": 0
+        }
+      }
+    },
+    "comparison_analysis": {
+      "phase_duration_ms": 0.07557868957519531,
+      "comparison_report": {
+        "comparison_timestamp": "2025-12-02T19:08:32.944383",
+        "sample_sizes": {
+          "nexos_runs": 5,
+          "baseline_runs": 5
+        },
+        "timing_comparison": {
+          "nexos_avg_time_ms": 403.0078411102295,
+          "baseline_avg_time_ms": 21016.56193624166,
+          "time_reduction_percent": 98.08242736213067,
+          "deployment_acceleration_factor": 52.149263097075256
+        },
+        "throughput_comparison": {
+          "nexos_avg_records_per_sec": 28353.893313581422,
+          "baseline_avg_records_per_sec": 47.59549590013073,
+          "throughput_improvement_percent": 59472.639757922014
+        },
+        "integration_effort": {
+          "nexos_complexity": "O(n)",
+          "baseline_complexity": "O(n\u00b2)",
+          "effort_reduction_theoretical": "80%",
+          "note": "NeXos requires n integrations vs n\u00b2 for point-to-point"
+        },
+        "key_findings": [
+          "NeXos achieves 52.1x deployment acceleration",
+          "Processing time reduced by 98.1%",
+          "Throughput improved by 59472.6%",
+          "Unified abstraction layer eliminates O(n\u00b2) integration complexity",
+          "Blockchain-backed identity ensures data traceability and integrity"
+        ]
+      }
+    }
+  }
+}
