@@ -3,7 +3,23 @@
 // Following exact working script structure
 // Production-Ready with Complete ABIs
 
-const Web3 = require('web3');
+// ============================================================================
+// WEB3.JS VERSION COMPATIBILITY
+// ============================================================================
+// This script supports Web3.js v4.x (recommended) or v1.x
+// 
+// For Web3.js v4.x (current):
+//   npm install web3@latest
+//   Import: const { Web3 } = require('web3');  ← Note the curly braces!
+//
+// For Web3.js v1.x (stable):
+//   npm install web3@1.10.0
+//   Import: const Web3 = require('web3');  ← No curly braces
+// ============================================================================
+
+// Web3.js v4.x requires destructuring import
+// If using v1.x, change to: const Web3 = require('web3');
+const { Web3 } = require('web3');
 const fs = require('fs');
 const path = require('path');
 
@@ -29,9 +45,6 @@ const CONTRACT_ABIS = {
     // ========================================================================
     // EnergyToken ABI (ERC20 Token)
     // ========================================================================
-
-
-    
     EnergyToken: [
         {
             "inputs": [
@@ -773,684 +786,7 @@ const CONTRACT_ABIS = {
             "type": "function"
         }
     ],
-
-
-        EnergyTokenNRE: [
-        [
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "allowance",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "needed",
-				"type": "uint256"
-			}
-		],
-		"name": "ERC20InsufficientAllowance",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "balance",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "needed",
-				"type": "uint256"
-			}
-		],
-		"name": "ERC20InsufficientBalance",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "approver",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidApprover",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidReceiver",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidSender",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidSpender",
-		"type": "error"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "Approval",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "balanceOf",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "decimals",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "mint",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "name",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "symbol",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "totalSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]
-    ],
-
-
- EnergyTokenRE: [
-   [
-	{
-		"inputs": [],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "allowance",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "needed",
-				"type": "uint256"
-			}
-		],
-		"name": "ERC20InsufficientAllowance",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "balance",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "needed",
-				"type": "uint256"
-			}
-		],
-		"name": "ERC20InsufficientBalance",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "approver",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidApprover",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "receiver",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidReceiver",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "sender",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidSender",
-		"type": "error"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "ERC20InvalidSpender",
-		"type": "error"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "Approval",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "balanceOf",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "decimals",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			}
-		],
-		"name": "mint",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "name",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "symbol",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "totalSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]
-	
-    ],
-
-
-
+    
     // ========================================================================
     // GridStabilityOracle ABI (AccessControl)
     // ========================================================================
@@ -3229,53 +2565,66 @@ const CONTRACT_ABIS = {
 // MAIN EXPERIMENT CLASS
 // ============================================================================
 
-
-// ============================================================================
-// MAIN EXPERIMENT CLASS
-// ============================================================================
-
 class EnergyAMMExperiment {
     constructor() {
         console.log('🧪 Initializing Energy AMM Experimental Framework');
         console.log('📊 Time-Weighted + Grid-Responsive AMM Performance Analysis');
         
-        // Setup Web3 connection
-        const providerUrl = process.env.ETHEREUM_PROVIDER_URL || `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
-        this.web3 = new Web3(providerUrl);
+        // Initialize Web3 v4.x with STRING format
+        try {
+            console.log('🔌 Initializing Web3 v4.x...');
+            
+            const providerUrl = process.env.ETHEREUM_PROVIDER_URL || `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`;
+            this.web3 = new Web3(providerUrl);
+            
+            // Configure Web3 v4.x to return strings instead of BigInt
+            this.web3.defaultReturnFormat = {
+                number: 'str',
+                bytes: 'HEX'
+            };
+            
+            console.log('✅ Web3 v4.x initialized');
+            
+        } catch (error) {
+            console.error('❌ Web3 initialization failed:', error.message);
+            throw error;
+        }
         
-        // Setup account
-        const privateKey = this._normalizePrivateKey();
-        this.account = this.web3.eth.accounts.privateKeyToAccount(privateKey);
-        this.web3.eth.accounts.wallet.add(this.account);
-        this.web3.eth.defaultAccount = this.account.address;
+        // Account setup - supports PRIVATE_KEY or ETHEREUM_PRIVATE_KEY
+        try {
+            let privateKey = process.env.PRIVATE_KEY || process.env.ETHEREUM_PRIVATE_KEY;
+            if (!privateKey) {
+                console.error('\n❌ ERROR: PRIVATE_KEY not found in environment variables!\n');
+                console.error('📝 Please set your private key using one of these methods:\n');
+                console.error('Method 1 - Create .env file:');
+                console.error('  Create a file named ".env" with:');
+                console.error('  PRIVATE_KEY=your_private_key_without_0x');
+                console.error('  INFURA_PROJECT_ID=your_infura_project_id\n');
+                console.error('Method 2 - Set environment variable:');
+                console.error('  Windows: set PRIVATE_KEY=your_private_key');
+                console.error('  Linux/Mac: export PRIVATE_KEY=your_private_key\n');
+                throw new Error('PRIVATE_KEY not found in environment variables');
+            }
+            
+            // Normalize private key
+            privateKey = privateKey.trim().replace(/\s/g, '');
+            if (privateKey.length === 64) {
+                privateKey = '0x' + privateKey;
+            }
+            
+            this.account = this.web3.eth.accounts.privateKeyToAccount(privateKey);
+            this.web3.eth.accounts.wallet.add(this.account);
+            this.web3.eth.defaultAccount = this.account.address;
+            
+            console.log(`👤 Test Account: ${this.account.address}`);
+            
+        } catch (error) {
+            console.error('❌ Account setup failed:', error.message);
+            throw error;
+        }
         
-        // Initialize contract instances with addresses and ABIs
-        this.contracts = {
-            tokenRE: new this.web3.eth.Contract(
-                CONTRACT_ABIS.EnergyToken,
-                CONTRACT_ADDRESSES.EnergyTokenRE
-            ),
-            tokenNRE: new this.web3.eth.Contract(
-                CONTRACT_ABIS.EnergyToken,
-                CONTRACT_ADDRESSES.EnergyTokenNRE
-            ),
-            vault: new this.web3.eth.Contract(
-                CONTRACT_ABIS.EnergyTokenVault,
-                CONTRACT_ADDRESSES.EnergyTokenVault
-            ),
-            gridOracle: new this.web3.eth.Contract(
-                CONTRACT_ABIS.GridStabilityOracle,
-                CONTRACT_ADDRESSES.GridStabilityOracle
-            ),
-            timeWeightedAMM: new this.web3.eth.Contract(
-                CONTRACT_ABIS.TimeWeightedAMM,
-                CONTRACT_ADDRESSES.TimeWeightedAMM
-            ),
-            gridResponsiveAMM: new this.web3.eth.Contract(
-                CONTRACT_ABIS.GridResponsiveAMM,
-                CONTRACT_ADDRESSES.GridResponsiveAMM
-            )
-        };
+        // Initialize contract instances
+        this.initializeContracts();
         
         // Experimental data storage
         this.experimentalData = {
@@ -3338,22 +2687,62 @@ class EnergyAMMExperiment {
             }
         });
         
-        console.log('✅ Experimental framework initialized');
-        console.log(`📍 Test network: Sepolia Testnet`);
-        console.log(`🔬 Test account: ${this.account.address}`);
-        console.log('\n📦 Contract Instances Created:');
-        console.log(`   ✅ RE Token: ${CONTRACT_ADDRESSES.EnergyTokenRE}`);
-        console.log(`   ✅ NRE Token: ${CONTRACT_ADDRESSES.EnergyTokenNRE}`);
-        console.log(`   ✅ Vault: ${CONTRACT_ADDRESSES.EnergyTokenVault}`);
-        console.log(`   ✅ Grid Oracle: ${CONTRACT_ADDRESSES.GridStabilityOracle}`);
-        console.log(`   ✅ Time-Weighted AMM: ${CONTRACT_ADDRESSES.TimeWeightedAMM}`);
-        console.log(`   ✅ Grid-Responsive AMM: ${CONTRACT_ADDRESSES.GridResponsiveAMM}`);
+        console.log('🚀 Energy AMM Experimental Framework initialized');
     }
 
-    _normalizePrivateKey() {
-        let privateKey = process.env.PRIVATE_KEY;
-        if (privateKey.startsWith('0x')) privateKey = privateKey.slice(2);
-        return '0x' + privateKey;
+    // ========================================================================
+    // CONTRACT INITIALIZATION
+    // ========================================================================
+    
+    initializeContracts() {
+        try {
+            console.log('📦 Initializing contract instances...');
+            
+            // Initialize all contracts with STRING return format
+            this.contracts = {
+                tokenRE: new this.web3.eth.Contract(
+                    CONTRACT_ABIS.EnergyToken,
+                    CONTRACT_ADDRESSES.EnergyTokenRE
+                ),
+                tokenNRE: new this.web3.eth.Contract(
+                    CONTRACT_ABIS.EnergyToken,
+                    CONTRACT_ADDRESSES.EnergyTokenNRE
+                ),
+                vault: new this.web3.eth.Contract(
+                    CONTRACT_ABIS.EnergyTokenVault,
+                    CONTRACT_ADDRESSES.EnergyTokenVault
+                ),
+                gridOracle: new this.web3.eth.Contract(
+                    CONTRACT_ABIS.GridStabilityOracle,
+                    CONTRACT_ADDRESSES.GridStabilityOracle
+                ),
+                timeWeightedAMM: new this.web3.eth.Contract(
+                    CONTRACT_ABIS.TimeWeightedAMM,
+                    CONTRACT_ADDRESSES.TimeWeightedAMM
+                ),
+                gridResponsiveAMM: new this.web3.eth.Contract(
+                    CONTRACT_ABIS.GridResponsiveAMM,
+                    CONTRACT_ADDRESSES.GridResponsiveAMM
+                )
+            };
+            
+            // Set string return format for all contracts
+            Object.values(this.contracts).forEach(contract => {
+                contract.defaultReturnFormat = { number: 'str', bytes: 'HEX' };
+            });
+            
+            console.log('✅ All contracts initialized');
+            console.log(`   ✅ RE Token: ${CONTRACT_ADDRESSES.EnergyTokenRE}`);
+            console.log(`   ✅ NRE Token: ${CONTRACT_ADDRESSES.EnergyTokenNRE}`);
+            console.log(`   ✅ Vault: ${CONTRACT_ADDRESSES.EnergyTokenVault}`);
+            console.log(`   ✅ Grid Oracle: ${CONTRACT_ADDRESSES.GridStabilityOracle}`);
+            console.log(`   ✅ Time-Weighted AMM: ${CONTRACT_ADDRESSES.TimeWeightedAMM}`);
+            console.log(`   ✅ Grid-Responsive AMM: ${CONTRACT_ADDRESSES.GridResponsiveAMM}`);
+            
+        } catch (error) {
+            console.error('❌ Contract initialization failed:', error.message);
+            throw error;
+        }
     }
 
     _safeBigIntToNumber(value) {
@@ -3462,12 +2851,12 @@ class EnergyAMMExperiment {
             
             const gasEstimate = await this.contracts.timeWeightedAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
-                .estimateGas({ from: this.account.address });
+                .estimateGas({ from: this.account });
             
             const tx = await this.contracts.timeWeightedAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
                 .send({
-                    from: this.account.address,
+                    from: this.account,
                     gas: Math.floor(gasEstimate * 1.2)
                 });
             
@@ -3610,12 +2999,12 @@ class EnergyAMMExperiment {
             
             const gasEstimate = await this.contracts.timeWeightedAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
-                .estimateGas({ from: this.account.address });
+                .estimateGas({ from: this.account });
             
             const tx = await this.contracts.timeWeightedAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
                 .send({
-                    from: this.account.address,
+                    from: this.account,
                     gas: Math.floor(gasEstimate * 1.2)
                 });
             
@@ -3768,12 +3157,12 @@ class EnergyAMMExperiment {
             
             const gasEstimate = await this.contracts.gridOracle.methods
                 .updateCondition(frequency, voltage)
-                .estimateGas({ from: this.account.address });
+                .estimateGas({ from: this.account });
             
             const tx = await this.contracts.gridOracle.methods
                 .updateCondition(frequency, voltage)
                 .send({
-                    from: this.account.address,
+                    from: this.account,
                     gas: Math.floor(gasEstimate * 1.2)
                 });
             
@@ -3803,12 +3192,12 @@ class EnergyAMMExperiment {
             
             const gasEstimate = await this.contracts.gridResponsiveAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
-                .estimateGas({ from: this.account.address });
+                .estimateGas({ from: this.account });
             
             const tx = await this.contracts.gridResponsiveAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
                 .send({
-                    from: this.account.address,
+                    from: this.account,
                     gas: Math.floor(gasEstimate * 1.2)
                 });
             
@@ -3940,12 +3329,12 @@ class EnergyAMMExperiment {
             
             const gasEstimate = await this.contracts.timeWeightedAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
-                .estimateGas({ from: this.account.address });
+                .estimateGas({ from: this.account });
             
             const tx = await this.contracts.timeWeightedAMM.methods
                 .swap(amountWei, minAmountOut, isREtoNRE)
                 .send({
-                    from: this.account.address,
+                    from: this.account,
                     gas: Math.floor(gasEstimate * 1.2)
                 });
             
@@ -4283,7 +3672,7 @@ Overall System Improvement       -          -          42.7%
         console.log('IEEE Transactions on Industrial Informatics');
         console.log('='.repeat(80));
         console.log(`\nStart Time: ${new Date().toISOString()}`);
-        console.log(`Test Account: ${this.account.address}`);
+        console.log(`Test Account: ${this.account}`);
         console.log(`Network: Sepolia Testnet`);
         
         const startTime = Date.now();

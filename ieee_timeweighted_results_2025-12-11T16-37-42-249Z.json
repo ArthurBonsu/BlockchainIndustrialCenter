@@ -1,0 +1,22 @@
+{
+  "contractAddress": "0xe7d36a383A3925f65D85DE4D4C49475A7d3d345D",
+  "timeWeightedParams": {
+    "core": {
+      "tauPeak": 1.35,
+      "tauOffPeak": 0.75,
+      "tauNormal": 1
+    },
+    "baseFee": 0.003,
+    "precision": "1000000000000000000",
+    "vault": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+    "periods": {
+      "peak": "17:00-21:00",
+      "offpeak": "23:00-6:00"
+    },
+    "currentTau": 1,
+    "currentPeriod": "normal"
+  },
+  "validation": {
+    "parametersPassed": true
+  }
+}
