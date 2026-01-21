@@ -291,7 +291,3 @@ contract TimeWeightedAMM is Ownable, ReentrancyGuard {
         return (totalSwapsRE, totalSwapsNRE, totalVolumeRE, totalVolumeNRE);
     }
 }
-
-
-
-

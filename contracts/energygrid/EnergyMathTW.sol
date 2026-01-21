@@ -26,5 +26,3 @@ library EnergyMathTW {
         return divFixed(reserveOut, reserveIn);
     }
 }
-
-
