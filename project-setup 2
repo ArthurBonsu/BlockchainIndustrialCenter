@@ -315,32 +315,45 @@ BlockchainIndustrialPlatform/
 │   ├── performance_data.json
 │   └── strebacom_comprehensive_results.json
 ├── test/                                      # 🔧 SIGNIFICANTLY EXPANDED
-│   ├── BCADN.js
-│   ├── bCADNshort.js
-│   ├── blockstream.js
-│   ├── carbon-data-processor.js
-│   ├── congestion.js                         # ✨ NEW
-│   ├── consensus_validation_results.json
-│   ├── crosschainintergration.ts             # ✨ NEW
-│   ├── experiment_state.json
-│   ├── layer1_experiment_state.json          # ✨ NEW
-│   ├── modelcontextcompare.js                # ✨ NEW
-│   ├── n2n-charts-generator.js
-│   ├── n2nrislivetestsuite.js
-│   ├── passchaintest.js                      # ✨ NEW
-│   ├── passchaintest2.js                     # ✨ NEW
-│   ├── passchaintest_V2.js                   # ✨ NEW
-│   ├── passchain_flow_test.js
-│   ├── passchain_story_test.js
-│   ├── run-climate-regulation-experiment.js
-│   ├── servicenodes.js
-│   ├── streambasedconsensus.js
-│   ├── streamcharge.js
-│   ├── streamscript.js
-│   ├── strebacom-simulation.js
-│   ├── strebacom_experiment_state.json
-│   ├── UISTest.js                           # ✨ NEW
-│   └── uncertainty.js
+│   
+    BCADN.js
+    bCADNshort.js
+    blockstream.js
+    carbon-data-processor.js
+    congestion.js
+    consensus_validation_results.json
+    crosschainintergration.ts
+    energy_amm_minimal.js
+    experiment_state.json
+    fullgridtest.js
+    gridstability2.js
+    gridstabilitytest.js
+    gridtest2.js
+    ieeevalidationfinal.js
+    ieee_validation_results.json
+    ieee_validation_results_final.json
+    layer1_experiment_state.json
+    modelcontextcompare.js
+    n2n-charts-generator.js
+    n2nrislivetestsuite.js
+    oracle.js
+    paper_validation.js
+    passchaintest.js
+    passchaintest2.js
+    passchaintest_V2.js
+    passchain_flow_test.js
+    passchain_story_test.js
+    run-climate-regulation-experiment.js
+    servicenodes.js
+    setup_liquidity.js
+    streambasedconsensus.js
+    streamcharge.js
+    streamscript.js
+    strebacom-simulation.js
+    strebacom_experiment_state.json
+    timeweight.js
+    UISTest.js
+    uncertainty.js
 ├── utils/
 │   ├── contract-loader.ts
 │   └── logger.ts
