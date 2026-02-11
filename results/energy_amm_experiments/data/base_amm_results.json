@@ -1,0 +1,612 @@
+{
+  "scenario": "base_amm",
+  "timestamp": "2025-12-11T07:45:07.280Z",
+  "transactions": [
+    {
+      "success": false,
+      "txNumber": 1,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439110510
+    },
+    {
+      "success": false,
+      "txNumber": 2,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439112840
+    },
+    {
+      "success": false,
+      "txNumber": 3,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439115161
+    },
+    {
+      "success": false,
+      "txNumber": 4,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439118029
+    },
+    {
+      "success": false,
+      "txNumber": 5,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439120367
+    },
+    {
+      "success": false,
+      "txNumber": 6,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439122753
+    },
+    {
+      "success": false,
+      "txNumber": 7,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439125077
+    },
+    {
+      "success": false,
+      "txNumber": 8,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439127427
+    },
+    {
+      "success": false,
+      "txNumber": 9,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439129758
+    },
+    {
+      "success": false,
+      "txNumber": 10,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439132098
+    },
+    {
+      "success": false,
+      "txNumber": 11,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439134452
+    },
+    {
+      "success": false,
+      "txNumber": 12,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439136777
+    },
+    {
+      "success": false,
+      "txNumber": 13,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439139101
+    },
+    {
+      "success": false,
+      "txNumber": 14,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439141427
+    },
+    {
+      "success": false,
+      "txNumber": 15,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439143785
+    },
+    {
+      "success": false,
+      "txNumber": 16,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439146128
+    },
+    {
+      "success": false,
+      "txNumber": 17,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439149060
+    },
+    {
+      "success": false,
+      "txNumber": 18,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439151382
+    },
+    {
+      "success": false,
+      "txNumber": 19,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439153739
+    },
+    {
+      "success": false,
+      "txNumber": 20,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439156059
+    },
+    {
+      "success": false,
+      "txNumber": 21,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439158393
+    },
+    {
+      "success": false,
+      "txNumber": 22,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439161034
+    },
+    {
+      "success": false,
+      "txNumber": 23,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439163368
+    },
+    {
+      "success": false,
+      "txNumber": 24,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439165686
+    },
+    {
+      "success": false,
+      "txNumber": 25,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439168006
+    },
+    {
+      "success": false,
+      "txNumber": 26,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439170454
+    },
+    {
+      "success": false,
+      "txNumber": 27,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439172766
+    },
+    {
+      "success": false,
+      "txNumber": 28,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439175096
+    },
+    {
+      "success": false,
+      "txNumber": 29,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439177410
+    },
+    {
+      "success": false,
+      "txNumber": 30,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439180024
+    },
+    {
+      "success": false,
+      "txNumber": 31,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439182339
+    },
+    {
+      "success": false,
+      "txNumber": 32,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439184672
+    },
+    {
+      "success": false,
+      "txNumber": 33,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439187027
+    },
+    {
+      "success": false,
+      "txNumber": 34,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439189350
+    },
+    {
+      "success": false,
+      "txNumber": 35,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439191696
+    },
+    {
+      "success": false,
+      "txNumber": 36,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439194011
+    },
+    {
+      "success": false,
+      "txNumber": 37,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439196332
+    },
+    {
+      "success": false,
+      "txNumber": 38,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439198674
+    },
+    {
+      "success": false,
+      "txNumber": 39,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439201014
+    },
+    {
+      "success": false,
+      "txNumber": 40,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439203332
+    },
+    {
+      "success": false,
+      "txNumber": 41,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439205685
+    },
+    {
+      "success": false,
+      "txNumber": 42,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439208021
+    },
+    {
+      "success": false,
+      "txNumber": 43,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439210982
+    },
+    {
+      "success": false,
+      "txNumber": 44,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439213334
+    },
+    {
+      "success": false,
+      "txNumber": 45,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439215721
+    },
+    {
+      "success": false,
+      "txNumber": 46,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439218051
+    },
+    {
+      "success": false,
+      "txNumber": 47,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439220364
+    },
+    {
+      "success": false,
+      "txNumber": 48,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439222684
+    },
+    {
+      "success": false,
+      "txNumber": 49,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439225061
+    },
+    {
+      "success": false,
+      "txNumber": 50,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439227391
+    },
+    {
+      "success": false,
+      "txNumber": 51,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439229728
+    },
+    {
+      "success": false,
+      "txNumber": 52,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439232049
+    },
+    {
+      "success": false,
+      "txNumber": 53,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439234381
+    },
+    {
+      "success": false,
+      "txNumber": 54,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439236705
+    },
+    {
+      "success": false,
+      "txNumber": 55,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439239052
+    },
+    {
+      "success": false,
+      "txNumber": 56,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439241975
+    },
+    {
+      "success": false,
+      "txNumber": 57,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439244364
+    },
+    {
+      "success": false,
+      "txNumber": 58,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439246769
+    },
+    {
+      "success": false,
+      "txNumber": 59,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439249091
+    },
+    {
+      "success": false,
+      "txNumber": 60,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439251458
+    },
+    {
+      "success": false,
+      "txNumber": 61,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439253804
+    },
+    {
+      "success": false,
+      "txNumber": 62,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439256149
+    },
+    {
+      "success": false,
+      "txNumber": 63,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439258498
+    },
+    {
+      "success": false,
+      "txNumber": 64,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439260831
+    },
+    {
+      "success": false,
+      "txNumber": 65,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439263171
+    },
+    {
+      "success": false,
+      "txNumber": 66,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439265575
+    },
+    {
+      "success": false,
+      "txNumber": 67,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439267912
+    },
+    {
+      "success": false,
+      "txNumber": 68,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439270248
+    },
+    {
+      "success": false,
+      "txNumber": 69,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439272956
+    },
+    {
+      "success": false,
+      "txNumber": 70,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439275316
+    },
+    {
+      "success": false,
+      "txNumber": 71,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439277645
+    },
+    {
+      "success": false,
+      "txNumber": 72,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439280003
+    },
+    {
+      "success": false,
+      "txNumber": 73,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439282332
+    },
+    {
+      "success": false,
+      "txNumber": 74,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439284677
+    },
+    {
+      "success": false,
+      "txNumber": 75,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439287028
+    },
+    {
+      "success": false,
+      "txNumber": 76,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439289368
+    },
+    {
+      "success": false,
+      "txNumber": 77,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439291687
+    },
+    {
+      "success": false,
+      "txNumber": 78,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439294031
+    },
+    {
+      "success": false,
+      "txNumber": 79,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439296386
+    },
+    {
+      "success": false,
+      "txNumber": 80,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439298737
+    },
+    {
+      "success": false,
+      "txNumber": 81,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439301063
+    },
+    {
+      "success": false,
+      "txNumber": 82,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439303921
+    },
+    {
+      "success": false,
+      "txNumber": 83,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439306250
+    },
+    {
+      "success": false,
+      "txNumber": 84,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439308595
+    },
+    {
+      "success": false,
+      "txNumber": 85,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439310963
+    },
+    {
+      "success": false,
+      "txNumber": 86,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439313280
+    },
+    {
+      "success": false,
+      "txNumber": 87,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439315665
+    },
+    {
+      "success": false,
+      "txNumber": 88,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439318069
+    },
+    {
+      "success": false,
+      "txNumber": 89,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439320405
+    },
+    {
+      "success": false,
+      "txNumber": 90,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439322726
+    },
+    {
+      "success": false,
+      "txNumber": 91,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439325091
+    },
+    {
+      "success": false,
+      "txNumber": 92,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439327455
+    },
+    {
+      "success": false,
+      "txNumber": 93,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439329795
+    },
+    {
+      "success": false,
+      "txNumber": 94,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439332131
+    },
+    {
+      "success": false,
+      "txNumber": 95,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439334957
+    },
+    {
+      "success": false,
+      "txNumber": 96,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439337274
+    },
+    {
+      "success": false,
+      "txNumber": 97,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439339608
+    },
+    {
+      "success": false,
+      "txNumber": 98,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439341963
+    },
+    {
+      "success": false,
+      "txNumber": 99,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439344304
+    },
+    {
+      "success": false,
+      "txNumber": 100,
+      "error": "Error happened while trying to execute a function inside a smart contract",
+      "timestamp": 1765439346619
+    }
+  ],
+  "summary": {
+    "successCount": 0,
+    "avgGas": 0,
+    "avgPriceImpact": 0,
+    "successRate": null
+  }
+}

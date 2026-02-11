@@ -1,0 +1,426 @@
+{
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-11T13:52:37.378Z",
+    "network": "Sepolia Testnet",
+    "contracts": {
+      "vehicleRegistry": "0xF5c8ced708eE27B1a5F0DF54FDCeb77cc2007986",
+      "revocationManager": "0x830e941CB3A3CDAE9a4e2e2F37340c7aF6f32aA0"
+    },
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  },
+  "experiments": {
+    "registration": [
+      {
+        "type": "Vehicle Registration",
+        "numVehicles": 5,
+        "transactions": [
+          {
+            "vehicleIndex": 1,
+            "pseudonym": "0xa282448b2222da0efeafaf848292de3e0df8b1ac",
+            "startTime": 1770817957438,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 2,
+            "pseudonym": "0xb380623bc467f5e2f7b05a4e59bbf3e0744f343a",
+            "startTime": 1770817965358,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 3,
+            "pseudonym": "0xd12eb05904c710ae7b047fa614d1afd475171f1a",
+            "startTime": 1770817972962,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 4,
+            "pseudonym": "0x3680883d370ebed1a4c3d23235c8b7ed211a09e6",
+            "startTime": 1770817980781,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 5,
+            "pseudonym": "0x9d37f44ba6927f02af720ba6783a21dac4541634",
+            "startTime": 1770817988536,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          }
+        ],
+        "metrics": {
+          "totalTime": 33957,
+          "totalGas": 0,
+          "avgLatency": 6791.4,
+          "avgGas": 0,
+          "throughput": 0,
+          "successRate": 0
+        }
+      },
+      {
+        "type": "Vehicle Registration",
+        "numVehicles": 5,
+        "transactions": [
+          {
+            "vehicleIndex": 1,
+            "pseudonym": "0xb17f9c8d5dff194b10be637d1bda4920717668c0",
+            "startTime": 1770817991397,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 2,
+            "pseudonym": "0x10e07282b506a0e2aca2161982004a2622286871",
+            "startTime": 1770817996725,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 3,
+            "pseudonym": "0x440fd9f555c701fc82397ddb0874d9628ee5ac63",
+            "startTime": 1770818004556,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 4,
+            "pseudonym": "0x15bfe9d6da208b238420ca7bdf28b8dd7653db07",
+            "startTime": 1770818012147,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          },
+          {
+            "vehicleIndex": 5,
+            "pseudonym": "0x46a1cb5a28773c45243f14a7b5771121fa68e8e5",
+            "startTime": 1770818019881,
+            "error": "Error happened while trying to execute a function inside a smart contract"
+          }
+        ],
+        "metrics": {
+          "totalTime": 31752,
+          "totalGas": 0,
+          "avgLatency": 6350.4,
+          "avgGas": 0,
+          "throughput": 0,
+          "successRate": 0
+        }
+      }
+    ],
+    "revocation": [],
+    "validation": [],
+    "blockHeaderValidation": [
+      {
+        "type": "Block Header Validation (PHNBH)",
+        "numBlocks": 30,
+        "validations": [
+          {
+            "index": 1,
+            "blockNumber": "10238840",
+            "startTime": 1770818023707,
+            "endTime": 1770818026576,
+            "validationTime": 2869,
+            "parentHashExpected": "0x6ef380534b9a25e9c0e549223a07c04b28fdea57f001a7ad89ce4a43fee74eb1",
+            "parentHashActual": "0x6ef380534b9a25e9c0e549223a07c04b28fdea57f001a7ad89ce4a43fee74eb1",
+            "isValid": true
+          },
+          {
+            "index": 2,
+            "blockNumber": "10238839",
+            "startTime": 1770818026576,
+            "endTime": 1770818027048,
+            "validationTime": 472,
+            "parentHashExpected": "0x2d3f6c4746c260ee1cd98b3ea9c6ff1dbd750849f387c03038a3ac9f2273e288",
+            "parentHashActual": "0x2d3f6c4746c260ee1cd98b3ea9c6ff1dbd750849f387c03038a3ac9f2273e288",
+            "isValid": true
+          },
+          {
+            "index": 3,
+            "blockNumber": "10238838",
+            "startTime": 1770818027048,
+            "endTime": 1770818027415,
+            "validationTime": 367,
+            "parentHashExpected": "0xe7a48c86e060867d9d34087730b86472ea36c8566361eb62d4c64d030eca31cd",
+            "parentHashActual": "0xe7a48c86e060867d9d34087730b86472ea36c8566361eb62d4c64d030eca31cd",
+            "isValid": true
+          },
+          {
+            "index": 4,
+            "blockNumber": "10238837",
+            "startTime": 1770818027415,
+            "endTime": 1770818027787,
+            "validationTime": 372,
+            "parentHashExpected": "0x7756330961cc785f80d8747d0a145ea801a0023e5962288d083c510c73ce8201",
+            "parentHashActual": "0x7756330961cc785f80d8747d0a145ea801a0023e5962288d083c510c73ce8201",
+            "isValid": true
+          },
+          {
+            "index": 5,
+            "blockNumber": "10238836",
+            "startTime": 1770818027787,
+            "endTime": 1770818028157,
+            "validationTime": 370,
+            "parentHashExpected": "0x35f9a4e0548d85afc4c5c97a78db9ff9563c0ef5d7be26bd441b434c0336e54a",
+            "parentHashActual": "0x35f9a4e0548d85afc4c5c97a78db9ff9563c0ef5d7be26bd441b434c0336e54a",
+            "isValid": true
+          },
+          {
+            "index": 6,
+            "blockNumber": "10238835",
+            "startTime": 1770818028157,
+            "endTime": 1770818028485,
+            "validationTime": 328,
+            "parentHashExpected": "0xa60fc651131b570fb6b757cb25e772f9d1b6325618cbbc4fa91f2ebdf1ba8689",
+            "parentHashActual": "0xa60fc651131b570fb6b757cb25e772f9d1b6325618cbbc4fa91f2ebdf1ba8689",
+            "isValid": true
+          },
+          {
+            "index": 7,
+            "blockNumber": "10238834",
+            "startTime": 1770818028486,
+            "endTime": 1770818028845,
+            "validationTime": 359,
+            "parentHashExpected": "0xd1d6256e8adfac8bd53cbade0470b99ea324ead327db58c7ff8575ad509cbcd9",
+            "parentHashActual": "0xd1d6256e8adfac8bd53cbade0470b99ea324ead327db58c7ff8575ad509cbcd9",
+            "isValid": true
+          },
+          {
+            "index": 8,
+            "blockNumber": "10238833",
+            "startTime": 1770818028846,
+            "endTime": 1770818029215,
+            "validationTime": 369,
+            "parentHashExpected": "0x56b58eb88b395629014bf44fcb925b394510709d08765aea568a31ad4952529e",
+            "parentHashActual": "0x56b58eb88b395629014bf44fcb925b394510709d08765aea568a31ad4952529e",
+            "isValid": true
+          },
+          {
+            "index": 9,
+            "blockNumber": "10238832",
+            "startTime": 1770818029215,
+            "endTime": 1770818029571,
+            "validationTime": 356,
+            "parentHashExpected": "0xbdb7aa88d5a6e01071eabafbe8f6c75629cdb90cef621727f276b0ac7b7fcff4",
+            "parentHashActual": "0xbdb7aa88d5a6e01071eabafbe8f6c75629cdb90cef621727f276b0ac7b7fcff4",
+            "isValid": true
+          },
+          {
+            "index": 10,
+            "blockNumber": "10238831",
+            "startTime": 1770818029571,
+            "endTime": 1770818029904,
+            "validationTime": 333,
+            "parentHashExpected": "0x3411b7921b00eeb28e295c9ae1ca6c1da33eac9cdabebfc64661ea4f8a1c6339",
+            "parentHashActual": "0x3411b7921b00eeb28e295c9ae1ca6c1da33eac9cdabebfc64661ea4f8a1c6339",
+            "isValid": true
+          },
+          {
+            "index": 11,
+            "blockNumber": "10238830",
+            "startTime": 1770818029904,
+            "endTime": 1770818030261,
+            "validationTime": 357,
+            "parentHashExpected": "0x454a8c56f37b15008628c0fe9ebc63fb598c760251777c0ae77d18bafdf2878d",
+            "parentHashActual": "0x454a8c56f37b15008628c0fe9ebc63fb598c760251777c0ae77d18bafdf2878d",
+            "isValid": true
+          },
+          {
+            "index": 12,
+            "blockNumber": "10238829",
+            "startTime": 1770818030261,
+            "endTime": 1770818030622,
+            "validationTime": 361,
+            "parentHashExpected": "0x2b0f3c6c6d922cdcc42abf1ce4a58e9b893b861af556bfbc24d40557900db722",
+            "parentHashActual": "0x2b0f3c6c6d922cdcc42abf1ce4a58e9b893b861af556bfbc24d40557900db722",
+            "isValid": true
+          },
+          {
+            "index": 13,
+            "blockNumber": "10238828",
+            "startTime": 1770818030622,
+            "endTime": 1770818030979,
+            "validationTime": 357,
+            "parentHashExpected": "0xe4d859eda6faff8118e8e37dc3b730005a32e53f04c33bb16518902e311ef18f",
+            "parentHashActual": "0xe4d859eda6faff8118e8e37dc3b730005a32e53f04c33bb16518902e311ef18f",
+            "isValid": true
+          },
+          {
+            "index": 14,
+            "blockNumber": "10238827",
+            "startTime": 1770818030979,
+            "endTime": 1770818031309,
+            "validationTime": 330,
+            "parentHashExpected": "0x16e68732c72c46102263977d8f148cfb4ac8f95fc20fb95af2bfb156b5532b21",
+            "parentHashActual": "0x16e68732c72c46102263977d8f148cfb4ac8f95fc20fb95af2bfb156b5532b21",
+            "isValid": true
+          },
+          {
+            "index": 15,
+            "blockNumber": "10238826",
+            "startTime": 1770818031310,
+            "endTime": 1770818031642,
+            "validationTime": 332,
+            "parentHashExpected": "0x52f7e2f825f2a062621414fcf558f489f3685cb1a508f84981d762c5f71d3a75",
+            "parentHashActual": "0x52f7e2f825f2a062621414fcf558f489f3685cb1a508f84981d762c5f71d3a75",
+            "isValid": true
+          },
+          {
+            "index": 16,
+            "blockNumber": "10238825",
+            "startTime": 1770818031643,
+            "endTime": 1770818031972,
+            "validationTime": 329,
+            "parentHashExpected": "0x01935b53c8e9d742dc59053670e4ca7fe51fe612f11f3c5b7028b7e54eba9090",
+            "parentHashActual": "0x01935b53c8e9d742dc59053670e4ca7fe51fe612f11f3c5b7028b7e54eba9090",
+            "isValid": true
+          },
+          {
+            "index": 17,
+            "blockNumber": "10238824",
+            "startTime": 1770818031972,
+            "endTime": 1770818032298,
+            "validationTime": 326,
+            "parentHashExpected": "0x6bf0529da2993efca21037bb1bdc111f9cca70ab124968d1b35886836d803bef",
+            "parentHashActual": "0x6bf0529da2993efca21037bb1bdc111f9cca70ab124968d1b35886836d803bef",
+            "isValid": true
+          },
+          {
+            "index": 18,
+            "blockNumber": "10238823",
+            "startTime": 1770818032299,
+            "endTime": 1770818032626,
+            "validationTime": 327,
+            "parentHashExpected": "0xa57937cc06334ad9db00034f048c31838c6d586b1bea3e42c8db4ca1760bbb40",
+            "parentHashActual": "0xa57937cc06334ad9db00034f048c31838c6d586b1bea3e42c8db4ca1760bbb40",
+            "isValid": true
+          },
+          {
+            "index": 19,
+            "blockNumber": "10238822",
+            "startTime": 1770818032626,
+            "endTime": 1770818032969,
+            "validationTime": 343,
+            "parentHashExpected": "0xa7f8362382cece34e2aa29cc1d4826288af1079a79a96e247afb51a982634c7c",
+            "parentHashActual": "0xa7f8362382cece34e2aa29cc1d4826288af1079a79a96e247afb51a982634c7c",
+            "isValid": true
+          },
+          {
+            "index": 20,
+            "blockNumber": "10238821",
+            "startTime": 1770818032970,
+            "endTime": 1770818033310,
+            "validationTime": 340,
+            "parentHashExpected": "0x53775915b6beb0cfc006f7f55a49728e925d15a18ffa3b17521f6c0b17c43f00",
+            "parentHashActual": "0x53775915b6beb0cfc006f7f55a49728e925d15a18ffa3b17521f6c0b17c43f00",
+            "isValid": true
+          },
+          {
+            "index": 21,
+            "blockNumber": "10238820",
+            "startTime": 1770818033310,
+            "endTime": 1770818033639,
+            "validationTime": 329,
+            "parentHashExpected": "0x1599245a72b7819811dfc3828c42094b0249e739c6510f7c7e8de92e5e6c373b",
+            "parentHashActual": "0x1599245a72b7819811dfc3828c42094b0249e739c6510f7c7e8de92e5e6c373b",
+            "isValid": true
+          },
+          {
+            "index": 22,
+            "blockNumber": "10238819",
+            "startTime": 1770818033640,
+            "endTime": 1770818033978,
+            "validationTime": 338,
+            "parentHashExpected": "0x2b70d72d576e08fc29afcee29d970e2f16b35d2c3234e82c7afae39b52e9adeb",
+            "parentHashActual": "0x2b70d72d576e08fc29afcee29d970e2f16b35d2c3234e82c7afae39b52e9adeb",
+            "isValid": true
+          },
+          {
+            "index": 23,
+            "blockNumber": "10238818",
+            "startTime": 1770818033979,
+            "endTime": 1770818034321,
+            "validationTime": 342,
+            "parentHashExpected": "0x0076dd3976ed81ed8ce91f7f77ae5d7d0a33d244078ef4998c1850d8b4508462",
+            "parentHashActual": "0x0076dd3976ed81ed8ce91f7f77ae5d7d0a33d244078ef4998c1850d8b4508462",
+            "isValid": true
+          },
+          {
+            "index": 24,
+            "blockNumber": "10238817",
+            "startTime": 1770818034321,
+            "endTime": 1770818034653,
+            "validationTime": 332,
+            "parentHashExpected": "0xf14532b0a1ba1c661ae6aba6b22b1fbb2953c0488124f7ea3e24247299f98453",
+            "parentHashActual": "0xf14532b0a1ba1c661ae6aba6b22b1fbb2953c0488124f7ea3e24247299f98453",
+            "isValid": true
+          },
+          {
+            "index": 25,
+            "blockNumber": "10238816",
+            "startTime": 1770818034653,
+            "endTime": 1770818034982,
+            "validationTime": 329,
+            "parentHashExpected": "0xf3aba4da9aba7d4a5adfc0e4aa418e719c71b9014353a5fccb2f0cadf1742356",
+            "parentHashActual": "0xf3aba4da9aba7d4a5adfc0e4aa418e719c71b9014353a5fccb2f0cadf1742356",
+            "isValid": true
+          },
+          {
+            "index": 26,
+            "blockNumber": "10238815",
+            "startTime": 1770818034982,
+            "endTime": 1770818035315,
+            "validationTime": 333,
+            "parentHashExpected": "0x7423f004e36425c9861ad24a77f8cb47ba7197ae0f1263e6790c18bb98dbe95c",
+            "parentHashActual": "0x7423f004e36425c9861ad24a77f8cb47ba7197ae0f1263e6790c18bb98dbe95c",
+            "isValid": true
+          },
+          {
+            "index": 27,
+            "blockNumber": "10238814",
+            "startTime": 1770818035315,
+            "endTime": 1770818035658,
+            "validationTime": 343,
+            "parentHashExpected": "0x440a8e8de99fd9e64356454ce3334335d386f0205f415c690530d2d1fbfe0354",
+            "parentHashActual": "0x440a8e8de99fd9e64356454ce3334335d386f0205f415c690530d2d1fbfe0354",
+            "isValid": true
+          },
+          {
+            "index": 28,
+            "blockNumber": "10238813",
+            "startTime": 1770818035658,
+            "endTime": 1770818035988,
+            "validationTime": 330,
+            "parentHashExpected": "0x9d4d1746e330362b4c7111333baa05a1afbd828dd3021d2e2e0e3ecc480fd64d",
+            "parentHashActual": "0x9d4d1746e330362b4c7111333baa05a1afbd828dd3021d2e2e0e3ecc480fd64d",
+            "isValid": true
+          },
+          {
+            "index": 29,
+            "blockNumber": "10238812",
+            "startTime": 1770818035989,
+            "endTime": 1770818036325,
+            "validationTime": 336,
+            "parentHashExpected": "0xc7efef06a5ccc48d49abd2fcb128c24bd2033006507c891bf8548279fe49ca8b",
+            "parentHashActual": "0xc7efef06a5ccc48d49abd2fcb128c24bd2033006507c891bf8548279fe49ca8b",
+            "isValid": true
+          },
+          {
+            "index": 30,
+            "blockNumber": "10238811",
+            "startTime": 1770818036325,
+            "endTime": 1770818036699,
+            "validationTime": 374,
+            "parentHashExpected": "0x56b591ff8a1870c8aafd82b3dc1e532e2d558523fb96520a6796fdcaa794a373",
+            "parentHashActual": "0x56b591ff8a1870c8aafd82b3dc1e532e2d558523fb96520a6796fdcaa794a373",
+            "isValid": true
+          }
+        ],
+        "metrics": {
+          "totalTime": 12983,
+          "avgTime": 432.76666666666665,
+          "successRate": 100
+        }
+      }
+    ],
+    "throughput": []
+  },
+  "summary": {
+    "totalExperiments": 3,
+    "registrationTests": 2,
+    "revocationTests": 0,
+    "blockValidationTests": 1
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-16T10:16:38.772Z",
+    "network": "Sepolia",
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+    "paperTitle": "Time-Weighted and Grid-Responsive Automated Market Makers for Blockchain Energy Trading",
+    "deployment": {
+      "timeWeightedAMM": {
+        "address": "0x6D5e81429491A0F3e55e85154864e749C255e049",
+        "deploymentTx": "0x988b31c1a86929084ab407a01524b1019b98c2c2dcb3b0cdb51d418ce304e6d1",
+        "deploymentBlock": "9851976",
+        "deploymentGas": "2135406"
+      }
+    }
+  },
+  "contribution2_timeWeighted": {
+    "configuredValues": {
+      "tauPeak": "1.35",
+      "tauNormal": "1",
+      "tauOffPeak": "0.75"
+    },
+    "validationResults": {
+      "peakValid": true,
+      "normalValid": true,
+      "offPeakValid": true,
+      "allPassed": true
+    },
+    "currentState": {
+      "period": "normal",
+      "tau": "1"
+    },
+    "error": "Error happened while trying to execute a function inside a smart contract"
+  },
+  "contribution3_gridMonitoring": {
+    "error": "Error happened while trying to execute a function inside a smart contract"
+  },
+  "transactions": []
+}

@@ -1,0 +1,133 @@
+{
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-11T18:09:44.544Z",
+    "network": "Sepolia Testnet",
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  },
+  "experiments": {
+    "registration": [
+      {
+        "type": "Vehicle Registration",
+        "transactions": [
+          {
+            "index": 1,
+            "pseudonym": "0xa77799de9a549f6b836fa5f547f84dfff91b5832",
+            "txHash": "0x0a2b54361076edf400529edfce5d593f3c4326e17c59d64186b2115b3c689bc0",
+            "gasUsed": 227496,
+            "status": "success"
+          },
+          {
+            "index": 2,
+            "pseudonym": "0xfbc6410de46c7dc00de1c373429b8a69377bd8bc",
+            "txHash": "0x58ed956529818c3feb89d0e065f7eecd4970eedb55a32e2f60edd0b95726d663",
+            "gasUsed": 227496,
+            "status": "success"
+          },
+          {
+            "index": 3,
+            "pseudonym": "0x326466d4a6d709e51fb59a3db25c7c6ce914ce93",
+            "txHash": "0x4bf9bfc6f2d926739642ee3d0ada5c7d67647eb442961c8fdf08cc7a2bb1479a",
+            "gasUsed": 227496,
+            "status": "success"
+          },
+          {
+            "index": 4,
+            "pseudonym": "0x900c40f3c11a4e81d9e5c0cc1750359929c176f0",
+            "txHash": "0x8f4fcd882a7df3ec6c6e772ae70ab107b2bf4be53e72fc3242a5b825fc48deb1",
+            "gasUsed": 227496,
+            "status": "success"
+          },
+          {
+            "index": 5,
+            "pseudonym": "0x8d012cbd8e57bd38d0cab21e876517093027be13",
+            "txHash": "0x70ca466cf92ac1d4b37aec38b633f838e99aeae61ea2070cf099e7a23e3112bc",
+            "gasUsed": 227496,
+            "status": "success"
+          }
+        ],
+        "metrics": {
+          "totalGas": 1137480,
+          "avgGas": 227496,
+          "successRate": 100
+        }
+      }
+    ],
+    "revocation": [
+      {
+        "type": "Revocation",
+        "reports": [
+          {
+            "index": 1,
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0xfae6a73171cafea7d2e0f1c40c1464096bd8651711faab1d325609ff0ca28b2c\",\"blockNumber\":\"10240099\",\"cumulativeGasUsed\":\"56699\",\"effectiveGasPrice\":\"6141913407\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"35699\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xced35fa952ea57233ba04705b763a8d46fa3087f06655216a124c5d33822bb0a\",\"transactionIndex\":\"1\",\"type\":\"2\"}"
+          },
+          {
+            "index": 2,
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0xb5fef9ee599003bde2a62732cf90640e2b2e9a3d9a02fb0337c0290d1eb6c40c\",\"blockNumber\":\"10240100\",\"cumulativeGasUsed\":\"5011244\",\"effectiveGasPrice\":\"6596990714\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"35699\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xaa8494cd356fde0edebd176a9a7977abfff1bbe383c3109ebfb2a0d695f3197f\",\"transactionIndex\":\"31\",\"type\":\"2\"}"
+          },
+          {
+            "index": 3,
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x92b2200db4c23e2a96916e7bd7622e9411a08b109cedb6ea0d69ef3ff8bb5419\",\"blockNumber\":\"10240101\",\"cumulativeGasUsed\":\"1641832\",\"effectiveGasPrice\":\"7107002759\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"35699\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xa245ba675023d70ef881e1d37a6827a67d2f69c9f3f77d98787a329de52ceda5\",\"transactionIndex\":\"11\",\"type\":\"2\"}"
+          }
+        ],
+        "processing": [],
+        "metrics": {
+          "successRate": 0
+        }
+      }
+    ],
+    "blockHeaderValidation": [
+      {
+        "type": "PHNBH",
+        "validations": [
+          {
+            "blockNumber": "10240101",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240100",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240099",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240098",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240097",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240096",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240095",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240094",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240093",
+            "isValid": true
+          },
+          {
+            "blockNumber": "10240092",
+            "isValid": true
+          }
+        ],
+        "metrics": {
+          "successRate": 100
+        }
+      }
+    ]
+  }
+}

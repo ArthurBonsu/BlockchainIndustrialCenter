@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-16T06:45:44.933Z",
+    "network": "Sepolia",
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  },
+  "timeWeighted": {
+    "error": "Error happened while trying to execute a function inside a smart contract"
+  },
+  "gridResponsive": {
+    "error": "Error happened while trying to execute a function inside a smart contract"
+  },
+  "transactions": []
+}

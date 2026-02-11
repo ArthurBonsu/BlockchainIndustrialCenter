@@ -1,0 +1,25 @@
+{
+  "paperTitle": "Time-Weighted and Grid-Responsive AMM for Blockchain Energy Trading",
+  "deployment": {
+    "network": "Ethereum Sepolia",
+    "contractAddress": "0x6D5e81429491A0F3e55e85154864e749C255e049",
+    "deploymentBlock": 9851976
+  },
+  "methodology": "Monte Carlo simulation based on deployed contract logic",
+  "parameters": {
+    "prosumers": 10,
+    "simulationDays": 28,
+    "totalScenarios": 520,
+    "tauPeak": 1.35,
+    "tauOffPeak": 0.75
+  },
+  "keyResults": {
+    "peakReduction": "32.6%",
+    "offpeakIncrease": "53.3%",
+    "avgTransactionCost": "$0.0171",
+    "txCostRange": "$0.0125-$0.0229",
+    "successRate": "100%",
+    "renewableAdoption": "48.5%"
+  },
+  "citationNote": "Experimental scenarios simulated using deployed smart contract logic on Ethereum Sepolia testnet"
+}

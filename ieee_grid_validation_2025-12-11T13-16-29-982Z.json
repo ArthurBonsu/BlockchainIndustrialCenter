@@ -1,0 +1,65 @@
+{
+  "gridValidation": {
+    "nominals": {
+      "frequency": 50,
+      "voltage": 230,
+      "alphaF": 0.6,
+      "alphaV": 0.4,
+      "gThreshold": 0.85
+    },
+    "stable": {
+      "frequency": 50,
+      "voltage": 230,
+      "gridScore": 1,
+      "txHash": "0xd8bed0d753715188671ea1479058fea382238c30a86f46bf2faf246e7655aab4",
+      "block": "0x95cd22",
+      "gasUsed": 152514
+    },
+    "minorStress": {
+      "frequency": 49.5,
+      "voltage": 225,
+      "gridScore": 0.985304347826087,
+      "txHash": "0x41ebd5a8c9c73aba43b928dc54534fc7192f6a7f6ea2e795655ad910b00e3fc8",
+      "block": "0x95cd23",
+      "gasUsed": 143814
+    },
+    "significantStress": {
+      "frequency": 49,
+      "voltage": 220,
+      "gridScore": 0.9706086956521739,
+      "txHash": "0xa2a652d07fa9d52993877dbcb56d403578d2dac640797204c80f585f5a04ce78",
+      "block": "0x95cd24",
+      "gasUsed": 143814
+    }
+  },
+  "transactions": [
+    {
+      "test": "Stable Grid",
+      "txHash": "0xd8bed0d753715188671ea1479058fea382238c30a86f46bf2faf246e7655aab4",
+      "block": "0x95cd22",
+      "frequency": 50,
+      "voltage": 230,
+      "gridScore": 1
+    },
+    {
+      "test": "Minor Stress",
+      "txHash": "0x41ebd5a8c9c73aba43b928dc54534fc7192f6a7f6ea2e795655ad910b00e3fc8",
+      "block": "0x95cd23",
+      "frequency": 49.5,
+      "voltage": 225,
+      "gridScore": 0.985304347826087
+    },
+    {
+      "test": "Significant Stress",
+      "txHash": "0xa2a652d07fa9d52993877dbcb56d403578d2dac640797204c80f585f5a04ce78",
+      "block": "0x95cd24",
+      "frequency": 49,
+      "voltage": 220,
+      "gridScore": 0.9706086956521739
+    }
+  ],
+  "validation": {
+    "passed": true,
+    "message": "Grid stability monitoring validated successfully"
+  }
+}

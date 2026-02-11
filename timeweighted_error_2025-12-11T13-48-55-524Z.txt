@@ -1,0 +1,11 @@
+
+TimeWeighted Validation Error Report
+Time: 2025-12-11T13:48:55.524Z
+Error: Error happened while trying to execute a function inside a smart contract
+Stack: ContractExecutionError: Error happened while trying to execute a function inside a smart contract
+    at Web3RequestManager._isReverted (C:\Users\Bonsu\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\node_modules\web3\node_modules\web3-core\lib\commonjs\web3_request_manager.js:328:19)
+    at Web3RequestManager._processJsonRpcResponse (C:\Users\Bonsu\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\node_modules\web3\node_modules\web3-core\lib\commonjs\web3_request_manager.js:280:42)
+    at Web3RequestManager.<anonymous> (C:\Users\Bonsu\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\node_modules\web3\node_modules\web3-core\lib\commonjs\web3_request_manager.js:167:29)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Bonsu\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\node_modules\web3\node_modules\web3-core\lib\commonjs\web3_request_manager.js:21:58)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
