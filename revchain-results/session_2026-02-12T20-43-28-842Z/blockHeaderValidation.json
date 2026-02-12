@@ -1,0 +1,107 @@
+{
+  "experimentType": "blockHeaderValidation",
+  "data": [
+    {
+      "type": "PHNBH Block Validation",
+      "validations": [
+        {
+          "blockNumber": "10247568",
+          "currentHash": "0xf8bb9adbd1fe908c81417c0df786651d324e493061fee2952ba1c4afc9473efa",
+          "parentHashInCurrent": "0xeecd55ae1f26772d59b5edacf88b284b12d2abb50c52576ae5993ae8279b93f8",
+          "actualParentHash": "0xeecd55ae1f26772d59b5edacf88b284b12d2abb50c52576ae5993ae8279b93f8",
+          "isValid": true,
+          "validationTimeMs": 380
+        },
+        {
+          "blockNumber": "10247567",
+          "currentHash": "0xeecd55ae1f26772d59b5edacf88b284b12d2abb50c52576ae5993ae8279b93f8",
+          "parentHashInCurrent": "0x3632be10798a39c1c55b71cc5f0b3a931c1992ea32c588b55e4f23d557950021",
+          "actualParentHash": "0x3632be10798a39c1c55b71cc5f0b3a931c1992ea32c588b55e4f23d557950021",
+          "isValid": true,
+          "validationTimeMs": 380
+        },
+        {
+          "blockNumber": "10247566",
+          "currentHash": "0x3632be10798a39c1c55b71cc5f0b3a931c1992ea32c588b55e4f23d557950021",
+          "parentHashInCurrent": "0x71e7171f8b4b931c2859c6db907216c3e8fb3d70b7c3e8a5e508546c7d305a9b",
+          "actualParentHash": "0x71e7171f8b4b931c2859c6db907216c3e8fb3d70b7c3e8a5e508546c7d305a9b",
+          "isValid": true,
+          "validationTimeMs": 379
+        },
+        {
+          "blockNumber": "10247565",
+          "currentHash": "0x71e7171f8b4b931c2859c6db907216c3e8fb3d70b7c3e8a5e508546c7d305a9b",
+          "parentHashInCurrent": "0x66665b157450f83d77380db29a1ea617d5100d6daa57f4013652f25ec724b318",
+          "actualParentHash": "0x66665b157450f83d77380db29a1ea617d5100d6daa57f4013652f25ec724b318",
+          "isValid": true,
+          "validationTimeMs": 383
+        },
+        {
+          "blockNumber": "10247564",
+          "currentHash": "0x66665b157450f83d77380db29a1ea617d5100d6daa57f4013652f25ec724b318",
+          "parentHashInCurrent": "0x0331b8c8cf30bb80ea7133c3178fe82e8e4a8ab6ca47112dc4293af1ab74596d",
+          "actualParentHash": "0x0331b8c8cf30bb80ea7133c3178fe82e8e4a8ab6ca47112dc4293af1ab74596d",
+          "isValid": true,
+          "validationTimeMs": 376
+        },
+        {
+          "blockNumber": "10247563",
+          "currentHash": "0x0331b8c8cf30bb80ea7133c3178fe82e8e4a8ab6ca47112dc4293af1ab74596d",
+          "parentHashInCurrent": "0x07c841c4f558787e6a988af639e67795d0c36051420fd6da3f6077c54733479f",
+          "actualParentHash": "0x07c841c4f558787e6a988af639e67795d0c36051420fd6da3f6077c54733479f",
+          "isValid": true,
+          "validationTimeMs": 382
+        },
+        {
+          "blockNumber": "10247562",
+          "currentHash": "0x07c841c4f558787e6a988af639e67795d0c36051420fd6da3f6077c54733479f",
+          "parentHashInCurrent": "0x98d18f58041fae2cc6ed8cb1980835332a2fe17a6111b1a6e73b96c6a35b932a",
+          "actualParentHash": "0x98d18f58041fae2cc6ed8cb1980835332a2fe17a6111b1a6e73b96c6a35b932a",
+          "isValid": true,
+          "validationTimeMs": 381
+        },
+        {
+          "blockNumber": "10247561",
+          "currentHash": "0x98d18f58041fae2cc6ed8cb1980835332a2fe17a6111b1a6e73b96c6a35b932a",
+          "parentHashInCurrent": "0x65fe690cc4f5d2e4e8a1d280a707cd90ae445f4724c78a8fda1eac74e45955cb",
+          "actualParentHash": "0x65fe690cc4f5d2e4e8a1d280a707cd90ae445f4724c78a8fda1eac74e45955cb",
+          "isValid": true,
+          "validationTimeMs": 394
+        },
+        {
+          "blockNumber": "10247560",
+          "currentHash": "0x65fe690cc4f5d2e4e8a1d280a707cd90ae445f4724c78a8fda1eac74e45955cb",
+          "parentHashInCurrent": "0x52b945a30ea677abc15e0a4f7fb222999d34c0f5fa97099d76981e226f5a1f29",
+          "actualParentHash": "0x52b945a30ea677abc15e0a4f7fb222999d34c0f5fa97099d76981e226f5a1f29",
+          "isValid": true,
+          "validationTimeMs": 386
+        },
+        {
+          "blockNumber": "10247559",
+          "currentHash": "0x52b945a30ea677abc15e0a4f7fb222999d34c0f5fa97099d76981e226f5a1f29",
+          "parentHashInCurrent": "0x33d6cb054ebb1d86752b67ab7c8a8756ba627e42ea874af3fb5aa7287aff00bd",
+          "actualParentHash": "0x33d6cb054ebb1d86752b67ab7c8a8756ba627e42ea874af3fb5aa7287aff00bd",
+          "isValid": true,
+          "validationTimeMs": 374
+        }
+      ],
+      "metrics": {
+        "successRate": 100,
+        "avgValidationTimeMs": 381
+      }
+    }
+  ],
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-12T20:38:41.891Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF",
+      "revocationManager": "0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77"
+    },
+    "accounts": {
+      "primary": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "secondary": null
+    }
+  }
+}

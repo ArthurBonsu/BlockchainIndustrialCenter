@@ -1,0 +1,42 @@
+======================================================================
+RevChain Blockchain Identity Revocation - Experimental Results
+======================================================================
+
+Experiment Date: 2/13/2026, 4:13:01 AM
+Network: Sepolia Testnet
+Account: 0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+Vehicle Registry: 0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF
+Revocation Manager: 0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77
+
+======================================================================
+
+EXPERIMENT 1: Vehicle Registration
+----------------------------------------------------------------------
+Total Vehicles: 5
+Success Rate: 100.0%
+Average Gas: 227496
+Total Time: 143806ms
+
+EXPERIMENT 2: Identity Revocation
+----------------------------------------------------------------------
+Setup Success: 4 vehicles
+Reports Submitted: 0
+Revocations Processed: 0
+Total Time: 181479ms
+
+EXPERIMENT 3: Block Header Validation
+----------------------------------------------------------------------
+Blocks Validated: 10
+Success Rate: 100.0%
+Average Validation Time: 652ms
+
+EXPERIMENT 5: Performance Metrics
+----------------------------------------------------------------------
+Total Operations: 3
+Successful Operations: 3
+Average Time: 3306ms
+Average Gas: 227496
+
+======================================================================
+End of Report
+======================================================================

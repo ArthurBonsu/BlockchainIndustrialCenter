@@ -1,0 +1,100 @@
+{
+  "experimentType": "revocation",
+  "data": [
+    {
+      "type": "Identity Revocation",
+      "setup": [
+        {
+          "type": "reporter",
+          "pseudonym": "0xc76016149506ba750fa68ec788d00974bb9e9308",
+          "txHash": "0xc1404a630ace4fe5eb2d825eb8198370f870def44e928da19c8b27219f52d44d",
+          "status": "success"
+        },
+        {
+          "type": "offender",
+          "index": 1,
+          "pseudonym": "0xdd78b0954f1705b367449d7da767c4c381348fb1",
+          "txHash": "0x81e4eedf27564424f276f90abb0fd7a935838f377e9fe82a2f441cf20ea32852",
+          "status": "registered"
+        },
+        {
+          "type": "offender",
+          "index": 2,
+          "pseudonym": "0x6a5d23b4979f10222c53520fdf6b48160e06ffc8",
+          "txHash": "0xc4e75c8814bcaf0a5c8aa55b70141a2602731ce627ffcdb219c5d39984f3555e",
+          "status": "registered"
+        },
+        {
+          "type": "offender",
+          "index": 3,
+          "pseudonym": "0x2a6bf214e20684b7064054be60860b75b48b065b",
+          "txHash": "0xd9d296ca39b70846886f09245a3c01613cf7836f591a23641aff48b591de3880",
+          "status": "registered"
+        }
+      ],
+      "reports": [
+        {
+          "index": 1,
+          "offender": "0xdd78b0954f1705b367449d7da767c4c381348fb1",
+          "reporter": "0xc76016149506ba750fa68ec788d00974bb9e9308",
+          "status": "failed",
+          "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x88bdf2587560a3e41aa3db785f13185da1c07faaf44790777016e224d504eb12\",\"blockNumber\":\"10247451\",\"cumulativeGasUsed\":\"616791\",\"effectiveGasPrice\":\"6685192141\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"36049\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0x7f19a074b61cb6c46a4f6e298cfb9f7f3191115ec68943a8fb94fe3525abb8f5\",\"transactionIndex\":\"4\",\"type\":\"2\"}"
+        },
+        {
+          "index": 2,
+          "offender": "0x6a5d23b4979f10222c53520fdf6b48160e06ffc8",
+          "reporter": "0xc76016149506ba750fa68ec788d00974bb9e9308",
+          "status": "failed",
+          "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x14bc7bd83b3d3e62c12f50f95404147eec62ff1eeaad283c3b52bb0e3029ac92\",\"blockNumber\":\"10247452\",\"cumulativeGasUsed\":\"36049\",\"effectiveGasPrice\":\"6380741473\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"36049\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xfc639cc9ee2094387d73a6ee103b45b0fa2cbb3f26a25c3583042bb996358cc8\",\"transactionIndex\":\"0\",\"type\":\"2\"}"
+        },
+        {
+          "index": 3,
+          "offender": "0x2a6bf214e20684b7064054be60860b75b48b065b",
+          "reporter": "0xc76016149506ba750fa68ec788d00974bb9e9308",
+          "status": "failed",
+          "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0xb50ab543c9ec76c9f42ba92c324e3c075f782818718ba83ae437b9d45eb62709\",\"blockNumber\":\"10247454\",\"cumulativeGasUsed\":\"226248\",\"effectiveGasPrice\":\"6572669394\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"36049\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xc39b752a8156b7b9f63eb6ff7204fbfb69d0bab5aaa7f48ff852a33c8efca42b\",\"transactionIndex\":\"1\",\"type\":\"2\"}"
+        }
+      ],
+      "processing": [],
+      "validation": [
+        {
+          "index": 1,
+          "pseudonym": "0xdd78b0954f1705b367449d7da767c4c381348fb1",
+          "isRevoked": false,
+          "revocationTime": "0",
+          "reason": "N/A"
+        },
+        {
+          "index": 2,
+          "pseudonym": "0x6a5d23b4979f10222c53520fdf6b48160e06ffc8",
+          "isRevoked": false,
+          "revocationTime": "0",
+          "reason": "N/A"
+        },
+        {
+          "index": 3,
+          "pseudonym": "0x2a6bf214e20684b7064054be60860b75b48b065b",
+          "isRevoked": false,
+          "revocationTime": "0",
+          "reason": "N/A"
+        }
+      ],
+      "metrics": {
+        "setupSuccess": 4,
+        "reportsSuccess": 0,
+        "processSuccess": 0,
+        "totalTime": 181479
+      }
+    }
+  ],
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-12T20:13:01.702Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF",
+      "revocationManager": "0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77"
+    },
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  }
+}

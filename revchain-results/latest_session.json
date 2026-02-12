@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-02-12T20-43-28-842Z",
+  "directory": "C:\\Users\\admin\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainIndustrialPlatform\\revchain-results\\session_2026-02-12T20-43-28-842Z",
+  "files": [
+    "blockHeaderValidation.json",
+    "complete_results.json",
+    "contractState.json",
+    "performanceMetrics.json",
+    "registration.json",
+    "revocation.json",
+    "SUMMARY.txt"
+  ]
+}
