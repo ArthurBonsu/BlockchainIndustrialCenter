@@ -1,0 +1,298 @@
+{
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-25T14:48:52.074Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF",
+      "revocationManager": "0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77"
+    },
+    "accounts": {
+      "primary": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "secondary": null
+    }
+  },
+  "experiments": {
+    "registration": [
+      {
+        "type": "Vehicle Registration",
+        "transactions": [
+          {
+            "index": 1,
+            "pseudonym": "0x14ee437b8b7bbeedad5c1590226d3599c978e342",
+            "txHash": "0xa34a877180c2c8087ed554cfb294c6685f59cdee4e409dc5ef08a6b2ab8e653e",
+            "gasUsed": 227496,
+            "timeMs": 9084,
+            "blockNumber": "10334437",
+            "status": "success"
+          },
+          {
+            "index": 2,
+            "pseudonym": "0xc016f6ca8a344950dd9adba9cf05b3fda8b80c83",
+            "txHash": "0x95fe6169b7d39ca81ae706213d1289b8b7c8c79acb2e090f3434598e9e8a34a5",
+            "gasUsed": 227496,
+            "timeMs": 8033,
+            "blockNumber": "10334439",
+            "status": "success"
+          },
+          {
+            "index": 3,
+            "pseudonym": "0xebb1cdc77f8d3f96aad9d502509eb7b2aa6b255a",
+            "txHash": "0x11b78fdcb7620c127717a5a74421a947a87a76177afed57e4f180d2c8e56383f",
+            "gasUsed": 227496,
+            "timeMs": 9030,
+            "blockNumber": "10334441",
+            "status": "success"
+          },
+          {
+            "index": 4,
+            "pseudonym": "0xdea93eee3e046ad5356c5e346924066405b0bcb2",
+            "txHash": "0x3688351e9b31bef38eb5adfa61bf2b0d52dbbe78db8887fcf57d37f51cc1f526",
+            "gasUsed": 227496,
+            "timeMs": 8984,
+            "blockNumber": "10334443",
+            "status": "success"
+          },
+          {
+            "index": 5,
+            "pseudonym": "0xcf3b0a35366bdea7a0e55f5fb92761935e1b0212",
+            "txHash": "0xb90cb2818d3dde12a36821153b4ab7b431a14898992a721fe1241d1e0f7c75d3",
+            "gasUsed": 227496,
+            "timeMs": 9109,
+            "blockNumber": "10334445",
+            "status": "success"
+          }
+        ],
+        "metrics": {
+          "totalGas": 1137480,
+          "avgGas": 227496,
+          "successRate": 100,
+          "totalTime": 127670
+        }
+      }
+    ],
+    "revocation": [
+      {
+        "type": "Identity Revocation",
+        "setup": [
+          {
+            "type": "reporter",
+            "wallet": "primary",
+            "pseudonym": "0x470cbad90638961d64ce16aab597656581353194",
+            "txHash": "0xc2daf114c40e861345743e20007cbe27299a902b76c780f844f7fb2555fbb5bb",
+            "status": "success"
+          },
+          {
+            "type": "offender",
+            "index": 1,
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x6f37b10debb2e1d56b2155432b438524a9d20a1263935a038f71cf76e071dea2\",\"blockNumber\":\"10334449\",\"cumulativeGasUsed\":\"298333\",\"effectiveGasPrice\":\"2500007237\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"28178\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0x93c9164a7667aa62ad101940a5a9d2d21ccbcfef\",\"transactionHash\":\"0x9217dd566f7643b2d2031b6b39b99de36d2c88dc5620330667c11fac2f8a4dde\",\"transactionIndex\":\"1\",\"type\":\"2\"}"
+          },
+          {
+            "type": "offender",
+            "index": 2,
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x4e214f696d6f4c73569cd0924641c5f6d184abda8e8d4e490b877407f16cb4d0\",\"blockNumber\":\"10334450\",\"cumulativeGasUsed\":\"85473\",\"effectiveGasPrice\":\"2500006929\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"25904\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0x93c9164a7667aa62ad101940a5a9d2d21ccbcfef\",\"transactionHash\":\"0x757303f19f62394baab1fa509fc76c532c798b723a6dfeb7b281bf02f201a620\",\"transactionIndex\":\"1\",\"type\":\"2\"}"
+          },
+          {
+            "type": "offender",
+            "index": 3,
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x0df4cb5aee44fd433761f768ffbade8d22fea24527e47a2a5d9e0912907654fb\",\"blockNumber\":\"10334451\",\"cumulativeGasUsed\":\"232414\",\"effectiveGasPrice\":\"2500006440\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"25904\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0x93c9164a7667aa62ad101940a5a9d2d21ccbcfef\",\"transactionHash\":\"0x624e88dd8080fec0eddb26fe49307ef6109675a64f7b2888e32c73cdcb8f81ae\",\"transactionIndex\":\"2\",\"type\":\"2\"}"
+          }
+        ],
+        "reports": [
+          {
+            "index": 1,
+            "offender": "0x3b73c616e004ddb7af716c1ec22fc14df6ad8ed4",
+            "reporter": "0x470cbad90638961d64ce16aab597656581353194",
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x9697160a8c29cfe597e87ae73dcf428ac3a8be2e64bc879457941ab485102491\",\"blockNumber\":\"10334453\",\"cumulativeGasUsed\":\"555282\",\"effectiveGasPrice\":\"2500006610\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"36049\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xb44ead15d9f4d4dc7575d5c37eaa414a3124fe333e146c7aaf88364ac5283495\",\"transactionIndex\":\"2\",\"type\":\"2\"}"
+          },
+          {
+            "index": 2,
+            "offender": "0xc75590b863f1cdaccc98019ae210be8ede9e42a4",
+            "reporter": "0x470cbad90638961d64ce16aab597656581353194",
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x5cf68ab23d085d4447e951ea2ea745d7cf32e145608ed3d14b45ad56cd157ae1\",\"blockNumber\":\"10334454\",\"cumulativeGasUsed\":\"306204\",\"effectiveGasPrice\":\"2500007115\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"36049\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0x29d229319602395da40a00798f8a61a69a5e5a46f5bb94791222a5e773820dc0\",\"transactionIndex\":\"1\",\"type\":\"2\"}"
+          },
+          {
+            "index": 3,
+            "offender": "0x9329ff686f71fa8c29e8a71e83dbe88fd4eebd95",
+            "reporter": "0x470cbad90638961d64ce16aab597656581353194",
+            "status": "failed",
+            "error": "Transaction has been reverted by the EVM:\n {\"blockHash\":\"0x36f08c8d9daa26cf552d13afe20d63094bbb202a3528cbf2425a9699d0d32c67\",\"blockNumber\":\"10334455\",\"cumulativeGasUsed\":\"931354\",\"effectiveGasPrice\":\"2500007033\",\"from\":\"0x7927e739c9b0b304610d4ae35cbf5fdd0d5ad36a\",\"gasUsed\":\"36049\",\"logs\":[],\"logsBloom\":\"0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\",\"status\":\"0\",\"to\":\"0xbb6700bb98da1e63b3dfb5eb8ca7ebb6e1d5cd77\",\"transactionHash\":\"0xc3274841a328f9f51432b4d0a1d067afdb8e79535c127845582b60f32cf13b4a\",\"transactionIndex\":\"1\",\"type\":\"2\"}"
+          }
+        ],
+        "processing": [],
+        "validation": [
+          {
+            "index": 1,
+            "pseudonym": "0x3b73c616e004ddb7af716c1ec22fc14df6ad8ed4",
+            "isRevoked": false,
+            "revocationTime": "0",
+            "reason": "N/A"
+          },
+          {
+            "index": 2,
+            "pseudonym": "0xc75590b863f1cdaccc98019ae210be8ede9e42a4",
+            "isRevoked": false,
+            "revocationTime": "0",
+            "reason": "N/A"
+          },
+          {
+            "index": 3,
+            "pseudonym": "0x9329ff686f71fa8c29e8a71e83dbe88fd4eebd95",
+            "isRevoked": false,
+            "revocationTime": "0",
+            "reason": "N/A"
+          }
+        ],
+        "metrics": {
+          "setupSuccess": 1,
+          "reportsSuccess": 0,
+          "processSuccess": 0,
+          "totalTime": 122589
+        }
+      }
+    ],
+    "blockHeaderValidation": [
+      {
+        "type": "PHNBH Block Validation",
+        "validations": [
+          {
+            "blockNumber": "10334455",
+            "currentHash": "0x36f08c8d9daa26cf552d13afe20d63094bbb202a3528cbf2425a9699d0d32c67",
+            "parentHashInCurrent": "0x5cf68ab23d085d4447e951ea2ea745d7cf32e145608ed3d14b45ad56cd157ae1",
+            "actualParentHash": "0x5cf68ab23d085d4447e951ea2ea745d7cf32e145608ed3d14b45ad56cd157ae1",
+            "isValid": true,
+            "validationTimeMs": 1618
+          },
+          {
+            "blockNumber": "10334454",
+            "currentHash": "0x5cf68ab23d085d4447e951ea2ea745d7cf32e145608ed3d14b45ad56cd157ae1",
+            "parentHashInCurrent": "0x9697160a8c29cfe597e87ae73dcf428ac3a8be2e64bc879457941ab485102491",
+            "actualParentHash": "0x9697160a8c29cfe597e87ae73dcf428ac3a8be2e64bc879457941ab485102491",
+            "isValid": true,
+            "validationTimeMs": 308
+          },
+          {
+            "blockNumber": "10334453",
+            "currentHash": "0x9697160a8c29cfe597e87ae73dcf428ac3a8be2e64bc879457941ab485102491",
+            "parentHashInCurrent": "0x958799f835dd6442683885b174da8c1660606eac30be2d83a31a6f938c7bdb2a",
+            "actualParentHash": "0x958799f835dd6442683885b174da8c1660606eac30be2d83a31a6f938c7bdb2a",
+            "isValid": true,
+            "validationTimeMs": 306
+          },
+          {
+            "blockNumber": "10334452",
+            "currentHash": "0x958799f835dd6442683885b174da8c1660606eac30be2d83a31a6f938c7bdb2a",
+            "parentHashInCurrent": "0x0df4cb5aee44fd433761f768ffbade8d22fea24527e47a2a5d9e0912907654fb",
+            "actualParentHash": "0x0df4cb5aee44fd433761f768ffbade8d22fea24527e47a2a5d9e0912907654fb",
+            "isValid": true,
+            "validationTimeMs": 297
+          },
+          {
+            "blockNumber": "10334451",
+            "currentHash": "0x0df4cb5aee44fd433761f768ffbade8d22fea24527e47a2a5d9e0912907654fb",
+            "parentHashInCurrent": "0x4e214f696d6f4c73569cd0924641c5f6d184abda8e8d4e490b877407f16cb4d0",
+            "actualParentHash": "0x4e214f696d6f4c73569cd0924641c5f6d184abda8e8d4e490b877407f16cb4d0",
+            "isValid": true,
+            "validationTimeMs": 306
+          },
+          {
+            "blockNumber": "10334450",
+            "currentHash": "0x4e214f696d6f4c73569cd0924641c5f6d184abda8e8d4e490b877407f16cb4d0",
+            "parentHashInCurrent": "0x6f37b10debb2e1d56b2155432b438524a9d20a1263935a038f71cf76e071dea2",
+            "actualParentHash": "0x6f37b10debb2e1d56b2155432b438524a9d20a1263935a038f71cf76e071dea2",
+            "isValid": true,
+            "validationTimeMs": 301
+          },
+          {
+            "blockNumber": "10334449",
+            "currentHash": "0x6f37b10debb2e1d56b2155432b438524a9d20a1263935a038f71cf76e071dea2",
+            "parentHashInCurrent": "0xa3b05d17dddb66d2c9f440896a37e9480d8c4571864e46055fef8a42d9838b09",
+            "actualParentHash": "0xa3b05d17dddb66d2c9f440896a37e9480d8c4571864e46055fef8a42d9838b09",
+            "isValid": true,
+            "validationTimeMs": 305
+          },
+          {
+            "blockNumber": "10334448",
+            "currentHash": "0xa3b05d17dddb66d2c9f440896a37e9480d8c4571864e46055fef8a42d9838b09",
+            "parentHashInCurrent": "0x7c016eaf7317806e7947f9a0019881e1e83a554292f3c0bf533bb316c375bbcd",
+            "actualParentHash": "0x7c016eaf7317806e7947f9a0019881e1e83a554292f3c0bf533bb316c375bbcd",
+            "isValid": true,
+            "validationTimeMs": 298
+          },
+          {
+            "blockNumber": "10334447",
+            "currentHash": "0x7c016eaf7317806e7947f9a0019881e1e83a554292f3c0bf533bb316c375bbcd",
+            "parentHashInCurrent": "0x8f8d7f5143e3d48abc5b5ff3f0fcd0b26f163e2f399303d3be23497953ebec42",
+            "actualParentHash": "0x8f8d7f5143e3d48abc5b5ff3f0fcd0b26f163e2f399303d3be23497953ebec42",
+            "isValid": true,
+            "validationTimeMs": 302
+          },
+          {
+            "blockNumber": "10334446",
+            "currentHash": "0x8f8d7f5143e3d48abc5b5ff3f0fcd0b26f163e2f399303d3be23497953ebec42",
+            "parentHashInCurrent": "0xe3289637320966c98e3f5260b3b5ce2f43ad39a2f26c42a033062b95865eca04",
+            "actualParentHash": "0xe3289637320966c98e3f5260b3b5ce2f43ad39a2f26c42a033062b95865eca04",
+            "isValid": true,
+            "validationTimeMs": 296
+          }
+        ],
+        "metrics": {
+          "successRate": 100,
+          "avgValidationTimeMs": 433
+        }
+      }
+    ],
+    "contractState": [
+      {
+        "type": "Contract State",
+        "registryState": {
+          "contractAddress": "0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF"
+        },
+        "revocationState": {
+          "contractAddress": "0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77",
+          "admin": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+          "reportCount": "0",
+          "isTestAccountAdmin": true
+        },
+        "timestamp": "2026-02-25T14:53:07.023Z"
+      }
+    ],
+    "performanceMetrics": [
+      {
+        "type": "Performance Metrics",
+        "operations": [
+          {
+            "operation": "register_vehicle",
+            "timeMs": 8144,
+            "gasUsed": 227496,
+            "blockNumber": "10334457",
+            "success": true
+          },
+          {
+            "operation": "check_revocation",
+            "timeMs": 292,
+            "result": false,
+            "success": true
+          },
+          {
+            "operation": "get_block",
+            "timeMs": 303,
+            "blockNumber": "10334457",
+            "success": true
+          }
+        ],
+        "summary": {
+          "totalOperations": 3,
+          "successfulOperations": 3,
+          "avgTimeMs": 2913,
+          "avgGas": 227496
+        }
+      }
+    ]
+  }
+}

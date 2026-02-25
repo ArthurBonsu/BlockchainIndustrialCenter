@@ -1,0 +1,48 @@
+{
+  "experimentType": "performanceMetrics",
+  "data": [
+    {
+      "type": "Performance Metrics",
+      "operations": [
+        {
+          "operation": "register_vehicle",
+          "timeMs": 21200,
+          "gasUsed": 227705,
+          "blockNumber": "10335310",
+          "success": true
+        },
+        {
+          "operation": "check_revocation",
+          "timeMs": 302,
+          "result": false,
+          "success": true
+        },
+        {
+          "operation": "get_block",
+          "timeMs": 377,
+          "blockNumber": "10335310",
+          "success": true
+        }
+      ],
+      "summary": {
+        "totalOperations": 3,
+        "successfulOperations": 3,
+        "avgTimeMs": 7293,
+        "avgGas": 227705
+      }
+    }
+  ],
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-25T17:57:02.249Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0xF819ca156ac0ACE5fe1d7D93A51887AeDb5a983B",
+      "revocationManager": "0xb364D96ba9Cd44B77eDE987Ad96794501985FdC6"
+    },
+    "accounts": {
+      "primary": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "secondary": null
+    }
+  }
+}

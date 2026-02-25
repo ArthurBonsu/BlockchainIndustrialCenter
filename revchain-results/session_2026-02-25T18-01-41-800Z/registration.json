@@ -1,0 +1,74 @@
+{
+  "experimentType": "registration",
+  "data": [
+    {
+      "type": "Vehicle Registration",
+      "transactions": [
+        {
+          "index": 1,
+          "pseudonym": "0x0da01ba0a0d5f405725740a0abde50d234eb0b43",
+          "txHash": "0xcdaac4d1875cef8bc7c3c623837263ade2a7f456d63b7bbf4350796db397132f",
+          "gasUsed": 227705,
+          "timeMs": 11600,
+          "blockNumber": "10335292",
+          "status": "success"
+        },
+        {
+          "index": 2,
+          "pseudonym": "0xc5da814174a8039f3ac6f2837f7f73c0663e6574",
+          "txHash": "0xbd3e33d23409a9e8dc4414b854a0a394793d986a2c1ec807c696113ea871405c",
+          "gasUsed": 173913,
+          "timeMs": 8071,
+          "blockNumber": "10335293",
+          "status": "success"
+        },
+        {
+          "index": 3,
+          "pseudonym": "0x1c30295782dbc16bb48f77f99020b9d62c42563a",
+          "txHash": "0x407ed29b8e95f3d11570824166709ca71401d652ce6c313d29d8a31c04c89ffc",
+          "gasUsed": 173913,
+          "timeMs": 9175,
+          "blockNumber": "10335294",
+          "status": "success"
+        },
+        {
+          "index": 4,
+          "pseudonym": "0x2246ae771624df618a382f2141ab4efb1eff815d",
+          "txHash": "0x8548baaef937c01f8fa3f9b103001993a08cf19ca77434fed15e2a8f228e4482",
+          "gasUsed": 173913,
+          "timeMs": 34356,
+          "blockNumber": "10335295",
+          "status": "success"
+        },
+        {
+          "index": 5,
+          "pseudonym": "0x00464e42d01fdf239c5ea3060bf540f7c8921c4a",
+          "txHash": "0x7983d6063a1e4570a19051fc639da5627b17a5264fab0e4944882030113ea3a9",
+          "gasUsed": 173913,
+          "timeMs": 7266,
+          "blockNumber": "10335296",
+          "status": "success"
+        }
+      ],
+      "metrics": {
+        "totalGas": 923357,
+        "avgGas": 184671,
+        "successRate": 100,
+        "totalTime": 82498
+      }
+    }
+  ],
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-25T17:57:02.249Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0xF819ca156ac0ACE5fe1d7D93A51887AeDb5a983B",
+      "revocationManager": "0xb364D96ba9Cd44B77eDE987Ad96794501985FdC6"
+    },
+    "accounts": {
+      "primary": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "secondary": null
+    }
+  }
+}

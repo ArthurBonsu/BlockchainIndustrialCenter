@@ -1,0 +1,137 @@
+{
+  "experimentType": "revocation",
+  "data": [
+    {
+      "type": "Identity Revocation",
+      "setup": [
+        {
+          "type": "reporter",
+          "wallet": "primary",
+          "pseudonym": "0x634c0f9c8f06bfa5ff98909dda898085a499357f",
+          "txHash": "0xffd67f075b6c70a3249cb5a96bb2d0371efa755e5ece0028c1d1fa80ff98f3df",
+          "status": "success"
+        },
+        {
+          "type": "offender",
+          "wallet": "primary",
+          "index": 1,
+          "pseudonym": "0x7fe80b5af05dcd5e93f0642ff29f676308ff2d31",
+          "txHash": "0x9c2a91446cde1918c041957928a4e728868fc5d335df2014811ff51bc12d007d",
+          "status": "registered"
+        },
+        {
+          "type": "offender",
+          "wallet": "primary",
+          "index": 2,
+          "pseudonym": "0x896142f182293d68585618c3468d50e1b5314987",
+          "txHash": "0x6458626c285593df5b5f569b16cafb74f01f1d9dd69e33c61dabe60318c739d2",
+          "status": "registered"
+        },
+        {
+          "type": "offender",
+          "wallet": "primary",
+          "index": 3,
+          "pseudonym": "0x01271118741b72cfe3ab1df754e994ae7f53dded",
+          "txHash": "0x8d0ce032f56af60fd7258e5b71c31b387bee8493b8d9089c74cb9f5ea9239adc",
+          "status": "registered"
+        }
+      ],
+      "reports": [
+        {
+          "index": 1,
+          "reportId": "1",
+          "offender": "0x7fe80b5af05dcd5e93f0642ff29f676308ff2d31",
+          "reporter": "0x634c0f9c8f06bfa5ff98909dda898085a499357f",
+          "reason": "Malicious behavior detected - Test 1",
+          "txHash": "0x2c42e36c85a09ebeec8eed9a7ce10fee7bfcee888efda46e4bcb80d6cc2be93a",
+          "gasUsed": "279967",
+          "status": "success"
+        },
+        {
+          "index": 2,
+          "reportId": "2",
+          "offender": "0x896142f182293d68585618c3468d50e1b5314987",
+          "reporter": "0x634c0f9c8f06bfa5ff98909dda898085a499357f",
+          "reason": "Malicious behavior detected - Test 2",
+          "txHash": "0x87d6434df7395aca59a2a52785c0952c2766ab9e67addfb7954467b304bd8a10",
+          "gasUsed": "262867",
+          "status": "success"
+        },
+        {
+          "index": 3,
+          "reportId": "3",
+          "offender": "0x01271118741b72cfe3ab1df754e994ae7f53dded",
+          "reporter": "0x634c0f9c8f06bfa5ff98909dda898085a499357f",
+          "reason": "Malicious behavior detected - Test 3",
+          "txHash": "0x4c68648d533413cd33e3bd71ad3345ab4c6948995d28c0d57fbf544c8de74369",
+          "gasUsed": "262867",
+          "status": "success"
+        }
+      ],
+      "processing": [
+        {
+          "index": 1,
+          "reportId": "1",
+          "status": "failed",
+          "error": "request to https://sepolia.infura.io/v3/c40c60ab0b4b46e9a64552092d9e8b5c failed, reason: read ECONNRESET"
+        },
+        {
+          "index": 2,
+          "reportId": "2",
+          "txHash": "0x1eee99458e2d5378be4c6f7a8d665741e5f8fbd2450434cf45ed20e423a55e41",
+          "gasUsed": "245019",
+          "status": "success"
+        },
+        {
+          "index": 3,
+          "reportId": "3",
+          "txHash": "0x0a26517addbb7f76604c5f72ffdc25453cbe1911c2167cd6b8c593e2cae3f530",
+          "gasUsed": "245019",
+          "status": "success"
+        }
+      ],
+      "validation": [
+        {
+          "index": 1,
+          "pseudonym": "0x7fe80b5af05dcd5e93f0642ff29f676308ff2d31",
+          "isRevoked": false,
+          "revocationTime": "0",
+          "reason": "N/A"
+        },
+        {
+          "index": 2,
+          "pseudonym": "0x896142f182293d68585618c3468d50e1b5314987",
+          "isRevoked": true,
+          "revocationTime": "1772042436",
+          "reason": "Malicious behavior detected - Test 2"
+        },
+        {
+          "index": 3,
+          "pseudonym": "0x01271118741b72cfe3ab1df754e994ae7f53dded",
+          "isRevoked": true,
+          "revocationTime": "1772042448",
+          "reason": "Malicious behavior detected - Test 3"
+        }
+      ],
+      "metrics": {
+        "setupSuccess": 4,
+        "reportsSuccess": 3,
+        "processSuccess": 2,
+        "totalTime": 146390
+      }
+    }
+  ],
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-25T17:57:02.249Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0xF819ca156ac0ACE5fe1d7D93A51887AeDb5a983B",
+      "revocationManager": "0xb364D96ba9Cd44B77eDE987Ad96794501985FdC6"
+    },
+    "accounts": {
+      "primary": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "secondary": null
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "experimentType": "contractState",
+  "data": [
+    {
+      "type": "Contract State",
+      "registryState": {
+        "contractAddress": "0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF"
+      },
+      "revocationState": {
+        "contractAddress": "0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77",
+        "admin": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+        "reportCount": "0",
+        "isTestAccountAdmin": true
+      },
+      "timestamp": "2026-02-25T14:53:07.023Z"
+    }
+  ],
+  "metadata": {
+    "experimentName": "RevChain: Blockchain-based Identity Revocation for Vehicular Networks",
+    "timestamp": "2026-02-25T14:48:52.074Z",
+    "network": "Sepolia Testnet",
+    "contractAddresses": {
+      "vehicleRegistry": "0x93C9164A7667aA62ad101940a5A9D2D21cCbCFEF",
+      "revocationManager": "0xbb6700BB98DA1E63B3dFb5Eb8Ca7EbB6E1d5Cd77"
+    },
+    "accounts": {
+      "primary": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "secondary": null
+    }
+  }
+}
