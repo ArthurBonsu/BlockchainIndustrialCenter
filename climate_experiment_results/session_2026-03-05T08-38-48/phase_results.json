@@ -1,131 +1,9 @@
 {
-  "phase": "phase6_RenewalTheoryValidation",
-  "completedPhases": [
-    "phase1_NetworkAndContractValidation",
-    "phase2_DataInitializationWithRealCarbonData",
-    "phase3_EntityRegistrationAndBaselines",
-    "phase4_EmissionMonitoringSimulation",
-    "phase5_CarbonTradingAndNashAnalysis"
-  ],
-  "cities": {
-    "1": {
-      "name": "Shanghai",
-      "baseline": "1162",
-      "registrationBlock": "0x9e83aa",
-      "txHash": "0xa10d18284c3a3b366a3a200e42e8a1af4a70bbe7ec3be0504998a6164f24dd14",
-      "gasUsed": "0x1fce2"
-    },
-    "2": {
-      "name": "Brisbane",
-      "baseline": "1154",
-      "registrationBlock": "0x9e83ab",
-      "txHash": "0xf2e20696df23303854297a4896f76261a85f550652f4902f57016bfbe51ef11d",
-      "gasUsed": "0x1fce2"
-    },
-    "3": {
-      "name": "Sydney",
-      "baseline": "1151",
-      "registrationBlock": "0x9e83ac",
-      "txHash": "0x660936014d1fc7bbd98b31c9f138c43f497aae070f9bf53ab5550a0981c20b70",
-      "gasUsed": "0x1fcca"
-    },
-    "4": {
-      "name": "New York",
-      "baseline": "1149",
-      "registrationBlock": "0x9e83ad",
-      "txHash": "0x9ad4e5d88c040c82da91e177e181c3e11fa3bc0260df4f325573c4bf9463bf72",
-      "gasUsed": "0x1fce2"
-    },
-    "5": {
-      "name": "Tokyo",
-      "baseline": "1147",
-      "registrationBlock": "0x9e83ae",
-      "txHash": "0xe9f4adcfc1b1de40155cd5fc4b2f9fa626b9185f0a7ac483b43445c8a0f9c559",
-      "gasUsed": "0x1fcbe"
-    }
-  },
-  "industries": {
-    "1": {
-      "name": "Steel Manufacturing #1",
-      "cityId": "1",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "658",
-      "txHash": "0x17989fe776114cf3f95262e502f0b735d871264e04a4f9ad139775b34c122d2e",
-      "gasUsed": "0x5b498"
-    },
-    "2": {
-      "name": "Power Generation #2",
-      "cityId": "1",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "845",
-      "txHash": "0x2be60c6c2828a35b3abcc2cf2810905c45cd54390eacb4c2b26bad85b6e044d7",
-      "gasUsed": "0x5b474"
-    },
-    "3": {
-      "name": "Steel Manufacturing #1",
-      "cityId": "2",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "532",
-      "txHash": "0xdc2c2a80eef97c4cb19753e6913e367427111eb7b4312ea2e61fb42be2bef04e",
-      "gasUsed": "0x5b498"
-    },
-    "4": {
-      "name": "Power Generation #2",
-      "cityId": "2",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "906",
-      "txHash": "0xf72fd76a9ac9586a164a1d25f84f1e9c4c7243a5e4dad20882645f86c6b2fc81",
-      "gasUsed": "0x5b474"
-    },
-    "5": {
-      "name": "Steel Manufacturing #1",
-      "cityId": "3",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "750",
-      "txHash": "0x9a033e26ee1accf42232e3215c9f137c9a7633cc0e12e409eb5a2a00a05627e7",
-      "gasUsed": "0x5b498"
-    },
-    "6": {
-      "name": "Power Generation #2",
-      "cityId": "3",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "794",
-      "txHash": "0xe02abacb67731647ae53888afe7891b7094c32594fea560df89617b02936b55c",
-      "gasUsed": "0x5b474"
-    },
-    "7": {
-      "name": "Steel Manufacturing #1",
-      "cityId": "4",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "699",
-      "txHash": "0x85d2b1800609920c43ce4689293c41e866ec0083d2999e6165c1087eb374a7bd",
-      "gasUsed": "0x5b498"
-    },
-    "8": {
-      "name": "Power Generation #2",
-      "cityId": "4",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "521",
-      "txHash": "0xbf17f94d6a452d5a86b5dd95e45d9d7a3b0757049c8bfb7a4a2e372e79d0429d",
-      "gasUsed": "0x5b474"
-    },
-    "9": {
-      "name": "Steel Manufacturing #1",
-      "cityId": "5",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "720",
-      "txHash": "0xa6d7380c8e222bde036c66e2983deafeac48bd807cd542ebc18816d56e53485f",
-      "gasUsed": "0x5b498"
-    },
-    "10": {
-      "name": "Power Generation #2",
-      "cityId": "5",
-      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
-      "initialEmission": "441",
-      "txHash": "0x8ee8e2403194288a9bc5edf7063c306a122c2800b7096467ae345e1784e73c78",
-      "gasUsed": "0x5b474"
-    }
-  },
+  "phase": "partial_results_at_crash",
+  "timestamp": "2026-03-05T08:44:35.997Z",
+  "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+  "contract": "0x98820a453af4f260b5fd9b912eda620e3c00dca6",
+  "network": "Sepolia",
   "results": {
     "contractValidation": {
       "systemStats": {
@@ -442,34 +320,123 @@
       }
     }
   },
-  "canContinue": true,
-  "topCities": [
-    {
-      "city": "Shanghai",
-      "averageEmissions": "1162",
-      "dataPoints": "120"
+  "cities": {
+    "1": {
+      "name": "Shanghai",
+      "baseline": "1162",
+      "registrationBlock": "0x9e83aa",
+      "txHash": "0xa10d18284c3a3b366a3a200e42e8a1af4a70bbe7ec3be0504998a6164f24dd14",
+      "gasUsed": "0x1fce2"
     },
-    {
-      "city": "Brisbane",
-      "averageEmissions": "1154",
-      "dataPoints": "120"
+    "2": {
+      "name": "Brisbane",
+      "baseline": "1154",
+      "registrationBlock": "0x9e83ab",
+      "txHash": "0xf2e20696df23303854297a4896f76261a85f550652f4902f57016bfbe51ef11d",
+      "gasUsed": "0x1fce2"
     },
-    {
-      "city": "Sydney",
-      "averageEmissions": "1151",
-      "dataPoints": "120"
+    "3": {
+      "name": "Sydney",
+      "baseline": "1151",
+      "registrationBlock": "0x9e83ac",
+      "txHash": "0x660936014d1fc7bbd98b31c9f138c43f497aae070f9bf53ab5550a0981c20b70",
+      "gasUsed": "0x1fcca"
     },
-    {
-      "city": "New York",
-      "averageEmissions": "1149",
-      "dataPoints": "120"
+    "4": {
+      "name": "New York",
+      "baseline": "1149",
+      "registrationBlock": "0x9e83ad",
+      "txHash": "0x9ad4e5d88c040c82da91e177e181c3e11fa3bc0260df4f325573c4bf9463bf72",
+      "gasUsed": "0x1fce2"
     },
-    {
-      "city": "Tokyo",
-      "averageEmissions": "1147",
-      "dataPoints": "120"
+    "5": {
+      "name": "Tokyo",
+      "baseline": "1147",
+      "registrationBlock": "0x9e83ae",
+      "txHash": "0xe9f4adcfc1b1de40155cd5fc4b2f9fa626b9185f0a7ac483b43445c8a0f9c559",
+      "gasUsed": "0x1fcbe"
     }
-  ],
-  "timestamp": "1772700275998",
-  "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  },
+  "industries": {
+    "1": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "1",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "658",
+      "txHash": "0x17989fe776114cf3f95262e502f0b735d871264e04a4f9ad139775b34c122d2e",
+      "gasUsed": "0x5b498"
+    },
+    "2": {
+      "name": "Power Generation #2",
+      "cityId": "1",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "845",
+      "txHash": "0x2be60c6c2828a35b3abcc2cf2810905c45cd54390eacb4c2b26bad85b6e044d7",
+      "gasUsed": "0x5b474"
+    },
+    "3": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "2",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "532",
+      "txHash": "0xdc2c2a80eef97c4cb19753e6913e367427111eb7b4312ea2e61fb42be2bef04e",
+      "gasUsed": "0x5b498"
+    },
+    "4": {
+      "name": "Power Generation #2",
+      "cityId": "2",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "906",
+      "txHash": "0xf72fd76a9ac9586a164a1d25f84f1e9c4c7243a5e4dad20882645f86c6b2fc81",
+      "gasUsed": "0x5b474"
+    },
+    "5": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "3",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "750",
+      "txHash": "0x9a033e26ee1accf42232e3215c9f137c9a7633cc0e12e409eb5a2a00a05627e7",
+      "gasUsed": "0x5b498"
+    },
+    "6": {
+      "name": "Power Generation #2",
+      "cityId": "3",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "794",
+      "txHash": "0xe02abacb67731647ae53888afe7891b7094c32594fea560df89617b02936b55c",
+      "gasUsed": "0x5b474"
+    },
+    "7": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "4",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "699",
+      "txHash": "0x85d2b1800609920c43ce4689293c41e866ec0083d2999e6165c1087eb374a7bd",
+      "gasUsed": "0x5b498"
+    },
+    "8": {
+      "name": "Power Generation #2",
+      "cityId": "4",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "521",
+      "txHash": "0xbf17f94d6a452d5a86b5dd95e45d9d7a3b0757049c8bfb7a4a2e372e79d0429d",
+      "gasUsed": "0x5b474"
+    },
+    "9": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "5",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "720",
+      "txHash": "0xa6d7380c8e222bde036c66e2983deafeac48bd807cd542ebc18816d56e53485f",
+      "gasUsed": "0x5b498"
+    },
+    "10": {
+      "name": "Power Generation #2",
+      "cityId": "5",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "441",
+      "txHash": "0x8ee8e2403194288a9bc5edf7063c306a122c2800b7096467ae345e1784e73c78",
+      "gasUsed": "0x5b474"
+    }
+  }
 }

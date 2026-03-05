@@ -1,0 +1,233 @@
+{
+  "phase": "phase3_EntityRegistration",
+  "timestamp": "2026-03-05T08:37:13.486Z",
+  "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+  "contract": "0x98820a453af4f260b5fd9b912eda620e3c00dca6",
+  "network": "Sepolia",
+  "results": {
+    "contractValidation": {
+      "systemStats": {
+        "totalTx": "15",
+        "totalCities": "5",
+        "totalIndustries": "10",
+        "totalCreditsIssued": "902",
+        "avgCityCompliance": "40",
+        "systemUptime": "20650716"
+      },
+      "ammPriceTest": "0.001001001001001001",
+      "cityCounter": "5",
+      "industryCounter": "10",
+      "validated": true,
+      "ammStabilityValidation": {
+        "prices": {
+          "8": {
+            "priceEth": "0.001000800640512409",
+            "expectedTotalPrice": "0.000800800800801",
+            "deviationPct": "24.9750"
+          },
+          "10": {
+            "priceEth": "0.001001001001001001",
+            "expectedTotalPrice": "0.001001001001001",
+            "deviationPct": "0.0000"
+          },
+          "11": {
+            "priceEth": "0.001001101211332465",
+            "expectedTotalPrice": "0.001101101101101",
+            "deviationPct": "9.0818"
+          }
+        },
+        "maxDeviationPct": "24.9750",
+        "constantProductMaintained": false,
+        "baselinePriceEth": "0.001001001001001001"
+      },
+      "renewalTheoryParameters": {
+        "muDays": "30",
+        "lambdaPerDay": "0.033333",
+        "renewalPeriodSeconds": "2592000",
+        "expectedRenewalsAt90Days": "3.00",
+        "theorem1Satisfied": true,
+        "theorem3MaxRenewals": "583",
+        "finiteRenewalBound": true
+      }
+    },
+    "dataProcessing": {
+      "totalDataPoints": "960",
+      "citiesAnalyzed": "8",
+      "topCities": [
+        {
+          "city": "Brisbane",
+          "averageEmissions": "1168",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Tokyo",
+          "averageEmissions": "1164",
+          "dataPoints": "120"
+        },
+        {
+          "city": "London",
+          "averageEmissions": "1162",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Shanghai",
+          "averageEmissions": "1147",
+          "dataPoints": "120"
+        },
+        {
+          "city": "Melbourne",
+          "averageEmissions": "1143",
+          "dataPoints": "120"
+        }
+      ],
+      "sectorBaselines": {
+        "Steel Manufacturing": {
+          "baseline": "285",
+          "unit": "MtCO2e/yr"
+        },
+        "Power Generation": {
+          "baseline": "310",
+          "unit": "MtCO2e/yr"
+        },
+        "Chemical Industry": {
+          "baseline": "260",
+          "unit": "MtCO2e/yr"
+        },
+        "Ground Transport": {
+          "baseline": "195",
+          "unit": "MtCO2e/yr"
+        },
+        "Mining Operations": {
+          "baseline": "134",
+          "unit": "MtCO2e/yr"
+        }
+      },
+      "interCityHeterogeneity": {
+        "meanEmissions": "1156.8",
+        "stdDevEmissions": "9.91",
+        "coefficientOfVariationPct": "0.86",
+        "multiCityCoordinationJustified": true,
+        "dataSource": "Carbon Monitor (carbonmonitor.org)"
+      }
+    }
+  },
+  "cities": {
+    "1": {
+      "name": "Brisbane",
+      "baseline": "1168",
+      "registrationBlock": "0x9e8391",
+      "txHash": "0x10b49226e66e44c60e6615485bc9d1f36e3bc169578e340023128544441698bd",
+      "gasUsed": "0x1fce2"
+    },
+    "2": {
+      "name": "Tokyo",
+      "baseline": "1164",
+      "registrationBlock": "0x9e8392",
+      "txHash": "0x2374f61d7b44c2afeaba7eddccfb2c7a590e04c09aeed32259bd353d1f630d12",
+      "gasUsed": "0x1fcbe"
+    },
+    "3": {
+      "name": "London",
+      "baseline": "1162",
+      "registrationBlock": "0x9e8393",
+      "txHash": "0xcd5d8c2923ab297f6d5296924997638bf2e298ce0e34dab739e17a82ac89dfed",
+      "gasUsed": "0x1fcca"
+    },
+    "4": {
+      "name": "Shanghai",
+      "baseline": "1147",
+      "registrationBlock": "0x9e8394",
+      "txHash": "0x1fe93c3e641e41bc450c49e5da500e92d99fd3cd4da7a5c8c867086330fa5c5a",
+      "gasUsed": "0x1fce2"
+    },
+    "5": {
+      "name": "Melbourne",
+      "baseline": "1143",
+      "registrationBlock": "0x9e8395",
+      "txHash": "0xdb019dcb36431b343379ce382252cc07ae73e9d9b895e771198b854d14cf248a",
+      "gasUsed": "0x1fcee"
+    }
+  },
+  "industries": {
+    "1": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "1",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "559",
+      "txHash": "0x135447da5a766d367a73771e3a5faa8b176ffde679af91a90a3fb67e6b8eb1cc",
+      "gasUsed": "0x5b498"
+    },
+    "2": {
+      "name": "Power Generation #2",
+      "cityId": "1",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "690",
+      "txHash": "0xcd3f0851b498767157aa66655bb39a7692689ddc27de3c6af6f67464885e3744",
+      "gasUsed": "0x5b474"
+    },
+    "3": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "2",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "624",
+      "txHash": "0x69a293c96bfe9d33f8167a447cdb8b5cecfd1e6cacc055eb0044095e6f6a4fc9",
+      "gasUsed": "0x5b498"
+    },
+    "4": {
+      "name": "Power Generation #2",
+      "cityId": "2",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "890",
+      "txHash": "0xdeda42c5c1e04ca1984d6f85b68eaddb3bcaaffc6e4525ad00ad7249faec9fd5",
+      "gasUsed": "0x5b474"
+    },
+    "5": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "3",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "525",
+      "txHash": "0x578097d7910b1b91e542d815315cb58e401b5a64d3df9c79a5fd64451dfc510d",
+      "gasUsed": "0x5b498"
+    },
+    "6": {
+      "name": "Power Generation #2",
+      "cityId": "3",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "570",
+      "txHash": "0x6ae14b1ff603af8e1096a465c4782320e85495232f6e8205ecbb2e38c4eb2214",
+      "gasUsed": "0x5b474"
+    },
+    "7": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "4",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "634",
+      "txHash": "0x0eaa7b07992476d8ad7342a9cde8315f3695655c13d8a558716814237a48fbae",
+      "gasUsed": "0x5b498"
+    },
+    "8": {
+      "name": "Power Generation #2",
+      "cityId": "4",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "909",
+      "txHash": "0xb9c479bb7004b91fc16d85640eee32b2561a4f349feed38157170998bdafc8b6",
+      "gasUsed": "0x5b474"
+    },
+    "9": {
+      "name": "Steel Manufacturing #1",
+      "cityId": "5",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "488",
+      "txHash": "0xfd97c2eb0c70ff8af0a1a22fb1500d442c959b7425d9eb6116d699af4ade78d5",
+      "gasUsed": "0x5b498"
+    },
+    "10": {
+      "name": "Power Generation #2",
+      "cityId": "5",
+      "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+      "initialEmission": "415",
+      "txHash": "0xb95c66af41c7fe6139c8a375013c892795da0299bdb7da87dbbd305b7a098964",
+      "gasUsed": "0x5b474"
+    }
+  }
+}
