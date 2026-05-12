@@ -30,20 +30,122 @@ from enum import Enum
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import seaborn as sns
-from matplotlib.patches import Rectangle
+import matplotlib.ticker as mticker
+from matplotlib.patches import Patch
+import numpy as np   # already imported below, but needed here for palette helpers
 
-# Configure IEEE-standard plots
-plt.rcParams['figure.dpi'] = 300
-plt.rcParams['savefig.dpi'] = 300
-plt.rcParams['font.family'] = 'serif'
-plt.rcParams['font.serif'] = ['Times New Roman']
-plt.rcParams['font.size'] = 10
-plt.rcParams['axes.labelsize'] = 10
-plt.rcParams['axes.titlesize'] = 12
-plt.rcParams['xtick.labelsize'] = 9
-plt.rcParams['ytick.labelsize'] = 9
-plt.rcParams['legend.fontsize'] = 9
+# =============================================================================
+# IEEE/ACM publication-quality rcParams
+# =============================================================================
+plt.rcParams.update({
+    "figure.dpi":           150,
+    "savefig.dpi":          600,
+    "font.family":          "serif",
+    "font.serif":           ["Times New Roman", "DejaVu Serif"],
+    "font.size":            9,
+    "axes.labelsize":       10,
+    "axes.titlesize":       10,
+    "xtick.labelsize":      9,
+    "ytick.labelsize":      9,
+    "legend.fontsize":      8,
+    "legend.title_fontsize":9,
+    "axes.linewidth":       0.8,
+    "xtick.major.width":    0.8,
+    "ytick.major.width":    0.8,
+    "xtick.direction":      "in",
+    "ytick.direction":      "in",
+    "lines.linewidth":      1.4,
+    "patch.linewidth":      0.8,
+    "axes.grid":            True,
+    "grid.linewidth":       0.4,
+    "grid.alpha":           0.45,
+    "grid.linestyle":       "--",
+    "legend.framealpha":    0.92,
+    "legend.edgecolor":     "0.7",
+    "legend.shadow":        False,
+    "figure.constrained_layout.use": True,
+    "savefig.bbox":         "tight",
+    "savefig.pad_inches":   0.02,
+})
+
+# =============================================================================
+# Wong (2011) colorblind-safe palette + hatch patterns
+# =============================================================================
+_SYSTEM_ORDER = [
+    "NeXOS", "DBOS", "IBM i", "Delta Lake", "Polystore", "Microsoft Fabric",
+]
+_WONG = {
+    "blue":      "#0072B2",
+    "vermillion":"#D55E00",
+    "green":     "#009E73",
+    "pink":      "#CC79A7",
+    "orange":    "#E69F00",
+    "sky":       "#56B4E9",
+}
+_WONG_LIST  = list(_WONG.values())
+_HATCH_LIST = ["", "///", "...", "xxx", "\\\\\\", "|||"]
+_SYS_COLOR  = {s: _WONG_LIST[i]  for i, s in enumerate(_SYSTEM_ORDER)}
+_SYS_HATCH  = {s: _HATCH_LIST[i] for i, s in enumerate(_SYSTEM_ORDER)}
+
+# IEEE column widths (inches)
+_COL1 = 3.50
+_COL2 = 7.16
+
+# =============================================================================
+# Shared drawing helpers
+# =============================================================================
+
+def _despine(ax):
+    """Remove top/right spines – standard IEEE/ACM style."""
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.spines["left"].set_linewidth(0.6)
+    ax.spines["bottom"].set_linewidth(0.6)
+
+
+def _hbar(ax, systems, means, stds=None, *, xlabel="", title=""):
+    """Horizontal bar chart: per-system Wong colour + hatch + optional error bars."""
+    ax.grid(axis="x", zorder=0)
+    y = np.arange(len(systems))
+    if stds is None:
+        stds = [0] * len(systems)
+    for i, sys_name in enumerate(systems):
+        mu, se = means[i], stds[i]
+        ax.barh(
+            y[i], mu, xerr=se if se else None,
+            color=_SYS_COLOR.get(sys_name, "#888888"),
+            hatch=_SYS_HATCH.get(sys_name, ""),
+            edgecolor="black", linewidth=0.7,
+            error_kw={"ecolor": "black", "capsize": 3, "elinewidth": 0.8},
+            height=0.62, zorder=3,
+        )
+        offset = max(means) * 0.01
+        ax.text(mu + se + offset, y[i], f"{mu:.1f}",
+                va="center", fontsize=8)
+    ax.set_yticks(y)
+    ax.set_yticklabels(systems)
+    ax.set_xlabel(xlabel)
+    if title:
+        ax.set_title(title, pad=4)
+    ax.invert_yaxis()
+    ax.set_xlim(0, max(means) * 1.22)
+    _despine(ax)
+
+
+def _sys_legend(systems, fig_or_ax, **kwargs):
+    """Attach a compact per-system colour+hatch legend."""
+    handles = [
+        Patch(facecolor=_SYS_COLOR.get(s, "#888"), hatch=_SYS_HATCH.get(s, ""),
+              edgecolor="black", linewidth=0.7, label=s)
+        for s in systems
+    ]
+    defaults = dict(ncol=3, loc="lower center", bbox_to_anchor=(0.5, -0.08),
+                    frameon=True, title="System", handlelength=1.8, handleheight=1.1)
+    defaults.update(kwargs)
+    if hasattr(fig_or_ax, "legend"):
+        fig_or_ax.legend(handles=handles, **defaults)
+    else:
+        fig_or_ax.get_figure().legend(handles=handles, **defaults)
 
 # =============================================================================
 # Benchmark Data Structures
@@ -619,225 +721,231 @@ class BenchmarkSuite:
         print(f"  ✓ Generated 6 figure sets in {figs_dir}/")
     
     def _plot_tpc_performance(self, figs_dir: str):
-        """Plot TPC-style benchmark results"""
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
-        
-        systems = [r["system"] for r in self.all_results["tpc"]]
-        avg_times = [r["avg_query_time_ms"] for r in self.all_results["tpc"]]
-        throughputs = [r["throughput_qps"] for r in self.all_results["tpc"]]
-        
-        # Left: Query Time
-        colors = ['#2E86AB' if s == "NeXOS" else '#95a5a6' for s in systems]
-        bars1 = ax1.barh(systems, avg_times, color=colors, edgecolor='black', linewidth=1.2)
-        ax1.set_xlabel('Avg Query Time (ms)', fontweight='bold')
-        ax1.set_title('(a) TPC-H Query Performance', fontweight='bold')
-        ax1.grid(axis='x', alpha=0.3)
-        
-        # Right: Throughput
-        bars2 = ax2.barh(systems, throughputs, color=colors, edgecolor='black', linewidth=1.2)
-        ax2.set_xlabel('Throughput (queries/sec)', fontweight='bold')
-        ax2.set_title('(b) Query Throughput', fontweight='bold')
-        ax2.grid(axis='x', alpha=0.3)
-        
-        plt.tight_layout()
+        """Plot TPC-style benchmark results – IEEE/ACM quality."""
+        systems    = [r["system"]           for r in self.all_results["tpc"]]
+        avg_times  = [r["avg_query_time_ms"] for r in self.all_results["tpc"]]
+        throughputs= [r["throughput_qps"]    for r in self.all_results["tpc"]]
+
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(_COL2, 2.9))
+
+        _hbar(ax1, systems, avg_times,   xlabel="Avg. Query Latency (ms)",    title="(a) TPC-H Query Latency")
+        _hbar(ax2, systems, throughputs, xlabel="Throughput (queries/s)",      title="(b) TPC-H Query Throughput")
+        _sys_legend(systems, fig)
+
         path = os.path.join(figs_dir, "fig1_tpc_performance.png")
-        plt.savefig(path, bbox_inches='tight')
-        plt.savefig(path.replace('.png', '.pdf'), bbox_inches='tight')
-        plt.close()
+        fig.savefig(path, dpi=600)
+        fig.savefig(path.replace('.png', '.pdf'))
+        plt.close(fig)
     
     def _plot_ycsb_workloads(self, figs_dir: str):
-        """Plot YCSB workload results"""
-        fig, ax = plt.subplots(figsize=(10, 6))
-        
-        # Group by workload
-        workloads = ["A", "B", "C"]
-        systems = list(set(r["system"] for r in self.all_results["ycsb"]))
-        
-        x = np.arange(len(workloads))
+        """Plot YCSB workload results – IEEE/ACM quality grouped bar chart."""
+        workloads  = ["A", "B", "C"]
+        wl_labels  = ["Workload A\n(Update-heavy)", "Workload B\n(Read-heavy)", "Workload C\n(Read-only)"]
+        systems    = _SYSTEM_ORDER
+        n_sys      = len(systems)
+
+        fig, ax = plt.subplots(figsize=(_COL2, 3.0))
+        ax.grid(axis="y", zorder=0)
+
         width = 0.12
-        
-        for i, system in enumerate(systems):
-            throughputs = []
-            for workload in workloads:
-                results = [r for r in self.all_results["ycsb"] 
-                          if r["system"] == system and r["workload"] == workload]
-                if results:
-                    throughputs.append(results[0]["throughput_ops_per_sec"])
-                else:
-                    throughputs.append(0)
-            
-            color = '#2E86AB' if system == "NeXOS" else plt.cm.Set3(i)
-            ax.bar(x + i*width, throughputs, width, label=system, 
-                  color=color, edgecolor='black', linewidth=0.8)
-        
-        ax.set_xlabel('Workload Type', fontweight='bold')
-        ax.set_ylabel('Throughput (ops/sec)', fontweight='bold')
-        ax.set_title('YCSB Workload Performance Comparison', fontweight='bold')
-        ax.set_xticks(x + width * (len(systems)-1) / 2)
-        ax.set_xticklabels([f'Workload {w}' for w in workloads])
-        ax.legend(loc='best', frameon=True, shadow=True)
-        ax.grid(axis='y', alpha=0.3)
-        
-        plt.tight_layout()
+        x     = np.arange(len(workloads))
+
+        for i, sys_name in enumerate(systems):
+            vals = []
+            for wl in workloads:
+                matches = [r for r in self.all_results["ycsb"]
+                           if r["system"] == sys_name and r["workload"] == wl]
+                vals.append(matches[0]["throughput_ops_per_sec"] if matches else 0)
+
+            offset = (i - (n_sys - 1) / 2.0) * width
+            ax.bar(x + offset, np.array(vals) / 1e3, width * 0.92,
+                   color=_SYS_COLOR.get(sys_name, "#888"),
+                   hatch=_SYS_HATCH.get(sys_name, ""),
+                   edgecolor="black", linewidth=0.7,
+                   zorder=3, label=sys_name)
+
+        ax.set_xticks(x)
+        ax.set_xticklabels(wl_labels)
+        ax.set_xlabel("YCSB Workload Type")
+        ax.set_ylabel("Throughput (×10³ ops/s)")
+        ax.set_title("YCSB Workload Throughput Comparison")
+        ax.yaxis.set_minor_locator(mticker.AutoMinorLocator(2))
+        ax.legend(ncol=2, loc="upper right", frameon=True, title="System", fontsize=8)
+        _despine(ax)
+
         path = os.path.join(figs_dir, "fig2_ycsb_workloads.png")
-        plt.savefig(path, bbox_inches='tight')
-        plt.savefig(path.replace('.png', '.pdf'), bbox_inches='tight')
-        plt.close()
+        fig.savefig(path, dpi=600)
+        fig.savefig(path.replace('.png', '.pdf'))
+        plt.close(fig)
     
     def _plot_lakehouse_metrics(self, figs_dir: str):
-        """Plot lakehouse benchmark metrics"""
-        fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(10, 8))
-        
+        """Plot lakehouse benchmark metrics – IEEE/ACM quality 2×2 panel."""
         systems = [r["system"] for r in self.all_results["lakehouse"]]
-        colors = ['#2E86AB' if s == "NeXOS" else '#95a5a6' for s in systems]
-        
-        # Write throughput
-        write_tp = [r["write_throughput_mbps"] for r in self.all_results["lakehouse"]]
-        ax1.barh(systems, write_tp, color=colors, edgecolor='black', linewidth=1.2)
-        ax1.set_xlabel('Write Throughput (MB/s)', fontweight='bold')
-        ax1.set_title('(a) Write Performance', fontweight='bold')
-        ax1.grid(axis='x', alpha=0.3)
-        
-        # Read throughput
-        read_tp = [r["read_throughput_mbps"] for r in self.all_results["lakehouse"]]
-        ax2.barh(systems, read_tp, color=colors, edgecolor='black', linewidth=1.2)
-        ax2.set_xlabel('Read Throughput (MB/s)', fontweight='bold')
-        ax2.set_title('(b) Read Performance', fontweight='bold')
-        ax2.grid(axis='x', alpha=0.3)
-        
-        # Metadata overhead
-        metadata = [r["metadata_overhead_bytes_per_file"] for r in self.all_results["lakehouse"]]
-        ax3.barh(systems, metadata, color=colors, edgecolor='black', linewidth=1.2)
-        ax3.set_xlabel('Metadata Overhead (bytes/file)', fontweight='bold')
-        ax3.set_title('(c) Metadata Efficiency', fontweight='bold')
-        ax3.grid(axis='x', alpha=0.3)
-        
-        # Compaction overhead
-        compaction = [r["compaction_overhead_pct"] for r in self.all_results["lakehouse"]]
-        ax4.barh(systems, compaction, color=colors, edgecolor='black', linewidth=1.2)
-        ax4.set_xlabel('Compaction Overhead (%)', fontweight='bold')
-        ax4.set_title('(d) Maintenance Cost', fontweight='bold')
-        ax4.grid(axis='x', alpha=0.3)
-        
-        plt.tight_layout()
+
+        panels = [
+            ([r["write_throughput_mbps"]         for r in self.all_results["lakehouse"]],
+             "Write Throughput (MB/s)",      "(a) Write Performance"),
+            ([r["read_throughput_mbps"]          for r in self.all_results["lakehouse"]],
+             "Read Throughput (MB/s)",       "(b) Read Performance"),
+            ([r["metadata_overhead_bytes_per_file"] for r in self.all_results["lakehouse"]],
+             "Metadata Overhead (bytes/file)","(c) Metadata Efficiency"),
+            ([r["compaction_overhead_pct"]       for r in self.all_results["lakehouse"]],
+             "Compaction Overhead (%)",      "(d) Compaction Cost"),
+        ]
+
+        fig, axes = plt.subplots(2, 2, figsize=(_COL2, 5.0))
+        for ax, (vals, xlabel, title) in zip(axes.flatten(), panels):
+            _hbar(ax, systems, vals, xlabel=xlabel, title=title)
+
+        _sys_legend(systems, fig, bbox_to_anchor=(0.5, -0.04))
+
         path = os.path.join(figs_dir, "fig3_lakehouse_metrics.png")
-        plt.savefig(path, bbox_inches='tight')
-        plt.savefig(path.replace('.png', '.pdf'), bbox_inches='tight')
-        plt.close()
+        fig.savefig(path, dpi=600)
+        fig.savefig(path.replace('.png', '.pdf'))
+        plt.close(fig)
     
     def _plot_federation_overhead(self, figs_dir: str):
-        """Plot federation benchmark results"""
-        fig, ax = plt.subplots(figsize=(10, 6))
-        
-        systems = [r["system"] for r in self.all_results["federation"]]
+        """Plot federation benchmark results – IEEE/ACM quality with capability badge."""
+        systems = [r["system"]                for r in self.all_results["federation"]]
         fed_tax = [r["avg_federation_tax_pct"] for r in self.all_results["federation"]]
-        
-        colors = ['#2E86AB' if s == "NeXOS" else 
-                 '#F18F01' if r["supports_federation"] else '#e74c3c' 
-                 for s, r in zip(systems, self.all_results["federation"])]
-        
-        bars = ax.barh(systems, fed_tax, color=colors, edgecolor='black', linewidth=1.2)
-        ax.set_xlabel('Average Federation Tax (%)', fontweight='bold')
-        ax.set_title('Cross-System Federation Overhead', fontweight='bold')
-        ax.grid(axis='x', alpha=0.3)
-        
-        # Add value labels
-        for bar, val in zip(bars, fed_tax):
-            width = bar.get_width()
-            ax.text(width + 1, bar.get_y() + bar.get_height()/2,
-                   f'{val:.1f}%', va='center', fontsize=9)
-        
-        plt.tight_layout()
+        fed_cap = {r["system"]: r["supports_federation"] for r in self.all_results["federation"]}
+
+        fig, ax = plt.subplots(figsize=(_COL1 + 0.5, 2.8))
+        ax.grid(axis="x", zorder=0)
+
+        y = np.arange(len(systems))
+        for i, sys_name in enumerate(systems):
+            mu = fed_tax[i]
+            ax.barh(y[i], mu,
+                    color=_SYS_COLOR.get(sys_name, "#888"),
+                    hatch=_SYS_HATCH.get(sys_name, ""),
+                    edgecolor="black", linewidth=0.7,
+                    height=0.62, zorder=3)
+            badge = "Native" if fed_cap.get(sys_name) else "Emulated"
+            ax.text(mu + max(fed_tax) * 0.01, y[i],
+                    f"{mu:.1f}%  [{badge}]", va="center", fontsize=7.5)
+
+        ax.set_yticks(y)
+        ax.set_yticklabels(systems)
+        ax.invert_yaxis()
+        ax.set_xlabel("Avg. Federation Overhead (%)")
+        ax.set_title("Cross-System Federation Tax", pad=4)
+        ax.set_xlim(0, max(fed_tax) * 1.40)
+        _despine(ax)
+
+        handles = [Patch(facecolor=_SYS_COLOR.get(s, "#888"),
+                         hatch=_SYS_HATCH.get(s, ""),
+                         edgecolor="black", linewidth=0.7, label=s)
+                   for s in systems]
+        ax.legend(handles=handles, loc="lower right", fontsize=7.5,
+                  title="System", frameon=True)
+
         path = os.path.join(figs_dir, "fig4_federation_overhead.png")
-        plt.savefig(path, bbox_inches='tight')
-        plt.savefig(path.replace('.png', '.pdf'), bbox_inches='tight')
-        plt.close()
+        fig.savefig(path, dpi=600)
+        fig.savefig(path.replace('.png', '.pdf'))
+        plt.close(fig)
     
     def _plot_governance_metrics(self, figs_dir: str):
-        """Plot governance benchmark results"""
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
-        
-        systems = [r["system"] for r in self.all_results["governance"]]
-        colors = ['#2E86AB' if r["blockchain_backed"] else '#95a5a6' 
-                 for r in self.all_results["governance"]]
-        
-        # Policy evaluation time
-        policy_times = [r["policy_evaluation_time_ms"] for r in self.all_results["governance"]]
-        bars1 = ax1.barh(systems, policy_times, color=colors, edgecolor='black', linewidth=1.2)
-        ax1.set_xlabel('Policy Evaluation Time (ms)', fontweight='bold')
-        ax1.set_title('(a) Governance Enforcement Latency', fontweight='bold')
-        ax1.grid(axis='x', alpha=0.3)
-        
-        # Lineage tracking overhead
-        lineage = [r["lineage_tracking_overhead_pct"] for r in self.all_results["governance"]]
-        bars2 = ax2.barh(systems, lineage, color=colors, edgecolor='black', linewidth=1.2)
-        ax2.set_xlabel('Lineage Tracking Overhead (%)', fontweight='bold')
-        ax2.set_title('(b) Data Lineage Cost', fontweight='bold')
-        ax2.grid(axis='x', alpha=0.3)
-        
-        plt.tight_layout()
+        """Plot governance benchmark results – IEEE/ACM quality dual panel."""
+        systems     = [r["system"]                          for r in self.all_results["governance"]]
+        pol_times   = [r["policy_evaluation_time_ms"]       for r in self.all_results["governance"]]
+        lineage_oh  = [r["lineage_tracking_overhead_pct"]   for r in self.all_results["governance"]]
+        bc_backed   = {r["system"]: r["blockchain_backed"]  for r in self.all_results["governance"]}
+
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(_COL2, 2.9))
+        _hbar(ax1, systems, pol_times,  xlabel="Policy Evaluation Latency (ms)", title="(a) Governance Enforcement Latency")
+        _hbar(ax2, systems, lineage_oh, xlabel="Lineage Tracking Overhead (%)",  title="(b) Data Lineage Cost")
+
+        # Mark blockchain-backed system with annotation
+        for ax in (ax1, ax2):
+            for i, sys_name in enumerate(systems):
+                if bc_backed.get(sys_name):
+                    ax.annotate("[BC]",
+                                xy=(0, len(systems) - 1 - i),
+                                xytext=(1.5, len(systems) - 1 - i),
+                                fontsize=6.5, color=_WONG["blue"],
+                                va="center", ha="left", style="italic")
+
+        _sys_legend(systems, fig,
+                    title="System  ([BC] = blockchain-backed governance)")
+
         path = os.path.join(figs_dir, "fig5_governance_metrics.png")
-        plt.savefig(path, bbox_inches='tight')
-        plt.savefig(path.replace('.png', '.pdf'), bbox_inches='tight')
-        plt.close()
+        fig.savefig(path, dpi=600)
+        fig.savefig(path.replace('.png', '.pdf'))
+        plt.close(fig)
     
     def _plot_overall_heatmap(self, figs_dir: str):
-        """Plot comprehensive comparison heatmap"""
-        fig, ax = plt.subplots(figsize=(12, 8))
-        
-        # Collect key metrics for each system
+        """Plot normalised performance heatmap – IEEE/ACM quality, pure matplotlib."""
         systems = list(SYSTEMS.keys())
-        metrics = []
-        metric_names = []
-        
-        for system_name in systems:
-            system_metrics = []
-            
-            # TPC throughput (normalized)
-            tpc_result = [r for r in self.all_results["tpc"] if r["system"] == system_name][0]
-            system_metrics.append(tpc_result["throughput_qps"] / 10000)
-            
-            # YCSB avg throughput
-            ycsb_results = [r for r in self.all_results["ycsb"] if r["system"] == system_name]
-            avg_ycsb = statistics.mean([r["throughput_ops_per_sec"] for r in ycsb_results]) / 100000
-            system_metrics.append(avg_ycsb)
-            
-            # Lakehouse read performance
-            lakehouse_result = [r for r in self.all_results["lakehouse"] if r["system"] == system_name][0]
-            system_metrics.append(lakehouse_result["read_throughput_mbps"] / 100)
-            
-            # Federation efficiency (inverted tax)
-            fed_result = [r for r in self.all_results["federation"] if r["system"] == system_name][0]
-            system_metrics.append(1 - (fed_result["avg_federation_tax_pct"] / 100))
-            
-            # Governance efficiency (inverted overhead)
-            gov_result = [r for r in self.all_results["governance"] if r["system"] == system_name][0]
-            system_metrics.append(1 - (gov_result["lineage_tracking_overhead_pct"] / 100))
-            
-            # Capability score
-            capability_score = sum(SYSTEMS[system_name].capabilities.values()) / 6
-            system_metrics.append(capability_score)
-            
-            metrics.append(system_metrics)
-        
-        metric_names = ['TPC\nThroughput', 'YCSB\nPerformance', 'Lakehouse\nReads',
-                       'Federation\nEfficiency', 'Governance\nEfficiency', 'Capability\nScore']
-        
-        # Create heatmap
-        data = np.array(metrics)
-        sns.heatmap(data, annot=True, fmt='.2f', cmap='RdYlGn',
-                   xticklabels=metric_names, yticklabels=systems,
-                   cbar_kws={'label': 'Normalized Performance'},
-                   linewidths=0.5, ax=ax, vmin=0, vmax=1)
-        
-        ax.set_title('Comprehensive Benchmark Performance Heatmap', 
-                    fontweight='bold', pad=15, fontsize=14)
-        
-        plt.tight_layout()
+
+        col_defs = [
+            # (bench_key, metric, higher_better, col_label)
+            ("tpc",        "throughput_qps",               True,  "TPC\nThroughput"),
+            ("ycsb",       "throughput_ops_per_sec",        True,  "YCSB\nPerformance"),
+            ("lakehouse",  "read_throughput_mbps",          True,  "Lakehouse\nRead"),
+            ("federation", "avg_federation_tax_pct",        False, "Federation\nEfficiency"),
+            ("governance", "lineage_tracking_overhead_pct", False, "Governance\nEfficiency"),
+            (None,         "capability_score",              True,  "Capability\nScore"),
+        ]
+
+        matrix = np.zeros((len(systems), len(col_defs)))
+
+        for j, (bench, metric, _, _label) in enumerate(col_defs):
+            for i, sys_name in enumerate(systems):
+                if bench is None:
+                    val = sum(SYSTEMS[sys_name].capabilities.values()) / 6.0
+                elif bench == "ycsb":
+                    rows = [r for r in self.all_results["ycsb"] if r["system"] == sys_name]
+                    val  = statistics.mean([r[metric] for r in rows]) if rows else 0.0
+                else:
+                    row = next((r for r in self.all_results[bench] if r["system"] == sys_name), None)
+                    val = row[metric] if row else 0.0
+                matrix[i, j] = val
+
+            col = matrix[:, j]
+            cmin, cmax = col.min(), col.max()
+            col_norm = (col - cmin) / (cmax - cmin) if cmax > cmin else np.full_like(col, 0.5)
+            if not col_defs[j][2]:          # lower is better → flip
+                col_norm = 1.0 - col_norm
+            matrix[:, j] = col_norm
+
+        col_labels = [d[3] for d in col_defs]
+
+        fig, ax = plt.subplots(figsize=(_COL2, 3.2))
+        im = ax.imshow(matrix, cmap="RdYlGn", vmin=0, vmax=1, aspect="auto")
+
+        for i in range(len(systems)):
+            for j in range(len(col_defs)):
+                v  = matrix[i, j]
+                tc = "black" if 0.25 < v < 0.80 else "white"
+                ax.text(j, i, f"{v:.2f}", ha="center", va="center",
+                        fontsize=8.5, color=tc, fontweight="bold")
+
+        ax.set_xticks(range(len(col_labels)))
+        ax.set_xticklabels(col_labels, fontsize=9)
+        ax.set_yticks(range(len(systems)))
+        ax.set_yticklabels(systems)
+        ax.set_title("Normalised Performance Matrix (higher = better for all dimensions)", pad=6)
+
+        # Highlight NeXOS row
+        nexos_idx = systems.index("NeXOS")
+        for j in range(len(col_defs)):
+            ax.add_patch(plt.Rectangle(
+                (j - 0.5, nexos_idx - 0.5), 1, 1,
+                fill=False, edgecolor=_WONG["blue"], linewidth=2.0, zorder=5))
+
+        cb = fig.colorbar(im, ax=ax, fraction=0.035, pad=0.02)
+        cb.set_label("Normalised Score", fontsize=9)
+        cb.ax.tick_params(labelsize=8)
+
+        ax.tick_params(top=False, bottom=False, left=False, right=False)
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+
         path = os.path.join(figs_dir, "fig6_overall_heatmap.png")
-        plt.savefig(path, bbox_inches='tight')
-        plt.savefig(path.replace('.png', '.pdf'), bbox_inches='tight')
-        plt.close()
+        fig.savefig(path, dpi=600)
+        fig.savefig(path.replace('.png', '.pdf'))
+        plt.close(fig)
     
     def save_results(self):
         """Save all benchmark results to JSON"""

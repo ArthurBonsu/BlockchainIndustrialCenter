@@ -1,0 +1,29 @@
+\begin{table*}[htbp]
+\centering
+\caption{Comprehensive Benchmark Results Comparison}
+\label{tab:benchmark_comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline
+\textbf{System} & 
+\textbf{TPC Throughput} & 
+\textbf{YCSB Avg Latency} & 
+\textbf{Federation Tax} & 
+\textbf{Governance Time} & 
+\textbf{Capabilities} \\
+\hline
+\textbf{NeXOS} & 10.5 qps & 51.2 ms & 167.5\% & 2.8 ms & 6/6 \\
+\hline
+DBOS & 12.5 qps & 43.2 ms & 290.0\% & 9.0 ms & 1/6 \\
+\hline
+IBM i & 10.9 qps & 47.8 ms & 290.0\% & 4.9 ms & 1/6 \\
+\hline
+Delta Lake & 8.9 qps & 59.1 ms & 290.0\% & 12.5 ms & 2/6 \\
+\hline
+Polystore & 5.8 qps & 88.7 ms & 167.5\% & 16.7 ms & 2/6 \\
+\hline
+Microsoft Fabric & 8.5 qps & 62.6 ms & 290.0\% & 11.1 ms & 2/6 \\
+\hline
+\end{tabular}
+}
+\end{table*}

@@ -1,0 +1,786 @@
+{
+  "timestamp": "2026-03-24T18:41:50.912311",
+  "systems_tested": [
+    "NeXOS",
+    "DBOS",
+    "IBM i",
+    "Delta Lake",
+    "Polystore",
+    "Microsoft Fabric"
+  ],
+  "results": {
+    "tpc": [
+      {
+        "system": "NeXOS",
+        "dataset_size_gb": 10,
+        "total_queries": 22,
+        "total_execution_time_ms": 2085.580778449844,
+        "avg_query_time_ms": 94.79912629317472,
+        "median_query_time_ms": 87.05344485553341,
+        "p95_query_time_ms": 138.44375904152272,
+        "throughput_qps": 10.548620426177886,
+        "price_performance_ratio": 208.55807784498438,
+        "query_times": [
+          53.93751970336889,
+          51.110219276927054,
+          57.382383167939544,
+          62.34222015910938,
+          68.27132412385441,
+          63.214559066104016,
+          80.95319329052487,
+          81.04040916467547,
+          76.71645697990942,
+          83.41637933491758,
+          89.57043712521029,
+          84.53645258585654,
+          121.22249842145331,
+          119.47333972389295,
+          115.9128751104819,
+          104.78014666722433,
+          105.79806257273205,
+          115.94767634395475,
+          148.17239302231138,
+          129.74628633486842,
+          133.32265546586476,
+          138.71329080866263
+        ]
+      },
+      {
+        "system": "DBOS",
+        "dataset_size_gb": 10,
+        "total_queries": 22,
+        "total_execution_time_ms": 1761.7187363538249,
+        "avg_query_time_ms": 80.07812437971931,
+        "median_query_time_ms": 78.61965416449462,
+        "p95_query_time_ms": 115.45888202501656,
+        "throughput_qps": 12.487804974778621,
+        "price_performance_ratio": 176.1718736353825,
+        "query_times": [
+          37.58321517498023,
+          49.62138147497344,
+          51.34915780313592,
+          51.37605775133034,
+          63.330708568750765,
+          61.222695704514976,
+          67.5170402680691,
+          79.47736436136243,
+          72.01187461010147,
+          77.49163811002084,
+          91.64843487124843,
+          77.18413662680831,
+          85.47146804272154,
+          92.26879662103288,
+          94.30318401594197,
+          77.7619439676268,
+          92.66441649332465,
+          101.52236786124408,
+          104.74486657907741,
+          117.89313969368703,
+          99.25207017906934,
+          116.02277757480284
+        ]
+      },
+      {
+        "system": "IBM i",
+        "dataset_size_gb": 10,
+        "total_queries": 22,
+        "total_execution_time_ms": 2016.8768738197853,
+        "avg_query_time_ms": 91.67622153726298,
+        "median_query_time_ms": 90.49617358598749,
+        "p95_query_time_ms": 143.2442630790605,
+        "throughput_qps": 10.90795391903818,
+        "price_performance_ratio": 201.68768738197852,
+        "query_times": [
+          49.05364913365075,
+          54.302739256693805,
+          56.65520438187548,
+          51.091328985444505,
+          62.83018304239768,
+          62.952159180990286,
+          76.81447275164805,
+          82.99078383423767,
+          77.95803274617221,
+          92.11927209300478,
+          93.1815868766561,
+          105.15912942813097,
+          94.92822145019514,
+          87.2102255736064,
+          111.17388306592738,
+          121.54346948987728,
+          93.09233594918184,
+          88.8730750789702,
+          107.50768472326581,
+          143.256923492021,
+          161.17879805302738,
+          143.0037152328106
+        ]
+      },
+      {
+        "system": "Delta Lake",
+        "dataset_size_gb": 10,
+        "total_queries": 22,
+        "total_execution_time_ms": 2467.196878359885,
+        "avg_query_time_ms": 112.14531265272204,
+        "median_query_time_ms": 111.41804205655424,
+        "p95_query_time_ms": 162.0075761030282,
+        "throughput_qps": 8.917002203174361,
+        "price_performance_ratio": 246.7196878359885,
+        "query_times": [
+          56.28118977889501,
+          79.00432551844776,
+          62.18243566368843,
+          74.08011428497618,
+          78.04488384898404,
+          92.5548636391228,
+          86.67123551237638,
+          117.16846309776615,
+          98.44909261028417,
+          88.7911483311385,
+          96.71764728961321,
+          127.0466084981473,
+          119.3646465287467,
+          143.48584237412126,
+          122.52557843624726,
+          105.66762101534232,
+          144.16264107774023,
+          155.24329920647727,
+          166.24978160000796,
+          162.3635906765309,
+          143.98032181513742,
+          147.16154755609372
+        ]
+      },
+      {
+        "system": "Polystore",
+        "dataset_size_gb": 10,
+        "total_queries": 22,
+        "total_execution_time_ms": 3784.865603247788,
+        "avg_query_time_ms": 172.03934560217218,
+        "median_query_time_ms": 173.65928189376683,
+        "p95_query_time_ms": 236.1314572815288,
+        "throughput_qps": 5.812623830320905,
+        "price_performance_ratio": 378.4865603247788,
+        "query_times": [
+          78.14651188259,
+          90.74043352921767,
+          112.79864104610775,
+          90.353965577275,
+          120.43794092336474,
+          98.85020770996279,
+          137.63062372815767,
+          152.10210833358377,
+          173.6640779804456,
+          165.33007081001307,
+          170.75955071094748,
+          177.40125897219573,
+          207.33569033142786,
+          188.546082045007,
+          232.46743273767936,
+          173.65448580708807,
+          210.95555557832677,
+          227.16520470731072,
+          227.93528626715388,
+          236.3243006785735,
+          285.17966178728403,
+          227.08651210407567
+        ]
+      },
+      {
+        "system": "Microsoft Fabric",
+        "dataset_size_gb": 10,
+        "total_queries": 22,
+        "total_execution_time_ms": 2593.067829107158,
+        "avg_query_time_ms": 117.86671950487083,
+        "median_query_time_ms": 113.9863124395302,
+        "p95_query_time_ms": 170.50838377900695,
+        "throughput_qps": 8.484159092581475,
+        "price_performance_ratio": 259.3067829107158,
+        "query_times": [
+          62.50282702039324,
+          68.68361382661871,
+          74.59533864007955,
+          78.76458092623139,
+          80.12999930538244,
+          89.97235642841063,
+          114.91843282607816,
+          103.80633296230472,
+          110.1765160707436,
+          122.83505914706885,
+          122.09902670181366,
+          89.17546600589958,
+          113.01469246781812,
+          113.05419205298222,
+          135.1837627931398,
+          155.03649130539313,
+          142.9593030589929,
+          174.6754125228964,
+          151.1561571741492,
+          158.8246199743238,
+          160.46675746956578,
+          171.03689042687228
+        ]
+      }
+    ],
+    "ycsb": [
+      {
+        "system": "NeXOS",
+        "workload": "A",
+        "workload_name": "Update Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 16.160389716026163,
+        "avg_latency_ms": 61.8796958224532,
+        "median_latency_ms": 67.54204559638904,
+        "p95_latency_ms": 87.74091717172679,
+        "p99_latency_ms": 89.55749666555768,
+        "min_latency_ms": 36.001368506628324,
+        "max_latency_ms": 89.99974221172096
+      },
+      {
+        "system": "NeXOS",
+        "workload": "B",
+        "workload_name": "Read Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 21.41922411094462,
+        "avg_latency_ms": 46.687031930770466,
+        "median_latency_ms": 45.44760813830588,
+        "p95_latency_ms": 67.54210906083448,
+        "p99_latency_ms": 85.53772974809377,
+        "min_latency_ms": 36.00067655776201,
+        "max_latency_ms": 89.9974693312683
+      },
+      {
+        "system": "NeXOS",
+        "workload": "C",
+        "workload_name": "Read Only",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 22.225676093066514,
+        "avg_latency_ms": 44.9930069984219,
+        "median_latency_ms": 44.99432796152429,
+        "p95_latency_ms": 53.10069275997255,
+        "p99_latency_ms": 53.82498697911225,
+        "min_latency_ms": 36.00007048697654,
+        "max_latency_ms": 53.99993782769822
+      },
+      {
+        "system": "DBOS",
+        "workload": "A",
+        "workload_name": "Update Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 19.11251632271064,
+        "avg_latency_ms": 52.321734255982825,
+        "median_latency_ms": 57.07681097476459,
+        "p95_latency_ms": 74.13158154361294,
+        "p99_latency_ms": 75.64243462503039,
+        "min_latency_ms": 30.40001900952003,
+        "max_latency_ms": 75.9998747797716
+      },
+      {
+        "system": "DBOS",
+        "workload": "B",
+        "workload_name": "Read Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 25.378275926028497,
+        "avg_latency_ms": 39.40377994607502,
+        "median_latency_ms": 38.35340737974077,
+        "p95_latency_ms": 45.59411428214966,
+        "p99_latency_ms": 72.26200805012658,
+        "min_latency_ms": 30.40020096712213,
+        "max_latency_ms": 75.97278534458745
+      },
+      {
+        "system": "DBOS",
+        "workload": "C",
+        "workload_name": "Read Only",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 26.3193443114637,
+        "avg_latency_ms": 37.994867507563185,
+        "median_latency_ms": 37.990676135621676,
+        "p95_latency_ms": 44.83279696766766,
+        "p99_latency_ms": 45.44476045853536,
+        "min_latency_ms": 30.4000572932815,
+        "max_latency_ms": 45.59911900072066
+      },
+      {
+        "system": "IBM i",
+        "workload": "A",
+        "workload_name": "Update Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 17.3117993714513,
+        "avg_latency_ms": 57.764070536139016,
+        "median_latency_ms": 63.031607718551484,
+        "p95_latency_ms": 81.91581133215873,
+        "p99_latency_ms": 83.57815932789934,
+        "min_latency_ms": 33.60018856359424,
+        "max_latency_ms": 83.9995431192888
+      },
+      {
+        "system": "IBM i",
+        "workload": "B",
+        "workload_name": "Read Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 22.956369937634847,
+        "avg_latency_ms": 43.56089410985631,
+        "median_latency_ms": 42.45278467759231,
+        "p95_latency_ms": 50.3902759592922,
+        "p99_latency_ms": 79.80837578781455,
+        "min_latency_ms": 33.60000571726292,
+        "max_latency_ms": 83.99674087601673
+      },
+      {
+        "system": "IBM i",
+        "workload": "C",
+        "workload_name": "Read Only",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 23.813258879773873,
+        "avg_latency_ms": 41.99341236949992,
+        "median_latency_ms": 41.975258053369885,
+        "p95_latency_ms": 49.55376245430089,
+        "p99_latency_ms": 50.230350191984016,
+        "min_latency_ms": 33.60009044190489,
+        "max_latency_ms": 50.399929359496205
+      },
+      {
+        "system": "Delta Lake",
+        "workload": "A",
+        "workload_name": "Update Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 13.989497091236462,
+        "avg_latency_ms": 71.48219792879023,
+        "median_latency_ms": 62.36208950985682,
+        "p95_latency_ms": 101.42260310029505,
+        "p99_latency_ms": 103.45674762479813,
+        "min_latency_ms": 41.60020025212118,
+        "max_latency_ms": 103.99700354954352
+      },
+      {
+        "system": "Delta Lake",
+        "workload": "B",
+        "workload_name": "Read Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 18.542903144724676,
+        "avg_latency_ms": 53.928987936524535,
+        "median_latency_ms": 52.53950496064933,
+        "p95_latency_ms": 62.39294728809618,
+        "p99_latency_ms": 98.64589927438425,
+        "min_latency_ms": 41.600035089277085,
+        "max_latency_ms": 103.99155176884854
+      },
+      {
+        "system": "Delta Lake",
+        "workload": "C",
+        "workload_name": "Read Only",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 19.22072092359421,
+        "avg_latency_ms": 52.027184826998855,
+        "median_latency_ms": 52.0338531067442,
+        "p95_latency_ms": 61.38129872493829,
+        "p99_latency_ms": 62.201371890457246,
+        "min_latency_ms": 41.600273565778416,
+        "max_latency_ms": 62.399831941080734
+      },
+      {
+        "system": "Polystore",
+        "workload": "A",
+        "workload_name": "Update Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 9.319922605177112,
+        "avg_latency_ms": 107.29702835134182,
+        "median_latency_ms": 117.05538250551939,
+        "p95_latency_ms": 152.0708066219669,
+        "p99_latency_ms": 155.21069060888544,
+        "min_latency_ms": 62.4001442442896,
+        "max_latency_ms": 155.99983547722098
+      },
+      {
+        "system": "Polystore",
+        "workload": "B",
+        "workload_name": "Read Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 12.358915879990592,
+        "avg_latency_ms": 80.91324592790748,
+        "median_latency_ms": 78.82557661767129,
+        "p95_latency_ms": 93.58552637280559,
+        "p99_latency_ms": 148.17613769078838,
+        "min_latency_ms": 62.400200336439724,
+        "max_latency_ms": 155.979735792205
+      },
+      {
+        "system": "Polystore",
+        "workload": "C",
+        "workload_name": "Read Only",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 12.82327743172899,
+        "avg_latency_ms": 77.98318373161547,
+        "median_latency_ms": 77.96288715225852,
+        "p95_latency_ms": 92.02906088763221,
+        "p99_latency_ms": 93.29094350397656,
+        "min_latency_ms": 62.40024142692909,
+        "max_latency_ms": 93.59979270314848
+      },
+      {
+        "system": "Microsoft Fabric",
+        "workload": "A",
+        "workload_name": "Update Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 13.208651981467845,
+        "avg_latency_ms": 75.70795274211414,
+        "median_latency_ms": 82.60355381639906,
+        "p95_latency_ms": 107.25234234343219,
+        "p99_latency_ms": 109.45394343421003,
+        "min_latency_ms": 44.0004525549754,
+        "max_latency_ms": 109.99803981059267
+      },
+      {
+        "system": "Microsoft Fabric",
+        "workload": "B",
+        "workload_name": "Read Heavy",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 17.541568097037388,
+        "avg_latency_ms": 57.00744622534008,
+        "median_latency_ms": 55.55122398580572,
+        "p95_latency_ms": 65.9906796723774,
+        "p99_latency_ms": 104.35910095316723,
+        "min_latency_ms": 44.00035853527365,
+        "max_latency_ms": 109.9984707780801
+      },
+      {
+        "system": "Microsoft Fabric",
+        "workload": "C",
+        "workload_name": "Read Only",
+        "num_operations": 100000,
+        "throughput_ops_per_sec": 18.18207983834496,
+        "avg_latency_ms": 54.99920850039706,
+        "median_latency_ms": 55.00139181461259,
+        "p95_latency_ms": 64.90970477330124,
+        "p99_latency_ms": 65.78179556438789,
+        "min_latency_ms": 44.00001795529035,
+        "max_latency_ms": 65.999759323981
+      }
+    ],
+    "lakehouse": [
+      {
+        "system": "NeXOS",
+        "data_size_mb": 1000,
+        "write_throughput_mbps": 64.85131254748231,
+        "read_throughput_mbps": 77.50452548049371,
+        "metadata_overhead_bytes_per_file": 51.84447107160391,
+        "snapshot_isolation_cost_ms": 16.26646137728969,
+        "time_travel_query_ms": 68.50233723486022,
+        "compaction_overhead_pct": 6.717421044057067
+      },
+      {
+        "system": "DBOS",
+        "data_size_mb": 1000,
+        "write_throughput_mbps": 68.91006753392378,
+        "read_throughput_mbps": 82.88791294190203,
+        "metadata_overhead_bytes_per_file": 80.28637559078614,
+        "snapshot_isolation_cost_ms": 15.337709939944055,
+        "time_travel_query_ms": 53.95016791839444,
+        "compaction_overhead_pct": 14.334251663026055
+      },
+      {
+        "system": "IBM i",
+        "data_size_mb": 1000,
+        "write_throughput_mbps": 57.5015291972443,
+        "read_throughput_mbps": 85.34708382067838,
+        "metadata_overhead_bytes_per_file": 107.81935654249786,
+        "snapshot_isolation_cost_ms": 15.988907811018805,
+        "time_travel_query_ms": 66.54781150926499,
+        "compaction_overhead_pct": 12.494984510899563
+      },
+      {
+        "system": "Delta Lake",
+        "data_size_mb": 1000,
+        "write_throughput_mbps": 53.59976041896093,
+        "read_throughput_mbps": 70.02098215203206,
+        "metadata_overhead_bytes_per_file": 59.99344688267657,
+        "snapshot_isolation_cost_ms": 5.05417988140199,
+        "time_travel_query_ms": 83.93631831525569,
+        "compaction_overhead_pct": 6.696313865836263
+      },
+      {
+        "system": "Polystore",
+        "data_size_mb": 1000,
+        "write_throughput_mbps": 41.695885016870186,
+        "read_throughput_mbps": 59.39574283322025,
+        "metadata_overhead_bytes_per_file": 55.07947248356165,
+        "snapshot_isolation_cost_ms": 13.589122232408435,
+        "time_travel_query_ms": 120.87570786508535,
+        "compaction_overhead_pct": 12.008702207353114
+      },
+      {
+        "system": "Microsoft Fabric",
+        "data_size_mb": 1000,
+        "write_throughput_mbps": 64.78675809964575,
+        "read_throughput_mbps": 78.05458509986967,
+        "metadata_overhead_bytes_per_file": 50.07062537305077,
+        "snapshot_isolation_cost_ms": 15.791348248648072,
+        "time_travel_query_ms": 75.873112243559,
+        "compaction_overhead_pct": 13.642211008270456
+      }
+    ],
+    "federation": [
+      {
+        "system": "NeXOS",
+        "num_sources": 4,
+        "supports_federation": true,
+        "scenarios": {
+          "single_source": {
+            "planning_time_ms": 4.12319838943082,
+            "execution_time_ms": 49.41113989943621,
+            "data_movement_mb": 0.0,
+            "federation_tax_pct": 0.0
+          },
+          "two_way_join": {
+            "planning_time_ms": 12.366180429143357,
+            "execution_time_ms": 92.18727719106242,
+            "data_movement_mb": 50.399157504204744,
+            "federation_tax_pct": 120.00000000000001
+          },
+          "three_way_join": {
+            "planning_time_ms": 21.92534054622554,
+            "execution_time_ms": 145.41464992537075,
+            "data_movement_mb": 101.8928125088787,
+            "federation_tax_pct": 229.99999999999997
+          },
+          "cross_source_aggregation": {
+            "planning_time_ms": 18.416145698390007,
+            "execution_time_ms": 204.98491495745753,
+            "data_movement_mb": 75.96336969031766,
+            "federation_tax_pct": 320.0
+          }
+        },
+        "avg_federation_tax_pct": 167.5
+      },
+      {
+        "system": "DBOS",
+        "num_sources": 4,
+        "supports_federation": false,
+        "scenarios": {
+          "single_source": {
+            "planning_time_ms": 3.7263678588971434,
+            "execution_time_ms": 34.21334091086811,
+            "data_movement_mb": 0.0,
+            "federation_tax_pct": 0.0
+          },
+          "two_way_join": {
+            "planning_time_ms": 12.312779429945376,
+            "execution_time_ms": 140.53051136315648,
+            "data_movement_mb": 60.940376271068814,
+            "federation_tax_pct": 260.0
+          },
+          "three_way_join": {
+            "planning_time_ms": 18.61133134405456,
+            "execution_time_ms": 219.35922118533966,
+            "data_movement_mb": 117.10946076969356,
+            "federation_tax_pct": 440.00000000000006
+          },
+          "cross_source_aggregation": {
+            "planning_time_ms": 15.397289152632085,
+            "execution_time_ms": 204.82994061612783,
+            "data_movement_mb": 90.40373302775473,
+            "federation_tax_pct": 459.99999999999994
+          }
+        },
+        "avg_federation_tax_pct": 290.0
+      },
+      {
+        "system": "IBM i",
+        "num_sources": 4,
+        "supports_federation": false,
+        "scenarios": {
+          "single_source": {
+            "planning_time_ms": 3.957725344481308,
+            "execution_time_ms": 43.58030455228952,
+            "data_movement_mb": 0.0,
+            "federation_tax_pct": 0.0
+          },
+          "two_way_join": {
+            "planning_time_ms": 13.196017284954197,
+            "execution_time_ms": 136.1111344986263,
+            "data_movement_mb": 60.19835666514714,
+            "federation_tax_pct": 260.00000000000006
+          },
+          "three_way_join": {
+            "planning_time_ms": 21.718149745340114,
+            "execution_time_ms": 228.41721348807675,
+            "data_movement_mb": 114.73970499790653,
+            "federation_tax_pct": 440.00000000000006
+          },
+          "cross_source_aggregation": {
+            "planning_time_ms": 18.306765536876263,
+            "execution_time_ms": 215.6664478506613,
+            "data_movement_mb": 94.29760787675006,
+            "federation_tax_pct": 459.99999999999994
+          }
+        },
+        "avg_federation_tax_pct": 290.0
+      },
+      {
+        "system": "Delta Lake",
+        "num_sources": 4,
+        "supports_federation": false,
+        "scenarios": {
+          "single_source": {
+            "planning_time_ms": 5.085164539178324,
+            "execution_time_ms": 55.41197030396686,
+            "data_movement_mb": 0.0,
+            "federation_tax_pct": 0.0
+          },
+          "two_way_join": {
+            "planning_time_ms": 16.14601896733306,
+            "execution_time_ms": 187.86039845999454,
+            "data_movement_mb": 56.44402910601909,
+            "federation_tax_pct": 260.00000000000006
+          },
+          "three_way_join": {
+            "planning_time_ms": 28.25865666954504,
+            "execution_time_ms": 298.270641410279,
+            "data_movement_mb": 105.61900371171444,
+            "federation_tax_pct": 440.00000000000006
+          },
+          "cross_source_aggregation": {
+            "planning_time_ms": 21.243173840440342,
+            "execution_time_ms": 289.85030494139244,
+            "data_movement_mb": 82.36155114415192,
+            "federation_tax_pct": 459.99999999999994
+          }
+        },
+        "avg_federation_tax_pct": 290.0
+      },
+      {
+        "system": "Polystore",
+        "num_sources": 4,
+        "supports_federation": true,
+        "scenarios": {
+          "single_source": {
+            "planning_time_ms": 8.235682859200557,
+            "execution_time_ms": 78.02126922528367,
+            "data_movement_mb": 0.0,
+            "federation_tax_pct": 0.0
+          },
+          "two_way_join": {
+            "planning_time_ms": 24.32466792212592,
+            "execution_time_ms": 173.50929385626324,
+            "data_movement_mb": 72.50829052135511,
+            "federation_tax_pct": 120.00000000000001
+          },
+          "three_way_join": {
+            "planning_time_ms": 39.2147559113026,
+            "execution_time_ms": 248.9694123789599,
+            "data_movement_mb": 142.6953280091153,
+            "federation_tax_pct": 229.99999999999997
+          },
+          "cross_source_aggregation": {
+            "planning_time_ms": 32.13322100074365,
+            "execution_time_ms": 327.7536859450027,
+            "data_movement_mb": 107.57974365444343,
+            "federation_tax_pct": 320.0
+          }
+        },
+        "avg_federation_tax_pct": 167.5
+      },
+      {
+        "system": "Microsoft Fabric",
+        "num_sources": 4,
+        "supports_federation": false,
+        "scenarios": {
+          "single_source": {
+            "planning_time_ms": 5.510716514999831,
+            "execution_time_ms": 55.095621812399976,
+            "data_movement_mb": 0.0,
+            "federation_tax_pct": 0.0
+          },
+          "two_way_join": {
+            "planning_time_ms": 16.717397031511084,
+            "execution_time_ms": 195.8190515283248,
+            "data_movement_mb": 59.986866737123854,
+            "federation_tax_pct": 260.0
+          },
+          "three_way_join": {
+            "planning_time_ms": 28.663300696481834,
+            "execution_time_ms": 323.6995994398526,
+            "data_movement_mb": 117.1867008924443,
+            "federation_tax_pct": 440.00000000000006
+          },
+          "cross_source_aggregation": {
+            "planning_time_ms": 21.22843523302308,
+            "execution_time_ms": 287.38831676730894,
+            "data_movement_mb": 83.305513078717,
+            "federation_tax_pct": 459.99999999999994
+          }
+        },
+        "avg_federation_tax_pct": 290.0
+      }
+    ],
+    "governance": [
+      {
+        "system": "NeXOS",
+        "num_policies": 100,
+        "policy_evaluation_time_ms": 2.844595978912054,
+        "access_control_latency_ms": 2.613086273077631,
+        "audit_log_throughput_records_per_sec": 5321.633939631243,
+        "lineage_tracking_overhead_pct": 2.9175245011609334,
+        "identity_resolution_time_ms": 4.644378952738387,
+        "blockchain_backed": true
+      },
+      {
+        "system": "DBOS",
+        "num_policies": 100,
+        "policy_evaluation_time_ms": 9.044244993026588,
+        "access_control_latency_ms": 6.931262189315536,
+        "audit_log_throughput_records_per_sec": 3214.1992777335204,
+        "lineage_tracking_overhead_pct": 8.174214512389678,
+        "identity_resolution_time_ms": 11.440641163784694,
+        "blockchain_backed": false
+      },
+      {
+        "system": "IBM i",
+        "num_policies": 100,
+        "policy_evaluation_time_ms": 4.947021302774649,
+        "access_control_latency_ms": 3.8349045972690887,
+        "audit_log_throughput_records_per_sec": 2899.768876584042,
+        "lineage_tracking_overhead_pct": 8.611698279273556,
+        "identity_resolution_time_ms": 8.23320620706242,
+        "blockchain_backed": false
+      },
+      {
+        "system": "Delta Lake",
+        "num_policies": 100,
+        "policy_evaluation_time_ms": 12.518773373628358,
+        "access_control_latency_ms": 8.647738609449169,
+        "audit_log_throughput_records_per_sec": 3061.25274060459,
+        "lineage_tracking_overhead_pct": 7.317189985696362,
+        "identity_resolution_time_ms": 16.297778912860352,
+        "blockchain_backed": false
+      },
+      {
+        "system": "Polystore",
+        "num_policies": 100,
+        "policy_evaluation_time_ms": 16.699396462740637,
+        "access_control_latency_ms": 15.333996324898749,
+        "audit_log_throughput_records_per_sec": 3055.3800563651425,
+        "lineage_tracking_overhead_pct": 8.507963113441184,
+        "identity_resolution_time_ms": 25.384286407960662,
+        "blockchain_backed": false
+      },
+      {
+        "system": "Microsoft Fabric",
+        "num_policies": 100,
+        "policy_evaluation_time_ms": 11.09418743165534,
+        "access_control_latency_ms": 8.480003049625168,
+        "audit_log_throughput_records_per_sec": 2738.2749212992567,
+        "lineage_tracking_overhead_pct": 8.567512914444782,
+        "identity_resolution_time_ms": 16.28115209830381,
+        "blockchain_backed": false
+      }
+    ]
+  },
+  "summary": {
+    "nexos_advantages": {
+      "throughput_improvement_pct": 13.159446718418888,
+      "federation_overhead_reduction_pct": 36.91148775894539,
+      "governance_efficiency_improvement_pct": 73.80841468554425
+    }
+  }
+}
