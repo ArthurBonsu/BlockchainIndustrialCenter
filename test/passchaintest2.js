@@ -1871,7 +1871,7 @@ class EnhancedMultiBlockchainPassChainTest {
         };
         
         // Save report
-        const reportPath = path.join(__dirname, '../test_results/enhanced-multichain-report.json');
+        const reportPath = path.join(__dirname, '../test_results/1');
         fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
         
         console.log(`\n✅ Report saved to: ${reportPath}`);

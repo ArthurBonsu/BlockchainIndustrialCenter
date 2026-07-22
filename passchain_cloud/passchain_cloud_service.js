@@ -56,6 +56,8 @@ if (missingVars.length > 0) {
 
 // Import PassChain functionality
 const { EnhancedMultiBlockchainPassChainTest } = require('./passchain_cloud_validator');
+const { PassChainChartGenerator } = require('./passchain_chart_generator');
+const chartGenerator = new PassChainChartGenerator();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -114,7 +116,11 @@ async function ensureGCSBuckets() {
                 console.log(`   ✅ Bucket exists: ${bucketName}`);
             }
         } catch (error) {
-            console.error(`   ⚠️  Error with bucket ${bucketName}:`, error.message);
+            console.error(`   ⚠️  Error with bucket ${bucketName}: ${error.message}`);
+            console.error(`   ℹ️  This is usually an IAM permissions issue. Grant the Cloud Run`);
+            console.error(`      service account roles/storage.objectAdmin (bucket-level) and`);
+            console.error(`      pre-create the bucket rather than relying on auto-create, e.g.:`);
+            console.error(`      gcloud storage buckets create gs://${bucketName} --location=${process.env.PASSCHAIN_CLOUD_RUN_REGION || 'us-central1'}`);
         }
     }
 }
@@ -254,13 +260,139 @@ async function uploadChartDataToGCS(testId, chartData) {
 }
 
 /**
+ * Upload a single rendered chart image (PNG buffer) to GCS
+ */
+async function uploadChartImageToGCS(testId, fileName, buffer) {
+    const objectPath = `${testId}/${fileName}`;
+    const bucket = storage.bucket(GCS_BUCKETS.charts);
+    const file = bucket.file(objectPath);
+
+    await file.save(buffer, {
+        contentType: 'image/png',
+        metadata: {
+            testId,
+            timestamp: new Date().toISOString(),
+            type: 'chart_image'
+        }
+    });
+
+    console.log(`   ✅ Chart image uploaded to GCS: gs://${GCS_BUCKETS.charts}/${objectPath}`);
+    return objectPath; // relative path inside the bucket, used to build the proxy URL
+}
+
+/**
+ * Render every chart as a PNG and upload each one to GCS.
+ * Returns a map of chartType -> { objectPath, fileName } for anything that succeeded.
+ * Individual chart failures are logged and skipped rather than failing the whole test.
+ */
+async function generateAndUploadChartImages(report, testId) {
+    const chartFiles = await chartGenerator.generateAllCharts(report, testId);
+    const uploaded = {};
+
+    for (const [chartType, chart] of Object.entries(chartFiles)) {
+        try {
+            const objectPath = await uploadChartImageToGCS(testId, chart.fileName, chart.buffer);
+            uploaded[chartType] = { fileName: chart.fileName, objectPath };
+        } catch (error) {
+            console.error(`   ⚠️  Failed to upload chart image "${chartType}":`, error.message);
+        }
+    }
+
+    return uploaded;
+}
+
+/**
+ * Read an arbitrary JSON object back from a GCS bucket. Returns null if it doesn't exist
+ * or can't be read (e.g. permissions), instead of throwing, since this is used as a
+ * best-effort fallback path.
+ */
+async function readJSONFromGCS(bucketName, objectPath) {
+    try {
+        const bucket = storage.bucket(bucketName);
+        const file = bucket.file(objectPath);
+        const [exists] = await file.exists();
+        if (!exists) return null;
+
+        const [contents] = await file.download();
+        return JSON.parse(contents.toString('utf-8'));
+    } catch (error) {
+        console.error(`   ⚠️  Could not read gs://${bucketName}/${objectPath}:`, error.message);
+        return null;
+    }
+}
+
+/**
+ * Look up a test's results, checking (in order): in-memory cache, local disk cache,
+ * then GCS. This makes GCS the real source of truth — any Cloud Run instance can
+ * serve any test's results, and results survive instance restarts.
+ */
+async function getResultData(testId) {
+    let result = testResults.get(testId);
+    if (result) return result;
+
+    const resultPath = path.join(RESULTS_DIR, testId, 'result.json');
+    if (fs.existsSync(resultPath)) {
+        try {
+            result = JSON.parse(fs.readFileSync(resultPath, 'utf-8'));
+            testResults.set(testId, result);
+            return result;
+        } catch (readErr) {
+            console.error(`⚠️  Could not parse local result for ${testId}:`, readErr.message);
+        }
+    }
+
+    result = await readJSONFromGCS(GCS_BUCKETS.results, `${testId}/result.json`);
+    if (result) {
+        testResults.set(testId, result);
+    }
+    return result;
+}
+
+/**
+ * Same idea as getResultData, but for chart data (JSON config + image object paths).
+ */
+async function getChartsData(testId) {
+    let charts = testCharts.get(testId);
+    if (charts) return charts;
+
+    const chartData = await readJSONFromGCS(GCS_BUCKETS.charts, `${testId}/charts.json`);
+    if (!chartData) return null;
+
+    charts = {
+        testId,
+        generatedAt: chartData.generatedAt,
+        chartData,
+        gcsUrl: `gs://${GCS_BUCKETS.charts}/${testId}/charts.json`,
+        images: chartData.images || {},
+        imagesBucket: chartData.imagesBucket || GCS_BUCKETS.charts
+    };
+    testCharts.set(testId, charts);
+    return charts;
+}
+
+/**
+ * Build API URLs (served by this service, which proxies the GCS objects) for each
+ * rendered chart image, so a client can just <img src="..."> them without needing
+ * GCS credentials or public bucket ACLs.
+ */
+function buildChartImageUrls(testId, images, req) {
+    const base = `${req.protocol}://${req.get('host')}`;
+    const urls = {};
+    for (const [chartType, chart] of Object.entries(images || {})) {
+        urls[chartType] = `${base}/api/charts/${testId}/image/${chartType}`;
+    }
+    return urls;
+}
+
+/**
  * Download from GCS using gsutil command format
  */
 function getGSUtilDownloadCommand(testId) {
     return {
-        results: `gsutil cp gs://${GCS_BUCKETS.results}/${testId}/result.json ./`,
-        charts: `gsutil cp gs://${GCS_BUCKETS.charts}/${testId}/charts.json ./`,
-        allData: `gsutil cp -r gs://${GCS_BUCKETS.results}/${testId}/* ./ && gsutil cp -r gs://${GCS_BUCKETS.charts}/${testId}/* ./`
+        
+        results: `gcloud storage cp gs://${GCS_BUCKETS.results}/${testId}/result.json ./`,
+        charts: `gcloud storage cp gs://${GCS_BUCKETS.charts}/${testId}/charts.json ./`,
+        allData: `gcloud storage cp -r gs://${GCS_BUCKETS.results}/${testId}/* ./ && gcloud storage cp -r gs://${GCS_BUCKETS.charts}/${testId}/* ./`
     };
 }
 
@@ -383,14 +515,20 @@ app.post('/api/test/start', async (req, res) => {
 /**
  * Get test status
  */
-app.get('/api/test/status/:testId', (req, res) => {
+app.get('/api/test/status/:testId', async (req, res) => {
     const { testId } = req.params;
     const test = activeTests.get(testId);
-    const result = testResults.get(testId);
-    const charts = testCharts.get(testId);
-    
+    let result = test ? testResults.get(testId) : await getResultData(testId);
+    const charts = result ? await getChartsData(testId) : null;
+
     if (!test && !result) {
-        return res.status(404).json({ error: 'Test not found' });
+        // A test can be "running" on a different Cloud Run instance than the one
+        // handling this request. We can't see its progress, but we can honestly say so
+        // rather than falsely reporting 404 as if it never started.
+        return res.status(404).json({
+            error: 'Test not found on this instance',
+            note: 'If the test was just started, a different Cloud Run instance may be running it. Poll again in a few seconds, or check /api/results/:testId once it completes — that endpoint always checks GCS.'
+        });
     }
     
     if (result) {
@@ -425,18 +563,10 @@ app.get('/api/test/status/:testId', (req, res) => {
 
 // ==================== RESULTS ENDPOINTS ====================
 
-app.get('/api/results/:testId', (req, res) => {
+app.get('/api/results/:testId', async (req, res) => {
     const { testId } = req.params;
-    let result = testResults.get(testId);
-    
-    if (!result) {
-        const resultPath = path.join(RESULTS_DIR, testId, 'result.json');
-        if (fs.existsSync(resultPath)) {
-            result = JSON.parse(fs.readFileSync(resultPath, 'utf-8'));
-            testResults.set(testId, result);
-        }
-    }
-    
+    const result = await getResultData(testId);
+
     if (!result) {
         return res.status(404).json({ error: 'Test results not found' });
     }
@@ -455,10 +585,10 @@ app.get('/api/results/:testId', (req, res) => {
     });
 });
 
-app.get('/api/results/:testId/download', (req, res) => {
+app.get('/api/results/:testId/download', async (req, res) => {
     const { testId } = req.params;
-    const result = testResults.get(testId);
-    
+    const result = await getResultData(testId);
+
     if (!result) {
         return res.status(404).json({ error: 'Test results not found' });
     }
@@ -469,19 +599,20 @@ app.get('/api/results/:testId/download', (req, res) => {
         testId,
         downloadCommands: commands,
         instructions: {
-            installation: 'Install gsutil: https://cloud.google.com/storage/docs/gsutil_install',
-            authentication: 'Run: gcloud auth login',
-            usage: 'Copy and run the commands below',
-            note: 'Commands work on Windows, Linux, and macOS'
+             installation: 'Install Google Cloud CLI: https://cloud.google.com/sdk/docs/install',
+    authentication: 'Run: gcloud auth login',
+    projectSetup: `Run: gcloud config set project ${process.env.PASSCHAIN_GCP_PROJECT_ID}`,
+    usage: 'Copy and run the gcloud storage commands below',
+    note: 'Commands work on Windows, Linux, and macOS'
         },
         gcsUrls: result.gcsUrls
     });
 });
 
-app.get('/api/results/:testId/summary', (req, res) => {
+app.get('/api/results/:testId/summary', async (req, res) => {
     const { testId } = req.params;
-    const result = testResults.get(testId);
-    
+    const result = await getResultData(testId);
+
     if (!result) {
         return res.status(404).json({ error: 'Test results not found' });
     }
@@ -494,10 +625,10 @@ app.get('/api/results/:testId/summary', (req, res) => {
     });
 });
 
-app.get('/api/results/:testId/metrics', (req, res) => {
+app.get('/api/results/:testId/metrics', async (req, res) => {
     const { testId } = req.params;
-    const result = testResults.get(testId);
-    
+    const result = await getResultData(testId);
+
     if (!result) {
         return res.status(404).json({ error: 'Test results not found' });
     }
@@ -510,10 +641,10 @@ app.get('/api/results/:testId/metrics', (req, res) => {
     });
 });
 
-app.get('/api/results/:testId/threats', (req, res) => {
+app.get('/api/results/:testId/threats', async (req, res) => {
     const { testId } = req.params;
-    const result = testResults.get(testId);
-    
+    const result = await getResultData(testId);
+
     if (!result) {
         return res.status(404).json({ error: 'Test results not found' });
     }
@@ -524,10 +655,27 @@ app.get('/api/results/:testId/threats', (req, res) => {
     });
 });
 
-app.get('/api/results/latest', (req, res) => {
-    const latestResult = Array.from(testResults.values())
+app.get('/api/results/latest', async (req, res) => {
+    let latestResult = Array.from(testResults.values())
         .sort((a, b) => new Date(b.completedAt) - new Date(a.completedAt))[0];
-    
+
+    if (!latestResult) {
+        // Nothing cached on this instance — ask GCS which result.json was written most recently.
+        try {
+            const bucket = storage.bucket(GCS_BUCKETS.results);
+            const [files] = await bucket.getFiles({ matchGlob: '**/result.json' });
+            const newest = files.sort((a, b) =>
+                new Date(b.metadata.timeCreated) - new Date(a.metadata.timeCreated)
+            )[0];
+            if (newest) {
+                const testId = newest.name.split('/')[0];
+                latestResult = await getResultData(testId);
+            }
+        } catch (error) {
+            console.error('⚠️  Could not list GCS for latest result:', error.message);
+        }
+    }
+
     if (!latestResult) {
         return res.status(404).json({ error: 'No test results available' });
     }
@@ -543,10 +691,10 @@ app.get('/api/results/latest', (req, res) => {
 
 // ==================== CHART ENDPOINTS ====================
 
-app.get('/api/charts/:testId', (req, res) => {
+app.get('/api/charts/:testId', async (req, res) => {
     const { testId } = req.params;
-    const charts = testCharts.get(testId);
-    
+    const charts = await getChartsData(testId);
+
     if (!charts) {
         return res.status(404).json({ 
             error: 'Chart data not found',
@@ -560,15 +708,57 @@ app.get('/api/charts/:testId', (req, res) => {
         generatedAt: charts.generatedAt,
         chartData: charts.chartData,
         gcsUrl: charts.gcsUrl,
-        usage: 'Use this JSON data with Chart.js, Recharts, D3.js, or any visualization library'
+        imageUrls: buildChartImageUrls(testId, charts.images, req),
+        gcsImagePaths: Object.fromEntries(
+            Object.entries(charts.images || {}).map(([type, c]) => [type, `gs://${charts.imagesBucket}/${c.objectPath}`])
+        ),
+        usage: 'imageUrls give you directly-viewable PNGs; chartData is the raw JSON config if you want to re-render with Chart.js, Recharts, D3.js, etc.'
     });
 });
 
-app.get('/api/complete/:testId', (req, res) => {
+/**
+ * Stream a single chart PNG straight from GCS. This means the image is viewable/embeddable
+ * (<img src="...">) without needing GCS credentials or making the bucket public.
+ */
+app.get('/api/charts/:testId/image/:chartType', async (req, res) => {
+    const { testId, chartType } = req.params;
+    const charts = await getChartsData(testId);
+
+    const image = charts && charts.images ? charts.images[chartType] : null;
+    if (!image) {
+        return res.status(404).json({
+            error: 'Chart image not found',
+            availableTypes: charts ? Object.keys(charts.images || {}) : []
+        });
+    }
+
+    try {
+        const bucket = storage.bucket(charts.imagesBucket || GCS_BUCKETS.charts);
+        const file = bucket.file(image.objectPath);
+        const [exists] = await file.exists();
+        if (!exists) {
+            return res.status(404).json({ error: 'Chart image no longer exists in GCS' });
+        }
+
+        res.setHeader('Content-Type', 'image/png');
+        res.setHeader('Cache-Control', 'public, max-age=86400');
+        file.createReadStream()
+            .on('error', (streamErr) => {
+                console.error(`⚠️  Error streaming chart image:`, streamErr.message);
+                if (!res.headersSent) res.status(500).json({ error: 'Failed to stream chart image' });
+            })
+            .pipe(res);
+    } catch (error) {
+        console.error(`⚠️  Error fetching chart image from GCS:`, error.message);
+        res.status(500).json({ error: 'Failed to fetch chart image' });
+    }
+});
+
+app.get('/api/complete/:testId', async (req, res) => {
     const { testId } = req.params;
-    const result = testResults.get(testId);
-    const charts = testCharts.get(testId);
-    
+    const result = await getResultData(testId);
+    const charts = await getChartsData(testId);
+
     if (!result) {
         return res.status(404).json({ error: 'Test results not found' });
     }
@@ -597,7 +787,8 @@ app.get('/api/complete/:testId', (req, res) => {
         response.charts = {
             generatedAt: charts.generatedAt,
             chartData: charts.chartData,
-            gcsUrl: charts.gcsUrl
+            gcsUrl: charts.gcsUrl,
+            imageUrls: buildChartImageUrls(testId, charts.images, req)
         };
     }
     
@@ -679,32 +870,49 @@ async function runTestAsync(testId, testInstance) {
             console.error(`⚠️  GCS upload failed:`, gcsError.message);
         }
         
-        console.log(`📈 Test ${testId}: Generating chart data...`);
-        test.phase = 'generating-charts';
-        
-        const chartData = generateChartDataJSON(report, testId);
-        
-        const chartPath = path.join(test.testChartDir, 'charts.json');
-        fs.writeFileSync(chartPath, JSON.stringify(chartData, null, 2));
-        console.log(`✅ Chart data saved: ${chartPath}`);
-        
+        console.log(`📈 Test ${testId}: Generating charts...`);
+        test.phase = 'rendering-chart-images';
+
+        // 1. Actual rendered PNG images — uploaded straight from memory buffers, so this
+        // does not depend on the container's local disk surviving.
+        let chartImages = {};
         try {
-            const gcsChartUrl = await uploadChartDataToGCS(testId, chartData);
-            testCharts.set(testId, {
-                testId,
-                generatedAt: completedAt,
-                chartData,
-                gcsUrl: gcsChartUrl
-            });
-        } catch (gcsError) {
-            console.error(`⚠️  Chart upload failed:`, gcsError.message);
-            testCharts.set(testId, {
-                testId,
-                generatedAt: completedAt,
-                chartData,
-                gcsUrl: null
-            });
+            chartImages = await generateAndUploadChartImages(report, testId);
+        } catch (renderError) {
+            console.error(`⚠️  Chart image rendering failed:`, renderError.message);
         }
+
+        // 2. JSON chart config (for anyone who wants to re-render with their own viz lib),
+        // with the image object paths embedded so charts can be recovered even if this
+        // instance's in-memory state is gone (e.g. after a cold start / new instance).
+        test.phase = 'generating-chart-data';
+        const chartData = generateChartDataJSON(report, testId);
+        chartData.images = chartImages;
+        chartData.imagesBucket = GCS_BUCKETS.charts;
+
+        const chartPath = path.join(test.testChartDir, 'charts.json');
+        try {
+            fs.writeFileSync(chartPath, JSON.stringify(chartData, null, 2));
+            console.log(`✅ Chart data (JSON) cached locally: ${chartPath}`);
+        } catch (writeErr) {
+            console.error(`⚠️  Could not cache chart data locally:`, writeErr.message);
+        }
+
+        let gcsChartDataUrl = null;
+        try {
+            gcsChartDataUrl = await uploadChartDataToGCS(testId, chartData);
+        } catch (gcsError) {
+            console.error(`⚠️  Chart JSON upload failed:`, gcsError.message);
+        }
+
+        testCharts.set(testId, {
+            testId,
+            generatedAt: completedAt,
+            chartData,
+            gcsUrl: gcsChartDataUrl,
+            images: chartImages, // { connectionMetrics: { fileName, objectPath }, ... }
+            imagesBucket: GCS_BUCKETS.charts
+        });
         
         activeTests.delete(testId);
         

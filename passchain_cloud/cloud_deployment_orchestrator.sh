@@ -69,6 +69,37 @@ gcloud services enable cloudbuild.googleapis.com
 gcloud services enable run.googleapis.com
 gcloud services enable containerregistry.googleapis.com
 
+# Buckets and permissions - do this BEFORE deploying, since a missing bucket or
+# missing IAM role is the most common reason results/charts silently fail to upload
+RESULTS_BUCKET=${PASSCHAIN_RESULTS_BUCKET:-"passchain-test-results"}
+CHARTS_BUCKET=${PASSCHAIN_CHARTS_BUCKET:-"passchain-charts"}
+
+echo "🪣 Ensuring GCS buckets exist..."
+for BUCKET in "$RESULTS_BUCKET" "$CHARTS_BUCKET"; do
+    if ! gcloud storage buckets describe "gs://$BUCKET" &> /dev/null; then
+        echo "   Creating gs://$BUCKET in $REGION..."
+        gcloud storage buckets create "gs://$BUCKET" --location="$REGION" --project="$PROJECT_ID"
+    else
+        echo "   ✅ gs://$BUCKET already exists"
+    fi
+done
+
+# Find the service account Cloud Run will actually run as (defaults to the
+# project's compute service account if none is configured)
+RUNTIME_SA=$(gcloud run services describe $SERVICE_NAME --region=$REGION --format="value(spec.template.spec.serviceAccountName)" 2>/dev/null)
+if [ -z "$RUNTIME_SA" ]; then
+    PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
+    RUNTIME_SA="${PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
+fi
+
+echo "🔐 Granting $RUNTIME_SA write access to storage buckets..."
+for BUCKET in "$RESULTS_BUCKET" "$CHARTS_BUCKET"; do
+    gcloud storage buckets add-iam-policy-binding "gs://$BUCKET" \
+        --member="serviceAccount:$RUNTIME_SA" \
+        --role="roles/storage.objectAdmin" \
+        --quiet
+done
+
 # Build the Docker image
 echo "🏗️  Building Docker image..."
 docker build -t $IMAGE_NAME .
@@ -94,7 +125,7 @@ gcloud run deploy $SERVICE_NAME \
     --max-instances 5 \
     --timeout 900 \
     --port 8080 \
-    --set-env-vars NODE_ENV=production,PASSCHAIN_GCP_PROJECT_ID=$PROJECT_ID \
+    --set-env-vars NODE_ENV=production,PASSCHAIN_GCP_PROJECT_ID=$PROJECT_ID,PASSCHAIN_RESULTS_BUCKET=$RESULTS_BUCKET,PASSCHAIN_CHARTS_BUCKET=$CHARTS_BUCKET,PASSCHAIN_CLOUD_RUN_REGION=$REGION \
     --quiet
 
 # Get the service URL

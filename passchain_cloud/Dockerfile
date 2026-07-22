@@ -21,11 +21,13 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --production --legacy-peer-deps
 
-# Copy all service files including local .env
+# Copy all service files. .env is intentionally excluded via .dockerignore —
+# real config is injected at deploy time with `gcloud run deploy --set-env-vars`.
 COPY . .
 
-# Create required directories
-RUN mkdir -p test_results logs
+# Local scratch directories only — GCS is the source of truth for results/charts,
+# these are just a best-effort local cache for debugging within a running instance.
+RUN mkdir -p test_results charts logs
 
 # Expose port
 EXPOSE 8080
