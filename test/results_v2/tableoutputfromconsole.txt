@@ -1,0 +1,28 @@
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> cd test
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test> node run_paired_scenarios.js
+=== AVERAGED OVER 150 PAIRED SEEDS ===
+SYSTEM-WIDE:
+  peak share: baseline 15.01% -> treatment 14.00%  => reduction 6.7%
+  offpeak share: baseline 39.89% -> treatment 41.02%  => increase 2.8%
+  correlation(elasticity, peak reduction) = 0.737
+
+PER-PROSUMER (averaged, sorted by elasticity, high to low):
+name              eps   n(trt)   peakRed%    offInc%   tauExpChg%
+Household-C      0.52     2942       13.7       10.3         -6.7
+Household-A      0.45     2569       17.4       15.2         -6.6
+Household-D      0.40     2533       15.1       13.2         -6.3
+Household-B      0.38     2316       12.2        2.6         -5.4
+Shop-A           0.25     6250       10.1        1.3         -5.2
+Restaurant-C     0.22     6884       14.3        6.8         -5.9
+Office-B         0.18     7770        3.7        2.2         -5.3
+Factory-B        0.15    14547        3.8        1.3         -5.1
+Factory-A        0.12    15757        0.9          1           -5
+Factory-C        0.10    16432        6.3        0.5         -5.2
+
+=== SINGLE ILLUSTRATIVE RUN (seed=20260810, n=520 each, for inspection) ===
+  peak reduction: -1.5%   offpeak increase: 10.3%
+
+Files written to C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test\results_v2:
+  table4_replacement.json / .csv / .tex
+  baseline_run_illustrative.json
+  treatment_run_illustrative.json
