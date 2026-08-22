@@ -1,0 +1,8 @@
+const CONTRACT_ADDRESSES = {
+    EnergyTokenRE: "0xa78fc8e55a017cb5659476f6d67fe77c22b4c59a",
+    EnergyTokenNRE: "0x8b8d7b0d8f38488f56454337205e269c20892e6c",
+    EnergyTokenVault: "0x7467290233c25966453889423Bded7Aa20e042D1",
+    GridStabilityOracle: "0x0d615902ba261356666d69ec4c5a453671b65783",
+    TimeWeightedAMM: "0x644dad7662e9cccdefd1aff0ab8f3e1ae685bd26",
+    GridResponsiveAMM: "0xed287f81d81ae2e7bb78569812d24df64d434a58"
+};

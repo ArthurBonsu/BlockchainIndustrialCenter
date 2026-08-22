@@ -1,0 +1,21 @@
+Good — that confirms the folder has everything needed, but not all of these files get deployed individually. Let me map this exact file list to what actually happens:
+
+Deploy these 4, in this order (matches what I gave you before):
+
+EnergyTokenVault.sol (using existing RE/NRE token addresses as constructor args)
+GridStabilityOracle.sol (no constructor args — can also go before #1, order between these two doesn't matter)
+TimeWeightedAMM.sol (constructor arg: new Vault address from #1)
+GridResponsiveAMM.sol (constructor args: new Vault address from #1, new Oracle address from #2)
+
+Needed as compile-time dependencies, but never deployed on their own:
+
+EnergyMathTW.sol — imported by TimeWeightedAMM.sol, just needs to sit in the same folder (already does)
+IEnergyVault.sol — also imported by TimeWeightedAMM.sol, same deal
+
+Not used by anything in this fix — safe to ignore, don't deploy these:
+
+EnergyMath.sol — only needed by the stray EnergyToken.sol duplicate we talked about earlier; my fixed EnergyTokenVault.sol has its own math logic built directly into the file, so it doesn't reach for this one
+EnergyToken.sol — the mislabeled Vault duplicate, not a real token, not part of this system
+IEnergyToken.sol, IGridOracle.sol — not imported by any of the four files being deployed; GridResponsiveAMM.sol defines its own version of the oracle interface internally instead of pulling in IGridOracle.sol
+
+So functionally: 4 deployments, 2 supporting files that just need to stay put, 4 files in this folder you can leave alone entirely for this task

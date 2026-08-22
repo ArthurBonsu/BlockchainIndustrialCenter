@@ -1,0 +1,51 @@
+view on Etherscan view on Blockscout
+[block:11538056 txIndex:4]from: 0x792...ad36Ato: TimeWeightedAMM.(constructor)value: 0 weidata: 0x60a...e6f08logs: 1hash: 0x51a...41e6e
+status	1 Transaction mined and execution completed
+transaction hash	0x3b81f25b9343600fbb3723c749aad579ef669a2a7ff9bf1628dc3d7c96f0e97d
+block hash	0x51a11c7667f0df9fd90632e0b558c2a9fbb177aa0895b161c31326612da41e6e
+block number	11538056
+contract address	0x67e3E04C218CD318C111d3E4f34E4Ee7f75e0782
+from	0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+to	TimeWeightedAMM.(constructor)
+transaction cost	2139150 gas 
+decoded input	{
+	"address _vault": "0x8a2C324aB403594C3B29b1e8034dBdFd197e6f08"
+}
+decoded output	 - 
+logs	[
+	{
+		"from": "0x67e3E04C218CD318C111d3E4f34E4Ee7f75e0782",
+		"topic": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+		"event": "OwnershipTransferred",
+		"args": {
+			"0": "0x0000000000000000000000000000000000000000",
+			"1": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+		}
+	}
+]
+raw logs	[
+  {
+    "_type": "log",
+    "address": "0x67e3E04C218CD318C111d3E4f34E4Ee7f75e0782",
+    "blockHash": "0x51a11c7667f0df9fd90632e0b558c2a9fbb177aa0895b161c31326612da41e6e",
+    "blockNumber": 11538056,
+    "data": "0x",
+    "index": 8,
+    "topics": [
+      "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a"
+    ],
+    "transactionHash": "0x3b81f25b9343600fbb3723c749aad579ef669a2a7ff9bf1628dc3d7c96f0e97d",
+    "transactionIndex": 4
+  }
+]
+[Verification] Contract deployed. Checking explorers for registration...
+Etherscan verification skipped: API key not provided.
+Please input the API key in Remix Settings - Connected Services OR Contract Verification Plugin Settings.
+[Sourcify] Verification submitted. Awaiting confirmation...
+[Routescan] Verification submitted. Awaiting confirmation...
+[Blockscout] Verification submitted. Awaiting confirmation...
+[Sourcify] Verification Successful!  View Code 
+[Blockscout] Verification Successful!  View Code 
+[Routescan] Polling timed out. Please open the "Contract Verification" plugin to check details.

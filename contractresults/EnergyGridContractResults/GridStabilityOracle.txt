@@ -1,0 +1,77 @@
+
+[block:11537903 txIndex:21]from: 0x792...ad36Ato: GridStabilityOracle.(constructor)value: 0 weidata: 0x608...40033logs: 2hash: 0xe76...baca3
+status	1 Transaction mined and execution completed
+transaction hash	0x1327175f8840b5b4afc42768d6f75a4304b0b3a4cb8be4ecc5cd34ff4d8c545c
+block hash	0xe7676a741899bc618991be254f5e8824b15627190c55284740e8c0a848ebaca3
+block number	11537903
+contract address	0x9580429807f611A286255FF325e7C6812343D340
+from	0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+to	GridStabilityOracle.(constructor)
+transaction cost	1319607 gas 
+decoded input	{}
+decoded output	 - 
+logs	[
+	{
+		"from": "0x9580429807f611A286255FF325e7C6812343D340",
+		"topic": "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+		"event": "RoleGranted",
+		"args": {
+			"0": "0x0000000000000000000000000000000000000000000000000000000000000000",
+			"1": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+			"2": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+		}
+	},
+	{
+		"from": "0x9580429807f611A286255FF325e7C6812343D340",
+		"topic": "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+		"event": "RoleGranted",
+		"args": {
+			"0": "0x68e79a7bf1e0bc45d0a330c573bc367f9cf464fd326078812f301165fbda4ef1",
+			"1": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
+			"2": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+		}
+	}
+]
+raw logs	[
+  {
+    "_type": "log",
+    "address": "0x9580429807f611A286255FF325e7C6812343D340",
+    "blockHash": "0xe7676a741899bc618991be254f5e8824b15627190c55284740e8c0a848ebaca3",
+    "blockNumber": 11537903,
+    "data": "0x",
+    "index": 93,
+    "topics": [
+      "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a"
+    ],
+    "transactionHash": "0x1327175f8840b5b4afc42768d6f75a4304b0b3a4cb8be4ecc5cd34ff4d8c545c",
+    "transactionIndex": 21
+  },
+  {
+    "_type": "log",
+    "address": "0x9580429807f611A286255FF325e7C6812343D340",
+    "blockHash": "0xe7676a741899bc618991be254f5e8824b15627190c55284740e8c0a848ebaca3",
+    "blockNumber": 11537903,
+    "data": "0x",
+    "index": 94,
+    "topics": [
+      "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
+      "0x68e79a7bf1e0bc45d0a330c573bc367f9cf464fd326078812f301165fbda4ef1",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a"
+    ],
+    "transactionHash": "0x1327175f8840b5b4afc42768d6f75a4304b0b3a4cb8be4ecc5cd34ff4d8c545c",
+    "transactionIndex": 21
+  }
+]
+[Verification] Contract deployed. Checking explorers for registration...
+Etherscan verification skipped: API key not provided.
+Please input the API key in Remix Settings - Connected Services OR Contract Verification Plugin Settings.
+[Routescan] Verification submitted. Awaiting confirmation...
+[Blockscout] Verification submitted. Awaiting confirmation...
+[Sourcify] Verification submitted. Awaiting confirmation...
+[Sourcify] Verification Successful!  View Code 
+[Blockscout] Verification Successful!  View Code 
+[Routescan] Verification Successful!  View Code 

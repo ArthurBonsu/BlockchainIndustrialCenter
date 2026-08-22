@@ -1,0 +1,26 @@
+Status:
+Success
+Tx Fee:
+189532119850826 Wei
+Block:
+11537700
+Tx Type:
+Type 2
+Timestamp:
+8/22/2026, 2:14:12 AM
+Gas Price:
+2630125723 Wei
+From:
+0x7927...d36A
+Gas Used:
+72062
+To:
+0x8a2C...6f08
+Tx Index:
+0
+Function:
+Contract Creation
+Tx Nonce:
+833
+Value:
+0 Wei

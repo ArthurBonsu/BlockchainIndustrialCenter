@@ -1,0 +1,14 @@
+
+[block:11537700 txIndex:9]from: 0x792...ad36Ato: EnergyMath.(constructor)value: 0 weidata: 0x605...40033logs: 0hash: 0xfb6...ac024
+status	1 Transaction mined and execution completed
+transaction hash	0xeb0e23eb11a5a76f640d9fdf3a2d2562cdffa45df9151f3ef728ba20583ec086
+block hash	0xfb607926a604400fb3a625e13a3e3d494f759c837db831693a322fb41f5ac024
+block number	11537700
+contract address	0x8a2C324aB403594C3B29b1e8034dBdFd197e6f08
+from	0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+to	EnergyMath.(constructor)
+transaction cost	72062 gas 
+decoded input	{}
+decoded output	 - 
+logs	[]
+raw logs	[]

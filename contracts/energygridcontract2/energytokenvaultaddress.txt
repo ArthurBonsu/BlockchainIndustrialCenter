@@ -1,0 +1,17 @@
+// Contract addresses -- Sepolia testnet
+// All four fixed contracts (Vault, Oracle, TimeWeightedAMM, GridResponsiveAMM)
+// verified via decoded constructor arguments and/or event logs from their
+// actual Remix deployment receipts, cross-checked against Etherscan.
+// EnergyTokenRE / EnergyTokenNRE are unchanged, pre-existing tokens -- not
+// part of this fix, reused as-is.
+
+const CONTRACT_ADDRESSES = {
+    EnergyTokenRE: "0xa78fc8e55a017cb5659476f6d67fe77c22b4c59a",
+    EnergyTokenNRE: "0x8b8d7b0d8f38488f56454337205e269c20892e6c",
+    EnergyTokenVault: "0x623ba68eb8c93d6204f449d1a2596078d094b13f",       // CONFIRMED -- correct constructor label, Etherscan creation verified
+    GridStabilityOracle: "0x9580429807f611A286255FF325e7C6812343D340",    // CONFIRMED -- correct constructor label, RoleGranted events match expected roles
+    TimeWeightedAMM: "0xD85499cB852d582A26570F1c2B391C513aCE78A2",        // CONFIRMED -- correct constructor label, decoded _vault matches EnergyTokenVault exactly
+    GridResponsiveAMM: "0x99edf88047f58196d73528eb1e76abe7ed7f0b2e"       // CONFIRMED -- correct constructor label, decoded _vault and _gridOracle both match exactly
+};
+
+module.exports = { CONTRACT_ADDRESSES };

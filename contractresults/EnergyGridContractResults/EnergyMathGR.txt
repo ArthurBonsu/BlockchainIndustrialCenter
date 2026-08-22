@@ -1,0 +1,22 @@
+[block:11538492 txIndex:8]from: 0x792...ad36Ato: StorageSlot.(constructor)value: 0 weidata: 0x605...40033logs: 0hash: 0x9c7...59ba1
+status	1 Transaction mined and execution completed
+transaction hash	0x7f006d6e94e22b0e7e0d7e91b468c1c8fff4c006406b27681dd9554c9cc893e0
+block hash	0x9c7e63025f767726ab9a4e42eeff4c33e2b5dc8a3ad75025431f85d173559ba1
+block number	11538492
+contract address	0x69De95021ad1d8759F2D0CE2e98A54F3BBfAa4D9
+from	0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+to	StorageSlot.(constructor)
+transaction cost	72038 gas 
+decoded input	{}
+decoded output	 - 
+logs	[]
+raw logs	[]
+[Verification] Contract deployed. Checking explorers for registration...
+Etherscan verification skipped: API key not provided.
+Please input the API key in Remix Settings - Connected Services OR Contract Verification Plugin Settings.
+[Sourcify] Verification submitted. Awaiting confirmation...
+[Blockscout] Verification submitted. Awaiting confirmation...
+[Routescan] Verification submitted. Awaiting confirmation...
+[Sourcify] Verification Successful!  View Code 
+[Blockscout] Verification Successful!  View Code 
+[Routescan] Verification Successful!  View Code 

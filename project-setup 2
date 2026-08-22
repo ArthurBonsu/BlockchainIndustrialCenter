@@ -1,91 +1,51 @@
-# Updated BlockchainIndustrialPlatform Project Tree
-
-## Current Project Structure
-
-```
 BlockchainIndustrialPlatform/
+│
 ├── api/
 │   └── process-transaction.ts
+│
 ├── build/
-│   └── contracts/
-│       ├── AccessControl.json
-│       ├── AggregatorV3Interface.json
-│       ├── AssetTransferProcessor.json
-│       ├── BeeRoutingAlgorithm.json
-│       ├── BlockchainMonitor.json
-│       ├── BlockchainRegistry.json
-│       ├── BlockchainRegistryBase.json
-│       ├── BCADN.json 
-│       ├── CarbonCreditMarket.json
-│       ├── ChaCha20Poly1305.json
-│       ├── CityEmissionsContract.json
-│       ├── CityHealthCalculator.json
-│       ├── CityRegister.json
-│       ├── ClimateReductionContract.json
-│       ├── ClusterCommunication.json
-│       ├── ClusterManager.json
-│       ├── CompanyRegister.json
-│       ├── ConfidenceScoreCalculator.json
-│       ├── Context.json
-│       ├── Counters.json
-│       ├── ERC165.json
-│       ├── ERC20.json
-│       ├── FixedPointMath.json
-│       ├── IAccessControl.json
-│       ├── ICreditMarketContract.json
-│       ├── IERC165.json
-│       ├── IERC20.json
-│       ├── IERC20Metadata.json
-│       ├── IRewardCalculator.json
-│       ├── IUncertaintyAnalytics.json
-│       ├── IUniswapV2Router01.json
-│       ├── IUniswapV2Router02.json
-│       ├── IZKPVerifier.json
-│       ├── Math.json
-│       ├── MerkleTreeLib.json
-│       ├── MetadataParser.json
-│       ├── MitigationContract.json
-│       ├── NodeTypes.json
-│       ├── Ownable.json
-│       ├── PacechainChannel.json
-│       ├── PasschainValidator.json
-│       ├── Pausable.json
-│       ├── ProofGenerator.json
-│       ├── ProofOfStakeValidator.json
-│       ├── ReceivingBlockchainInterface.json
-│       ├── ReentrancyGuard.json
-│       ├── RelayTypes.json
-│       ├── RenewalTheoryContract.json
-│       ├── RequestManager.json
-│       ├── ResponseManager.json
-│       ├── RewardBase.json
-│       ├── RewardCalculator.json
-│       ├── RewardDistributor.json
-│       ├── RewardToken.json
-│       ├── SafeMath.json
-│       ├── SignedMath.json
-│       ├── SpeculativeTransactionHandler.json
-│       ├── StateManager.json
-│       ├── Strings.json
-│       ├── TemperatureRenewalContract.json
-│       ├── TransactionRelay.json
-│       ├── TransactionTypes.json
-│       ├── TransactionValidator.json
-│       ├── UncertaintyAnalytics.json
-│       └── ZKPVerifierBase.json
+│   └── contracts/                    (compiled ABI/bytecode artifacts, .json per contract)
+│       ├── AccessControl.json, AggregatorV3Interface.json, AssetTransferProcessor.json,
+│       │   BeeRoutingAlgorithm.json, BlockchainMonitor.json, BlockchainRegistry.json,
+│       │   BlockchainRegistryBase.json, BCADN.json, CarbonCreditMarket.json,
+│       │   ChaCha20Poly1305.json, CityEmissionsContract.json, CityHealthCalculator.json,
+│       │   CityRegister.json, ClimateReductionContract.json, ClusterCommunication.json,
+│       │   ClusterManager.json, CompanyRegister.json, ConfidenceScoreCalculator.json,
+│       │   Context.json, Counters.json, ERC165.json, ERC20.json, FixedPointMath.json,
+│       │   IAccessControl.json, ICreditMarketContract.json, IERC165.json, IERC20.json,
+│       │   IERC20Metadata.json, IRewardCalculator.json, IUncertaintyAnalytics.json,
+│       │   IUniswapV2Router01.json, IUniswapV2Router02.json, IZKPVerifier.json,
+│       │   Math.json, MerkleTreeLib.json, MetadataParser.json, MitigationContract.json,
+│       │   NodeTypes.json, Ownable.json, PacechainChannel.json, PasschainValidator.json,
+│       │   Pausable.json, ProofGenerator.json, ProofOfStakeValidator.json,
+│       │   ReceivingBlockchainInterface.json, ReentrancyGuard.json, RelayTypes.json,
+│       │   RenewalTheoryContract.json, RequestManager.json, ResponseManager.json,
+│       │   RewardBase.json, RewardCalculator.json, RewardDistributor.json,
+│       │   RewardToken.json, SafeMath.json, SignedMath.json,
+│       │   SpeculativeTransactionHandler.json, StateManager.json, Strings.json,
+│       │   TemperatureRenewalContract.json, TransactionRelay.json,
+│       │   TransactionTypes.json, TransactionValidator.json, UncertaintyAnalytics.json,
+│       │   ZKPVerifierBase.json
+│       └── (NOTE: no GridStabilityOracle/GridResponsiveAMM/TimeWeightedAMM/
+│            EnergyTokenVault artifacts listed here yet — build/ output for the
+│            energygrid contracts likely needs a fresh compile+artifact export)
+│
 ├── components/
 │   ├── BlockchainContext.tsx
 │   ├── ClientInit.tsx
 │   ├── GlobalErrorHandler.tsx
 │   ├── PerformanceMetrics.tsx
 │   └── TransactionForm.tsx
+│
 ├── config/
-│   ├── contract_addresses.json
+│   ├── contract_addresses.json        ← likely where CONTRACT_ADDRESSES belongs
 │   ├── network_config.d.ts
 │   ├── network_config.js
 │   └── tatum-config.ts
+│
 ├── constants/
 │   └── constants.js
+│
 ├── contracts/
 │   ├── BCADN/
 │   │   ├── BCADN.sol
@@ -108,6 +68,34 @@ BlockchainIndustrialPlatform/
 │   │   ├── MitigationContract.sol
 │   │   ├── RenewalTheoryContract.sol
 │   │   └── TemperatureRenewalContract.sol
+│   │
+│   ├── energygrid/                    ← OLDER copy (from terminal capture; not
+│   │   │                                 yet in the maintained reference doc)
+│   │   ├── EnergyMath.sol
+│   │   ├── EnergyMathTW.sol
+│   │   ├── EnergyToken.sol
+│   │   ├── EnergyTokenVault.sol
+│   │   ├── GridResponsiveAMM.sol
+│   │   ├── GridStabilityOracle.sol
+│   │   ├── IEnergyToken.sol
+│   │   ├── IEnergyVault.sol
+│   │   ├── IGridOracle.sol
+│   │   └── TimeWeightedAMM.sol
+│   │
+│   ├── energygridcontract2/           ← ACTIVE copy, fixed files go here
+│   │   ├── DEPLOYMENT_GUIDE.md
+│   │   ├── EnergyMath.sol
+│   │   ├── EnergyMathTW.sol
+│   │   ├── EnergyToken.sol             (stray duplicate — not a real token, ignore)
+│   │   ├── EnergyTokenVault.sol
+│   │   ├── energytokenvaultaddress.txt ← likely holds the new deployed Vault address
+│   │   ├── GridResponsiveAMM.sol
+│   │   ├── GridStabilityOracle.sol
+│   │   ├── IEnergyToken.sol
+│   │   ├── IEnergyVault.sol
+│   │   ├── IGridOracle.sol
+│   │   └── TimeWeightedAMM.sol
+│   │
 │   ├── passchain/
 │   │   ├── ClusterManager.sol
 │   │   ├── MetadataParser.sol
@@ -115,30 +103,71 @@ BlockchainIndustrialPlatform/
 │   │   ├── RewardCalculator.sol
 │   │   ├── RewardToken.sol
 │   │   └── ZKPVerifierBase.sol
+│   ├── passchain 2/                   (from terminal capture)
+│   │   ├── ClusterManager2.sol
+│   │   ├── MetadataParser2.sol
+│   │   ├── PacechainChannel2.sol
+│   │   ├── RewardCalculator2.sol
+│   │   ├── RewardToken2.sol
+│   │   └── ZKPVerifierBase2.sol
+│   ├── SecondN2NContracts/             (from terminal capture)
+│   │   ├── ABATLTranslation.sol
+│   │   ├── ClusteringContract.sol
+│   │   ├── NIASRegistry.sol
+│   │   ├── NIDRegistry.sol
+│   │   └── SequencePathRouter.sol
 │   ├── relay/
 │   │   └── RelayChain.sol
+│   ├── stream/                        (from terminal capture)
+│   │   ├── StreamCore.sol
+│   │   └── StreamTransactionManager.sol
+│   ├── transaction/                    (from terminal capture)
+│   │   └── congestion.sol
+│   ├── Uncertainty Smart Contracts/    (from terminal capture)
+│   │   ├── IUncertaintyAnalytics.sol
+│   │   ├── RequestManager.sol
+│   │   ├── ResponseManager.sol
+│   │   ├── UncertaintyAnalytics.sol
+│   │   └── UncertaintyAnalyticsHere.sol
+│   ├── vehicle/                        (from terminal capture)
+│   │   ├── IVehicleRegistry.sol
+│   │   ├── RevocationManager.sol
+│   │   └── VehicleRegistry.sol
+│   ├── virtualchain/                   (from terminal capture)
+│   │   └── SimpleServiceNodeManager.sol
+│   ├── modelcontext/                   (from terminal capture)
+│   │   └── UISContracts.sol
+│   ├── ClimateRegulationContract.sol
 │   ├── RequestManager.sol
 │   ├── ResponseManager.sol
 │   └── UncertaintyAnalytics.sol
+│
 ├── contexts/
 │   └── TransactionContext.tsx
+│
 ├── data/
 │   └── carbonmonitor-cities_datas_2025-01-13.csv
+│
 ├── interfaces/
 │   └── IUncertaintyAnalytics.sol
+│
 ├── library/
 │   ├── FixedPointMath.sol
 │   └── TransactionTypes.sol
+│
 ├── migrations/
 │   ├── 1_initial_migration.js
 │   ├── 2_deploy_contracts.js
-│   └── (multiple initial migration files)
+│   └── (additional migration files)
+│
 ├── pages/
 │   ├── app.tsx
 │   └── api/
+│
 ├── passchain/
 │   └── LICENSE
-├── passchain_cloud/                           # ✨ NEW CLOUD DEPLOYMENT DIRECTORY
+│
+├── passchain_cloud/
 │   ├── .dockerignore
 │   ├── .env
 │   ├── cloud_deployment_orchestrator.sh
@@ -152,211 +181,172 @@ BlockchainIndustrialPlatform/
 │   ├── passchain_cloud_validator.js
 │   ├── Passchain_New_Project_Setup.md
 │   └── README.md
-├── path/
-│   └── to/
-│       └── project/
-│           └── logs/
-│               └── blockchain_development.log
+│
+├── path/to/project/logs/
+│   └── blockchain_development.log
+│
 ├── pays_analysis_charts/
-│   ├── chart_10_experimental_info.png
-│   ├── chart_1_performance_metrics_comparison.png
-│   ├── chart_2_baseline_connection_time.png
-│   ├── chart_3_confidence_score_distribution.png
-│   ├── chart_4_performance_under_network_load.png
-│   ├── chart_5_accuracy_vs_network_load.png
-│   ├── chart_6_pays_performance_improvements.png
-│   ├── chart_7_dual_transaction_architecture.png
-│   ├── chart_8_network_cost_distribution.png
-│   └── chart_9_performance_summary.png
-├── python/                                    # 🔧 SIGNIFICANTLY EXPANDED
-│   ├── BCADN.py
-│   ├── BCADN2.py
-│   ├── benchmarkcompare.py                   # ✨ NEW
-│   ├── climatecomparisonvisualization.py
-│   ├── climatevisualization.py
-│   ├── congestion.py                         # ✨ NEW
-│   ├── dataengineering.py                    # ✨ NEW
-│   ├── generate_figures.py                   # ✨ NEW
-│   ├── generate_visualizations.py
-│   ├── hermas.py                            # ✨ NEW
-│   ├── hermas2.py                           # ✨ NEW
-│   ├── hermas3.py                           # ✨ NEW
-│   ├── hermas4.py                           # ✨ NEW
-│   ├── hermas5.py                           # ✨ NEW
-│   ├── modelcompresults.py                   # ✨ NEW
-│   ├── modelcontextcompvisual.py            # ✨ NEW
-│   ├── n2ndeploymentvisuals.py
-│   ├── n2ngraph.txt
-│   ├── n2nvisualization.py
-│   ├── n2nvisualizationagain.py
-│   ├── n2nvisualizationcleaner.py
-│   ├── passchainbiggergraph.py
-│   ├── passchainefficiencychart.py
-│   ├── passchaintransmission.py
-│   ├── passchainvisualchart.py
-│   ├── passvisual.py
-│   ├── putra1.py                            # ✨ NEW
-│   ├── putra2.py                            # ✨ NEW
-│   ├── putra3.py                            # ✨ NEW
-│   ├── putra4.py                            # ✨ NEW
-│   ├── rekshare.py                          # ✨ NEW
-│   ├── SBCPBenchmark.py                     # ✨ NEW
-│   ├── SBCPComp.py
-│   ├── SBCPCompBackup.py
-│   ├── SBCPConsensus.py                     # ✨ NEW
-│   ├── SBCPCore.py
-│   ├── SBCPDist.py
-│   ├── SBCPDistBackup.py
-│   ├── SBCPEvaluationEngine.py
-│   ├── SBCPEvaluationEngine2.py
-│   ├── SBCPTest.py
-│   ├── SBCPValid.py
-│   ├── SBCPVisual.py                        # ✨ NEW
-│   ├── sbcp_enhanced_experiment.py          # ✨ NEW
-│   ├── sbcp_enhanced_network.py             # ✨ NEW
-│   ├── sequencerouterpath.py
-│   ├── sequencerpath.py.py
-│   ├── test_n2n_routing.py
-│   ├── uncertainty.py
-│   ├── virtualaccross.py
-│   ├── virtualcrossbenchmarking.py          # ✨ NEW
-│   ├── virtualcrosschainvisuals.py
+│   └── chart_1..chart_10_*.png
+│
+├── pseudoscript/                       (from terminal capture)
+│   └── UISTestscript
+│
+├── python/
+│   ├── BCADN.py, BCADN2.py, benchmarkcompare.py, climatecomparisonvisualization.py,
+│   │   climatevisualization.py, congestion.py, dataengineering.py, generate_figures.py,
+│   │   generate_visualizations.py, hermas.py..hermas5.py, modelcompresults.py,
+│   │   modelcontextcompvisual.py, n2ndeploymentvisuals.py, n2ngraph.txt,
+│   │   n2nvisualization.py, n2nvisualizationagain.py, n2nvisualizationcleaner.py,
+│   │   passchainbiggergraph.py, passchainefficiencychart.py, passchaintransmission.py,
+│   │   passchainvisualchart.py, passvisual.py, putra1.py..putra4.py, rekshare.py,
+│   │   SBCPBenchmark.py, SBCPComp.py, SBCPCompBackup.py, SBCPConsensus.py, SBCPCore.py,
+│   │   SBCPDist.py, SBCPDistBackup.py, SBCPEvaluationEngine.py, SBCPEvaluationEngine2.py,
+│   │   SBCPTest.py, SBCPValid.py, SBCPVisual.py, sbcp_enhanced_experiment.py,
+│   │   sbcp_enhanced_network.py, sequencerouterpath.py, sequencerpath.py.py,
+│   │   test_n2n_routing.py, uncertainty.py, virtualaccross.py,
+│   │   virtualcrossbenchmarking.py, virtualcrosschainvisuals.py
+│   │
+│   │   (also present per terminal capture, not in the reference doc's python/ list:)
+│   ├── Aunet Benchmark Comparison.py, Aunet Validation.py, aunet_validationfirst.py,
+│   │   config.py, data_generators.py, energygrid1.py, energygrid2.py, main_experiment.py,
+│   │   metrics_collector.py, processing_pipeline.py, revchain_plots.py,
+│   │   passchaintestactive.py
+│   │
+│   ├── Aunet Result Figures/
+│   │   └── fig1..fig8_*.pdf/.png
+│   ├── nexOS/
+│   │   ├── blockchain_sim.py, config.py, data_generators.py, main_experiment.py,
+│   │   │   metrics_collector.py, nextosbenchmark.py, processing_pipeline.py
+│   │   └── results/benchmarks/
+│   │       ├── benchmark_results.json, benchmark_table.tex
+│   │       └── figures/ fig1..fig6_*.pdf/.png
 │   └── __pycache__/
-│       ├── blockchainworkflow.cpython-313.pyc
-│       ├── climatemodule.cpython-313.pyc
-│       ├── companymodule.cpython-313.pyc
-│       ├── emmissionsmodule.cpython-313.pyc
-│       ├── healthmodule.cpython-313.pyc
-│       ├── renewalmodule.cpython-313.pyc
-│       ├── SBCPCore.cpython-313.pyc         # ✨ NEW
-│       ├── sbcp_enhanced_network.cpython-313.pyc  # ✨ NEW
-│       └── __init__.cpython-313.pyc
+│       ├── blockchainworkflow.cpython-313.pyc, climatemodule.cpython-313.pyc,
+│       │   companymodule.cpython-313.pyc, emmissionsmodule.cpython-313.pyc,
+│       │   healthmodule.cpython-313.pyc, renewalmodule.cpython-313.pyc,
+│       │   SBCPCore.cpython-313.pyc, sbcp_enhanced_network.cpython-313.pyc,
+│       │   __init__.cpython-313.pyc
+│
 ├── renewal_vs_bcprp_comparison/
-│   ├── a_nre_gametheory_behavioral_comparison.pdf
-│   ├── a_nre_gametheory_behavioral_comparison.png
-│   ├── b_temperature_reduction_comparison.pdf
-│   ├── b_temperature_reduction_comparison.png
-│   ├── c_carbon_emission_reward_comparison.pdf
-│   ├── c_carbon_emission_reward_comparison.png
-│   ├── d_behavioral_rewards_comparison.pdf
-│   ├── d_behavioral_rewards_comparison.png
-│   ├── e_cities_climate_improvements_comparison.pdf
-│   ├── e_cities_climate_improvements_comparison.png
-│   ├── f_regulatory_compliance_comparison.pdf
-│   ├── f_regulatory_compliance_comparison.png
-│   ├── g_direct_climate_impact_comparison.pdf
-│   ├── g_direct_climate_impact_comparison.png
-│   ├── h_climate_modeling_integration_comparison.pdf
-│   └── h_climate_modeling_integration_comparison.png
-├── repository/
+│   └── a..h_*_comparison.pdf/.png
+│
+├── repository/                         (empty)
+│
 ├── results/
+│   ├── revchain_2026-02-11T14-57-04-992Z.json  (+ 3 similar timestamped files, per terminal capture)
 │   ├── bcadn_analysis/
-│   │   ├── network_analysis.json
-│   │   ├── network_analysis.png
-│   │   ├── network_metrics.png
-│   │   ├── network_performance.png
-│   │   └── network_results.json
-│   └── n2n_bcadn_integration/
+│   │   ├── network_analysis.json, network_analysis.png, network_metrics.png,
+│   │   │   network_performance.png, network_results.json
+│   ├── benchmarks/                     (per terminal capture)
+│   │   ├── benchmark_results.json, benchmark_table.tex
+│   │   └── figures/ fig1..fig6_*.pdf/.png
+│   ├── data/                           (per terminal capture)
+│   │   ├── unified_data.json
+│   │   └── raw/ org1-4 sample medical/market/sensor/document data
+│   ├── energy_amm_experiments/         (per terminal capture)
+│   │   └── data/ base_amm_results.json, time_weighted_results.json
+│   ├── n2n_bcadn_integration/          (empty)
+│   └── reports/                        (per terminal capture)
+│       ├── NEXOS_EXP_20251202_* metrics/report/results files
+│       └── figures/ fig1..fig8_*.pdf/.png
+│
+├── results_figures/                    (from terminal capture)
+│   └── fig_byzantine_consensus, fig_complexity_comparison, fig_gas_consumption,
+│       fig_reputation_evolution, fig_verification_pipeline (.pdf/.png)
+│
+├── revchain-results/                   (from terminal capture)
+│   ├── latest_session.json
+│   └── session_2026-02-*/ (4 timestamped sessions)
+│       └── blockHeaderValidation.json, complete_results.json, contractState.json,
+│           performanceMetrics.json, registration.json, revocation.json, SUMMARY.txt
+│
+├── sbcp_proof_results/                 (from terminal capture)
+│   └── byzantine_fault_tolerance.png, confidence_evolution.png, throughput_scaling.png
+│
 ├── sbcp_validation_results/
-│   ├── sbcp_validation_plots.png
-│   ├── sbcp_validation_report.txt
-│   └── sbcp_validation_results.json
+│   └── sbcp_validation_plots.png, sbcp_validation_report.txt, sbcp_validation_results.json
+│
 ├── services/
 │   └── tatum-blockchain-service.ts
+│
 ├── service_node_results/
-│   ├── data/
-│   ├── figures/
-│   │   ├── cross_chain_transaction_network.png
-│   │   ├── gas_efficiency_analysis.png
-│   │   ├── multi_chain_routing_analysis.png
-│   │   └── service_node_registration_analysis.png
-│   ├── individual_pdf_figures/
-│   │   ├── 01_gas_consumption_by_industry.pdf
-│   │   ├── 02_stake_vs_processing_time.pdf
-│   │   ├── 03_processing_fee_distribution.pdf
-│   │   ├── 04_gas_efficiency_scores.pdf
-│   │   ├── 05_cross_chain_network_topology.pdf
-│   │   ├── 06_gas_vs_fees_analysis.pdf
-│   │   ├── 07_transaction_success_rate.pdf
-│   │   ├── 08_protocol_performance_matrix.pdf
-│   │   ├── 09_gas_consumption_breakdown.pdf
-│   │   ├── 10_transaction_costs_by_industry.pdf
-│   │   ├── 11_processing_time_vs_gas_correlation.pdf
-│   │   ├── 12_system_performance_overview.pdf
-│   │   ├── 13_multi_chain_routing_matrix.pdf
-│   │   └── 14_system_scalability_projection.pdf
-│   ├── latex_tables/
-│   │   ├── contract_deployment.tex
-│   │   ├── cross_chain_transactions.tex
-│   │   └── node_registration.tex
-│   ├── pdf_figures/
-│   │   ├── cross_chain_transaction_network.pdf
-│   │   ├── gas_efficiency_analysis.pdf
-│   │   ├── multi_chain_routing_analysis.pdf
-│   │   └── service_node_registration_analysis.pdf
-│   ├── processed_data/
-│   └── tables/
-│       ├── contract_deployment.tex
-│       ├── cross_chain_transactions.tex
-│       └── node_registration.tex
+│   ├── data/, figures/, individual_pdf_figures/, latex_tables/, pdf_figures/,
+│   │   processed_data/, tables/
+│
 ├── strebacom_benchmark_results/
-│   ├── comprehensive_benchmarks.json
-│   ├── latency_measurements.json
-│   ├── performance_analytics.json
-│   ├── scalability_analysis.json
-│   └── throughput_benchmarks.json
+│   └── comprehensive_benchmarks.json, latency_measurements.json,
+│       performance_analytics.json, scalability_analysis.json, throughput_benchmarks.json
+│
 ├── strebacom_cloud/
-│   ├── cloud_deployment_orchestrator.py
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   ├── strebacom_cloud_config.py
-│   └── strebacom_cloud_validator.py
+│   ├── cloud_deployment_orchestrator.py, Dockerfile, requirements.txt,
+│   │   strebacom_cloud_config.py, strebacom_cloud_validator.py
+│   │   (terminal capture also shows: .py config, validation report/results, local_validator.py)
+│
 ├── strebacom_experiment_results/
-│   ├── performance_data.json
-│   └── strebacom_comprehensive_results.json
-├── test/                                      # 🔧 SIGNIFICANTLY EXPANDED
-│   
-    BCADN.js
-    bCADNshort.js
-    blockstream.js
-    carbon-data-processor.js
-    congestion.js
-    consensus_validation_results.json
-    crosschainintergration.ts
-    energy_amm_minimal.js
-    experiment_state.json
-    fullgridtest.js
-    gridstability2.js
-    gridstabilitytest.js
-    gridtest2.js
-    ieeevalidationfinal.js
-    ieee_validation_results.json
-    ieee_validation_results_final.json
-    layer1_experiment_state.json
-    modelcontextcompare.js
-    n2n-charts-generator.js
-    n2nrislivetestsuite.js
-    oracle.js
-    paper_validation.js
-    passchaintest.js
-    passchaintest2.js
-    passchaintest_V2.js
-    passchain_flow_test.js
-    passchain_story_test.js
-    run-climate-regulation-experiment.js
-    servicenodes.js
-    setup_liquidity.js
-    streambasedconsensus.js
-    streamcharge.js
-    streamscript.js
-    strebacom-simulation.js
-    strebacom_experiment_state.json
-    timeweight.js
-    UISTest.js
-    uncertainty.js
+│   └── performance_data.json, strebacom_comprehensive_results.json
+│
+├── test/
+│   ├── BCADN.js
+│   ├── bCADNshort.js
+│   ├── blockstream.js
+│   ├── carbon-data-processor.js
+│   ├── congestion.js
+│   ├── consensus_validation_results.json     (unrelated project — consensus benchmark)
+│   ├── crosschainintergration.ts
+│   ├── DATA_INTEGRITY_MEMO.md                ← our load-shifting fix memo
+│   ├── diagnosis.js                          (terminal capture only)
+│   ├── energy_amm_minimal.js
+│   ├── experiment_state.json                 (unrelated project — carbon-credit experiment)
+│   ├── fullgridtest.js                       (real on-chain grid validation script)
+│   ├── generate_scenarios_V2.js              ← our fixed load-shifting generator (terminal capture only)
+│   ├── generate_synthetic_scenarios.js       (terminal capture only — original, unfixed)
+│   ├── gridstability2.js
+│   ├── gridstabilitytest.js
+│   ├── gridtest2.js
+│   ├── ieeevalidationfinal.js
+│   ├── ieee_validation_results.json          (both logged live runs errored, transactions: [])
+│   ├── ieee_validation_results_final.json
+│   ├── layer1_experiment_state.json
+│   ├── modelcontextcompare.js
+│   ├── n2n-charts-generator.js
+│   ├── n2nrislivetestsuite.js
+│   ├── oracle.js                             (terminal capture only)
+│   ├── paper_validation.js
+│   ├── paper_validation_summary.json         (terminal capture only)
+│   ├── passchaintest.js
+│   ├── passchaintest2.js
+│   ├── passchaintest_V2.js
+│   ├── passchain_flow_test.js
+│   ├── passchain_story_test.js
+│   ├── results_latex_table.tex               (terminal capture only)
+│   ├── run-climate-regulation-experiment.js
+│   ├── run_paired_scenarios.js               ← our load-shifting driver (terminal capture only)
+│   ├── servicenodes.js
+│   ├── setup_liquidity.js                    ← may be reusable for addLiquidity step
+│   ├── streambasedconsensus.js
+│   ├── streamcharge.js
+│   ├── streamscript.js
+│   ├── strebacom-simulation.js
+│   ├── strebacom_experiment_state.json
+│   ├── synthetic_transactions_520.json       (terminal capture only — original dataset)
+│   ├── table4_replacement.csv/.json/.tex     (terminal capture only)
+│   ├── timeweight.js
+│   ├── transactions_520.csv                  (terminal capture only)
+│   ├── UISTest.js
+│   ├── uncertainty.js
+│   ├── vehicle.js, vehicle2.js                (terminal capture only)
+│   │
+│   └── results_v2/                           (terminal capture only — our fix output)
+│       ├── baseline_run_illustrative.json
+│       ├── New Text Document.txt              (empty)
+│       ├── table4_replacement.csv/.json/.tex
+│       ├── tableoutputfromconsole.txt
+│       └── treatment_run_illustrative.json
+│
 ├── utils/
 │   ├── contract-loader.ts
 │   └── logger.ts
+│
 ├── .eslintrc.json
 ├── deployment-script.js
 ├── global.d.ts
@@ -365,70 +355,10 @@ BlockchainIndustrialPlatform/
 ├── package-config.json
 ├── package-lock.json
 ├── package.json
-├── project-setup 2 
+├── project-setup 2
 ├── sample_data.csv
 ├── sample_nodes.csv
-├── sample_attacks.csv 
+├── sample_attacks.csv
 ├── truffle-config.js
 ├── tsconfig.json
 └── yarn.lock
-```
-
-## Key Changes & Additions
-
-### ✨ New Directory: `passchain_cloud/`
-- Complete cloud deployment infrastructure
-- Docker configuration and orchestration scripts
-- Deployment guides and documentation
-- Cloud service validators and configuration
-
-### 🔧 Expanded `python/` Directory
-**New Analysis & Benchmarking Scripts:**
-- `benchmarkcompare.py` - Performance benchmarking comparisons
-- `congestion.py` - Network congestion analysis
-- `dataengineering.py` - Data processing and engineering tools
-- `generate_figures.py` - Figure generation utilities
-
-**New Hermas Series Scripts:**
-- `hermas.py` through `hermas5.py` - Advanced analysis modules
-
-**New Model Comparison Tools:**
-- `modelcompresults.py` - Model comparison results
-- `modelcontextcompvisual.py` - Context comparison visualizations
-
-**New Putra Series Scripts:**
-- `putra1.py` through `putra4.py` - Research modules
-
-**Enhanced SBCP Tools:**
-- `SBCPBenchmark.py` - SBCP benchmarking
-- `SBCPConsensus.py` - Consensus mechanism implementation
-- `SBCPVisual.py` - SBCP visualization tools
-- `sbcp_enhanced_experiment.py` - Enhanced experimentation
-- `sbcp_enhanced_network.py` - Enhanced network capabilities
-
-**Additional Utilities:**
-- `rekshare.py` - Resource sharing mechanisms
-- `virtualcrossbenchmarking.py` - Cross-chain benchmarking
-
-### 🔧 Expanded `test/` Directory
-**New Test Files:**
-- `congestion.js` - Network congestion testing
-- `crosschainintergration.ts` - Cross-chain integration tests
-- `layer1_experiment_state.json` - Layer 1 experiment state tracking
-- `modelcontextcompare.js` - Model context comparison tests
-- `passchaintest.js`, `passchaintest2.js`, `passchaintest_V2.js` - PassChain test suites
-- `UISTest.js` - User interface system tests
-
-
-## Project Evolution Summary
-
-Your project has evolved significantly with:
-
-1. **Cloud Infrastructure**: Complete deployment and orchestration capabilities
-2. **Enhanced Analytics**: Comprehensive benchmarking and visualization tools
-3. **Advanced Testing**: Expanded test coverage for PassChain and cross-chain integration
-4. **Research Modules**: New analysis frameworks (Hermas, Putra series)
-5. **SBCP Enhancements**: Stream-Based Consensus Protocol improvements
-6. **Performance Monitoring**: Advanced congestion and model comparison tools
-
-This structure reflects a mature blockchain platform with comprehensive testing, analytics, and deployment capabilities for your PAYS (PassChains At Your Service) system.
