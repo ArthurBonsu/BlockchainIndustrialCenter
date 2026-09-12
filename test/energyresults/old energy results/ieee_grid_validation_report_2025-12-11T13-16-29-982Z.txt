@@ -1,0 +1,69 @@
+
+IEEE TII PAPER - GRID STABILITY VALIDATION REPORT
+Generated: 2025-12-11T13:16:29.983Z
+Network: Ethereum Sepolia Testnet
+Contract: 0x0d615902ba261356666d69ec4c5a453671b65783
+
+═══════════════════════════════════════════════════════════════════
+
+VALIDATION RESULTS
+
+Paper Contribution: Grid Stability-Responsive System
+Paper Section: IV.A.1 | Equation: (11)
+
+═══════════════════════════════════════════════════════════════════
+
+TEST CASE 1: STABLE GRID CONDITIONS
+────────────────────────────────────
+Frequency: 50 Hz (nominal)
+Voltage: 230 V (nominal)
+Grid Score G(t): 1.0000
+Transaction: 0xd8bed0d753715188671ea1479058fea382238c30a86f46bf2faf246e7655aab4
+Block: 0x95cd22
+Gas Used: 152,514 wei
+
+TEST CASE 2: MINOR GRID STRESS
+────────────────────────────────────
+Frequency: 49.5 Hz (-1.0% deviation)
+Voltage: 225 V (-2.2% deviation)
+Grid Score G(t): 0.9853
+Change from Stable: 1.5% decrease
+Transaction: 0x41ebd5a8c9c73aba43b928dc54534fc7192f6a7f6ea2e795655ad910b00e3fc8
+Block: 0x95cd23
+Gas Used: 143,814 wei
+
+TEST CASE 3: SIGNIFICANT GRID STRESS
+────────────────────────────────────
+Frequency: 49 Hz (-2.0% deviation)
+Voltage: 220 V (-4.3% deviation)
+Grid Score G(t): 0.9706
+Change from Stable: 2.9% decrease
+Transaction: 0xa2a652d07fa9d52993877dbcb56d403578d2dac640797204c80f585f5a04ce78
+Block: 0x95cd24
+Gas Used: 143,814 wei
+
+═══════════════════════════════════════════════════════════════════
+
+VALIDATION SUMMARY
+
+✅ Grid stability score G(t) correctly computed from f(t) and V(t)
+✅ System detects grid stress events in real-time
+✅ Score decreases monotonically with grid degradation
+✅ Three distinct operational states validated
+✅ All transactions permanently recorded on blockchain
+
+Total Gas Used: 440,142 wei
+
+═══════════════════════════════════════════════════════════════════
+
+FOR IEEE PAPER
+
+This validation demonstrates that Equation (11) correctly computes
+the grid stability score G(t) from real-time frequency and voltage
+measurements. The system successfully detected and quantified three
+distinct grid operational states, with G(t) decreasing from 1.000
+(stable) to 0.985 (minor stress) to 0.971 (significant stress).
+
+All results are verifiable on-chain via the provided transaction hashes.
+
+═══════════════════════════════════════════════════════════════════

@@ -1,0 +1,9 @@
+{
+  "contractAddress": "0x644dad7662e9cccdefd1aff0ab8f3e1ae685bd26",
+  "workingFunctions": [],
+  "failedFunctions": [],
+  "timeWeightedParams": {},
+  "validation": {
+    "failed": true
+  }
+}

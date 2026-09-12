@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "startedAt": "2026-09-12T21:52:57.983Z",
+    "network": "Sepolia",
+    "contracts": {
+      "EnergyTokenRE": "0xa78fc8e55a017cb5659476f6d67fe77c22b4c59a",
+      "EnergyTokenNRE": "0x8b8d7b0d8f38488f56454337205e269c20892e6c",
+      "EnergyTokenVault": "0x623ba68eb8c93d6204f449d1a2596078d094b13f",
+      "GridStabilityOracle": "0x9580429807f611a286255ff325e7c6812343d340",
+      "TimeWeightedAMM": "0xd85499cb852d582a26570f1c2b391c513ace78a2",
+      "GridResponsiveAMM": "0x99edf88047f58196d73528eb1e76abe7ed7f0b2e"
+    },
+    "note": "Genuine on-chain execution against the fixed/redeployed contracts. Every entry below reflects a real transaction or a real read; failures are recorded, not hidden.",
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  },
+  "setup": {
+    "setAuthorizedCaller_TWAMM": {
+      "label": "setAuthorizedCaller_TWAMM",
+      "success": true,
+      "elapsedMs": 17254,
+      "txHash": "0x8c21086c74c5379891ac08676805d1e39593dfc15dd4b75b5fd43b1b907e8770",
+      "blockNumber": 11691657,
+      "gasUsed": 28446
+    },
+    "setAuthorizedCaller_GRAMM": {
+      "label": "setAuthorizedCaller_GRAMM",
+      "success": true,
+      "elapsedMs": 7661,
+      "txHash": "0xf4a0b5a3b7da3f9fbccba7b543a29221ab1f0d2f3cbecf86121b740a114fafef",
+      "blockNumber": 11691658,
+      "gasUsed": 28446
+    },
+    "vault_approveSpender_TWAMM": {
+      "label": "vault_approveSpender_TWAMM",
+      "success": true,
+      "elapsedMs": 15528,
+      "txHash": "0xde13cae854a3c81573819871a606da31655cbef6e873ec194f3154b4ec7f6c36",
+      "blockNumber": 11691659,
+      "gasUsed": 44970
+    },
+    "vault_approveSpender_GRAMM": {
+      "label": "vault_approveSpender_GRAMM",
+      "success": true,
+      "elapsedMs": 8864,
+      "txHash": "0x8769cef5f5a4c12f267c3809d852eed32120acc1b08774617a56b0d04639e29c",
+      "blockNumber": 11691660,
+      "gasUsed": 44970
+    },
+    "ownerApprove_Vault_RE": {
+      "label": "ownerApprove_Vault_RE",
+      "success": true,
+      "elapsedMs": 12577,
+      "txHash": "0x305189a2ec376efeada9cfbf46f9f2b45f49b479dbdc0404a2e56e194660e40b",
+      "blockNumber": 11691661,
+      "gasUsed": 27340
+    },
+    "ownerApprove_TWAMM_RE": {
+      "label": "ownerApprove_TWAMM_RE",
+      "success": true,
+      "elapsedMs": 12927,
+      "txHash": "0x4a4a991a4e864d29f469d564f0a0bcfa6bfe2cd28249cb6d38734bce9d2b80b3",
+      "blockNumber": 11691662,
+      "gasUsed": 27340
+    },
+    "ownerApprove_GRAMM_RE": {
+      "label": "ownerApprove_GRAMM_RE",
+      "success": true,
+      "elapsedMs": 11713,
+      "txHash": "0x60687eacec07d34bb6d9f55ea2bb3d262c7bca4ab536102a968907c324da3a2b",
+      "blockNumber": 11691663,
+      "gasUsed": 27340
+    },
+    "ownerApprove_Vault_NRE": {
+      "label": "ownerApprove_Vault_NRE",
+      "success": true,
+      "elapsedMs": 11447,
+      "txHash": "0x2eb491ce9bd832e23624a73fa0237f535206b5305586756e0730fb5a2cb32593",
+      "blockNumber": 11691664,
+      "gasUsed": 27340
+    },
+    "ownerApprove_TWAMM_NRE": {
+      "label": "ownerApprove_TWAMM_NRE",
+      "success": true,
+      "elapsedMs": 12608,
+      "txHash": "0x5a8945484dc7978cd3c5d947c7ba5bc4772ca60c30ed199cd1f2ae28876a1947",
+      "blockNumber": 11691665,
+      "gasUsed": 27340
+    },
+    "ownerApprove_GRAMM_NRE": {
+      "label": "ownerApprove_GRAMM_NRE",
+      "success": true,
+      "elapsedMs": 11697,
+      "txHash": "0x36831651c800b89e57306745a629937196f4dc2f05432c5e6f78046634a80aeb",
+      "blockNumber": 11691666,
+      "gasUsed": 27340
+    },
+    "addLiquidity": {
+      "label": "addLiquidity",
+      "skipped": true,
+      "reason": "vault already has reserves",
+      "reserveRE": "1019999999999999999986",
+      "reserveNRE": "1019999999999999999988"
+    }
+  },
+  "oracle": {
+    "readConstants": {
+      "label": "readConstants",
+      "success": true,
+      "elapsedMs": 755,
+      "value": {
+        "nominalFrequency": "60000",
+        "nominalVoltage": "120000",
+        "gThreshold": "850000000000000000"
+      }
+    },
+    "updateCondition_normal": {
+      "label": "updateCondition_normal",
+      "success": true,
+      "elapsedMs": 11106,
+      "txHash": "0x7f74cff3b0f60e60f54e4a0e7f4fe2d385fcbb586c60f46be41c6c0e4ef53f83",
+      "blockNumber": 11691667,
+      "gasUsed": 141611
+    },
+    "readScore_normal": {
+      "label": "readScore_normal",
+      "success": true,
+      "elapsedMs": 518,
+      "value": {
+        "score": "1000000000000000000",
+        "isStressed": false
+      }
+    },
+    "updateCondition_stress": {
+      "label": "updateCondition_stress",
+      "success": true,
+      "elapsedMs": 11280,
+      "txHash": "0xa3af40cde155f1099c8a2961ad613466e4156f5ddf1c7e244d169debaa13c8de",
+      "blockNumber": 11691668,
+      "gasUsed": 141487
+    },
+    "readScore_stress": {
+      "label": "readScore_stress",
+      "success": true,
+      "elapsedMs": 648,
+      "value": {
+        "score": "1000000000000000000",
+        "isStressed": false
+      }
+    }
+  },
+  "timeWeightedAMM": {
+    "swaps": [],
+    "configuredValues": {
+      "label": "configuredValues",
+      "success": true,
+      "elapsedMs": 1344,
+      "value": {
+        "tauPeak": "1350000000000000000",
+        "tauNormal": "1000000000000000000",
+        "tauOffPeak": "750000000000000000",
+        "currentPeriod": "peak",
+        "currentTau": "1350000000000000000"
+      }
+    },
+    "swap_0_RE_to_NRE": {
+      "label": "swap_0_RE_to_NRE",
+      "success": true,
+      "elapsedMs": 11174,
+      "txHash": "0x6f6efb2d05ad2c2897e912d83580bc49922d1d4947e1ee78c39e8515d99cc4e1",
+      "blockNumber": 11691669,
+      "gasUsed": 118229,
+      "amountIn": "5000000000000000000",
+      "gasPriceGwei": 1.003424783,
+      "txCostETH": 0.000118633908669307,
+      "txCostUSD": 0.37962850774178236
+    },
+    "swap_1_NRE_to_RE": {
+      "label": "swap_1_NRE_to_RE",
+      "success": true,
+      "elapsedMs": 10429,
+      "txHash": "0x2cf99caadc988b3885e422a40836a548896386129daea23bacc91d3275b419d1",
+      "blockNumber": 11691670,
+      "gasUsed": 118267,
+      "amountIn": "5000000000000000000",
+      "gasPriceGwei": 0.952123235,
+      "txCostETH": 0.000112604758633745,
+      "txCostUSD": 0.360335227627984
+    },
+    "swap_2_RE_to_NRE": {
+      "label": "swap_2_RE_to_NRE",
+      "success": true,
+      "elapsedMs": 34455,
+      "txHash": "0x75cbbb74ece2ce2f44c70fbb4f6f81fdc9cd7f2823b8cddafede2ff1849c109b",
+      "blockNumber": 11691673,
+      "gasUsed": 118229,
+      "amountIn": "5000000000000000000",
+      "gasPriceGwei": 1.07096678,
+      "txCostETH": 0.00012661933143262,
+      "txCostUSD": 0.405181860584384
+    },
+    "swap_3_NRE_to_RE": {
+      "label": "swap_3_NRE_to_RE",
+      "success": true,
+      "elapsedMs": 13210,
+      "txHash": "0xac9e7f3828f5118103acf73d5d20e3c75d7f06d54e191e5cca20b0b235beb3bf",
+      "blockNumber": 11691674,
+      "gasUsed": 118267,
+      "amountIn": "5000000000000000000",
+      "gasPriceGwei": 1.085918443,
+      "txCostETH": 0.000128428316498281,
+      "txCostUSD": 0.41097061279449915
+    },
+    "finalStatistics": {
+      "label": "finalStatistics",
+      "success": true,
+      "elapsedMs": 236,
+      "value": {
+        "totalSwapsRE": "4",
+        "totalSwapsNRE": "4",
+        "totalVolumeRE": "20000000000000000000",
+        "totalVolumeNRE": "20000000000000000000"
+      }
+    }
+  },
+  "gridResponsiveAMM": {
+    "swapsNormal": [
+      {
+        "label": "normal_swap_0_RE_to_NRE",
+        "success": true,
+        "elapsedMs": 11860,
+        "txHash": "0x1486d415767f05d47654ed70419fa71ecd1c8c086d5a1c2d6f0e4441bebb65f4",
+        "blockNumber": 11691676,
+        "gasUsed": 117787,
+        "gasPriceGwei": 1.004550703,
+        "txCostETH": 0.000118323013654261,
+        "txCostUSD": 0.3786336436936352
+      },
+      {
+        "label": "normal_swap_1_NRE_to_RE",
+        "success": true,
+        "elapsedMs": 14368,
+        "txHash": "0x9077b1b14a583ce3ef708531c318bdbbaa93afa910846d06670566656652101d",
+        "blockNumber": 11691677,
+        "gasUsed": 117795,
+        "gasPriceGwei": 0.932565405,
+        "txCostETH": 0.000109851541881975,
+        "txCostUSD": 0.35152493402232
+      }
+    ],
+    "swapsStressed": [
+      {
+        "label": "stressed_swap_0_RE_to_NRE",
+        "success": true,
+        "elapsedMs": 12208,
+        "txHash": "0x65ecb23eca91f5d1d147411d6097ac96402d24f27cb30a88a3b68e1c7c3fd012",
+        "blockNumber": 11691679,
+        "gasUsed": 146865,
+        "gasPriceGwei": 0.986861345,
+        "txCostETH": 0.000144935391433425,
+        "txCostUSD": 0.46379325258695997
+      },
+      {
+        "label": "stressed_swap_1_NRE_to_RE",
+        "success": true,
+        "elapsedMs": 11375,
+        "txHash": "0x1cd0cf98990b6b8e3c7b77f00970f257805360cf4b6c7bdb9d0fb28aa312d7e1",
+        "blockNumber": 11691680,
+        "gasUsed": 133012,
+        "gasPriceGwei": 1.110067793,
+        "txCostETH": 0.000147652337282516,
+        "txCostUSD": 0.4724874793040512
+      }
+    ],
+    "setNormal": {
+      "label": "setNormal",
+      "success": true,
+      "elapsedMs": 10414,
+      "txHash": "0x7833bffba2dcb1bd0030065342c5acb34b3522e1a7c20e69367c012ff78bc315",
+      "blockNumber": 11691675,
+      "gasUsed": 136011
+    },
+    "setStressed": {
+      "label": "setStressed",
+      "success": true,
+      "elapsedMs": 9244,
+      "txHash": "0xf9dc883d0ac42d3fe95a77276e675d31aac1982a8c20d79bfe8a8fe21763366e",
+      "blockNumber": 11691678,
+      "gasUsed": 143147
+    },
+    "finalStatistics": {
+      "label": "finalStatistics",
+      "success": true,
+      "elapsedMs": 751,
+      "value": {
+        "totalSwapsRE": "4",
+        "totalSwapsNRE": "4",
+        "swapsDuringStress": "4",
+        "accumulatedFees": "13500000000000000",
+        "totalGST": "300000000000000000"
+      }
+    },
+    "userGST": {
+      "label": "userGST",
+      "success": true,
+      "elapsedMs": 280,
+      "value": {
+        "gstBalance": "300000000000000000",
+        "energyDeferred": "10000000000000000000"
+      }
+    }
+  },
+  "summary": {
+    "totalOperations": 28,
+    "totalRealTransactions": 22,
+    "successCount": 27,
+    "failureCount": 0,
+    "successRatePct": 96.4,
+    "totalGasUsed": 1861579,
+    "avgGasUsed": 84617,
+    "finishedAt": "2026-09-12T21:57:48.551Z"
+  }
+}

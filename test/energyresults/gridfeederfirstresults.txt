@@ -1,0 +1,45 @@
+==============================================================================
+Done. 27/28 operations succeeded.
+Results written to onchain_validation_results.json
+==============================================================================
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test/verify_oracle_reads.js
+normal (block 11691112): score = 1, isStressed = false
+stress (block 11691113): score = 1, isStressed = false
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test/grid_feeder.js
+==============================================================================
+SYNTHETIC 24-HOUR GRID FEEDER -- GridStabilityOracle
+Seed: 20260913 (reproducible)
+==============================================================================
+Account: 0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+
+Hour 00: freq=59.966Hz, volt=120.272V (normal operation) ... G=0.983 
+Hour 01: freq=60.002Hz, volt=119.886V (normal operation) ... G=0.983 
+Hour 02: freq=59.953Hz, volt=120.195V (normal operation) ... G=0.981 
+Hour 03: freq=59.974Hz, volt=119.741V (normal operation) ... G=0.981 
+Hour 04: freq=59.983Hz, volt=119.888V (normal operation) ... G=0.992 
+Hour 05: freq=59.965Hz, volt=119.389V (normal operation) ... G=0.992 
+Hour 06: freq=60.04Hz, volt=120.063V (normal operation) ... G=0.986 
+Hour 07: freq=60.021Hz, volt=120.245V (normal operation) ... G=0.986 
+Hour 08: freq=60.018Hz, volt=120.183V (normal operation) ... G=0.990 
+Hour 09: freq=59.978Hz, volt=119.906V (normal operation) ... G=0.990 
+Hour 10: freq=59.981Hz, volt=120.095V (normal operation) ... G=0.992 
+Hour 11: freq=60.006Hz, volt=120.073V (normal operation) ... G=0.992 
+Hour 12: freq=59.991Hz, volt=120.554V (normal operation) ... G=0.983 
+Hour 13: freq=60.013Hz, volt=120.296V (normal operation) ... G=0.983 
+Hour 14: freq=59Hz, volt=120V (frequency-driven dip (generation loss)) ... G=0.700 [STRESSED]
+Hour 15: freq=60.045Hz, volt=119.782V (normal operation) ... G=0.700 [STRESSED]
+Hour 16: freq=60.014Hz, volt=120.044V (normal operation) ... G=0.995 
+Hour 17: freq=59.998Hz, volt=119.888V (normal operation) ... G=0.995 
+Hour 18: freq=59.981Hz, volt=120.182V (normal operation) ... G=0.990 
+Hour 19: freq=60.067Hz, volt=120.154V (normal operation) ... G=0.990 
+Hour 20: freq=60Hz, volt=108V (voltage-driven sag (evening peak brownout)) ... G=0.700 [STRESSED]
+Hour 21: freq=60.004Hz, volt=119.978V (normal operation) ... G=0.700 [STRESSED]
+Hour 22: freq=59.969Hz, volt=119.687V (normal operation) ... G=0.983 
+Hour 23: freq=59.982Hz, volt=120.08V (normal operation) ... G=0.983 
+
+==============================================================================
+Done. 24/24 hourly readings succeeded.
+Stressed hours detected on-chain: [14, 15, 20, 21]
+(Engineered stress hours were: [14, 20])
+Results written to grid_feeder_results.json
+===============================================
