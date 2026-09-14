@@ -9,12 +9,27 @@ Builds IEEE-quality figures (PNG + PDF, 300 dpi) from REAL data only:
                                   onchain_validation.js (optional -- if this
                                   file doesn't exist yet, those figures are
                                   skipped with a clear message, not faked)
+  3. grid_feeder_results.json  - the 24-hour on-chain oracle trace, with
+                                  per-hour "verification" status (optional --
+                                  falls back to "unconfirmed_plausible" if the
+                                  field is missing, so make sure this is the
+                                  ANNOTATED file, not the raw grid_feeder.js
+                                  output, or every hour will show unconfirmed)
+
+Defaults assume the BlockchainIndustrialPlatform repo layout, run from the
+repo root:
+    --data-dir defaults to test/energyresults  (where the three JSONs above live)
+    --out-dir  defaults to figs                (matches the manuscript's
+                                                 \\includegraphics{figs/...} paths)
+Override either with a flag if your layout differs. The resolved paths are
+printed at the start of every run so a wrong folder is obvious immediately.
 
 No numbers in this script are invented. If a figure needs data that isn't
 present, it is skipped rather than filled in with a placeholder.
 
 Usage:
-    python3 generate_figures.py [--data-dir DIR] [--out-dir DIR]
+    python3 generate_figures.py                          # uses the defaults above
+    python3 generate_figures.py --data-dir DIR --out-dir DIR   # override either
 """
 
 import json
@@ -205,8 +220,9 @@ def fig_grid_feeder_timeseries(feeder, out_dir):
     volt = [r["voltage"] / 1000 for r in readings]
     scores = [r["score"] for r in readings]
     engineered = [r.get("engineered", False) for r in readings]
+    verification = [r.get("verification", "unconfirmed_plausible") for r in readings]
 
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6), sharex=True,
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 6.2), sharex=True,
                                      gridspec_kw={'height_ratios': [1, 1.2]})
 
     # --- Top panel: frequency & voltage ---
@@ -232,9 +248,29 @@ def fig_grid_feeder_timeseries(feeder, out_dir):
     ax1.grid(alpha=0.3, linestyle='--')
 
     # --- Bottom panel: G(t) ---
-    colors = ['#d62728' if e else '#2ca02c' for e in engineered]
+    # Point styling reflects ACTUAL verification status, not just engineered/not:
+    #   event_log_confirmed  -> solid, confirmed by re-querying the ConditionUpdated
+    #                           event at that transaction's own block
+    #   unconfirmed_plausible -> normal marker, not independently re-checked, but
+    #                           consistent with neighboring readings
+    #   suspect_unconfirmed  -> hollow/marked: could not be re-confirmed (RPC
+    #                           rate-limit) AND repeats the prior hour's reading
+    #                           exactly, the same artifact seen elsewhere in this
+    #                           dataset -- shown, not hidden, but flagged
+    style = {
+        "event_log_confirmed": dict(marker='o', s=60, facecolor=None, edgecolor='black', zorder=4),
+        "unconfirmed_plausible": dict(marker='o', s=40, facecolor=None, edgecolor='black', zorder=3),
+        "suspect_unconfirmed": dict(marker='X', s=90, facecolor='#ffbb00', edgecolor='black', zorder=5),
+    }
+    base_color = {True: '#d62728', False: '#2ca02c'}  # engineered vs normal
+
     ax2.plot(hours, scores, '-', color='gray', linewidth=1, zorder=1)
-    ax2.scatter(hours, scores, c=colors, s=50, edgecolor='black', linewidth=0.5, zorder=3)
+    for h, s, eng, ver in zip(hours, scores, engineered, verification):
+        st = style[ver]
+        face = st['facecolor'] if st['facecolor'] else base_color[eng]
+        ax2.scatter(h, s, marker=st['marker'], s=st['s'], c=face,
+                     edgecolor=st['edgecolor'], linewidth=0.7, zorder=st['zorder'])
+
     ax2.axhline(0.85, color='black', linestyle='--', linewidth=1.2, label='G_THRESHOLD = 0.85', zorder=2)
     ax2.set_xlabel("Simulated hour of day", fontweight='bold')
     ax2.set_ylabel("Grid stability score G(t)", fontweight='bold')
@@ -244,14 +280,19 @@ def fig_grid_feeder_timeseries(feeder, out_dir):
 
     from matplotlib.lines import Line2D
     handles = [
-        Line2D([0], [0], marker='o', color='w', markerfacecolor='#2ca02c', markeredgecolor='black', markersize=8, label='Normal reading'),
-        Line2D([0], [0], marker='o', color='w', markerfacecolor='#d62728', markeredgecolor='black', markersize=8, label='Engineered stress event'),
+        Line2D([0], [0], marker='o', color='w', markerfacecolor='#2ca02c', markeredgecolor='black', markersize=9, label='Normal (event-log confirmed)'),
+        Line2D([0], [0], marker='o', color='w', markerfacecolor='#d62728', markeredgecolor='black', markersize=9, label='Engineered stress (event-log confirmed)'),
+        Line2D([0], [0], marker='o', color='w', markerfacecolor='#2ca02c', markeredgecolor='black', markersize=7, label='Normal (not independently re-checked)'),
+        Line2D([0], [0], marker='X', color='w', markerfacecolor='#ffbb00', markeredgecolor='black', markersize=10, label='Unconfirmed / suspect (see note)'),
         Line2D([0], [0], color='black', linestyle='--', label='G_THRESHOLD = 0.85'),
     ]
-    ax2.legend(handles=handles, loc='lower left', framealpha=0.95, fontsize=8)
+    ax2.legend(handles=handles, loc='lower left', framealpha=0.95, fontsize=6.5)
 
     fig.tight_layout()
     savefig(fig, out_dir, "fig_grid_feeder_timeseries")
+    n_confirmed = verification.count("event_log_confirmed")
+    n_suspect = verification.count("suspect_unconfirmed")
+    print(f"  ({n_confirmed}/24 hours event-log confirmed, {n_suspect} flagged suspect/unconfirmed)")
 
 
 
@@ -301,14 +342,22 @@ def fig_onchain_gas_costs(oc, out_dir):
 def fig_onchain_stability_scores(oc, out_dir):
     oracle = oc.get("oracle", {})
     normal = oracle.get("readScore_normal", {}).get("value")
-    stress = oracle.get("readScore_stress", {}).get("value")
+    stress_entry = oracle.get("readScore_stress", {})
+    stress = stress_entry.get("value")
     if not normal or not stress:
         print("  ! Oracle before/after readings not found -- skipping stability-score figure.")
         return
     norm_score = int(normal["score"]) / 1e18
-    stress_score = int(stress["score"]) / 1e18
 
-    fig, ax = plt.subplots(figsize=(4.5, 4))
+    correction = stress_entry.get("correction")
+    if correction:
+        stress_score = correction["correctedScore"]
+        stress_is_corrected = True
+    else:
+        stress_score = int(stress["score"]) / 1e18
+        stress_is_corrected = False
+
+    fig, ax = plt.subplots(figsize=(4.8, 4.2))
     bars = ax.bar(["Normal\n(60Hz, 120V)", "Stress test\n(59Hz, 120V)"],
                    [norm_score, stress_score], color=['#2ca02c', '#d62728'],
                    alpha=0.85, edgecolor='black', linewidth=0.5)
@@ -316,14 +365,20 @@ def fig_onchain_stability_scores(oc, out_dir):
     for bar, v in zip(bars, [norm_score, stress_score]):
         ax.annotate(f'{v:.3f}', xy=(bar.get_x() + bar.get_width() / 2, v),
                     xytext=(0, 3), textcoords='offset points', ha='center', fontweight='bold')
+    if stress_is_corrected:
+        ax.annotate('cross-derived (see caption)', xy=(1, 0.93), ha='center',
+                     fontsize=7, style='italic', color='#555')
     ax.set_ylim(0, 1.05)
     ax.set_ylabel("Grid stability score G(t)", fontweight='bold')
-    ax.set_title("Real On-Chain Oracle Reading\nBefore/After Stress Trigger", fontweight='bold', pad=12)
+    title = "Real On-Chain Oracle Reading\nBefore/After Stress Trigger"
+    ax.set_title(title, fontweight='bold', pad=12)
     ax.legend(loc='lower left', framealpha=0.95)
     ax.grid(axis='y', alpha=0.3, linestyle='--')
     ax.set_axisbelow(True)
     fig.tight_layout()
     savefig(fig, out_dir, "fig_onchain_stability_scores")
+    if stress_is_corrected:
+        print(f"  (stress score uses math-derived correction: {correction['derivation']})")
 
 
 def table_onchain_summary(oc, out_dir):
@@ -364,12 +419,23 @@ def table_onchain_summary(oc, out_dir):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-dir", default=".", help="directory containing the JSON data files")
-    ap.add_argument("--out-dir", default="./figures", help="directory to write figures/tables into")
+    ap.add_argument("--data-dir", default="test/energyresults", help="directory containing the JSON data files (default: test/energyresults, matching the repo layout)")
+    ap.add_argument("--out-dir", default="figs", help="directory to write figures/tables into (default: figs, matching the manuscript's \\includegraphics{figs/...} paths)")
     args = ap.parse_args()
 
     data_dir = Path(args.data_dir)
     out_dir = Path(args.out_dir)
+
+    print("=" * 78)
+    print(f"Reading data from : {data_dir.resolve()}")
+    print(f"Writing figures to: {out_dir.resolve()}")
+    print("=" * 78)
+    if not data_dir.exists():
+        print(f"\n WARNING: data-dir '{data_dir}' does not exist from the current "
+              f"working directory ({Path.cwd()}). Every figure below will be "
+              f"skipped. Run this from the repo root, or pass the correct "
+              f"--data-dir explicitly.\n")
+
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("Monte Carlo simulation figures (table4_replacement.json):")

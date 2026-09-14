@@ -1,0 +1,22 @@
+Energygridcontract (Smart Contracts Deployed )
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/tree/main/contracts/energygridcontract2
+
+Grid Results 
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/blob/main/test/energyresults/onchain_validation_results.json
+
+Experimental Test 
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/tree/main/test/energytest
+
+Precise Experimental Test 
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/blob/main/test/energytest/onchain_validation.js
+
+Verified Oracle and Data Input Test 
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/blob/main/test/energytest/verify_oracle_reads.js
+
+
+Verifying Grid Feed 
+
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/blob/main/test/energytest/verify_grid_feeder_history.js
+
+Experimental Results 
+https://github.com/ArthurBonsu/BlockchainIndustrialCenter/tree/main/test/energyresults
