@@ -75,7 +75,7 @@ contract ClusterManager2 is AccessControl {
     } // Added closing brace here
 }
 
-contract BeeRoutingAlgorithm is ClusterManager {
+contract BeeRoutingAlgorithm is ClusterManager2 {
     struct Route {
         bytes32[] clusterPath;
         uint256 pathScore;

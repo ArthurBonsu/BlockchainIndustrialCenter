@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract NIDRegistry is Ownable, ReentrancyGuard {
     
@@ -54,7 +54,7 @@ contract NIDRegistry is Ownable, ReentrancyGuard {
     
     event NIDDeactivated(string indexed nidId);
     
-     constructor() Ownable(msg.sender) {
+     constructor() {
         // Initialize supported device types
         supportedDeviceTypes.push("SERVER");
         supportedDeviceTypes.push("CLIENT");

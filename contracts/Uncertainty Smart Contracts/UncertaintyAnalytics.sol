@@ -300,7 +300,7 @@ contract ResponseManager {
         
         // Try to call analytics contract if it exists
         if (analytics != address(0)) {
-            try CostAnalytics(analytics).calculateUnavailabilityCost(1800) {
+            try CostAnalytics(payable(analytics)).calculateUnavailabilityCost(1800) {
                 // Analytics call succeeded
             } catch {
                 // Analytics call failed, continue anyway
@@ -424,7 +424,7 @@ contract UncertaintyAnalytics {
         uint256 disruptionCount
     ) {
         if (useExistingContracts && requestManager != address(0)) {
-            return RequestManager(requestManager).getAnalyticsMetrics();
+            return RequestManager(payable(requestManager)).getAnalyticsMetrics();
         } else if (address(newRequestManager) != address(0)) {
             return newRequestManager.getAnalyticsMetrics();
         } else {
@@ -437,7 +437,7 @@ contract UncertaintyAnalytics {
      */
     function submitRequest() external payable returns (uint256) {
         if (useExistingContracts && requestManager != address(0)) {
-            return RequestManager(requestManager).submitRequest{value: msg.value}();
+            return RequestManager(payable(requestManager)).submitRequest{value: msg.value}();
         } else if (address(newRequestManager) != address(0)) {
             return newRequestManager.submitRequest{value: msg.value}();
         } else {
@@ -450,7 +450,7 @@ contract UncertaintyAnalytics {
      */
     function submitResponse(uint256 _requestId) external {
         if (useExistingContracts && responseManager != address(0)) {
-            ResponseManager(responseManager).submitResponse(_requestId);
+            ResponseManager(payable(responseManager)).submitResponse(_requestId);
         } else if (address(newResponseManager) != address(0)) {
             newResponseManager.submitResponse(_requestId);
         } else {
@@ -463,7 +463,7 @@ contract UncertaintyAnalytics {
      */
     function calculateUnavailabilityCost(uint256 _processingTime) external {
         if (useExistingContracts && costAnalytics != address(0)) {
-            CostAnalytics(costAnalytics).calculateUnavailabilityCost(_processingTime);
+            CostAnalytics(payable(costAnalytics)).calculateUnavailabilityCost(_processingTime);
         } else if (address(newCostAnalytics) != address(0)) {
             newCostAnalytics.calculateUnavailabilityCost(_processingTime);
         } else {

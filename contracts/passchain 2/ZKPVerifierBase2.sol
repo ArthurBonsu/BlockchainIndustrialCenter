@@ -136,7 +136,7 @@ abstract contract ProofGenerator is ZKPVerifierBase, ReentrancyGuard {
  * @title TransactionValidator
  * @dev Handles validation of virtual and confirmable transactions
  */
-contract TransactionValidator is ProofGenerator, IZKPVerifier {
+contract TransactionValidator is ProofGenerator, IZKPVerifier2 {
     struct ValidationState {
         bool isValidated;
         uint256 confidenceScore;

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract NIASRegistry is Ownable, ReentrancyGuard {
     
@@ -48,7 +48,7 @@ contract NIASRegistry is Ownable, ReentrancyGuard {
     
     event NIASDeactivated(string indexed niasId);
     
-   constructor() Ownable(msg.sender) {}
+   constructor() {}
     
     function registerNIAS(
         string memory _niasId,

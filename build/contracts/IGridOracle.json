@@ -1,0 +1,466 @@
+{
+  "contractName": "IGridOracle",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getLatestCondition",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "frequency",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "voltage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "stabilityScore",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IGridOracle.GridCondition",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "frequency",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "voltage",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateCondition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStabilityScore",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getLatestCondition\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"frequency\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"voltage\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"stabilityScore\",\"type\":\"uint256\"}],\"internalType\":\"struct IGridOracle.GridCondition\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStabilityScore\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"frequency\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"voltage\",\"type\":\"uint256\"}],\"name\":\"updateCondition\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/energygridcontract2/IGridOracle.sol\":\"IGridOracle\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/energygridcontract2/IGridOracle.sol\":{\"keccak256\":\"0x178639754a7cfda9bfc7c91eb69f554831725f06d45e3c817f2bd66a2f1f31a4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c2f1be7b7f858c761c8ab71a5c02d0ea9f64740be501cf734b522f52327f29d\",\"dweb:/ipfs/QmVPd1mbDSbzH4RaUtsC8ErS8oiqj87Hqe2rSHBQvN2xJC\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.19;\r\n\r\ninterface IGridOracle {\r\n    struct GridCondition {\r\n        uint256 frequency;      // Grid frequency in millihertz\r\n        uint256 voltage;        // Voltage in millivolts\r\n        uint256 timestamp;      // When data was recorded\r\n        uint256 stabilityScore; // G(t) score with 1e18 precision\r\n    }\r\n    \r\n    function getLatestCondition() external view returns (GridCondition memory);\r\n    function updateCondition(uint256 frequency, uint256 voltage) external;\r\n    function getStabilityScore() external view returns (uint256);\r\n}",
+  "sourcePath": "C:\\Users\\admin\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainIndustrialPlatform\\contracts\\energygridcontract2\\IGridOracle.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/energygridcontract2/IGridOracle.sol",
+    "exportedSymbols": {
+      "IGridOracle": [
+        25136
+      ]
+    },
+    "id": 25137,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 25108,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:24:54"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IGridOracle",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 25136,
+        "linearizedBaseContracts": [
+          25136
+        ],
+        "name": "IGridOracle",
+        "nameLocation": "71:11:54",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "IGridOracle.GridCondition",
+            "id": 25117,
+            "members": [
+              {
+                "constant": false,
+                "id": 25110,
+                "mutability": "mutable",
+                "name": "frequency",
+                "nameLocation": "130:9:54",
+                "nodeType": "VariableDeclaration",
+                "scope": 25117,
+                "src": "122:17:54",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 25109,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "122:7:54",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 25112,
+                "mutability": "mutable",
+                "name": "voltage",
+                "nameLocation": "195:7:54",
+                "nodeType": "VariableDeclaration",
+                "scope": 25117,
+                "src": "187:15:54",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 25111,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "187:7:54",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 25114,
+                "mutability": "mutable",
+                "name": "timestamp",
+                "nameLocation": "253:9:54",
+                "nodeType": "VariableDeclaration",
+                "scope": 25117,
+                "src": "245:17:54",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 25113,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "245:7:54",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 25116,
+                "mutability": "mutable",
+                "name": "stabilityScore",
+                "nameLocation": "312:14:54",
+                "nodeType": "VariableDeclaration",
+                "scope": 25117,
+                "src": "304:22:54",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 25115,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "304:7:54",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "GridCondition",
+            "nameLocation": "97:13:54",
+            "nodeType": "StructDefinition",
+            "scope": 25136,
+            "src": "90:278:54",
+            "visibility": "public"
+          },
+          {
+            "functionSelector": "68e3ad4f",
+            "id": 25123,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLatestCondition",
+            "nameLocation": "389:18:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25118,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "407:2:54"
+            },
+            "returnParameters": {
+              "id": 25122,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25121,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25123,
+                  "src": "433:20:54",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_GridCondition_$25117_memory_ptr",
+                    "typeString": "struct IGridOracle.GridCondition"
+                  },
+                  "typeName": {
+                    "id": 25120,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 25119,
+                      "name": "GridCondition",
+                      "nameLocations": [
+                        "433:13:54"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 25117,
+                      "src": "433:13:54"
+                    },
+                    "referencedDeclaration": 25117,
+                    "src": "433:13:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_GridCondition_$25117_storage_ptr",
+                      "typeString": "struct IGridOracle.GridCondition"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "432:22:54"
+            },
+            "scope": 25136,
+            "src": "380:75:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "a8bd6ed4",
+            "id": 25130,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateCondition",
+            "nameLocation": "470:15:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25125,
+                  "mutability": "mutable",
+                  "name": "frequency",
+                  "nameLocation": "494:9:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25130,
+                  "src": "486:17:54",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25124,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "486:7:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 25127,
+                  "mutability": "mutable",
+                  "name": "voltage",
+                  "nameLocation": "513:7:54",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25130,
+                  "src": "505:15:54",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25126,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "505:7:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "485:36:54"
+            },
+            "returnParameters": {
+              "id": 25129,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "530:0:54"
+            },
+            "scope": 25136,
+            "src": "461:70:54",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "29778c4c",
+            "id": 25135,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStabilityScore",
+            "nameLocation": "546:17:54",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25131,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "563:2:54"
+            },
+            "returnParameters": {
+              "id": 25134,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25133,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25135,
+                  "src": "589:7:54",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25132,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "589:7:54",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "588:9:54"
+            },
+            "scope": 25136,
+            "src": "537:61:54",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 25137,
+        "src": "61:540:54",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "33:568:54"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.20+commit.a1b79de6.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2026-09-22T12:32:53.100Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,655 @@
+{
+  "contractName": "IEnergyVault",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "tokenRE",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenNRE",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getReserves",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "reserveRE",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "reserveNRE",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amountIn",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "reserveIn",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "reserveOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAmountOut",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newReserveRE",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "newReserveNRE",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateReserves",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"fee\",\"type\":\"uint256\"}],\"name\":\"getAmountOut\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getReserves\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"reserveRE\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveNRE\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenNRE\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenRE\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"newReserveRE\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"newReserveNRE\",\"type\":\"uint256\"}],\"name\":\"updateReserves\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"title\":\"IEnergyVault\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"Interface for the Energy Token Vault\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/energygridcontract2/IEnergyVault.sol\":\"IEnergyVault\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"project:/contracts/energygridcontract2/IEnergyVault.sol\":{\"keccak256\":\"0xf0de1182c0165f3d6e89d7b9436c1df8e07f1a81b30a96ac73bcb4af5a0a3edd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://68843ee5e06bdde171e12025fae9e7c443fc7f467e8358b841d70f871aabfe93\",\"dweb:/ipfs/QmRP6rjAuz1Ac6yz8tGGUJCSeTXY6S875qc1zjrV983jWm\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\nimport \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\n\n/**\n * @title IEnergyVault\n * @notice Interface for the Energy Token Vault\n */\ninterface IEnergyVault {\n    function tokenRE() external view returns (IERC20);\n    function tokenNRE() external view returns (IERC20);\n    function getReserves() external view returns (uint256 reserveRE, uint256 reserveNRE);\n    function getAmountOut(\n        uint256 amountIn, \n        uint256 reserveIn, \n        uint256 reserveOut, \n        uint256 fee\n    ) external pure returns (uint256);\n    function updateReserves(uint256 newReserveRE, uint256 newReserveNRE) external;\n}\n",
+  "sourcePath": "C:\\Users\\admin\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainIndustrialPlatform\\contracts\\energygridcontract2\\IEnergyVault.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/energygridcontract2/IEnergyVault.sol",
+    "exportedSymbols": {
+      "IERC20": [
+        1339
+      ],
+      "IEnergyVault": [
+        25106
+      ]
+    },
+    "id": 25107,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 25064,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".19"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:53"
+      },
+      {
+        "absolutePath": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "id": 25065,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 25107,
+        "sourceUnit": 1340,
+        "src": "58:56:53",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IEnergyVault",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 25066,
+          "nodeType": "StructuredDocumentation",
+          "src": "116:78:53",
+          "text": " @title IEnergyVault\n @notice Interface for the Energy Token Vault"
+        },
+        "fullyImplemented": false,
+        "id": 25106,
+        "linearizedBaseContracts": [
+          25106
+        ],
+        "name": "IEnergyVault",
+        "nameLocation": "205:12:53",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "805c6bea",
+            "id": 25072,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "tokenRE",
+            "nameLocation": "233:7:53",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25067,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "240:2:53"
+            },
+            "returnParameters": {
+              "id": 25071,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25070,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25072,
+                  "src": "266:6:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$1339",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 25069,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 25068,
+                      "name": "IERC20",
+                      "nameLocations": [
+                        "266:6:53"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1339,
+                      "src": "266:6:53"
+                    },
+                    "referencedDeclaration": 1339,
+                    "src": "266:6:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1339",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "265:8:53"
+            },
+            "scope": 25106,
+            "src": "224:50:53",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "30148ddd",
+            "id": 25078,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "tokenNRE",
+            "nameLocation": "288:8:53",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25073,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "296:2:53"
+            },
+            "returnParameters": {
+              "id": 25077,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25076,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25078,
+                  "src": "322:6:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_IERC20_$1339",
+                    "typeString": "contract IERC20"
+                  },
+                  "typeName": {
+                    "id": 25075,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 25074,
+                      "name": "IERC20",
+                      "nameLocations": [
+                        "322:6:53"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1339,
+                      "src": "322:6:53"
+                    },
+                    "referencedDeclaration": 1339,
+                    "src": "322:6:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_IERC20_$1339",
+                      "typeString": "contract IERC20"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "321:8:53"
+            },
+            "scope": 25106,
+            "src": "279:51:53",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "0902f1ac",
+            "id": 25085,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getReserves",
+            "nameLocation": "344:11:53",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25079,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "355:2:53"
+            },
+            "returnParameters": {
+              "id": 25084,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25081,
+                  "mutability": "mutable",
+                  "name": "reserveRE",
+                  "nameLocation": "389:9:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25085,
+                  "src": "381:17:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25080,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "381:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 25083,
+                  "mutability": "mutable",
+                  "name": "reserveNRE",
+                  "nameLocation": "408:10:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25085,
+                  "src": "400:18:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25082,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "400:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "380:39:53"
+            },
+            "scope": 25106,
+            "src": "335:85:53",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "52707d8c",
+            "id": 25098,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAmountOut",
+            "nameLocation": "434:12:53",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25094,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25087,
+                  "mutability": "mutable",
+                  "name": "amountIn",
+                  "nameLocation": "464:8:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25098,
+                  "src": "456:16:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25086,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "456:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 25089,
+                  "mutability": "mutable",
+                  "name": "reserveIn",
+                  "nameLocation": "491:9:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25098,
+                  "src": "483:17:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25088,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "483:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 25091,
+                  "mutability": "mutable",
+                  "name": "reserveOut",
+                  "nameLocation": "519:10:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25098,
+                  "src": "511:18:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25090,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "511:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 25093,
+                  "mutability": "mutable",
+                  "name": "fee",
+                  "nameLocation": "548:3:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25098,
+                  "src": "540:11:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25092,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "540:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "446:111:53"
+            },
+            "returnParameters": {
+              "id": 25097,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25096,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25098,
+                  "src": "581:7:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25095,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "581:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "580:9:53"
+            },
+            "scope": 25106,
+            "src": "425:165:53",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "3237bd00",
+            "id": 25105,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateReserves",
+            "nameLocation": "604:14:53",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25103,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 25100,
+                  "mutability": "mutable",
+                  "name": "newReserveRE",
+                  "nameLocation": "627:12:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25105,
+                  "src": "619:20:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25099,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "619:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 25102,
+                  "mutability": "mutable",
+                  "name": "newReserveNRE",
+                  "nameLocation": "649:13:53",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 25105,
+                  "src": "641:21:53",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 25101,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "641:7:53",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "618:45:53"
+            },
+            "returnParameters": {
+              "id": 25104,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "672:0:53"
+            },
+            "scope": 25106,
+            "src": "595:78:53",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 25107,
+        "src": "195:480:53",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "32:644:53"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.20+commit.a1b79de6.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2026-09-22T12:32:53.098Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "title": "IEnergyVault",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "Interface for the Energy Token Vault",
+    "version": 1
+  }
+}

@@ -51,7 +51,7 @@ contract StreamTransactionManager is Ownable, ReentrancyGuard {
     event TransactionReceived(bytes32 indexed txId, address sender, address receiver, uint256 value);
     event TransactionStateChanged(bytes32 indexed txId, TransactionState newState, uint256 confidence);
 
-    constructor() Ownable(msg.sender) {}
+    constructor() {}
 
     modifier onlyConsensusCore() {
         require(msg.sender == consensusCore, "Only consensus core");
@@ -183,7 +183,7 @@ contract ValidatorManager is Ownable {
     event ValidatorRegistered(address indexed validator, uint256 stake);
     event ReputationUpdated(address indexed validator, uint256 newReputation);
 
-    constructor() Ownable(msg.sender) {}
+    constructor() {}
 
     modifier onlyConsensusCore() {
         require(msg.sender == consensusCore, "Only consensus core");
@@ -299,7 +299,7 @@ contract ConsensusEngine is Ownable {
     event QuorumSignalBroadcast(address indexed validator, uint256 signalStrength);
     event ConsensusReached(bytes32 indexed txId, uint256 finalConfidence);
 
-    constructor() Ownable(msg.sender) {}
+    constructor() {}
 
     function setTransactionManager(address _transactionManager) external onlyOwner {
         transactionManager = _transactionManager;
@@ -387,7 +387,7 @@ contract PerformanceTracker is Ownable {
 
     address public consensusCore;
 
-    constructor() Ownable(msg.sender) {
+    constructor() {
         deploymentTime = block.timestamp;
     }
 
@@ -443,7 +443,7 @@ contract EconomicsEngine is Ownable {
     
     event NashEquilibriumReached(uint256 price, uint256 validators);
 
-    constructor() Ownable(msg.sender) {}
+    constructor() {}
 
     function setValidatorManager(address _validatorManager) external onlyOwner {
         validatorManager = _validatorManager;
@@ -496,7 +496,7 @@ contract StreamBasedConsensusCore is Ownable {
     event RollingHashUpdated(bytes32 newHash, uint256 timestamp);
     event SystemInitialized();
 
-    constructor() Ownable(msg.sender) {
+    constructor() {
         globalRollingHash = keccak256(abi.encodePacked("STREBACOM_GENESIS", block.timestamp));
         emit RollingHashUpdated(globalRollingHash, block.timestamp);
     }

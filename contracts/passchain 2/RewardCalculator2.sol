@@ -41,7 +41,7 @@ contract RewardBase {
  * @title RewardCalculator
  * @dev Handles reward calculations for different components
  */
-contract RewardCalculator is RewardBase, IRewardCalculator {
+contract RewardCalculator2 is RewardBase, IRewardCalculator2 {
     struct NodeReward {
         uint256 validationReward;
         uint256 executionReward;
@@ -202,7 +202,7 @@ contract RewardCalculator is RewardBase, IRewardCalculator {
  * @title RewardDistributor
  * @dev Manages the distribution of rewards across different components
  */
-contract RewardDistributor is RewardCalculator, ReentrancyGuard, AccessControl {
+contract RewardDistributor is RewardCalculator2, ReentrancyGuard, AccessControl {
     IERC20 public rewardToken;
     
     struct DistributionState {

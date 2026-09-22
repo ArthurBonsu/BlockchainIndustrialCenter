@@ -88,7 +88,7 @@ contract ClimateRegulationContract is Ownable, ReentrancyGuard {
     uint256 public totalGasUsed;
     uint256 public systemStartTime;
 
-    constructor() Ownable(msg.sender) {
+    constructor() {
         systemStartTime = block.timestamp;
         tradingData = TradingData({
             totalVolume: 0,

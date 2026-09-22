@@ -1,0 +1,450 @@
+{
+  "contractName": "IVehicleRegistry",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_pseudonym",
+          "type": "string"
+        }
+      ],
+      "name": "isVehicleRegistered",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_pseudonym",
+          "type": "string"
+        }
+      ],
+      "name": "getVehicle",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "registrationTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "isRegistered",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "getPseudonymByOwner",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_owner\",\"type\":\"address\"}],\"name\":\"getPseudonymByOwner\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_pseudonym\",\"type\":\"string\"}],\"name\":\"getVehicle\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"registrationTime\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"isRegistered\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_pseudonym\",\"type\":\"string\"}],\"name\":\"isVehicleRegistered\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/vehicle/IVehicleRegistry.sol\":\"IVehicleRegistry\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/vehicle/IVehicleRegistry.sol\":{\"keccak256\":\"0x3ceb706f9ce57b225d00fdb03d1281865a9a3241c31c814990e303fa1e1596a8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c432917f3ab556465d8ae88c18bb2d2b1c9c528f4e6153a56658c0fda9e4fdf7\",\"dweb:/ipfs/QmUob7mzcTa5TzUdHAJqYoyLxgYCE8ZnRWqykW3isnSrJL\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IVehicleRegistry {\n    function isVehicleRegistered(string memory _pseudonym) external view returns (bool);\n    function getVehicle(string memory _pseudonym) external view returns (address owner, uint256 registrationTime, bool isRegistered);\n    function getPseudonymByOwner(address _owner) external view returns (string memory);\n}\n",
+  "sourcePath": "C:\\Users\\admin\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainIndustrialPlatform\\contracts\\vehicle\\IVehicleRegistry.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/vehicle/IVehicleRegistry.sol",
+    "exportedSymbols": {
+      "IVehicleRegistry": [
+        38827
+      ]
+    },
+    "id": 38828,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 38801,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:71"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IVehicleRegistry",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 38827,
+        "linearizedBaseContracts": [
+          38827
+        ],
+        "name": "IVehicleRegistry",
+        "nameLocation": "67:16:71",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "69f943da",
+            "id": 38808,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "isVehicleRegistered",
+            "nameLocation": "99:19:71",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 38804,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38803,
+                  "mutability": "mutable",
+                  "name": "_pseudonym",
+                  "nameLocation": "133:10:71",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38808,
+                  "src": "119:24:71",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 38802,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "119:6:71",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "118:26:71"
+            },
+            "returnParameters": {
+              "id": 38807,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38806,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38808,
+                  "src": "168:4:71",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 38805,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "168:4:71",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "167:6:71"
+            },
+            "scope": 38827,
+            "src": "90:84:71",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "047fd579",
+            "id": 38819,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getVehicle",
+            "nameLocation": "188:10:71",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 38811,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38810,
+                  "mutability": "mutable",
+                  "name": "_pseudonym",
+                  "nameLocation": "213:10:71",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38819,
+                  "src": "199:24:71",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 38809,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "199:6:71",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "198:26:71"
+            },
+            "returnParameters": {
+              "id": 38818,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38813,
+                  "mutability": "mutable",
+                  "name": "owner",
+                  "nameLocation": "256:5:71",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38819,
+                  "src": "248:13:71",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38812,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "248:7:71",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38815,
+                  "mutability": "mutable",
+                  "name": "registrationTime",
+                  "nameLocation": "271:16:71",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38819,
+                  "src": "263:24:71",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 38814,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "263:7:71",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 38817,
+                  "mutability": "mutable",
+                  "name": "isRegistered",
+                  "nameLocation": "294:12:71",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38819,
+                  "src": "289:17:71",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 38816,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "289:4:71",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "247:60:71"
+            },
+            "scope": 38827,
+            "src": "179:129:71",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "f728dd08",
+            "id": 38826,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPseudonymByOwner",
+            "nameLocation": "322:19:71",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 38822,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38821,
+                  "mutability": "mutable",
+                  "name": "_owner",
+                  "nameLocation": "350:6:71",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38826,
+                  "src": "342:14:71",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 38820,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "342:7:71",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "341:16:71"
+            },
+            "returnParameters": {
+              "id": 38825,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 38824,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 38826,
+                  "src": "381:13:71",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 38823,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "381:6:71",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "380:15:71"
+            },
+            "scope": 38827,
+            "src": "313:83:71",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 38828,
+        "src": "57:341:71",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "32:367:71"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.20+commit.a1b79de6.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2026-09-22T12:32:53.501Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

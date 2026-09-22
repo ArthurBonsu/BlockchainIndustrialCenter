@@ -36,8 +36,8 @@ contract EnergyTokenVault is Ownable, ReentrancyGuard {
         uint256 amountOut
     );
     
-    // FIXED: Added Ownable(msg.sender)
-    constructor(address _tokenRE, address _tokenNRE) Ownable(msg.sender) {
+    // FIXED: Added
+    constructor(address _tokenRE, address _tokenNRE) {
         require(_tokenRE != address(0) && _tokenNRE != address(0), "Invalid tokens");
         tokenRE = IERC20(_tokenRE);
         tokenNRE = IERC20(_tokenNRE);

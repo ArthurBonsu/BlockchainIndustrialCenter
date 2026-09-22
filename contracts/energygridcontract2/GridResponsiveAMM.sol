@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
  * @title EnergyMathGR - Inline
@@ -109,7 +109,7 @@ contract GridResponsiveAMM is Ownable, ReentrancyGuard {
     );
     event ParametersUpdated(string param, uint256 value);
     
-    constructor(address _vault, address _gridOracle) Ownable(msg.sender) {
+    constructor(address _vault, address _gridOracle) {
         require(_vault != address(0) && _gridOracle != address(0), "Invalid addresses");
         vault = IEnergyVaultGR(_vault);
         gridOracle = IGridOracleGR(_gridOracle);

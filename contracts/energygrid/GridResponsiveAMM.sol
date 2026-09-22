@@ -91,8 +91,8 @@ contract GridResponsiveAMM is Ownable, ReentrancyGuard {
     );
     event ParametersUpdated(string param, uint256 value);
     
-    // ✅ FIXED: Added Ownable(msg.sender) to pass initial owner to base constructor
-    constructor(address _vault, address _gridOracle) Ownable(msg.sender) {
+    // ✅ FIXED: Added to pass initial owner to base constructor
+    constructor(address _vault, address _gridOracle) {
         require(_vault != address(0) && _gridOracle != address(0), "Invalid addresses");
         vault = IEnergyVaultGR(_vault);
         gridOracle = IGridOracleGR(_gridOracle);

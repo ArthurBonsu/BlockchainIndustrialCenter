@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract ABATLTranslation is Ownable, ReentrancyGuard {
     
@@ -48,7 +48,7 @@ contract ABATLTranslation is Ownable, ReentrancyGuard {
         string newSecurityLevel
     );
     
-      constructor() Ownable(msg.sender)  {}
+      constructor()  {}
     
     function createABATLMapping(
         string memory _sourceNID,

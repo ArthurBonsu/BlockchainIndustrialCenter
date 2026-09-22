@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 // Remix-compatible imports
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 /**
  * @title EnergyMath - Inline for Remix
@@ -96,7 +96,7 @@ contract EnergyTokenVault is Ownable, ReentrancyGuard {
         _;
     }
     
-    constructor(address _tokenRE, address _tokenNRE) Ownable(msg.sender) {
+    constructor(address _tokenRE, address _tokenNRE) {
         require(_tokenRE != address(0) && _tokenNRE != address(0), "Invalid tokens");
         tokenRE = IERC20(_tokenRE);
         tokenNRE = IERC20(_tokenNRE);

@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract SequencePathRouter is Ownable, ReentrancyGuard {
     
@@ -60,7 +60,7 @@ contract SequencePathRouter is Ownable, ReentrancyGuard {
         uint256 validationTime
     );
     
-    constructor() Ownable(msg.sender) {
+    constructor() {
         // Initialize supported path types
         supportedPathTypes["DIRECT"] = true;
         supportedPathTypes["MULTI_HOP"] = true;

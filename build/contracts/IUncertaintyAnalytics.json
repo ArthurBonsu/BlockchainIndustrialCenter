@@ -69,7 +69,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"calculateUnavailabilityCost\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMetrics\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"avgProcessingTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"successRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalCost\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"disruptionCount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"submitRequest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"submitResponse\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"calculateUnavailabilityCost(uint256)\":{\"params\":{\"requestId\":\"The ID of the request\"}},\"getMetrics()\":{\"returns\":{\"avgProcessingTime\":\"Average processing time of all responses\",\"disruptionCount\":\"Number of failed transactions\",\"successRate\":\"Percentage of successful requests\",\"totalCost\":\"Total cost of all transactions\"}},\"submitRequest()\":{\"returns\":{\"_0\":\"requestId The ID of the newly created request\"}},\"submitResponse(uint256)\":{\"params\":{\"requestId\":\"The ID of the request to respond to\"}}},\"title\":\"IUncertaintyAnalytics\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"calculateUnavailabilityCost(uint256)\":{\"notice\":\"Calculate the unavailability cost for a request\"},\"getMetrics()\":{\"notice\":\"Get metrics about the system\"},\"submitRequest()\":{\"notice\":\"Submit a new request\"},\"submitResponse(uint256)\":{\"notice\":\"Submit a response to a request\"}},\"notice\":\"Interface for the UncertaintyAnalytics contract\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IUncertaintyAnalytics.sol\":\"IUncertaintyAnalytics\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IUncertaintyAnalytics.sol\":{\"keccak256\":\"0xbd9ea91f9379199f74e7f7faa21771b65fa085173b936ef2bc32378aaf9985b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d85e5a3c7a93e035b89b710f13f0bae82c88b2ca7ae24f410a916ddd31026af2\",\"dweb:/ipfs/QmYEo3azwps4qschZgwBeNBogBksSbc7GMtngtPSWysLdW\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"calculateUnavailabilityCost\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getMetrics\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"avgProcessingTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"successRate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalCost\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"disruptionCount\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"submitRequest\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"requestId\",\"type\":\"uint256\"}],\"name\":\"submitResponse\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"calculateUnavailabilityCost(uint256)\":{\"params\":{\"requestId\":\"The ID of the request\"}},\"getMetrics()\":{\"returns\":{\"avgProcessingTime\":\"Average processing time of all responses\",\"disruptionCount\":\"Number of failed transactions\",\"successRate\":\"Percentage of successful requests\",\"totalCost\":\"Total cost of all transactions\"}},\"submitRequest()\":{\"returns\":{\"_0\":\"requestId The ID of the newly created request\"}},\"submitResponse(uint256)\":{\"params\":{\"requestId\":\"The ID of the request to respond to\"}}},\"title\":\"IUncertaintyAnalytics\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"calculateUnavailabilityCost(uint256)\":{\"notice\":\"Calculate the unavailability cost for a request\"},\"getMetrics()\":{\"notice\":\"Get metrics about the system\"},\"submitRequest()\":{\"notice\":\"Submit a new request\"},\"submitResponse(uint256)\":{\"notice\":\"Submit a response to a request\"}},\"notice\":\"Interface for the UncertaintyAnalytics contract\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Uncertainty Smart Contracts/IUncertaintyAnalytics.sol\":\"IUncertaintyAnalytics\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Uncertainty Smart Contracts/IUncertaintyAnalytics.sol\":{\"keccak256\":\"0xbd9ea91f9379199f74e7f7faa21771b65fa085173b936ef2bc32378aaf9985b2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d85e5a3c7a93e035b89b710f13f0bae82c88b2ca7ae24f410a916ddd31026af2\",\"dweb:/ipfs/QmYEo3azwps4qschZgwBeNBogBksSbc7GMtngtPSWysLdW\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -78,20 +78,20 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n/**\n * @title IUncertaintyAnalytics\n * @notice Interface for the UncertaintyAnalytics contract\n */\ninterface IUncertaintyAnalytics {\n    /**\n     * @notice Submit a new request\n     * @return requestId The ID of the newly created request\n     */\n    function submitRequest() external payable returns (uint256);\n    \n    /**\n     * @notice Submit a response to a request\n     * @param requestId The ID of the request to respond to\n     */\n    function submitResponse(uint256 requestId) external;\n    \n    /**\n     * @notice Calculate the unavailability cost for a request\n     * @param requestId The ID of the request\n     */\n    function calculateUnavailabilityCost(uint256 requestId) external;\n    \n    /**\n     * @notice Get metrics about the system\n     * @return avgProcessingTime Average processing time of all responses\n     * @return successRate Percentage of successful requests\n     * @return totalCost Total cost of all transactions\n     * @return disruptionCount Number of failed transactions\n     */\n    function getMetrics() external view returns (\n        uint256 avgProcessingTime,\n        uint256 successRate,\n        uint256 totalCost,\n        uint256 disruptionCount\n    );\n}",
-  "sourcePath": "C:\\Users\\Bonsu\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainMultiIndustryRepo\\contracts\\IUncertaintyAnalytics.sol",
+  "sourcePath": "C:\\Users\\admin\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainIndustrialPlatform\\contracts\\Uncertainty Smart Contracts\\IUncertaintyAnalytics.sol",
   "ast": {
-    "absolutePath": "project:/contracts/IUncertaintyAnalytics.sol",
+    "absolutePath": "project:/contracts/Uncertainty Smart Contracts/IUncertaintyAnalytics.sol",
     "exportedSymbols": {
       "IUncertaintyAnalytics": [
-        5788
+        13899
       ]
     },
-    "id": 5789,
+    "id": 13900,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 5756,
+        "id": 13867,
         "literals": [
           "solidity",
           "^",
@@ -99,7 +99,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:21"
+        "src": "32:23:29"
       },
       {
         "abstract": false,
@@ -108,54 +108,54 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 5757,
+          "id": 13868,
           "nodeType": "StructuredDocumentation",
-          "src": "57:98:21",
+          "src": "57:98:29",
           "text": " @title IUncertaintyAnalytics\n @notice Interface for the UncertaintyAnalytics contract"
         },
         "fullyImplemented": false,
-        "id": 5788,
+        "id": 13899,
         "linearizedBaseContracts": [
-          5788
+          13899
         ],
         "name": "IUncertaintyAnalytics",
-        "nameLocation": "166:21:21",
+        "nameLocation": "166:21:29",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 5758,
+              "id": 13869,
               "nodeType": "StructuredDocumentation",
-              "src": "194:108:21",
+              "src": "194:108:29",
               "text": " @notice Submit a new request\n @return requestId The ID of the newly created request"
             },
             "functionSelector": "599606c1",
-            "id": 5763,
+            "id": 13874,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "submitRequest",
-            "nameLocation": "316:13:21",
+            "nameLocation": "316:13:29",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5759,
+              "id": 13870,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "329:2:21"
+              "src": "329:2:29"
             },
             "returnParameters": {
-              "id": 5762,
+              "id": 13873,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5761,
+                  "id": 13872,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5763,
-                  "src": "358:7:21",
+                  "scope": 13874,
+                  "src": "358:7:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -163,10 +163,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5760,
+                    "id": 13871,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "358:7:21",
+                    "src": "358:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -175,42 +175,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "357:9:21"
+              "src": "357:9:29"
             },
-            "scope": 5788,
-            "src": "307:60:21",
+            "scope": 13899,
+            "src": "307:60:29",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 5764,
+              "id": 13875,
               "nodeType": "StructuredDocumentation",
-              "src": "377:117:21",
+              "src": "377:117:29",
               "text": " @notice Submit a response to a request\n @param requestId The ID of the request to respond to"
             },
             "functionSelector": "bada5cd9",
-            "id": 5769,
+            "id": 13880,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "submitResponse",
-            "nameLocation": "508:14:21",
+            "nameLocation": "508:14:29",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5767,
+              "id": 13878,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5766,
+                  "id": 13877,
                   "mutability": "mutable",
                   "name": "requestId",
-                  "nameLocation": "531:9:21",
+                  "nameLocation": "531:9:29",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5769,
-                  "src": "523:17:21",
+                  "scope": 13880,
+                  "src": "523:17:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -218,10 +218,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5765,
+                    "id": 13876,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "523:7:21",
+                    "src": "523:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -230,48 +230,48 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "522:19:21"
+              "src": "522:19:29"
             },
             "returnParameters": {
-              "id": 5768,
+              "id": 13879,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "550:0:21"
+              "src": "550:0:29"
             },
-            "scope": 5788,
-            "src": "499:52:21",
+            "scope": 13899,
+            "src": "499:52:29",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 5770,
+              "id": 13881,
               "nodeType": "StructuredDocumentation",
-              "src": "561:120:21",
+              "src": "561:120:29",
               "text": " @notice Calculate the unavailability cost for a request\n @param requestId The ID of the request"
             },
             "functionSelector": "3bd67b5a",
-            "id": 5775,
+            "id": 13886,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "calculateUnavailabilityCost",
-            "nameLocation": "695:27:21",
+            "nameLocation": "695:27:29",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5773,
+              "id": 13884,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5772,
+                  "id": 13883,
                   "mutability": "mutable",
                   "name": "requestId",
-                  "nameLocation": "731:9:21",
+                  "nameLocation": "731:9:29",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5775,
-                  "src": "723:17:21",
+                  "scope": 13886,
+                  "src": "723:17:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -279,10 +279,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5771,
+                    "id": 13882,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "723:7:21",
+                    "src": "723:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -291,54 +291,54 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "722:19:21"
+              "src": "722:19:29"
             },
             "returnParameters": {
-              "id": 5774,
+              "id": 13885,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "750:0:21"
+              "src": "750:0:29"
             },
-            "scope": 5788,
-            "src": "686:65:21",
+            "scope": 13899,
+            "src": "686:65:29",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 5776,
+              "id": 13887,
               "nodeType": "StructuredDocumentation",
-              "src": "761:307:21",
+              "src": "761:307:29",
               "text": " @notice Get metrics about the system\n @return avgProcessingTime Average processing time of all responses\n @return successRate Percentage of successful requests\n @return totalCost Total cost of all transactions\n @return disruptionCount Number of failed transactions"
             },
             "functionSelector": "7606f781",
-            "id": 5787,
+            "id": 13898,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getMetrics",
-            "nameLocation": "1082:10:21",
+            "nameLocation": "1082:10:29",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 5777,
+              "id": 13888,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1092:2:21"
+              "src": "1092:2:29"
             },
             "returnParameters": {
-              "id": 5786,
+              "id": 13897,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 5779,
+                  "id": 13890,
                   "mutability": "mutable",
                   "name": "avgProcessingTime",
-                  "nameLocation": "1135:17:21",
+                  "nameLocation": "1135:17:29",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5787,
-                  "src": "1127:25:21",
+                  "scope": 13898,
+                  "src": "1127:25:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -346,10 +346,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5778,
+                    "id": 13889,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1127:7:21",
+                    "src": "1127:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -359,13 +359,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 5781,
+                  "id": 13892,
                   "mutability": "mutable",
                   "name": "successRate",
-                  "nameLocation": "1170:11:21",
+                  "nameLocation": "1170:11:29",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5787,
-                  "src": "1162:19:21",
+                  "scope": 13898,
+                  "src": "1162:19:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -373,10 +373,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5780,
+                    "id": 13891,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1162:7:21",
+                    "src": "1162:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -386,13 +386,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 5783,
+                  "id": 13894,
                   "mutability": "mutable",
                   "name": "totalCost",
-                  "nameLocation": "1199:9:21",
+                  "nameLocation": "1199:9:29",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5787,
-                  "src": "1191:17:21",
+                  "scope": 13898,
+                  "src": "1191:17:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -400,10 +400,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5782,
+                    "id": 13893,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1191:7:21",
+                    "src": "1191:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -413,13 +413,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 5785,
+                  "id": 13896,
                   "mutability": "mutable",
                   "name": "disruptionCount",
-                  "nameLocation": "1226:15:21",
+                  "nameLocation": "1226:15:29",
                   "nodeType": "VariableDeclaration",
-                  "scope": 5787,
-                  "src": "1218:23:21",
+                  "scope": 13898,
+                  "src": "1218:23:29",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -427,10 +427,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 5784,
+                    "id": 13895,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1218:7:21",
+                    "src": "1218:7:29",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -439,22 +439,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1117:130:21"
+              "src": "1117:130:29"
             },
-            "scope": 5788,
-            "src": "1073:175:21",
+            "scope": 13899,
+            "src": "1073:175:29",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 5789,
-        "src": "156:1094:21",
+        "scope": 13900,
+        "src": "156:1094:29",
         "usedErrors": [],
         "usedEvents": []
       }
     ],
-    "src": "32:1218:21"
+    "src": "32:1218:29"
   },
   "compiler": {
     "name": "solc",
@@ -462,7 +462,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-05-20T13:40:34.705Z",
+  "updatedAt": "2026-09-22T12:32:52.990Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

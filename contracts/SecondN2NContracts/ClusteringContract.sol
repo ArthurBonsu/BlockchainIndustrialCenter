@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 contract ClusteringContract is Ownable, ReentrancyGuard {
     
@@ -60,7 +60,7 @@ contract ClusteringContract is Ownable, ReentrancyGuard {
     );
     
     // Fixed constructor - now passes msg.sender as initialOwner to Ownable
-    constructor() Ownable(msg.sender) {
+    constructor() {
         // Initialize supported cluster types
         supportedClusterTypes["NAP_CLUSTER"] = true;
         supportedClusterTypes["BGPF_CLUSTER"] = true;
