@@ -1,0 +1,1 @@
+{ "name": "n2n-sepolia-experiment", "version": "1.0.0", "private": true, "dependencies": { "ethers": "^6.13.0" }, "devDependencies": { "ganache": "^7.9.2" } }

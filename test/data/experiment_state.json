@@ -1,0 +1,4609 @@
+{
+  "phase": "phase7_ComprehensiveResults",
+  "completedPhases": [
+    "phase1_N2NContractValidation",
+    "phase2_RISLiveConnection",
+    "phase3_NodeRegistration",
+    "phase4_LiveBGPProcessing",
+    "phase5_PerformanceComparison",
+    "phase6_BlockchainValidation"
+  ],
+  "registeredNIDs": {
+    "NID-65001-0": {
+      "type": "NID",
+      "attributes": "ORG123.DEV456.PORT1.SERVER",
+      "registered": true,
+      "timestamp": 1753182043085
+    },
+    "NIAS-65001": {
+      "type": "NIAS",
+      "attributes": "EDGE.HIGH_SECURITY.1Gbps",
+      "registered": true,
+      "timestamp": 1753182043085
+    },
+    "NID-65002-0": {
+      "type": "NID",
+      "attributes": "ORG456.DEV789.PORT2.CLIENT",
+      "registered": true,
+      "timestamp": 1753182043085
+    },
+    "NIAS-65002": {
+      "type": "NIAS",
+      "attributes": "CORE.STANDARD.100Mbps",
+      "registered": true,
+      "timestamp": 1753182043085
+    }
+  },
+  "registeredNIAS": {},
+  "abatlMappings": {
+    "NID-49673-0_NIAS-54253": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-54253",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-204506": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-204506",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-37282": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-37282",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-396075": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-396075",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-262191": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-262191",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-3783": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-3783",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-28142": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-28142",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-266275": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-266275",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-399244": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-399244",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-47543": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-47543",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-34683": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-34683",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-28459": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-28459",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-60439": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-60439",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-268108": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-268108",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-58057": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-58057",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-216213": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-216213",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-42473": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-42473",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-29644": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-29644",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-23962": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-23962",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-393905": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-393905",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-28173": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-28173",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-394898": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-394898",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-55836": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-55836",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-24611": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-24611",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-61758": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-61758",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-49720": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-49720",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-48045": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-48045",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-42441": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-42441",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-6204": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-6204",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-61752": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-61752",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-263369": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-263369",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-271286": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-271286",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-49544": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-49544",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-138087": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-138087",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-264086": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-264086",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-52705": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-52705",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-264216": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-264216",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-263432": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-263432",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-263941": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-263941",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-265266": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-265266",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-262645": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-262645",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-268582": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-268582",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-202870": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-202870",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-272597": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-272597",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-197746": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-197746",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-262220": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-262220",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-272465": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-272465",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-270176": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-270176",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-401614": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-401614",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-215007": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-215007",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-204291": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-204291",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-265450": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-265450",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-397921": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-397921",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-271579": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-271579",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-59538": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-59538",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-208340": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-208340",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-9583": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-9583",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-12876": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-12876",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-33788": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-33788",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-22548": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-22548",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-199391": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-199391",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-35758": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-35758",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-263650": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-263650",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-53667": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-53667",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-44143": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-44143",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-207740": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-207740",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-42615": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-42615",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-213295": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-213295",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-16925": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-16925",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-268656": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-268656",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-269609": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-269609",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-270865": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-270865",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-328594": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-328594",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-267378": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-267378",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-270170": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-270170",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-4007": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-4007",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-273034": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-273034",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-131283": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-131283",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-140137": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-140137",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-134116": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-134116",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-271979": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-271979",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-264817": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-264817",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-6821": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-6821",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-37721-0_NIAS-265147": {
+      "sourceNID": "NID-37721-0",
+      "destNIAS": "NIAS-265147",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-134034": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-134034",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-206604": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-206604",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-131302": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-131302",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-141822": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-141822",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-151809": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-151809",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-149229": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-149229",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-38185": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-38185",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-3238": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-3238",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-399220": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-399220",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-141723": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-141723",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-151122": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-151122",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-136652": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-136652",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-153393": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-153393",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-132557": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-132557",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-24448": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-24448",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-141293": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-141293",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-264511": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-264511",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-31743": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-31743",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-58145": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-58145",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-204092-0_NIAS-199918": {
+      "sourceNID": "NID-204092-0",
+      "destNIAS": "NIAS-199918",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-15562-0_NIAS-204318": {
+      "sourceNID": "NID-15562-0",
+      "destNIAS": "NIAS-204318",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-44393-0_NIAS-59865": {
+      "sourceNID": "NID-44393-0",
+      "destNIAS": "NIAS-59865",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34800-0_NIAS-7738": {
+      "sourceNID": "NID-34800-0",
+      "destNIAS": "NIAS-7738",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-22652-0_NIAS-28219": {
+      "sourceNID": "NID-22652-0",
+      "destNIAS": "NIAS-28219",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34800-0_NIAS-9299": {
+      "sourceNID": "NID-34800-0",
+      "destNIAS": "NIAS-9299",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-14576": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-14576",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-269171": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-269171",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-42705": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-42705",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-207421": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-207421",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-49673-0_NIAS-40264": {
+      "sourceNID": "NID-49673-0",
+      "destNIAS": "NIAS-40264",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-57381-0_NIAS-133612": {
+      "sourceNID": "NID-57381-0",
+      "destNIAS": "NIAS-133612",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-20205-0_NIAS-4601": {
+      "sourceNID": "NID-20205-0",
+      "destNIAS": "NIAS-4601",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-38525": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-38525",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-22616": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-22616",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-20205-0_NIAS-721": {
+      "sourceNID": "NID-20205-0",
+      "destNIAS": "NIAS-721",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34927-0_NIAS-8298": {
+      "sourceNID": "NID-34927-0",
+      "destNIAS": "NIAS-8298",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-56662-0_NIAS-40138": {
+      "sourceNID": "NID-56662-0",
+      "destNIAS": "NIAS-40138",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-22652-0_NIAS-53667": {
+      "sourceNID": "NID-22652-0",
+      "destNIAS": "NIAS-53667",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-20764": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-20764",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-50469": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-50469",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-266013": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-266013",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-53087": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-53087",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-1221": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-1221",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-37721-0_NIAS-37462": {
+      "sourceNID": "NID-37721-0",
+      "destNIAS": "NIAS-37462",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34800-0_NIAS-3549": {
+      "sourceNID": "NID-34800-0",
+      "destNIAS": "NIAS-3549",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34549-0_NIAS-264144": {
+      "sourceNID": "NID-34549-0",
+      "destNIAS": "NIAS-264144",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34549-0_NIAS-42521": {
+      "sourceNID": "NID-34549-0",
+      "destNIAS": "NIAS-42521",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-38001-0_NIAS-328594": {
+      "sourceNID": "NID-38001-0",
+      "destNIAS": "NIAS-328594",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-38001-0_NIAS-152610": {
+      "sourceNID": "NID-38001-0",
+      "destNIAS": "NIAS-152610",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-20473": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-20473",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-199918": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-199918",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-21664": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-21664",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-21664": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-21664",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-21664": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-21664",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-54148": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-54148",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-7018-0_NIAS-210667": {
+      "sourceNID": "NID-7018-0",
+      "destNIAS": "NIAS-210667",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-852-0_NIAS-204210": {
+      "sourceNID": "NID-852-0",
+      "destNIAS": "NIAS-204210",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-7018-0_NIAS-133612": {
+      "sourceNID": "NID-7018-0",
+      "destNIAS": "NIAS-133612",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-7018-0_NIAS-37353": {
+      "sourceNID": "NID-7018-0",
+      "destNIAS": "NIAS-37353",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-7018-0_NIAS-4842": {
+      "sourceNID": "NID-7018-0",
+      "destNIAS": "NIAS-4842",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-205075": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-205075",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-61609": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-61609",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-263545": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-263545",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-205075": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-205075",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-204210": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-204210",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34927-0_NIAS-22927": {
+      "sourceNID": "NID-34927-0",
+      "destNIAS": "NIAS-22927",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-3549-0_NIAS-264120": {
+      "sourceNID": "NID-3549-0",
+      "destNIAS": "NIAS-264120",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-3549-0_NIAS-59865": {
+      "sourceNID": "NID-3549-0",
+      "destNIAS": "NIAS-59865",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-20205-0_NIAS-35598": {
+      "sourceNID": "NID-20205-0",
+      "destNIAS": "NIAS-35598",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-59886": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-59886",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-32685": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-32685",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-131126": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-131126",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-3333-0_NIAS-211626": {
+      "sourceNID": "NID-3333-0",
+      "destNIAS": "NIAS-211626",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-48185-0_NIAS-55330": {
+      "sourceNID": "NID-48185-0",
+      "destNIAS": "NIAS-55330",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-202365-0_NIAS-399078": {
+      "sourceNID": "NID-202365-0",
+      "destNIAS": "NIAS-399078",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-15562-0_NIAS-136873": {
+      "sourceNID": "NID-15562-0",
+      "destNIAS": "NIAS-136873",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-202365-0_NIAS-210667": {
+      "sourceNID": "NID-202365-0",
+      "destNIAS": "NIAS-210667",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-25145": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-25145",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-132280": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-132280",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-6718": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-6718",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-293": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-293",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-7670": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-7670",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-262966": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-262966",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-149617": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-149617",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-271129": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-271129",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-29134": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-29134",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-7387": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-7387",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-135810": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-135810",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-45430": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-45430",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-137843": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-137843",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-263780": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-263780",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-8717": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-8717",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-24186": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-24186",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-29086": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-29086",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-61785": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-61785",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-10838": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-10838",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-268960": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-268960",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-200325": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-200325",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-2572": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-2572",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-51906": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-51906",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-215475": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-215475",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-51659": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-51659",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-58819": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-58819",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-199491": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-199491",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-199163": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-199163",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-36318": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-36318",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-22512": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-22512",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-208266": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-208266",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-38525": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-38525",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-9749": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-9749",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-22300": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-22300",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-12996": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-12996",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-58202": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-58202",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-22937": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-22937",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-47263": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-47263",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-269086": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-269086",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-141202": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-141202",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-395510": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-395510",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-271211": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-271211",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-132040": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-132040",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-52638": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-52638",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-210321": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-210321",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-11611": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-11611",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-48728": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-48728",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-199436": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-199436",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-57821-0_NIAS-8103": {
+      "sourceNID": "NID-57821-0",
+      "destNIAS": "NIAS-8103",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-29504-0_NIAS-151194": {
+      "sourceNID": "NID-29504-0",
+      "destNIAS": "NIAS-151194",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-61218-0_NIAS-43298": {
+      "sourceNID": "NID-61218-0",
+      "destNIAS": "NIAS-43298",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-137677": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-137677",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-214098": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-214098",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-140731": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-140731",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-207853": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-207853",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-200278": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-200278",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-63051": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-63051",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-203959": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-203959",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-9063": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-9063",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-134823": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-134823",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-400146": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-400146",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-209198": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-209198",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-211233": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-211233",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-52444": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-52444",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-214430": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-214430",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-149127": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-149127",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-36692": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-36692",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-33741": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-33741",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-6775": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-6775",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-398485": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-398485",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-398499": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-398499",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-216065": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-216065",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-272926": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-272926",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-211495": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-211495",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-269394": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-269394",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-137361": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-137361",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-134148": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-134148",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-17434": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-17434",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-54980": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-54980",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-9299": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-9299",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-48704": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-48704",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-33228": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-33228",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-63033": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-63033",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-399804": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-399804",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-401297": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-401297",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-262473": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-262473",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-263637": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-263637",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-56030": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-56030",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-269698": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-269698",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-56740": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-56740",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-133766": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-133766",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-214675": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-214675",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-52680": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-52680",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-62810": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-62810",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-1001": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-1001",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-56662-0_NIAS-204210": {
+      "sourceNID": "NID-56662-0",
+      "destNIAS": "NIAS-204210",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-56662-0_NIAS-7545": {
+      "sourceNID": "NID-56662-0",
+      "destNIAS": "NIAS-7545",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-8499": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-8499",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-270919": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-270919",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-37721-0_NIAS-200081": {
+      "sourceNID": "NID-37721-0",
+      "destNIAS": "NIAS-200081",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34549-0_NIAS-401332": {
+      "sourceNID": "NID-34549-0",
+      "destNIAS": "NIAS-401332",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-137586": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-137586",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-20080": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-20080",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-12574": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-12574",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-23947": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-23947",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-34594": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-34594",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-210469": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-210469",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-215116": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-215116",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-11802": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-11802",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-55655": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-55655",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-297": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-297",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-215502": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-215502",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-142437": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-142437",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-22710": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-22710",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-266524": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-266524",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-32864": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-32864",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-18696": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-18696",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-210383": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-210383",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-151318": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-151318",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-200441": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-200441",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-329409": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-329409",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-210646": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-210646",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-273920": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-273920",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-268042": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-268042",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-41268": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-41268",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-36873": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-36873",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-206499-0_NIAS-17794": {
+      "sourceNID": "NID-206499-0",
+      "destNIAS": "NIAS-17794",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-137258": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-137258",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-138322": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-138322",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-264144": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-264144",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-201661": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-201661",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-327708": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-327708",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-15964": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-15964",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-152441": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-152441",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-4608-0_NIAS-139646": {
+      "sourceNID": "NID-4608-0",
+      "destNIAS": "NIAS-139646",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-36305": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-36305",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-200702": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-200702",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-16960": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-16960",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-28191": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-28191",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-264526": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-264526",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-214543": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-214543",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-56094": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-56094",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-28910": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-28910",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-29465": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-29465",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-269829": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-269829",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-53245": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-53245",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-59545": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-59545",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-207411": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-207411",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-29272": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-29272",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-206838": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-206838",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-399266": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-399266",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-37529": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-37529",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-395681": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-395681",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-216174": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-216174",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-205532": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-205532",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-41599": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-41599",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-203541": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-203541",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-53809": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-53809",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-132898": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-132898",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-48501": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-48501",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-16909": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-16909",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-215206": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-215206",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-8641": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-8641",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-328178": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-328178",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-52378": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-52378",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-199121": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-199121",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-5495": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-5495",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-207026": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-207026",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-37125": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-37125",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-8304": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-8304",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-214427": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-214427",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-34714": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-34714",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-211979": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-211979",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-51306": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-51306",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-11961": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-11961",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-31769": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-31769",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-61110": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-61110",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-266333": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-266333",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-393732": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-393732",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-48956": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-48956",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-22058": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-22058",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-135947": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-135947",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-138148": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-138148",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-134078": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-134078",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-8454": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-8454",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-269791": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-269791",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-2698": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-2698",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-47867": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-47867",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-214913": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-214913",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-150281": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-150281",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-142046": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-142046",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-31859": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-31859",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-50538": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-50538",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-207852": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-207852",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-45117": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-45117",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-28370": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-28370",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-19945": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-19945",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-131204": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-131204",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-264597": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-264597",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-39293": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-39293",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-198660": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-198660",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-211087": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-211087",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-50683": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-50683",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-47506": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-47506",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-206083": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-206083",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-50214": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-50214",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-269261": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-269261",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-135047": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-135047",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-212793": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-212793",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-25303": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-25303",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-132856": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-132856",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-11996": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-11996",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-209179": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-209179",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-42858": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-42858",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-395378": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-395378",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-132019": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-132019",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-4226": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-4226",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-51257": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-51257",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-137394": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-137394",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-136786": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-136786",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-58522": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-58522",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-17210": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-17210",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-203103": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-203103",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-49418": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-49418",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-34915": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-34915",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-149907": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-149907",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-149915": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-149915",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-10745": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-10745",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-205476": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-205476",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-398765": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-398765",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-138871": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-138871",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-46733": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-46733",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-18144": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-18144",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-62925": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-62925",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-60253": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-60253",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-328974": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-328974",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-27661": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-27661",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-40317": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-40317",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-32307": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-32307",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-268101": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-268101",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-47002": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-47002",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-10755": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-10755",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-59790": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-59790",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-393626": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-393626",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-139589-0_NIAS-134899": {
+      "sourceNID": "NID-139589-0",
+      "destNIAS": "NIAS-134899",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-31245": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-31245",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-17639-0_NIAS-61832": {
+      "sourceNID": "NID-17639-0",
+      "destNIAS": "NIAS-61832",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-38855-0_NIAS-11426": {
+      "sourceNID": "NID-38855-0",
+      "destNIAS": "NIAS-11426",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-57821-0_NIAS-31245": {
+      "sourceNID": "NID-57821-0",
+      "destNIAS": "NIAS-31245",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-7018-0_NIAS-37705": {
+      "sourceNID": "NID-7018-0",
+      "destNIAS": "NIAS-37705",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-7018-0_NIAS-31245": {
+      "sourceNID": "NID-7018-0",
+      "destNIAS": "NIAS-31245",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-852-0_NIAS-11426": {
+      "sourceNID": "NID-852-0",
+      "destNIAS": "NIAS-11426",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-62246": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-62246",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34927-0_NIAS-39572": {
+      "sourceNID": "NID-34927-0",
+      "destNIAS": "NIAS-39572",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-20205-0_NIAS-39572": {
+      "sourceNID": "NID-20205-0",
+      "destNIAS": "NIAS-39572",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-45049-0_NIAS-6939": {
+      "sourceNID": "NID-45049-0",
+      "destNIAS": "NIAS-6939",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-45049-0_NIAS-41798": {
+      "sourceNID": "NID-45049-0",
+      "destNIAS": "NIAS-41798",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-45049-0_NIAS-721": {
+      "sourceNID": "NID-45049-0",
+      "destNIAS": "NIAS-721",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-45049-0_NIAS-59865": {
+      "sourceNID": "NID-45049-0",
+      "destNIAS": "NIAS-59865",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-328977-0_NIAS-4826": {
+      "sourceNID": "NID-328977-0",
+      "destNIAS": "NIAS-4826",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-204092-0_NIAS-216290": {
+      "sourceNID": "NID-204092-0",
+      "destNIAS": "NIAS-216290",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-202365-0_NIAS-8732": {
+      "sourceNID": "NID-202365-0",
+      "destNIAS": "NIAS-8732",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-44393-0_NIAS-17741": {
+      "sourceNID": "NID-44393-0",
+      "destNIAS": "NIAS-17741",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-18403": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-18403",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-61292-0_NIAS-263546": {
+      "sourceNID": "NID-61292-0",
+      "destNIAS": "NIAS-263546",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-30362": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-30362",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-20205-0_NIAS-131127": {
+      "sourceNID": "NID-20205-0",
+      "destNIAS": "NIAS-131127",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-20205-0_NIAS-4826": {
+      "sourceNID": "NID-20205-0",
+      "destNIAS": "NIAS-4826",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-61218-0_NIAS-263546": {
+      "sourceNID": "NID-61218-0",
+      "destNIAS": "NIAS-263546",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-3333-0_NIAS-47311": {
+      "sourceNID": "NID-3333-0",
+      "destNIAS": "NIAS-47311",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-852-0_NIAS-35104": {
+      "sourceNID": "NID-852-0",
+      "destNIAS": "NIAS-35104",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-852-0_NIAS-31423": {
+      "sourceNID": "NID-852-0",
+      "destNIAS": "NIAS-31423",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-22652-0_NIAS-52382": {
+      "sourceNID": "NID-22652-0",
+      "destNIAS": "NIAS-52382",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34927-0_NIAS-46392": {
+      "sourceNID": "NID-34927-0",
+      "destNIAS": "NIAS-46392",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-395917": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-395917",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-401298": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-401298",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-37721-0_NIAS-61917": {
+      "sourceNID": "NID-37721-0",
+      "destNIAS": "NIAS-61917",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-37721-0_NIAS-150498": {
+      "sourceNID": "NID-37721-0",
+      "destNIAS": "NIAS-150498",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-31287": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-31287",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-61884": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-61884",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-202365-0_NIAS-19114": {
+      "sourceNID": "NID-202365-0",
+      "destNIAS": "NIAS-19114",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-206499-0_NIAS-7738": {
+      "sourceNID": "NID-206499-0",
+      "destNIAS": "NIAS-7738",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-24482-0_NIAS-53087": {
+      "sourceNID": "NID-24482-0",
+      "destNIAS": "NIAS-53087",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-48233": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-48233",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-141221": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-141221",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-141221": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-141221",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-58057-0_NIAS-20836": {
+      "sourceNID": "NID-58057-0",
+      "destNIAS": "NIAS-20836",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    },
+    "NID-34854-0_NIAS-20836": {
+      "sourceNID": "NID-34854-0",
+      "destNIAS": "NIAS-20836",
+      "attributes": {
+        "latency": "15ms",
+        "bandwidth": "1Gbps",
+        "security": "HIGH",
+        "qos": "PRIORITY"
+      }
+    }
+  },
+  "sequencePaths": {},
+  "risLiveData": {},
+  "results": {
+    "contractValidation": {
+      "abatlAccessible": true,
+      "niasAccessible": true,
+      "nidAccessible": true,
+      "sequenceAccessible": true,
+      "validated": true
+    },
+    "risLiveConnection": {
+      "connected": true,
+      "initialMessages": 100,
+      "firstMessage": {
+        "timestamp": 1753182042915,
+        "peer": "165.16.221.66",
+        "path": [
+          37721,
+          52320,
+          15964,
+          15964,
+          15964,
+          15964,
+          15964,
+          36912
+        ],
+        "announcements": [
+          {
+            "next_hop": "165.16.221.66",
+            "prefixes": [
+              "102.244.66.0/24"
+            ]
+          }
+        ],
+        "withdrawals": []
+      }
+    },
+    "nodeRegistration": {
+      "totalRegistered": 4,
+      "nidsRegistered": 2,
+      "niasRegistered": 2
+    },
+    "liveBGPProcessing": {
+      "duration": 60,
+      "bgpUpdatesProcessed": 52095,
+      "n2nRoutesGenerated": 52095,
+      "averageLatency": 0.200224840742899,
+      "successRate": 100,
+      "routeCacheSize": 23678
+    },
+    "performanceComparison": {
+      "n2nProtocol": {
+        "averageLatency": 0.200224840742899,
+        "successRate": 100,
+        "routesDetermined": 23678,
+        "failoverCapable": true,
+        "blockchainVerified": true
+      },
+      "traditionalBGP": {
+        "averageLatency": 0.5005621018572475,
+        "successRate": 85,
+        "routesDetermined": 16574,
+        "failoverCapable": false,
+        "blockchainVerified": false
+      },
+      "improvements": {
+        "latencyImprovement": "60.0%",
+        "successRateImprovement": "15.0%",
+        "routeEfficiency": "42.9%"
+      }
+    },
+    "blockchainValidation": {
+      "routesValidated": 3,
+      "blockchainTransactions": 444,
+      "abatlMappings": 444,
+      "consensusReached": true,
+      "smartContractValidation": true
+    }
+  }
+}

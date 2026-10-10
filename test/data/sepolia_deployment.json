@@ -1,0 +1,9 @@
+{"source":"Blockscout API (eth-sepolia.blockscout.com), read 2026-10-10","deployer":"0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A","date":"2025-07-22",
+"contracts":{
+"SequencePathRouter":{"address":"0xb0283be5775547dfacf1d41ab19d7d22e940505b","tx":"0x03e83dcbb4aa43c9d25f07c5b10daeee46c8f5c27727063ff86f8f96d7e2e872","block":8816804,"gas":2649612,"gas_price_wei":25769368,"time":"2025-07-22T09:10:48Z"},
+"ClusteringContract":{"address":"0xa7f137dd6868efe746a72e6e09dda73fac203a00","tx":"0xd15bca47844196416a625f3539accb8d143b2f657e9d9e43bf6bc19955ec5f09","block":8816694,"gas":3942713,"gas_price_wei":1505560414,"time":"2025-07-22T08:47:36Z"},
+"ABATLTranslation":{"address":"0xc6b5e094dc85792dd804eaa3669236d840434709","tx":"0x64e29791b1179b3bf5dc20bbc62a2324da1b837ccf8cfacf421a1d6874baa48e","block":8816565,"gas":1968848,"gas_price_wei":2875161,"time":"2025-07-22T08:19:12Z"},
+"NIASRegistry":{"address":"0x5e8a8bf9cadf65f33ccf220bf5540390e73b26a5","tx":"0x56ab30a1a3ac0fa1d2405b422e9161037f1154a0874a3971d2d6b791aa39b58c","block":8816719,"gas":2309902,"gas_price_wei":1509449179,"time":"2025-07-22T08:52:48Z"},
+"NIDRegistry":{"address":"0x3e8d9276a878b418b5169726ffa3de21d7376770","tx":"0x62fea7154be821f5aeb764a8d07609687bd69b58c1f1327376c19765d0dc7958","block":8816785,"gas":3218479,"gas_price_wei":1523947927,"time":"2025-07-22T09:06:48Z"}},
+"not_contracts_on_sepolia":["0x71db4933bf0342b290ada075b9b40f61Cac4A88D","0x56e3b418E151A6a70262f337b5c4115415dB2592"],
+"local_compile_of_SecondN2NContracts_opt_off_shanghai":{"ABATLTranslation":2021615,"NIASRegistry":2362813,"NIDRegistry":3271369,"ClusteringContract":3994383,"SequencePathRouter":2701864}}
