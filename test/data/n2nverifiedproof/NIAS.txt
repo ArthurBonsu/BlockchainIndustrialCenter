@@ -1,0 +1,26 @@
+erify & Publish Contract Source Code
+Source code verification provides transparency for users interacting with smart contracts. By uploading the source code, Etherscan will match the compiled code with that on the blockchain. Read more.
+
+A simple and structured interface for verifying smart contracts that fit in a single file.
+
+1
+Enter Contract Details
+2
+Verify & Publish
+Successfully generated matching Bytecode and ABI for Contract Address [0x5e8A8bf9cAdf65f33ccf220bF5540390E73b26a5]
+ Learn how to verify your contract on multiple blockchains with a single API key here.
+Code Reader 
+Prompt:
+
+You are a conscientious blockchain security auditor. Review this smart contract's source code to suggest best practices it could follow and share any security concerns with the code.
+Compiler Output
+Compiler debug log:
+Note: Contract was created during TxHash: 0x56ab30a1a3ac0fa1d2405b422e9161037f1154a0874a3971d2d6b791aa39b58c
+Compiler Version: v0.8.30+commit.73712a01
+
+Optimization Enabled: 0
+
+Runs: 200
+
+Contract Name
+NIASRegistry
