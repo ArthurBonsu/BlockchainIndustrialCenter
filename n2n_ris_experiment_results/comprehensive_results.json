@@ -1,16 +1,16 @@
 {
   "experimentSummary": {
-    "totalBGPUpdatesProcessed": 53155,
-    "n2nRoutesGenerated": 53155,
-    "blockchainValidations": 449,
+    "totalBGPUpdatesProcessed": 58195,
+    "n2nRoutesGenerated": 58195,
+    "blockchainValidations": 516,
     "realTimeDataProcessed": true,
     "industrialRelevance": true
   },
   "performanceMetrics": {
-    "bgpUpdatesReceived": 53155,
-    "n2nRoutesComputed": 53155,
-    "blockchainTransactions": 449,
-    "averageLatency": 0.1996183822237729,
+    "bgpUpdatesReceived": 58195,
+    "n2nRoutesComputed": 58195,
+    "blockchainTransactions": 516,
+    "averageLatency": 0.3822230398969857,
     "successRate": 100,
     "gasUsage": []
   },
