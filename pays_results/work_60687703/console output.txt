@@ -1,0 +1,98 @@
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test/passchain_validation.js --send
+Settings read from C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\.env
+PAYS validation | stages: conn,zk,rbf,dual,bee,conf,chain | quick: false | offline: false | send: true | RPC: sepolia.infura.io
+
+[conn] connection round trips
+   Sepolia: first call 1 ms | round trip 205.9 ms (n=30)
+   Polkadot skipped: timeout
+
+[zk] Groth16 cost and soundness of the PAYS validity predicate
+   reusing the zk setup from the previous run (delete the work_* folder to redo it)
+   1323 constraints | prove 203.8 ms | verify 19.5 ms | completeness 30/30 | tampered rejected 30/30
+
+[rbf] speculation accuracy
+   gasUtilisation: tuned RBF (k=12, beta=0.5, lambda=1) MAE 0.02706 (hit 85.9%) | moving average 0.02724
+   gasUtilisation: RBF MAE 0.02913 (hit 84.1%) | persistence 0.03850 (hit 74.5%)
+   baseFee: RBF MAE 0.00000 (hit 100.0%) | persistence 0.00000 (hit 100.0%) | EIP-1559 rule 0.00000
+
+[dual] dual-transaction path vs wait-then-relay
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_win32_x64_137.node'
+Require stack:
+- C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\node_modules\@trufflesuite\uws-js-unofficial\src\uws.js
+- C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\node_modules\ganache\dist\node\core.js
+- C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test\passchain_validation.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+   local trial 5/30: baseline 1960 ms | speculative 1051 ms | final 2938 ms
+   local trial 10/30: baseline 3012 ms | speculative 1008 ms | final 3907 ms
+   local trial 15/30: baseline 2006 ms | speculative 996 ms | final 2856 ms
+   local trial 20/30: baseline 3012 ms | speculative 1002 ms | final 3852 ms
+   local trial 25/30: baseline 2001 ms | speculative 988 ms | final 2939 ms
+   local trial 30/30: baseline 3044 ms | speculative 992 ms | final 3788 ms
+   local: baseline 2773 ms | speculative 1020 ms | final 3554 ms | misprediction 10.0% | confirm gas 255739
+   [sepolia] deploying Groth16Verifier and PaysRelay, then running real dual commits
+   account 0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A balance 1.505843492853249839 ETH
+   sepolia trial 1/8: speculative visible 13.7 s | verified+final 24.2 s | direct zk commit 23.5 s | confirm gas 345258
+   sepolia trial 2/8: speculative visible 10.8 s | verified+final 23.5 s | direct zk commit 12.6 s | confirm gas 345246
+   sepolia trial 3/8: speculative visible 10.6 s | verified+final 58.7 s | direct zk commit 13.4 s | confirm gas 345258
+   sepolia trial 4/8: speculative visible 12.2 s | verified+final 24.4 s | direct zk commit 12.0 s | confirm gas 345246
+   sepolia trial 5/8: speculative visible 12.6 s | verified+final 48.8 s | direct zk commit 12.3 s | confirm gas 345282
+   sepolia trial 6/8: speculative visible 12.4 s | verified+final 24.1 s | direct zk commit 11.6 s | confirm gas 345234
+   sepolia trial 7/8: speculative visible 24.6 s | verified+final 35.3 s | direct zk commit 12.6 s | confirm gas 345222
+   sepolia trial 8/8: speculative visible 24.2 s | verified+final 36.4 s | direct zk commit 11.0 s | confirm gas 345282
+
+[bee] validator routing vs baselines
+   load 0.5: random J=0.842 lat=1.86 | roundRobin J=0.839 lat=1.44 | stakeWeighted J=0.574 lat=39.88 | leastLoaded J=0.977 lat=0.44 | bee J=0.867 lat=0.78 | greedyReliable J=0.936 lat=0.45 | beeWarm J=0.872 lat=0.75
+   load 0.8: random J=0.931 lat=7.75 | roundRobin J=0.930 lat=7.40 | stakeWeighted J=0.676 lat=74.06 | leastLoaded J=0.977 lat=0.59 | bee J=0.938 lat=5.36 | greedyReliable J=0.958 lat=0.60 | beeWarm J=0.954 lat=3.48
+   load 0.95: random J=0.957 lat=11.66 | roundRobin J=0.957 lat=11.35 | stakeWeighted J=0.715 lat=91.98 | leastLoaded J=0.995 lat=0.68 | bee J=0.962 lat=8.89 | greedyReliable J=0.984 lat=0.79 | beeWarm J=0.975 lat=6.17
+
+[conf] proof-of-confidence filtering
+   [fitted weights] fitted confidence > 0.797: TPR 93.9% | FPR 1.3% | F1 0.939 | AUC 0.972
+   [fitted weights] ZK gate, then fitted confidence > 0.797: TPR 93.9% | FPR 1.3% | F1 0.939 | AUC 0.972
+   30 random splits, ZK gate + confidence: paper weights TPR 81.8% | fitted weights TPR 91.0% +/- 1.7 (FPR 1.3%)
+   no filter: TPR 0.0% | FPR 0.0% | F1 0.000 | AUC -
+   ZK verification only: TPR 40.2% | FPR 0.0% | F1 0.573 | AUC 0.701
+   reputation only (<0.5): TPR 52.3% | FPR 0.0% | F1 0.687 | AUC 0.736
+   confidence > 0.7: TPR 58.9% | FPR 1.2% | F1 0.716 | AUC 0.957
+   ZK gate, then confidence > 0.7: TPR 80.4% | FPR 1.2% | F1 0.864 | AUC 0.973
+
+[chain] deployed Sepolia contracts
+   AssetTransferProcessor 0x10906193b9c3a0d5ea7251047c55f5398d6d4990: 3214 bytes of code
+   ConfidenceScoreCalculator 0xea2b8197b9c1fb936cdfcf6633c1837fc9726e5c: 5896 bytes of code
+   PacechainChannel 0xe75bfd5ba206ed5c059efeb0dd1c603f03c6553c: 5011 bytes of code
+   SpeculativeTransactionHandler 0x9eaac685f82cfd9e9966a1819bc8206a6fe602ca: 6098 bytes of code
+   ConfidenceScoreCalculator: scores 2.00e+17 .. 5.00e+17 vs thresholds 500/800 | AUC 0.833 | TPR at LOW threshold 0.0%
+   SpeculativeTransactionHandler: 20/20 calls answered | max |error| z<=1: 1.03e-5 | z>=3: 1.06e+0
+   initiateAssetTransfer 1/8: 11.8 s, gas 575021, state matches true
+   initiateAssetTransfer 2/8: 12.2 s, gas 575021, state matches true
+   initiateAssetTransfer 3/8: 11.7 s, gas 575021, state matches true
+   initiateAssetTransfer 4/8: 13.0 s, gas 575009, state matches true
+   initiateAssetTransfer 5/8: 10.1 s, gas 575021, state matches true
+   initiateAssetTransfer 6/8: 11.8 s, gas 575021, state matches true
+   initiateAssetTransfer 7/8: 12.0 s, gas 575021, state matches true
+   initiateAssetTransfer 8/8: 12.4 s, gas 575009, state matches true
+   updateTransactionFrequency 1/8: 11.5 s, gas 236141
+   updateTransactionFrequency 2/8: 12.5 s, gas 138221
+   updateTransactionFrequency 3/8: 35.5 s, gas 138221
+   updateTransactionFrequency 4/8: 24.0 s, gas 138221
+   updateTransactionFrequency 5/8: 14.0 s, gas 138221
+   updateTransactionFrequency 6/8: 11.7 s, gas 138221
+   updateTransactionFrequency 7/8: 21.7 s, gas 138221
+   updateTransactionFrequency 8/8: 12.9 s, gas 138221
+   createChannel not run: could not coalesce error
+
+=== Verdicts ===
+zk          PASS
+rbf         PASS
+dual        PASS
+bee         PARTIAL
+confidence  INCONCLUSIVE
+confidenceFitted PASS
+contracts   NOT SUPPORTED
+
+Results written to C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\pays_results 
+Send back: pays_validation.json, summary.md, tables.tex, sepolia_series.json, manifest.json
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> 

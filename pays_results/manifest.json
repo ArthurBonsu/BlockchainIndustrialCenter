@@ -1,0 +1,14 @@
+{
+  "script": "passchain_validation.js",
+  "sha256": "78f6b251d1787b32b0d80304a0194f613737aaa84bd570ff4d63f5730880d4b3",
+  "node": "v24.13.0",
+  "files": [
+    "manifest.json",
+    "pays_validation.json",
+    "sepolia_series.json",
+    "summary.md",
+    "tables.tex",
+    "work",
+    "work_60687703"
+  ]
+}
