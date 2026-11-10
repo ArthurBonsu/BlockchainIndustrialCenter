@@ -31,6 +31,11 @@ const sepoliaRpcUrl = process.env.INFURA_PROJECT_ID
   ? `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
   : undefined;
 
+// Base Sepolia (chain id 84532), the destination chain of the PAYS against Chainlink CCIP comparison.
+// BASE_SEPOLIA_RPC_URL is also what test/passchain_validation.js reads, so one line in .env.local serves both.
+// If it is not set, the public Base Sepolia endpoint is used.
+const baseSepoliaRpcUrl = process.env.BASE_SEPOLIA_RPC_URL || "https://sepolia.base.org";
+
 // FIX: Tatum's gateway needs its API key on every request, but
 // @truffle/hdwallet-provider has no native `headers` option (confirmed by
 // reading its installed source — there's no `headers` field anywhere in
@@ -63,6 +68,18 @@ module.exports = {
         "No Sepolia RPC URL configured — set INFURA_PROJECT_ID in .env."
       ),
       network_id: 11155111, // Correct for Sepolia
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
+
+    base_sepolia: {
+      provider: walletProvider(
+        baseSepoliaRpcUrl,
+        "No Base Sepolia RPC URL configured — set BASE_SEPOLIA_RPC_URL in .env."
+      ),
+      network_id: 84532,
       gas: 5500000,
       confirmations: 2,
       timeoutBlocks: 200,
