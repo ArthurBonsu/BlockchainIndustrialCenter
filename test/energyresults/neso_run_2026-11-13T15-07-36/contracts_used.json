@@ -1,0 +1,100 @@
+{
+  "network": {
+    "name": "Sepolia",
+    "chainId": 11155111
+  },
+  "addresses": {
+    "EnergyTokenRE": "0xa78fc8e55a017cb5659476f6d67fe77c22b4c59a",
+    "EnergyTokenNRE": "0x8b8d7b0d8f38488f56454337205e269c20892e6c",
+    "EnergyTokenVault": "0x623ba68eb8c93d6204f449d1a2596078d094b13f",
+    "GridStabilityOracle": "0x9580429807f611a286255ff325e7c6812343d340",
+    "TimeWeightedAMM": "0xd85499cb852d582a26570f1c2b391c513ace78a2",
+    "GridResponsiveAMM": "0x99edf88047f58196d73528eb1e76abe7ed7f0b2e"
+  },
+  "oracleABI": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "frequency",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "voltage",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateCondition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStabilityScore",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "isGridStressed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "frequency",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "voltage",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "stabilityScore",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "ConditionUpdated",
+      "type": "event"
+    }
+  ],
+  "oracleParameters": {
+    "nominalFrequency_mHz": 60000,
+    "nominalVoltage_mV": 120000,
+    "toleranceFrequency_mHz": 2000,
+    "toleranceVoltage_mV": 16000,
+    "alphaFrequency": 0.6,
+    "alphaVoltage": 0.4,
+    "stressThreshold": 0.85
+  }
+}

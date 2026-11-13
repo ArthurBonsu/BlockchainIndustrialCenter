@@ -1,0 +1,133 @@
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test/energytest/run_neso_validation.js
+Run folder: C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test\energyresults\neso_run_2026-11-13T15-57-40
+
+[1/4] Fingerprinting input files
+  fnew-2026-10.csv  74694122 bytes  sha256 f38d9a52ec04de55ebda61f4644e3279fb51716a70131d9487fc3f6c4e29e131
+  demanddataupdate_2026.csv  1515163 bytes  sha256 b18ed6076ceec21bc9f0c0f6947d7e07e260a95d76791a45ebd4df147e7981ee
+  dfs-utilisation-report.csv  2538769 bytes  sha256 58940e0954534be9ddeabd5eb2bdda45c1d824c5690ceac37c2f71783586e97b
+  day_ahead_prices.csv  1600081 bytes  sha256 0ff07914e8df0a7cc0a37a4b4a43a6b8fdd1dc761f11a6f0339f7bf8bc2ee95a
+
+[2/4] Real-frequency replay through GridStabilityOracle
+CSV header: dtm | f
+Using time column "dtm", frequency column "f"
+Loaded 2678400 frequency samples.
+Worst day in file: 2026-10-15 (max |df| = 272 mHz)
+==============================================================================
+NESO REAL-FREQUENCY REPLAY -- 2026-10-15
+==============================================================================
+hr  GB freq (Hz)  fed (mHz)  expected G  expected state
+ 0      49.843      59843      0.9529  normal
+ 1      50.121      60121      0.9637  normal
+ 2      50.163      60163      0.9511  normal
+ 3      50.137      60137      0.9589  normal
+ 4      50.175      60175      0.9475  normal
+ 5      50.249      60249      0.9253  normal
+ 6      50.272      60272      0.9184  normal
+ 7      49.873      59873      0.9619  normal
+ 8      50.141      60141      0.9577  normal
+ 9      49.866      59866      0.9598  normal
+10      50.140      60140      0.9580  normal
+11      50.135      60135      0.9595  normal
+12      50.131      60131      0.9607  normal
+13      50.144      60144      0.9568  normal
+14      49.846      59846      0.9538  normal
+15      49.878      59878      0.9634  normal
+16      50.187      60187      0.9439  normal
+17      49.850      59850      0.9550  normal
+18      49.865      59865      0.9595  normal
+19      49.866      59866      0.9598  normal
+20      49.844      59844      0.9532  normal
+21      49.857      59857      0.9571  normal
+22      49.863      59863      0.9589  normal
+23      50.146      60146      0.9562  normal
+
+Env files loaded: C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\.env
+RPC source: INFURA_PROJECT_ID
+Account: 0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+Chain ID: 11155111 (Sepolia)
+Balance: 1.513159969707622 ETH
+
+Hour 00: GB 49.843 Hz -> fed 59843 mHz ... G=0.9529 ok
+Hour 01: GB 50.121 Hz -> fed 60121 mHz ... G=0.9637 ok
+Hour 02: GB 50.163 Hz -> fed 60163 mHz ... G=0.9511 ok
+Hour 03: GB 50.137 Hz -> fed 60137 mHz ... G=0.9589 ok
+Hour 04: GB 50.175 Hz -> fed 60175 mHz ... G=0.9475 ok
+Hour 05: GB 50.249 Hz -> fed 60249 mHz ... G=0.9253 ok
+Hour 06: GB 50.272 Hz -> fed 60272 mHz ... G=0.9184 ok
+Hour 07: GB 49.873 Hz -> fed 59873 mHz ... G=0.9619 ok
+Hour 08: GB 50.141 Hz -> fed 60141 mHz ... G=0.9577 ok
+Hour 09: GB 49.866 Hz -> fed 59866 mHz ... G=0.9598 ok
+Hour 10: GB 50.140 Hz -> fed 60140 mHz ... G=0.9580 ok
+Hour 11: GB 50.135 Hz -> fed 60135 mHz ... G=0.9595 ok
+Hour 12: GB 50.131 Hz -> fed 60131 mHz ... G=0.9607 ok
+Hour 13: GB 50.144 Hz -> fed 60144 mHz ... G=0.9568 ok
+Hour 14: GB 49.846 Hz -> fed 59846 mHz ... G=0.9538 ok
+Hour 15: GB 49.878 Hz -> fed 59878 mHz ... G=0.9634 ok
+Hour 16: GB 50.187 Hz -> fed 60187 mHz ... G=0.9439 ok
+Hour 17: GB 49.850 Hz -> fed 59850 mHz ... G=0.9550 ok
+Hour 18: GB 49.865 Hz -> fed 59865 mHz ... G=0.9595 ok
+Hour 19: GB 49.866 Hz -> fed 59866 mHz ... G=0.9598 ok
+Hour 20: GB 49.844 Hz -> fed 59844 mHz ... G=0.9532 ok
+Hour 21: GB 49.857 Hz -> fed 59857 mHz ... G=0.9571 ok
+Hour 22: GB 49.863 Hz -> fed 59863 mHz ... G=0.9589 ok
+Hour 23: GB 50.146 Hz -> fed 60146 mHz ... G=0.9562 ok
+
+==============================================================================
+Replay done. 24/24 succeeded; 24 matched the off-chain expected score; event-log mismatches: 0.
+Stressed hours: []  (max |df| = 0.272 Hz)
+==============================================================================
+
+[3/4] Demand / price / DFS comparison against tau(t)
+
+Running generate_neso_context_figure.py with python ...
+{
+  "tau_schedule": {
+    "peak_hours": "17:00-21:00",
+    "offpeak_hours": "23:00-06:00",
+    "tau_peak": 1.35,
+    "tau_offpeak": 0.75,
+    "tau_peak_over_offpeak": 1.8
+  },
+  "demand_ND": {
+    "period": "Jan-Feb 2026 weekdays",
+    "days": 42,
+    "peak_window_over_daily_mean": 1.186522300756503,
+    "offpeak_window_over_daily_mean": 0.7770516062551617,
+    "peak_over_offpeak_ratio": 1.5269543119210578,
+    "peak_hour_start": 17,
+    "lowest_hour_start": 4,
+    "pearson_r_with_tau": 0.8390216162147727
+  },
+  "day_ahead_price": {
+    "period": "Nov-Feb weekdays, 2021-2026",
+    "days": 440,
+    "peak_window_over_daily_mean": 1.2723299747444825,
+    "offpeak_window_over_daily_mean": 0.7469354937939824,
+    "peak_over_offpeak_ratio": 1.7034000731198522,
+    "peak_hour_start": 17,
+    "lowest_hour_start": 3,
+    "pearson_r_with_tau": 0.8072892208825958
+  },
+  "dfs_downward": {
+    "delivery_dates": "2026-04-14 to 2026-11-13",
+    "events_total": 183,
+    "events_with_accepted_downward": 127,
+    "procured_MW_sum_over_unit_events": 37582.3,
+    "share_procured_MW_starting_17_to_20_local": 0.844003693227929,
+    "share_procured_MW_starting_16_to_20_local": 0.9118601043576364,
+    "peak_start_hour_local": 18
+  }
+}
+Wrote fig_neso_context.pdf/.png and neso_context_stats.json to C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test\energyresults\neso_run_2026-11-13T15-57-40
+
+[4/4] Full contract validation
+  skipped (pass --with-contracts to include)
+
+==============================================================================
+RUN COMPLETE
+  fingerprint          ok
+  frequencyReplay      ok
+  context              ok
+  contractValidation   skipped
+Everything is in: C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test\energyresults\neso_run_2026-11-13T15-57-40
+====================================================================

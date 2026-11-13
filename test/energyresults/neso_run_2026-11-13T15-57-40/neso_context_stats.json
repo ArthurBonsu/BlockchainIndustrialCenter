@@ -1,0 +1,38 @@
+{
+  "tau_schedule": {
+    "peak_hours": "17:00-21:00",
+    "offpeak_hours": "23:00-06:00",
+    "tau_peak": 1.35,
+    "tau_offpeak": 0.75,
+    "tau_peak_over_offpeak": 1.8
+  },
+  "demand_ND": {
+    "period": "Jan-Feb 2026 weekdays",
+    "days": 42,
+    "peak_window_over_daily_mean": 1.186522300756503,
+    "offpeak_window_over_daily_mean": 0.7770516062551617,
+    "peak_over_offpeak_ratio": 1.5269543119210578,
+    "peak_hour_start": 17,
+    "lowest_hour_start": 4,
+    "pearson_r_with_tau": 0.8390216162147727
+  },
+  "day_ahead_price": {
+    "period": "Nov-Feb weekdays, 2021-2026",
+    "days": 440,
+    "peak_window_over_daily_mean": 1.2723299747444825,
+    "offpeak_window_over_daily_mean": 0.7469354937939824,
+    "peak_over_offpeak_ratio": 1.7034000731198522,
+    "peak_hour_start": 17,
+    "lowest_hour_start": 3,
+    "pearson_r_with_tau": 0.8072892208825958
+  },
+  "dfs_downward": {
+    "delivery_dates": "2026-04-14 to 2026-11-13",
+    "events_total": 183,
+    "events_with_accepted_downward": 127,
+    "procured_MW_sum_over_unit_events": 37582.3,
+    "share_procured_MW_starting_17_to_20_local": 0.844003693227929,
+    "share_procured_MW_starting_16_to_20_local": 0.9118601043576364,
+    "peak_start_hour_local": 18
+  }
+}

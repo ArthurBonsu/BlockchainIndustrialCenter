@@ -1,0 +1,114 @@
+{
+  "startedAt": "2026-11-13T15:57:40.267Z",
+  "mode": "live",
+  "args": [],
+  "node": "v24.13.0",
+  "platform": "win32",
+  "runFolder": "C:\\Users\\admin\\Documents\\Blockchain Multi Industrial Service Center\\Blockchain MultiIndustrial Projects\\BlockchainIndustrialPlatform\\test\\energyresults\\neso_run_2026-11-13T15-57-40",
+  "envFilesLoaded": [
+    ".env"
+  ],
+  "inputs": [
+    {
+      "file": "fnew-2026-10.csv",
+      "bytes": 74694122,
+      "sha256": "f38d9a52ec04de55ebda61f4644e3279fb51716a70131d9487fc3f6c4e29e131"
+    },
+    {
+      "file": "demanddataupdate_2026.csv",
+      "bytes": 1515163,
+      "sha256": "b18ed6076ceec21bc9f0c0f6947d7e07e260a95d76791a45ebd4df147e7981ee"
+    },
+    {
+      "file": "dfs-utilisation-report.csv",
+      "bytes": 2538769,
+      "sha256": "58940e0954534be9ddeabd5eb2bdda45c1d824c5690ceac37c2f71783586e97b"
+    },
+    {
+      "file": "day_ahead_prices.csv",
+      "bytes": 1600081,
+      "sha256": "0ff07914e8df0a7cc0a37a4b4a43a6b8fdd1dc761f11a6f0339f7bf8bc2ee95a"
+    }
+  ],
+  "steps": {
+    "fingerprint": {
+      "status": "ok",
+      "files": 4
+    },
+    "frequencyReplay": {
+      "status": "ok",
+      "day": "2026-10-15",
+      "totalHours": 24,
+      "successCount": 24,
+      "failureCount": 0,
+      "matchedExpectedCount": 24,
+      "eventLogMismatches": 0,
+      "stressedHoursDetected": [],
+      "maxAbsDeviationHz": 0.27199999999999847,
+      "minScore": 0.9184,
+      "totalGasUsed": 12356714,
+      "totalCostETH": 2.7807600000000005e-10
+    },
+    "context": {
+      "status": "ok",
+      "produced": [
+        "fig_neso_context.pdf",
+        "fig_neso_context.png",
+        "neso_context_stats.json"
+      ],
+      "stats": {
+        "tau_schedule": {
+          "peak_hours": "17:00-21:00",
+          "offpeak_hours": "23:00-06:00",
+          "tau_peak": 1.35,
+          "tau_offpeak": 0.75,
+          "tau_peak_over_offpeak": 1.8
+        },
+        "demand_ND": {
+          "period": "Jan-Feb 2026 weekdays",
+          "days": 42,
+          "peak_window_over_daily_mean": 1.186522300756503,
+          "offpeak_window_over_daily_mean": 0.7770516062551617,
+          "peak_over_offpeak_ratio": 1.5269543119210578,
+          "peak_hour_start": 17,
+          "lowest_hour_start": 4,
+          "pearson_r_with_tau": 0.8390216162147727
+        },
+        "day_ahead_price": {
+          "period": "Nov-Feb weekdays, 2021-2026",
+          "days": 440,
+          "peak_window_over_daily_mean": 1.2723299747444825,
+          "offpeak_window_over_daily_mean": 0.7469354937939824,
+          "peak_over_offpeak_ratio": 1.7034000731198522,
+          "peak_hour_start": 17,
+          "lowest_hour_start": 3,
+          "pearson_r_with_tau": 0.8072892208825958
+        },
+        "dfs_downward": {
+          "delivery_dates": "2026-04-14 to 2026-11-13",
+          "events_total": 183,
+          "events_with_accepted_downward": 127,
+          "procured_MW_sum_over_unit_events": 37582.3,
+          "share_procured_MW_starting_17_to_20_local": 0.844003693227929,
+          "share_procured_MW_starting_16_to_20_local": 0.9118601043576364,
+          "peak_start_hour_local": 18
+        }
+      }
+    },
+    "contractValidation": {
+      "status": "skipped",
+      "reason": "pass --with-contracts to include"
+    }
+  },
+  "finishedAt": "2026-11-13T16:03:22.638Z",
+  "files": [
+    "README.txt",
+    "contracts_used.json",
+    "fig_neso_context.pdf",
+    "fig_neso_context.png",
+    "neso_context_stats.json",
+    "neso_replay_2026-10-15.csv",
+    "neso_replay_2026-10-15.json",
+    "run.log"
+  ]
+}
