@@ -1,0 +1,272 @@
+{
+  "contract": "0xd85499cb852d582a26570f1c2b391c513ace78a2",
+  "network": "Sepolia",
+  "utcDay": "2026-11-10",
+  "note": "eth_call at one block per hour; read-only; getTimeWeightedPrices() is Eq. 6, swapQuoteOutWei is getAmountOut(5e18, RE->NRE) at the same block",
+  "rows": [
+    {
+      "hourUTC": 0,
+      "block": 12100948,
+      "timestamp": 1794268860,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 1,
+      "block": 12101246,
+      "timestamp": 1794272460,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 2,
+      "block": 12101544,
+      "timestamp": 1794276060,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 3,
+      "block": 12101841,
+      "timestamp": 1794279660,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 4,
+      "block": 12102138,
+      "timestamp": 1794283260,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 5,
+      "block": 12102434,
+      "timestamp": 1794286860,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 6,
+      "block": 12102733,
+      "timestamp": 1794290460,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    },
+    {
+      "hourUTC": 7,
+      "block": 12103032,
+      "timestamp": 1794294060,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 8,
+      "block": 12103325,
+      "timestamp": 1794297660,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 9,
+      "block": 12103617,
+      "timestamp": 1794301260,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 10,
+      "block": 12103899,
+      "timestamp": 1794304860,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 11,
+      "block": 12104197,
+      "timestamp": 1794308460,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 12,
+      "block": 12104495,
+      "timestamp": 1794312060,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 13,
+      "block": 12104791,
+      "timestamp": 1794315660,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 14,
+      "block": 12105089,
+      "timestamp": 1794319260,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 15,
+      "block": 12105385,
+      "timestamp": 1794322860,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 16,
+      "block": 12105682,
+      "timestamp": 1794326460,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 17,
+      "block": 12105978,
+      "timestamp": 1794330060,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 0.7407407407407407,
+      "swapQuoteOutWei": "2",
+      "priceRatioVsNormal": 0.7407407407407407
+    },
+    {
+      "hourUTC": 18,
+      "block": 12106276,
+      "timestamp": 1794333660,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 0.7407407407407407,
+      "swapQuoteOutWei": "2",
+      "priceRatioVsNormal": 0.7407407407407407
+    },
+    {
+      "hourUTC": 19,
+      "block": 12106574,
+      "timestamp": 1794337260,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 0.7407407407407407,
+      "swapQuoteOutWei": "2",
+      "priceRatioVsNormal": 0.7407407407407407
+    },
+    {
+      "hourUTC": 20,
+      "block": 12106869,
+      "timestamp": 1794340860,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 0.7407407407407407,
+      "swapQuoteOutWei": "2",
+      "priceRatioVsNormal": 0.7407407407407407
+    },
+    {
+      "hourUTC": 21,
+      "block": 12107165,
+      "timestamp": 1794344460,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 0.7407407407407407,
+      "swapQuoteOutWei": "2",
+      "priceRatioVsNormal": 0.7407407407407407
+    },
+    {
+      "hourUTC": 22,
+      "block": 12107464,
+      "timestamp": 1794348060,
+      "period": "normal",
+      "tau": 1,
+      "priceRE": 1,
+      "priceNRE": 1,
+      "swapQuoteOutWei": "4",
+      "priceRatioVsNormal": 1
+    },
+    {
+      "hourUTC": 23,
+      "block": 12107762,
+      "timestamp": 1794351660,
+      "period": "offpeak",
+      "tau": 0.75,
+      "priceRE": 1.3333333333333333,
+      "priceNRE": 1.3333333333333333,
+      "swapQuoteOutWei": "8",
+      "priceRatioVsNormal": 1.3333333333333333
+    }
+  ]
+}
