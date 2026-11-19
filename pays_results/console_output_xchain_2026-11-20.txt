@@ -1,0 +1,29 @@
+Done in 21.50s.
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test/passchain_validation.js --stages xchain
+Settings read from C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\.env
+Earlier results kept (conn, zk, rbf, dual, bee, conf, chain); backup in C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\pays_results\backups
+PAYS validation | stages: xchain | quick: false | offline: false | send: false | RPC: sepolia.infura.io
+
+[xchain] cross-chain cost (live, read-only) and lane-delay sensitivity (modelled)
+   fee quote, 64 B payload: 0.000286895055792993 ETH (empty)
+   fee quote, 256 B payload: 0.000286895055792993 ETH (empty)
+   fee quote, 1024 B payload: 0.000286895055792993 ETH (empty)
+   router code: true | lane to Base Sepolia supported: true
+   L=   0 s: baseline 2.8 s | speculative 1.02 s | correct-usable speedup 2.18x (modelled)
+   L=  30 s: baseline 32.8 s | speculative 1.02 s | correct-usable speedup 7.67x (modelled)
+   L= 120 s: baseline 122.8 s | speculative 1.02 s | correct-usable speedup 9.25x (modelled)
+   L= 600 s: baseline 602.8 s | speculative 1.02 s | correct-usable speedup 9.84x (modelled)
+
+=== Verdicts ===
+zk          PASS
+rbf         PASS
+dual        PASS
+bee         PARTIAL
+confidence  INCONCLUSIVE
+confidenceFitted PASS
+contracts   NOT SUPPORTED
+xchain      PARTIAL
+
+Results written to C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\pays_results
+Send back: pays_validation.json, summary.md, tables.tex, sepolia_series.json, manifest.json
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform>

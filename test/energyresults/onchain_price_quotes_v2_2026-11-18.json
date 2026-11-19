@@ -1,0 +1,41 @@
+{
+  "contract": "0x8dF62B24137bc1739a65A08267c5948192E3F38c",
+  "network": "Sepolia",
+  "utcDay": "2026-11-18",
+  "note": "eth_call at one block per hour; read-only; getTimeWeightedPrices() is Eq. 6, swapQuoteREtoNREWei / swapQuoteNREtoREWei are getAmountOut(5e18, direction) at the same block; V2 computes the output inside the AMM",
+  "rows": [
+    {
+      "hourUTC": 17,
+      "block": 12162787,
+      "timestamp": 1795021272,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 1.35,
+      "swapQuoteREtoNREWei": "3674977436323292962",
+      "swapQuoteNREtoREWei": "6686482351342359381"
+    },
+    {
+      "hourUTC": 18,
+      "block": 12163079,
+      "timestamp": 1795024860,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 1.35,
+      "swapQuoteREtoNREWei": "3674977436323292962",
+      "swapQuoteNREtoREWei": "6686482351342359381"
+    },
+    {
+      "hourUTC": 19,
+      "block": 12163365,
+      "timestamp": 1795028460,
+      "period": "peak",
+      "tau": 1.35,
+      "priceRE": 0.7407407407407407,
+      "priceNRE": 1.35,
+      "swapQuoteREtoNREWei": "3674977436323292962",
+      "swapQuoteNREtoREWei": "6686482351342359381"
+    }
+  ]
+}

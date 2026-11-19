@@ -1,4 +1,4 @@
-// verify_swap_prices.js
+
 // -----------------------------------------------------------------------------
 // Read-only check of the price direction / size of the deployed TimeWeightedAMM.
 // For each real time-weighted swap in onchain_validation_run1/run2.json it reads

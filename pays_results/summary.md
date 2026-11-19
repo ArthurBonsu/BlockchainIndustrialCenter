@@ -1,7 +1,7 @@
 # PAYS validation summary
 
-Run: 2026-11-03T16:17:12.706Z .. 2026-11-03T16:37:27.387Z
-Node v24.13.0, Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz (8 cores). RPC host: sepolia.infura.io. Transactions sent: true.
+Run: 2026-11-03T16:17:12.706Z .. 2026-11-19T16:11:27.822Z
+Node v24.13.0, Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz (8 cores). RPC host: sepolia.infura.io. Transactions sent: false.
 
 ## Claim verdicts
 
@@ -32,4 +32,8 @@ Node v24.13.0, Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz (8 cores). RPC host: se
 - **contracts**: NOT SUPPORTED. The deployed Sepolia contracts implement the behaviour the paper describes. Rule: bytecode exists at each address, the confidence contract returns scores on the scale of its thresholds and reacts to the zk flag, and the on-chain RBF evaluation tracks exp(-z) on the supported range.
   ```json
   {"findings":["every score returned by the deployed ConfidenceScoreCalculator is below its own high-confidence threshold (unit mismatch)","the deployed thresholds flag fewer than half of the injected bad transactions","on-chain Gaussian evaluation departs from exp(-z) by more than 0.05 once beta*d^2 >= 3"],"deployed":{"AssetTransferProcessor":true,"ConfidenceScoreCalculator":true,"PacechainChannel":true,"SpeculativeTransactionHandler":true}}
+  ```
+- **xchain**: PARTIAL. PAYS messages can be carried to another chain at a known cost. Rule: PASS needs live delivery measured; PARTIAL = the live router supports the lane and quotes a fee, delivery latency modelled only; otherwise INCONCLUSIVE (no live answer) or NOT SUPPORTED (lane or fee rejected).
+  ```json
+  {"destination":"Base Sepolia","laneSupported":true,"feeEth":[{"payloadBytes":64,"feeEth":0.000286895055792993},{"payloadBytes":256,"feeEth":0.000286895055792993},{"payloadBytes":1024,"feeEth":0.000286895055792993}],"notMeasured":["live CCIP delivery latency (needs destination-chain ETH and a receiver contract)"],"modelledRows":4}
   ```

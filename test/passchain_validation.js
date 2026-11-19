@@ -24,6 +24,8 @@
  *   node pays_validation.js                       everything that needs no transaction (reads Sepolia if an RPC is set)
  *   node pays_validation.js --send                also sends Sepolia transactions (needs a funded PRIVATE_KEY)
  *   node pays_validation.js --stages zk,rbf       only some stages  (or STAGES=zk,rbf)
+ *   node pays_validation.js --stages xchain       cross-chain stage (live CCIP fee quote + modelled lane delay); adds to the saved results
+ *   --fresh   start a new pays_validation.json instead of adding to the saved one (the old one is always backed up first)
  *   node pays_validation.js --offline             no network at all (RBF then uses a synthetic series tagged S)
  *   node pays_validation.js --quick               small sizes, for a smoke test (not for the paper)
  *   node pays_validation.js --env path\to\.env    use a specific env file
@@ -175,6 +177,26 @@ function cliOption(name) {
 /** True if a flag such as --send or --quick was passed. */
 const hasFlag = (name) => process.argv.includes(name);
 
+const KNOWN_STAGES = ['conn', 'zk', 'rbf', 'dual', 'bee', 'conf', 'chain', 'xchain'];
+const KNOWN_FLAGS = ['--quick', '--offline', '--send', '--refresh', '--merge', '--fresh', '--stages', '--env'];
+/** Stop BEFORE touching any file when an option or stage name is not recognised (a typo such as `--send.`, or a stage that does not exist). */
+function validateArgs() {
+  const args = process.argv.slice(2),
+    problems = [];
+  args.forEach((a, i) => {
+    if (i > 0 && ['--stages', '--env'].includes(args[i - 1])) return;
+    if (!KNOWN_FLAGS.includes(a)) problems.push(`Unknown option "${a}". Known options: ${KNOWN_FLAGS.join(' ')}`);
+  });
+  const stagesArg = cliOption('--stages') || process.env.STAGES;
+  if (stagesArg)
+    for (const st of stagesArg.split(',').map((x) => x.trim()))
+      if (!KNOWN_STAGES.includes(st)) problems.push(`Unknown stage "${st}". Stages: ${KNOWN_STAGES.join(', ')}`);
+  if (problems.length) {
+    console.error(problems.join('\n') + '\nNothing was run and no file was changed.');
+    process.exit(1);
+  }
+}
+
 /** Locate the .env file: --env path, ENV_FILE, then .env.local / .env in this folder or up to 4 parent folders. */
 function findEnvFile() {
   const explicit = cliOption('--env') || process.env.ENV_FILE;
@@ -232,6 +254,7 @@ function loadConfig() {
     offline: hasFlag('--offline'),
     send: hasFlag('--send'),
     refresh: hasFlag('--refresh'),
+    fresh: hasFlag('--fresh'),
     privateKey: privateKey && (privateKey.startsWith('0x') ? privateKey : `0x${privateKey}`),
     polkadotWs:
       process.env.POLKADOT_WS_URL ||
@@ -397,6 +420,28 @@ class Recorder {
       stages: {},
       claims: {},
     };
+    // Never lose an earlier run: back the saved file up first, then (unless --fresh) keep its stages and add this run's.
+    if (fs.existsSync(this.file) && fs.statSync(this.file).size > 0) {
+      const stamp = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14),
+        dir = path.join(config.outDir, 'backups');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.copyFileSync(this.file, path.join(dir, `pays_validation.${stamp}.bak.json`));
+      if (!config.fresh) {
+        try {
+          const old = JSON.parse(fs.readFileSync(this.file, 'utf8'));
+          this.data.stages = old.stages || {};
+          this.data.runs = old.runs || [
+            { startedAt: old.startedAt, finishedAt: old.finishedAt, stages: Object.keys(old.stages || {}), environment: old.environment },
+          ];
+          this.data.startedAt = old.startedAt || this.data.startedAt;
+          console.log(`Earlier results kept (${Object.keys(this.data.stages).join(', ') || 'none'}); backup in ${dir}`);
+        } catch (e) {
+          console.warn('   !! saved results could not be read, starting fresh (a backup was made):', e.message);
+        }
+      }
+    }
+    this.data.runs = this.data.runs || [];
+    this.data.runs.push({ startedAt: new Date().toISOString(), stages: config.stages, environment: this.data.environment });
   }
   set(stage, value) {
     this.data.stages[stage] = value;
@@ -2029,6 +2074,106 @@ async function stageConf(config, rec) {
 }
 
 // ---------------------------------------------------------------------------------------------
+// 9b. xchain: cross-chain cost (live, read-only) and lane-delay sensitivity (modelled)
+// ---------------------------------------------------------------------------------------------
+
+const CCIP_LANES = {
+  base: { name: 'Base Sepolia', selector: '10344971235874465080' },
+  arbitrum: { name: 'Arbitrum Sepolia', selector: '3478487238524512106' },
+};
+const CCIP_SEPOLIA_ROUTER = '0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59';
+
+/**
+ * Cross-chain stage. It sends NOTHING and needs no destination-chain ETH.
+ *  (M) live, read-only: the Sepolia CCIP router supports the lane and quotes a message fee for PAYS-sized payloads.
+ *  (C) modelled: how the speculative-leg advantage measured in the dual stage changes when the destination lane adds
+ *      a delay L. L is a configured value (XCHAIN_LANE_DELAYS_S, default 0,30,120,600), NOT a measurement.
+ * Live delivery latency is not measured here and is reported as not measured.
+ */
+async function stageXchain(config, rec) {
+  console.log('\n[xchain] cross-chain cost (live, read-only) and lane-delay sensitivity (modelled)');
+  const destKey = (process.env.DEST_CHAIN || 'base').toLowerCase(),
+    lane = CCIP_LANES[destKey];
+  if (!lane) throw new Error(`DEST_CHAIN must be base or arbitrum (got "${destKey}")`);
+  const out = {
+    tag: 'M+C',
+    destination: lane.name,
+    notMeasured: ['live CCIP delivery latency (needs destination-chain ETH and a receiver contract)'],
+  };
+  // ---- live, read-only
+  if (config.offline || !config.rpcUrl) out.live = { skipped: 'needs an RPC endpoint (and not --offline)' };
+  else {
+    const provider = patient(config.rpcUrl),
+      routerAddr = process.env.CCIP_ROUTER_SOURCE || CCIP_SEPOLIA_ROUTER,
+      selector = BigInt(process.env.CCIP_DEST_SELECTOR || lane.selector),
+      coder = ethers.AbiCoder.defaultAbiCoder(),
+      live = { router: routerAddr, selector: selector.toString() };
+    try {
+      live.routerHasCode = (await provider.getCode(routerAddr)) !== '0x';
+      const router = new ethers.Contract(
+        routerAddr,
+        [
+          'function isChainSupported(uint64) view returns (bool)',
+          'function getFee(uint64, (bytes receiver, bytes data, (address token, uint256 amount)[] tokenAmounts, address feeToken, bytes extraArgs) message) view returns (uint256)',
+        ],
+        provider,
+      );
+      live.laneSupported = await router.isChainSupported(selector);
+      const receiver = coder.encode(['address'], [config.privateKey ? new ethers.Wallet(config.privateKey).address : ethers.ZeroAddress]),
+        forms = [
+          ['empty', '0x'],
+          ['EVMExtraArgsV1', '0x97a657c9' + coder.encode(['uint256'], [200000]).slice(2)],
+          ['EVMExtraArgsV2', '0x181dcf10' + coder.encode(['uint256', 'bool'], [200000, false]).slice(2)],
+        ];
+      live.fees = [];
+      for (const bytes of [64, 256, 1024]) {
+        let quoted = null;
+        for (const [kind, extraArgs] of forms) {
+          try {
+            const fee = await router.getFee(selector, { receiver, data: '0x' + '11'.repeat(bytes), tokenAmounts: [], feeToken: ethers.ZeroAddress, extraArgs });
+            quoted = { payloadBytes: bytes, extraArgs: kind, feeWei: fee.toString(), feeEth: Number(ethers.formatEther(fee)) };
+            break;
+          } catch (e) {
+            quoted = { payloadBytes: bytes, error: String(e.shortMessage || e.message).slice(0, 100) };
+          }
+        }
+        live.fees.push(quoted);
+        console.log(`   fee quote, ${bytes} B payload: ${quoted.feeEth != null ? quoted.feeEth + ' ETH (' + quoted.extraArgs + ')' : quoted.error}`);
+      }
+    } catch (e) {
+      live.error = String(e.shortMessage || e.message).slice(0, 160);
+    }
+    console.log(`   router code: ${live.routerHasCode} | lane to ${lane.name} supported: ${live.laneSupported}${live.error ? ' | ' + live.error : ''}`);
+    out.live = live;
+  }
+  // ---- modelled lane-delay sensitivity, built on the MEASURED dual-stage components
+  const L0 = rec.data.stages.dual && rec.data.stages.dual.local;
+  if (!L0) out.model = { skipped: 'the dual stage has not been run (its measured times are the inputs)' };
+  else {
+    const mis = L0.mispredictionRate,
+      base = L0.baselineMs.mean,
+      spec = L0.speculativeMs.mean,
+      fin = L0.finalMs.mean,
+      delays = (process.env.XCHAIN_LANE_DELAYS_S || '0,30,120,600').split(',').map(Number).filter((x) => x >= 0);
+    out.model = {
+      tag: 'C',
+      note: 'Lane delay L is configured, not measured. baseline = measured wait-then-relay + L; the speculative leg is usable before the lane delay; final = measured final + L; correct-usable = (1-m)*speculative + m*final.',
+      inputs: { baselineMs: base, speculativeMs: spec, finalMs: fin, mispredictionRate: mis, source: 'dual.local (measured here)' },
+      rows: delays.map((L) => {
+        const baselineMs = base + L * 1000,
+          finalMs = fin + L * 1000,
+          usable = (1 - mis) * spec + mis * finalMs;
+        return { laneDelayS: L, baselineMs, speculativeMs: spec, finalMs, correctUsableMs: usable, speculativeSpeedup: baselineMs / spec, correctUsableSpeedup: baselineMs / usable };
+      }),
+    };
+    for (const r of out.model.rows)
+      console.log(`   L=${String(r.laneDelayS).padStart(4)} s: baseline ${f2(r.baselineMs / 1000, 1)} s | speculative ${f2(r.speculativeMs / 1000, 2)} s | correct-usable speedup ${f2(r.correctUsableSpeedup, 2)}x (modelled)`);
+  }
+  rec.set('xchain', out);
+  return out;
+}
+
+// ---------------------------------------------------------------------------------------------
 // 10. Deployed Sepolia contracts
 // ---------------------------------------------------------------------------------------------
 
@@ -2648,6 +2793,24 @@ function verdicts(D) {
       'needs an RPC endpoint',
       { skipped: true },
     );
+  if (st.xchain) {
+    const lv = st.xchain.live || {},
+      quoted = (lv.fees || []).filter((f) => f.feeEth != null),
+      ok = lv.routerHasCode && lv.laneSupported === true && quoted.length > 0;
+    V(
+      'xchain',
+      'PAYS messages can be carried to another chain at a known cost',
+      ok ? 'PARTIAL' : lv.skipped || lv.error ? 'INCONCLUSIVE' : 'NOT SUPPORTED',
+      'PASS needs live delivery measured; PARTIAL = the live router supports the lane and quotes a fee, delivery latency modelled only; otherwise INCONCLUSIVE (no live answer) or NOT SUPPORTED (lane or fee rejected)',
+      {
+        destination: st.xchain.destination,
+        laneSupported: lv.laneSupported,
+        feeEth: quoted.map((f) => ({ payloadBytes: f.payloadBytes, feeEth: f.feeEth })),
+        notMeasured: st.xchain.notMeasured,
+        modelledRows: st.xchain.model && st.xchain.model.rows ? st.xchain.model.rows.length : 0,
+      },
+    );
+  }
   return C;
 }
 
@@ -2692,6 +2855,15 @@ function writeReport(config, D) {
       ['Target, model', 'MAE', 'RMSE', 'Hit rate'],
       rows,
       st.rbf.tag,
+    );
+  }
+  if (st.xchain && st.xchain.model && st.xchain.model.rows) {
+    tab(
+      `Speculative advantage versus an assumed lane delay to ${st.xchain.destination} (modelled from measured local times; delay configured, not measured)`,
+      'tab:xchain',
+      ['Lane delay (s)', 'Baseline (s)', 'Speculative (s)', 'Correct-usable speed-up'],
+      st.xchain.model.rows.map((r) => [String(r.laneDelayS), f2(r.baselineMs / 1000, 1), f2(r.speculativeMs / 1000, 2), f2(r.correctUsableSpeedup, 2) + '$\\times$']),
+      'C',
     );
   }
   if (st.dual && st.dual.local) {
@@ -2818,6 +2990,7 @@ function writeReport(config, D) {
 
 /** Entry point: read settings, run the chosen stages (a failing stage is recorded and does not stop the others), then write verdicts and reports. */
 async function main() {
+  validateArgs();
   const config = loadConfig(),
     rec = new Recorder(config);
   console.log(
@@ -2840,8 +3013,9 @@ async function main() {
     bee: stageBee,
     conf: stageConf,
     chain: stageChain,
+    xchain: stageXchain,
   };
-  const order = ['conn', 'zk', 'rbf', 'dual', 'bee', 'conf', 'chain'].filter((s) =>
+  const order = ['conn', 'zk', 'rbf', 'dual', 'bee', 'conf', 'chain', 'xchain'].filter((s) =>
     config.stages.includes(s),
   );
   for (const s of order) {

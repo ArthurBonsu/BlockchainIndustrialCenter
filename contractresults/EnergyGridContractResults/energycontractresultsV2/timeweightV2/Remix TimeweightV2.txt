@@ -1,0 +1,60 @@
+[block:12162726 txIndex:115]
+from:
+0x792...ad36A
+to:
+TimeWeightedAMMV2.(constructor)
+value:
+0 wei
+data:
+0x60a...4b13f
+logs:
+1
+hash:
+0xfa2...7fb12
+status	1 Transaction mined and execution completed
+transaction hash	0xbb67ea49fc7e9679efee206c077ac691429ebe619f4f24507517db194176ba0f
+block hash	0xfa20ac99a49735f6255b88d8f30edf74b70b31b5b49431feeaa6d0b35e87fb12
+block number	12162726
+contract address	0x8dF62B24137bc1739a65A08267c5948192E3F38c
+from	0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+to	TimeWeightedAMMV2.(constructor)
+transaction cost	14790689 gas 
+decoded input	{
+	"address _vault": "0x623bA68eb8c93D6204F449d1A2596078D094b13f"
+}
+decoded output	 - 
+logs	[
+	{
+		"from": "0x8dF62B24137bc1739a65A08267c5948192E3F38c",
+		"topic": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+		"event": "OwnershipTransferred",
+		"args": {
+			"0": "0x0000000000000000000000000000000000000000",
+			"1": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+		}
+	}
+]
+raw logs	[
+  {
+    "_type": "log",
+    "address": "0x8dF62B24137bc1739a65A08267c5948192E3F38c",
+    "blockHash": "0xfa20ac99a49735f6255b88d8f30edf74b70b31b5b49431feeaa6d0b35e87fb12",
+    "blockNumber": 12162726,
+    "data": "0x",
+    "index": 272,
+    "topics": [
+      "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a"
+    ],
+    "transactionHash": "0xbb67ea49fc7e9679efee206c077ac691429ebe619f4f24507517db194176ba0f",
+    "transactionIndex": 115
+  }
+]
+[Verification] Contract deployed. Checking explorers for registration...
+Etherscan verification skipped: API key not provided.
+Please input the API key in Remix Settings - Connected Services OR Contract Verification Plugin Settings.
+[Sourcify] Verification submitted. Awaiting confirmation...
+[Blockscout] Verification submitted. Awaiting confirmation...
+[Routescan] Verification submitted. Awaiting confirmation...
+>

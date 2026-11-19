@@ -1,0 +1,404 @@
+{
+  "metadata": {
+    "startedAt": "2026-11-18T18:59:59.195Z",
+    "network": "Sepolia",
+    "contracts": {
+      "EnergyTokenRE": "0xa78fc8e55a017cb5659476f6d67fe77c22b4c59a",
+      "EnergyTokenNRE": "0x8b8d7b0d8f38488f56454337205e269c20892e6c",
+      "EnergyTokenVault": "0x623ba68eb8c93d6204f449d1a2596078d094b13f",
+      "GridStabilityOracle": "0x9580429807f611a286255ff325e7c6812343d340",
+      "TimeWeightedAMM": "0x8dF62B24137bc1739a65A08267c5948192E3F38c",
+      "GridResponsiveAMM": "0x5Ce434e6b49611Dbf9C82266a0a21E6822028600"
+    },
+    "note": "v2 swap contracts on Sepolia. Every entry below reflects a real transaction or a real read; failures are recorded, not hidden. Each swap entry carries the amountOut decoded from its SwapExecuted event.",
+    "periodAtStart": "peak (UTC hour 18)",
+    "twOnly": false,
+    "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+  },
+  "setup": {
+    "setAuthorizedCaller_TWAMM": {
+      "label": "setAuthorizedCaller_TWAMM",
+      "success": true,
+      "elapsedMs": 25653,
+      "txHash": "0x62d807b020ac40d5a1200eceaa46e3530e0b0f0a24a7b8a7605b4d1e660c02c2",
+      "blockNumber": 12163362,
+      "gasUsed": 130366
+    },
+    "setAuthorizedCaller_GRAMM": {
+      "label": "setAuthorizedCaller_GRAMM",
+      "success": true,
+      "elapsedMs": 13295,
+      "txHash": "0xd3d2f62c9463afe985583990bcc55a6790c3a654845ff2419b7a81f15d461f9a",
+      "blockNumber": 12163363,
+      "gasUsed": 130354
+    },
+    "vault_approveSpender_TWAMM": {
+      "label": "vault_approveSpender_TWAMM",
+      "success": true,
+      "elapsedMs": 30174,
+      "txHash": "0xb22150f0d4c0225f043aa02b9f1b6317364fe4bb7b80414668f5c3f1e35255a5",
+      "blockNumber": 12163365,
+      "gasUsed": 255410
+    },
+    "vault_approveSpender_GRAMM": {
+      "label": "vault_approveSpender_GRAMM",
+      "success": true,
+      "elapsedMs": 33857,
+      "txHash": "0x900b9ee48768c6518f739885fc810d006ec7b74cc43d6156e01dd44c1035d5dc",
+      "blockNumber": 12163368,
+      "gasUsed": 255398
+    },
+    "ownerApprove_Vault_RE": {
+      "label": "ownerApprove_Vault_RE",
+      "success": false,
+      "error": "Invalid signature. \"Signer Error Signer Error  gasLimit is too low. given 21406, need at least 21944.\"",
+      "elapsedMs": 3387
+    },
+    "ownerApprove_TWAMM_RE": {
+      "label": "ownerApprove_TWAMM_RE",
+      "success": true,
+      "elapsedMs": 15529,
+      "txHash": "0xb5ddc080e81a9b901d4d14ba8dd48e7b9461e8731e9d7628776e756b75701b16",
+      "blockNumber": 12163370,
+      "gasUsed": 129160
+    },
+    "ownerApprove_GRAMM_RE": {
+      "label": "ownerApprove_GRAMM_RE",
+      "success": true,
+      "elapsedMs": 13853,
+      "txHash": "0xc5cef4fbdd25c1e5d5e910f2e303fd91c9cde419f78c28c1125b1abb5c11f702",
+      "blockNumber": 12163371,
+      "gasUsed": 129148
+    },
+    "ownerApprove_Vault_NRE": {
+      "label": "ownerApprove_Vault_NRE",
+      "success": false,
+      "error": "Invalid signature. \"Signer Error Signer Error  gasLimit is too low. given 21406, need at least 21944.\"",
+      "elapsedMs": 1331
+    },
+    "ownerApprove_TWAMM_NRE": {
+      "label": "ownerApprove_TWAMM_NRE",
+      "success": true,
+      "elapsedMs": 21531,
+      "txHash": "0x91bed34e1c956906bf440af5233518b7b9526ddb2219b1b078395667b770e4e5",
+      "blockNumber": 12163372,
+      "gasUsed": 129160
+    },
+    "ownerApprove_GRAMM_NRE": {
+      "label": "ownerApprove_GRAMM_NRE",
+      "success": true,
+      "elapsedMs": 11128,
+      "txHash": "0xe54c20e0cb76d9227dfb9726504cb3eb18bad278314bcdea6eeb27bb913ffd7d",
+      "blockNumber": 12163373,
+      "gasUsed": 129148
+    },
+    "addLiquidity": {
+      "label": "addLiquidity",
+      "skipped": true,
+      "reason": "vault already has reserves",
+      "reserveRE": "1039999999999999999972",
+      "reserveNRE": "1039999999999999999976"
+    }
+  },
+  "oracle": {
+    "readConstants": {
+      "label": "readConstants",
+      "success": true,
+      "elapsedMs": 1588,
+      "value": {
+        "nominalFrequency": "60000",
+        "nominalVoltage": "120000",
+        "gThreshold": "850000000000000000"
+      }
+    },
+    "updateCondition_normal": {
+      "label": "updateCondition_normal",
+      "success": true,
+      "elapsedMs": 10628,
+      "txHash": "0x23e95010ae14252482a17eb370cf174aa4fbe88d630b474cc14dd275d259bc00",
+      "blockNumber": 12163374,
+      "gasUsed": 515691
+    },
+    "readScore_normal": {
+      "label": "readScore_normal",
+      "success": true,
+      "elapsedMs": 562,
+      "value": {
+        "score": "1000000000000000000",
+        "isStressed": false
+      }
+    },
+    "updateCondition_stress": {
+      "label": "updateCondition_stress",
+      "success": true,
+      "elapsedMs": 10839,
+      "txHash": "0x365c6b949c36388710955e41d60470382341f25adffb3dc0586459f9ca170590",
+      "blockNumber": 12163375,
+      "gasUsed": 512420
+    },
+    "readScore_stress": {
+      "label": "readScore_stress",
+      "success": true,
+      "elapsedMs": 539,
+      "value": {
+        "score": "1000000000000000000",
+        "isStressed": false
+      }
+    }
+  },
+  "timeWeightedAMM": {
+    "swaps": [],
+    "configuredValues": {
+      "label": "configuredValues",
+      "success": true,
+      "elapsedMs": 1334,
+      "value": {
+        "tauPeak": "1350000000000000000",
+        "tauNormal": "1000000000000000000",
+        "tauOffPeak": "750000000000000000",
+        "currentPeriod": "peak",
+        "currentTau": "1350000000000000000"
+      }
+    },
+    "swap_0_RE_to_NRE": {
+      "label": "swap_0_RE_to_NRE",
+      "success": true,
+      "elapsedMs": 10640,
+      "txHash": "0xf2ed38d748d66a53e75e4ca3d6d34e098aa402d05ee799bd7cf46649308a9035",
+      "blockNumber": 12163376,
+      "gasUsed": 369236,
+      "swap": {
+        "amm": "TimeWeightedAMMV2",
+        "isREtoNRE": true,
+        "amountInWei": "5000000000000000000",
+        "amountOutWei": "3674977436323292962",
+        "rateOutPerIn": 0.7349954872646587,
+        "tauWei": "1350000000000000000",
+        "blockTimestampUTC": "2026-11-18T19:03:24.000Z"
+      },
+      "amountIn": "5000000000000000000",
+      "quotedOutBeforeSwapWei": "3674977436323292962",
+      "gasPriceGwei": 1.7e-8,
+      "txCostETH": 6.277012e-12,
+      "txCostUSD": 2.00864384e-8
+    },
+    "swap_1_NRE_to_RE": {
+      "label": "swap_1_NRE_to_RE",
+      "success": true,
+      "elapsedMs": 11998,
+      "txHash": "0xccad4b9768b3897dcd847031e5f68b1a85440b1f73b1e7c53256f922a5058bb8",
+      "blockNumber": 12163377,
+      "gasUsed": 369274,
+      "swap": {
+        "amm": "TimeWeightedAMMV2",
+        "isREtoNRE": false,
+        "amountInWei": "5000000000000000000",
+        "amountOutWei": "6742300533954627492",
+        "rateOutPerIn": 1.3484601067909254,
+        "tauWei": "1350000000000000000",
+        "blockTimestampUTC": "2026-11-18T19:03:36.000Z"
+      },
+      "amountIn": "5000000000000000000",
+      "quotedOutBeforeSwapWei": "6742300533954627492",
+      "gasPriceGwei": 1.7e-8,
+      "txCostETH": 6.277658e-12,
+      "txCostUSD": 2.00885056e-8
+    },
+    "swap_2_RE_to_NRE": {
+      "label": "swap_2_RE_to_NRE",
+      "success": true,
+      "elapsedMs": 9759,
+      "txHash": "0x66e47115c5e319294fe449deaf0c12c64e754e79d5b51c150dc2332baa146e35",
+      "blockNumber": 12163378,
+      "gasUsed": 173396,
+      "swap": {
+        "amm": "TimeWeightedAMMV2",
+        "isREtoNRE": true,
+        "amountInWei": "5000000000000000000",
+        "amountOutWei": "3685804910753748422",
+        "rateOutPerIn": 0.7371609821507497,
+        "tauWei": "1350000000000000000",
+        "blockTimestampUTC": "2026-11-18T19:03:48.000Z"
+      },
+      "amountIn": "5000000000000000000",
+      "quotedOutBeforeSwapWei": "3685804910753748422",
+      "gasPriceGwei": 1.7e-8,
+      "txCostETH": 2.947732e-12,
+      "txCostUSD": 9.4327424e-9
+    },
+    "swap_3_NRE_to_RE": {
+      "label": "swap_3_NRE_to_RE",
+      "success": true,
+      "elapsedMs": 11499,
+      "txHash": "0xc7ed85589fc3b4691f166fe58a1eee028891abd368505b342ad2e2dae9fff68a",
+      "blockNumber": 12163379,
+      "gasUsed": 173434,
+      "swap": {
+        "amm": "TimeWeightedAMMV2",
+        "isREtoNRE": false,
+        "amountInWei": "5000000000000000000",
+        "amountOutWei": "6722589161912818537",
+        "rateOutPerIn": 1.3445178323825637,
+        "tauWei": "1350000000000000000",
+        "blockTimestampUTC": "2026-11-18T19:04:00.000Z"
+      },
+      "amountIn": "5000000000000000000",
+      "quotedOutBeforeSwapWei": "6722589161912818537",
+      "gasPriceGwei": 1.7e-8,
+      "txCostETH": 2.948378e-12,
+      "txCostUSD": 9.4348096e-9
+    },
+    "finalStatistics": {
+      "label": "finalStatistics",
+      "success": true,
+      "elapsedMs": 354,
+      "value": {
+        "totalSwapsRE": "2",
+        "totalSwapsNRE": "2",
+        "totalVolumeRE": "10000000000000000000",
+        "totalVolumeNRE": "10000000000000000000"
+      }
+    }
+  },
+  "gridResponsiveAMM": {
+    "swapsNormal": [
+      {
+        "label": "normal_swap_0_RE_to_NRE",
+        "success": true,
+        "elapsedMs": 13045,
+        "txHash": "0xdc0dff7826069b376eb8e4ec60d99dfbdcffe85228fe3b2316396d58dd219ed9",
+        "blockNumber": 12163381,
+        "gasUsed": 266477,
+        "swap": {
+          "amm": "GridResponsiveAMMV2",
+          "isREtoNRE": true,
+          "amountInWei": "5000000000000000000",
+          "amountOutWei": "4990356353735782524",
+          "rateOutPerIn": 0.9980712707471565,
+          "feeMultiplierWei": "1000000000000000000",
+          "gridScoreWei": "1000000000000000000",
+          "feePaidWei": "15000000000000000",
+          "blockTimestampUTC": "2026-11-18T19:04:24.000Z"
+        },
+        "gasPriceGwei": 1.7e-8,
+        "txCostETH": 4.530109e-12,
+        "txCostUSD": 1.44963488e-8
+      },
+      {
+        "label": "normal_swap_1_NRE_to_RE",
+        "success": true,
+        "elapsedMs": 11617,
+        "txHash": "0xd39a001fb7558c23512118f2d453f1a3a640cd807736a158cace50c60e3c21a5",
+        "blockNumber": 12163382,
+        "gasUsed": 266485,
+        "swap": {
+          "amm": "GridResponsiveAMMV2",
+          "isREtoNRE": false,
+          "amountInWei": "5000000000000000000",
+          "amountOutWei": "4979746694967759569",
+          "rateOutPerIn": 0.995949338993552,
+          "feeMultiplierWei": "1000000000000000000",
+          "gridScoreWei": "1000000000000000000",
+          "feePaidWei": "15000000000000000",
+          "blockTimestampUTC": "2026-11-18T19:04:36.000Z"
+        },
+        "gasPriceGwei": 1.7e-8,
+        "txCostETH": 4.530245e-12,
+        "txCostUSD": 1.4496784000000001e-8
+      }
+    ],
+    "swapsStressed": [
+      {
+        "label": "stressed_swap_0_RE_to_NRE",
+        "success": true,
+        "elapsedMs": 11342,
+        "txHash": "0x31f7f28534bed277b0772c2f9b3fc954a25a0079eedb422034a75ec49f7ed624",
+        "blockNumber": 12163384,
+        "gasUsed": 618115,
+        "swap": {
+          "amm": "GridResponsiveAMMV2",
+          "isREtoNRE": true,
+          "amountInWei": "5000000000000000000",
+          "amountOutWei": "4992547079274506197",
+          "rateOutPerIn": 0.9985094158549013,
+          "feeMultiplierWei": "850000000000000000",
+          "gridScoreWei": "700000000000000000",
+          "feePaidWei": "12750000000000000",
+          "blockTimestampUTC": "2026-11-18T19:05:00.000Z"
+        },
+        "gasPriceGwei": 1.7e-8,
+        "txCostETH": 1.0507955e-11,
+        "txCostUSD": 3.3625456e-8
+      },
+      {
+        "label": "stressed_swap_1_NRE_to_RE",
+        "success": true,
+        "elapsedMs": 12410,
+        "txHash": "0x5b55614a41f7c943daa8632297866138cf846df1aad9ba9f747acd150529362b",
+        "blockNumber": 12163385,
+        "gasUsed": 296102,
+        "swap": {
+          "amm": "GridResponsiveAMMV2",
+          "isREtoNRE": false,
+          "amountInWei": "5000000000000000000",
+          "amountOutWei": "4973097158702747134",
+          "rateOutPerIn": 0.9946194317405493,
+          "feeMultiplierWei": "1450000000000000000",
+          "gridScoreWei": "700000000000000000",
+          "feePaidWei": "21750000000000000",
+          "blockTimestampUTC": "2026-11-18T19:05:12.000Z"
+        },
+        "gasPriceGwei": 1.7e-8,
+        "txCostETH": 5.033734e-12,
+        "txCostUSD": 1.6107948799999998e-8
+      }
+    ],
+    "setNormal": {
+      "label": "setNormal",
+      "success": true,
+      "elapsedMs": 10682,
+      "txHash": "0x7437511a815b080fab955359f525a563b5cf6a7c78c941034dbdf3978eec7119",
+      "blockNumber": 12163380,
+      "gasUsed": 495691
+    },
+    "setStressed": {
+      "label": "setStressed",
+      "success": true,
+      "elapsedMs": 11567,
+      "txHash": "0xe915976e38e1178809fc93320fd3e81de144721e24e79abc15809fde13d6f17a",
+      "blockNumber": 12163383,
+      "gasUsed": 517227
+    },
+    "finalStatistics": {
+      "label": "finalStatistics",
+      "success": true,
+      "elapsedMs": 295,
+      "value": {
+        "totalSwapsRE": "2",
+        "totalSwapsNRE": "2",
+        "swapsDuringStress": "2",
+        "accumulatedFees": "6750000000000000",
+        "totalGST": "150000000000000000"
+      }
+    },
+    "userGST": {
+      "label": "userGST",
+      "success": true,
+      "elapsedMs": 302,
+      "value": {
+        "gstBalance": "150000000000000000",
+        "energyDeferred": "5000000000000000000"
+      }
+    }
+  },
+  "summary": {
+    "totalOperations": 28,
+    "totalRealTransactions": 20,
+    "successCount": 25,
+    "failureCount": 2,
+    "successRatePct": 89.3,
+    "totalGasUsed": 5861692,
+    "avgGasUsed": 293085,
+    "finishedAt": "2026-11-18T19:05:14.466Z"
+  }
+}

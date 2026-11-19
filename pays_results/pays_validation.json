@@ -8,7 +8,7 @@
     "rpcHost": "sepolia.infura.io",
     "quick": false,
     "offline": false,
-    "sentTransactions": true
+    "sentTransactions": false
   },
   "evidenceTags": {
     "M": "measured here",
@@ -30,13 +30,7 @@
     "blockB": 1,
     "confirmations": 2,
     "stages": [
-      "conn",
-      "zk",
-      "rbf",
-      "dual",
-      "bee",
-      "conf",
-      "chain"
+      "xchain"
     ],
     "addresses": {
       "AssetTransferProcessor": "0x10906193b9c3a0d5ea7251047c55f5398d6d4990",
@@ -2937,6 +2931,88 @@
         "account": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A",
         "hadRole": false
       }
+    },
+    "xchain": {
+      "tag": "M+C",
+      "destination": "Base Sepolia",
+      "notMeasured": [
+        "live CCIP delivery latency (needs destination-chain ETH and a receiver contract)"
+      ],
+      "live": {
+        "router": "0x0BF3dE8c5D3e8A2B34D2BEeB17ABfCeBaf363A59",
+        "selector": "10344971235874465080",
+        "routerHasCode": true,
+        "laneSupported": true,
+        "fees": [
+          {
+            "payloadBytes": 64,
+            "extraArgs": "empty",
+            "feeWei": "286895055792993",
+            "feeEth": 0.000286895055792993
+          },
+          {
+            "payloadBytes": 256,
+            "extraArgs": "empty",
+            "feeWei": "286895055792993",
+            "feeEth": 0.000286895055792993
+          },
+          {
+            "payloadBytes": 1024,
+            "extraArgs": "empty",
+            "feeWei": "286895055792993",
+            "feeEth": 0.000286895055792993
+          }
+        ]
+      },
+      "model": {
+        "tag": "C",
+        "note": "Lane delay L is configured, not measured. baseline = measured wait-then-relay + L; the speculative leg is usable before the lane delay; final = measured final + L; correct-usable = (1-m)*speculative + m*final.",
+        "inputs": {
+          "baselineMs": 2773.018480000024,
+          "speculativeMs": 1019.5685533333259,
+          "finalMs": 3553.91598666658,
+          "mispredictionRate": 0.1,
+          "source": "dual.local (measured here)"
+        },
+        "rows": [
+          {
+            "laneDelayS": 0,
+            "baselineMs": 2773.018480000024,
+            "speculativeMs": 1019.5685533333259,
+            "finalMs": 3553.91598666658,
+            "correctUsableMs": 1273.0032966666513,
+            "speculativeSpeedup": 2.7197960067854754,
+            "correctUsableSpeedup": 2.1783278073679386
+          },
+          {
+            "laneDelayS": 30,
+            "baselineMs": 32773.01848000002,
+            "speculativeMs": 1019.5685533333259,
+            "finalMs": 33553.91598666658,
+            "correctUsableMs": 4273.003296666651,
+            "speculativeSpeedup": 32.144006769190334,
+            "correctUsableSpeedup": 7.669785442376347
+          },
+          {
+            "laneDelayS": 120,
+            "baselineMs": 122773.01848000003,
+            "speculativeMs": 1019.5685533333259,
+            "finalMs": 123553.91598666659,
+            "correctUsableMs": 13273.003296666653,
+            "speculativeSpeedup": 120.41663905640492,
+            "correctUsableSpeedup": 9.24982957781928
+          },
+          {
+            "laneDelayS": 600,
+            "baselineMs": 602773.01848,
+            "speculativeMs": 1019.5685533333259,
+            "finalMs": 603553.9159866666,
+            "correctUsableMs": 61273.003296666655,
+            "speculativeSpeedup": 591.2040112548826,
+            "correctUsableSpeedup": 9.837497528259592
+          }
+        ]
+      }
     }
   },
   "claims": {
@@ -3206,7 +3282,75 @@
           "SpeculativeTransactionHandler": true
         }
       }
+    },
+    "xchain": {
+      "claim": "PAYS messages can be carried to another chain at a known cost",
+      "verdict": "PARTIAL",
+      "rule": "PASS needs live delivery measured; PARTIAL = the live router supports the lane and quotes a fee, delivery latency modelled only; otherwise INCONCLUSIVE (no live answer) or NOT SUPPORTED (lane or fee rejected)",
+      "detail": {
+        "destination": "Base Sepolia",
+        "laneSupported": true,
+        "feeEth": [
+          {
+            "payloadBytes": 64,
+            "feeEth": 0.000286895055792993
+          },
+          {
+            "payloadBytes": 256,
+            "feeEth": 0.000286895055792993
+          },
+          {
+            "payloadBytes": 1024,
+            "feeEth": 0.000286895055792993
+          }
+        ],
+        "notMeasured": [
+          "live CCIP delivery latency (needs destination-chain ETH and a receiver contract)"
+        ],
+        "modelledRows": 4
+      }
     }
   },
-  "finishedAt": "2026-11-03T16:37:27.387Z"
+  "runs": [
+    {
+      "startedAt": "2026-11-03T16:17:12.706Z",
+      "finishedAt": "2026-11-03T16:37:27.387Z",
+      "stages": [
+        "conn",
+        "zk",
+        "rbf",
+        "dual",
+        "bee",
+        "conf",
+        "chain"
+      ],
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "win32",
+        "cpu": "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz",
+        "cores": 8,
+        "rpcHost": "sepolia.infura.io",
+        "quick": false,
+        "offline": false,
+        "sentTransactions": true
+      }
+    },
+    {
+      "startedAt": "2026-11-19T16:11:26.054Z",
+      "stages": [
+        "xchain"
+      ],
+      "environment": {
+        "node": "v24.13.0",
+        "platform": "win32",
+        "cpu": "Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz",
+        "cores": 8,
+        "rpcHost": "sepolia.infura.io",
+        "quick": false,
+        "offline": false,
+        "sentTransactions": false
+      }
+    }
+  ],
+  "finishedAt": "2026-11-19T16:11:27.822Z"
 }

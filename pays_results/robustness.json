@@ -1,0 +1,1784 @@
+{
+  "generated": "2026-11-19T15:17:16.686Z",
+  "source": "Ethereum Sepolia",
+  "tag": "D",
+  "blocks": 3000,
+  "folds": 5,
+  "results": {
+    "gasUtilisation": {
+      "cv": 0.43512901854148456,
+      "horizons": {
+        "1": {
+          "n": 2200,
+          "summary": {
+            "persistence": {
+              "mae": 0.06371499331689136,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 0.062262164021370074,
+              "chosenPerFold": [
+                {
+                  "k": 64
+                },
+                {
+                  "k": 8
+                },
+                {
+                  "k": 8
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 0.05675797281509413,
+              "chosenPerFold": [
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.4
+                },
+                {
+                  "a": 0.2
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.1
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 0.05664149784879794,
+              "chosenPerFold": [
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 0.053239612473318605,
+              "chosenPerFold": [
+                {
+                  "k": 16,
+                  "beta": 32,
+                  "lambda": 1
+                },
+                {
+                  "k": 8,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 16,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 16,
+                  "beta": 0.5,
+                  "lambda": 1
+                },
+                {
+                  "k": 12,
+                  "beta": 32,
+                  "lambda": 1
+                }
+              ]
+            },
+            "ar": {
+              "mae": 0.05687402489117432,
+              "chosenPerFold": [
+                {
+                  "p": 4,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                }
+              ]
+            }
+          },
+          "bestBaseline": "linearTrend",
+          "rbfFoldWinsVsBestBaseline": "5/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": -0.010475380843572815,
+              "dmStat": -5.044449353324548,
+              "pRaw": 4.555803203576403e-7,
+              "blockBootstrapCi95": [
+                -0.014191989369022492,
+                -0.005998560030722951
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.00001731205217359033
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.009022551548051311,
+              "dmStat": -2.502011598343655,
+              "pRaw": 0.012349018323634997,
+              "blockBootstrapCi95": [
+                -0.01928485500280355,
+                -0.0019080976981989779
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.3334234947381449
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": -0.003518360341775511,
+              "dmStat": -2.328774600753687,
+              "pRaw": 0.01987096489133444,
+              "blockBootstrapCi95": [
+                -0.007711342323869601,
+                -0.0006312098980322059
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.49677412228336104
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": -0.003401885375479406,
+              "dmStat": -2.5981185915843126,
+              "pRaw": 0.009373678696721788,
+              "blockBootstrapCi95": [
+                -0.0058385435940998594,
+                -0.0008995054567967717
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.27183668220493185
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0036344124178556442,
+              "dmStat": -2.219506931399471,
+              "pRaw": 0.026452167049803688,
+              "blockBootstrapCi95": [
+                -0.006978882747705767,
+                -0.000280145547907374
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.6025750489121233
+            }
+          },
+          "verdict": "PARTIAL: beats persistence, no significant difference from best tuned baseline (linearTrend)"
+        },
+        "2": {
+          "n": 2195,
+          "summary": {
+            "persistence": {
+              "mae": 0.0645970535485048,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 0.06308262108773063,
+              "chosenPerFold": [
+                {
+                  "k": 64
+                },
+                {
+                  "k": 8
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 0.05689885989388845,
+              "chosenPerFold": [
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.2
+                },
+                {
+                  "a": 0.2
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.1
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 0.05880719635256522,
+              "chosenPerFold": [
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 0.05310346055437448,
+              "chosenPerFold": [
+                {
+                  "k": 24,
+                  "beta": 0.5,
+                  "lambda": 1
+                },
+                {
+                  "k": 8,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 16,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                },
+                {
+                  "k": 12,
+                  "beta": 16,
+                  "lambda": 0.000001
+                }
+              ]
+            },
+            "ar": {
+              "mae": 0.06384041671715762,
+              "chosenPerFold": [
+                {
+                  "p": 2,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                }
+              ]
+            }
+          },
+          "bestBaseline": "expSmoothing",
+          "rbfFoldWinsVsBestBaseline": "1/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": -0.011493592994130006,
+              "dmStat": -6.718739852259614,
+              "pRaw": 1.843281083324655e-11,
+              "blockBootstrapCi95": [
+                -0.014880439430008136,
+                -0.008243801428967907
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 7.188796224966154e-10
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.00997916053335604,
+              "dmStat": -2.6347654390351343,
+              "pRaw": 0.008419623944692312,
+              "blockBootstrapCi95": [
+                -0.019725052406438952,
+                -0.002450849807092659
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.25258871834076935
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0037953993395138668,
+              "dmStat": -2.0539418798643903,
+              "pRaw": 0.03998118405617923,
+              "blockBootstrapCi95": [
+                -0.008583115415782565,
+                -0.00027319950482057056
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.6796801289550469
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": -0.005703735798190506,
+              "dmStat": -4.106667529240908,
+              "pRaw": 0.00004016283053287495,
+              "blockBootstrapCi95": [
+                -0.008545747817003518,
+                -0.0034271161995159515
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.0014056990686506232
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.010736956162782977,
+              "dmStat": -4.31269626862061,
+              "pRaw": 0.000016139305293094708,
+              "blockBootstrapCi95": [
+                -0.016647445486881015,
+                -0.005663333746096335
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.0005810149905514095
+            }
+          },
+          "verdict": "PARTIAL: beats persistence, no significant difference from best tuned baseline (expSmoothing)"
+        },
+        "4": {
+          "n": 2185,
+          "summary": {
+            "persistence": {
+              "mae": 0.06667872154648857,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 0.0639876753442228,
+              "chosenPerFold": [
+                {
+                  "k": 64
+                },
+                {
+                  "k": 8
+                },
+                {
+                  "k": 8
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 8
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 0.05799962687362869,
+              "chosenPerFold": [
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.2
+                },
+                {
+                  "a": 0.2
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.1
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 0.06384773608904502,
+              "chosenPerFold": [
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 0.056429867321961494,
+              "chosenPerFold": [
+                {
+                  "k": 24,
+                  "beta": 32,
+                  "lambda": 1
+                },
+                {
+                  "k": 16,
+                  "beta": 0.5,
+                  "lambda": 1
+                },
+                {
+                  "k": 12,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                },
+                {
+                  "k": 8,
+                  "beta": 16,
+                  "lambda": 0.000001
+                }
+              ]
+            },
+            "ar": {
+              "mae": 0.07365561788428408,
+              "chosenPerFold": [
+                {
+                  "p": 2,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                }
+              ]
+            }
+          },
+          "bestBaseline": "expSmoothing",
+          "rbfFoldWinsVsBestBaseline": "1/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": -0.010248854224526878,
+              "dmStat": -3.715764977517754,
+              "pRaw": 0.0002026486625315016,
+              "blockBootstrapCi95": [
+                -0.014975341085890609,
+                -0.004532755747622564
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.006687405863539553
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.007557808022261005,
+              "dmStat": -2.5361681043088375,
+              "pRaw": 0.011207336248892918,
+              "blockBootstrapCi95": [
+                -0.015493938230322447,
+                -0.0016680503347747298
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.3138054149690017
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0015697595516670321,
+              "dmStat": -1.6055679292533616,
+              "pRaw": 0.10836887252786243,
+              "blockBootstrapCi95": [
+                -0.004173489432494617,
+                0.00035314317580815616
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": -0.007417868767083457,
+              "dmStat": -4.021475302312694,
+              "pRaw": 0.00005786269126373256,
+              "blockBootstrapCi95": [
+                -0.0108976940069722,
+                -0.0036073473308821085
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.001967331502966907
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.017225750562322475,
+              "dmStat": -4.69592980992932,
+              "pRaw": 0.0000026570301627781845,
+              "blockBootstrapCi95": [
+                -0.026691427340467307,
+                -0.009524085579074469
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.00009831011602279283
+            }
+          },
+          "verdict": "PARTIAL: beats persistence, no significant difference from best tuned baseline (expSmoothing)"
+        }
+      }
+    },
+    "txCount": {
+      "cv": 0.24500758215089044,
+      "horizons": {
+        "1": {
+          "n": 2200,
+          "summary": {
+            "persistence": {
+              "mae": 21.721363636363638,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 16.165461647727273,
+              "chosenPerFold": [
+                {
+                  "k": 64
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 64
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 15.94313710701129,
+              "chosenPerFold": [
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.05
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 17.75157954545453,
+              "chosenPerFold": [
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 16.272348116425004,
+              "chosenPerFold": [
+                {
+                  "k": 8,
+                  "beta": 32,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 2,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 32,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 32,
+                  "lambda": 1
+                }
+              ]
+            },
+            "ar": {
+              "mae": 16.360577992957463,
+              "chosenPerFold": [
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.1
+                }
+              ]
+            }
+          },
+          "bestBaseline": "expSmoothing",
+          "rbfFoldWinsVsBestBaseline": "0/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": -5.449015519938666,
+              "dmStat": -18.028708139483047,
+              "pRaw": 0,
+              "blockBootstrapCi95": [
+                -5.9762819042818816,
+                -4.832300327352294
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": 0.10688646869770353,
+              "dmStat": 0.6843292081248543,
+              "pRaw": 0.49376717176629814,
+              "blockBootstrapCi95": [
+                -0.18105347141343653,
+                0.4155527969261089
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": 0.3292110094136872,
+              "dmStat": 3.4384508209682974,
+              "pRaw": 0.0005851503892113641,
+              "blockBootstrapCi95": [
+                0.14407494807282284,
+                0.5151467709300114
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.01872481245476365
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": -1.479231429029567,
+              "dmStat": -11.900083858078098,
+              "pRaw": 0,
+              "blockBootstrapCi95": [
+                -1.7135297241689844,
+                -1.220444651567053
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.08822987653248451,
+              "dmStat": -0.658640915269007,
+              "pRaw": 0.5101262545315797,
+              "blockBootstrapCi95": [
+                -0.3667556611827474,
+                0.17255325352710102
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            }
+          },
+          "verdict": "PARTIAL: beats persistence, but expSmoothing is significantly better"
+        },
+        "2": {
+          "n": 2195,
+          "summary": {
+            "persistence": {
+              "mae": 22.552164009111618,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 16.197024487471527,
+              "chosenPerFold": [
+                {
+                  "k": 64
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 64
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 15.96990578192295,
+              "chosenPerFold": [
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.05
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 18.33786412970654,
+              "chosenPerFold": [
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 16.159687964007777,
+              "chosenPerFold": [
+                {
+                  "k": 24,
+                  "beta": 32,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                }
+              ]
+            },
+            "ar": {
+              "mae": 16.32088738181604,
+              "chosenPerFold": [
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.1
+                }
+              ]
+            }
+          },
+          "bestBaseline": "expSmoothing",
+          "rbfFoldWinsVsBestBaseline": "0/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": -6.392476045103861,
+              "dmStat": -18.518673690725098,
+              "pRaw": 0,
+              "blockBootstrapCi95": [
+                -7.070778757161471,
+                -5.7025099621101685
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.037336523463762095,
+              "dmStat": -0.347291598686613,
+              "pRaw": 0.728372393166858,
+              "blockBootstrapCi95": [
+                -0.24529685380901242,
+                0.17928019166004505
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": 0.18978218208477463,
+              "dmStat": 2.781055349335989,
+              "pRaw": 0.005418367209784725,
+              "blockBootstrapCi95": [
+                0.06360677651234406,
+                0.3223935941836697
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.16796938350332646
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": -2.178176165698786,
+              "dmStat": -10.662878262491791,
+              "pRaw": 0,
+              "blockBootstrapCi95": [
+                -2.60211194117106,
+                -1.7945886594919667
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.16119941780825606,
+              "dmStat": -1.2850518790352299,
+              "pRaw": 0.19877429266181035,
+              "blockBootstrapCi95": [
+                -0.38836456406332204,
+                0.10218744865572879
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            }
+          },
+          "verdict": "PARTIAL: beats persistence, no significant difference from best tuned baseline (expSmoothing)"
+        },
+        "4": {
+          "n": 2185,
+          "summary": {
+            "persistence": {
+              "mae": 22.196338672768878,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 16.31799914187643,
+              "chosenPerFold": [
+                {
+                  "k": 64
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 32
+                },
+                {
+                  "k": 64
+                },
+                {
+                  "k": 64
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 16.003754854120842,
+              "chosenPerFold": [
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.1
+                },
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.05
+                },
+                {
+                  "a": 0.05
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 19.374809530219395,
+              "chosenPerFold": [
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                },
+                {
+                  "k": 16
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 16.13094332405525,
+              "chosenPerFold": [
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 0.000001
+                },
+                {
+                  "k": 24,
+                  "beta": 8,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 8,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 8,
+                  "lambda": 1
+                },
+                {
+                  "k": 24,
+                  "beta": 16,
+                  "lambda": 1
+                }
+              ]
+            },
+            "ar": {
+              "mae": 16.278952708956787,
+              "chosenPerFold": [
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 4,
+                  "ridge": 0.1
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.1
+                }
+              ]
+            }
+          },
+          "bestBaseline": "expSmoothing",
+          "rbfFoldWinsVsBestBaseline": "2/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": -6.065395348713644,
+              "dmStat": -17.951753403210223,
+              "pRaw": 0,
+              "blockBootstrapCi95": [
+                -6.702525015867459,
+                -5.429384148011368
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.18705581782119673,
+              "dmStat": -1.7611145707655425,
+              "pRaw": 0.07821892455488388,
+              "blockBootstrapCi95": [
+                -0.3778967942728011,
+                0.026903394052104384
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": 0.12718846993438324,
+              "dmStat": 1.7322244009062935,
+              "pRaw": 0.0832335407883904,
+              "blockBootstrapCi95": [
+                -0.015046600053626331,
+                0.28375857784183933
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": -3.2438662061641765,
+              "dmStat": -10.876835541404013,
+              "pRaw": 0,
+              "blockBootstrapCi95": [
+                -3.9103820713458246,
+                -2.7050010997018195
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.14800938490157245,
+              "dmStat": -1.093687121728866,
+              "pRaw": 0.2740923092293652,
+              "blockBootstrapCi95": [
+                -0.4000306603097765,
+                0.10800377246135531
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            }
+          },
+          "verdict": "PARTIAL: beats persistence, no significant difference from best tuned baseline (expSmoothing)"
+        }
+      }
+    },
+    "baseFee": {
+      "cv": 7.0943453343077945,
+      "horizons": {
+        "1": {
+          "n": 2200,
+          "summary": {
+            "persistence": {
+              "mae": 0.0019182472668181868,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 0.004497675587045435,
+              "chosenPerFold": [
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 0.0026244601658783617,
+              "chosenPerFold": [
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 0.000996323522272731,
+              "chosenPerFold": [
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 0.002513965899482278,
+              "chosenPerFold": [
+                {
+                  "k": 6,
+                  "beta": 2,
+                  "lambda": 0.1
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.0001
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.0001
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                }
+              ]
+            },
+            "ar": {
+              "mae": 0.0013911224147705123,
+              "chosenPerFold": [
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                }
+              ]
+            }
+          },
+          "bestBaseline": "linearTrend",
+          "rbfFoldWinsVsBestBaseline": "2/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": 0.0005957186326640997,
+              "dmStat": 2.134168522136436,
+              "pRaw": 0.03282887182413807,
+              "blockBootstrapCi95": [
+                0.00008921582110438024,
+                0.0013265120346041017
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.6257281228416418
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0019837096875631763,
+              "dmStat": -2.018470421956107,
+              "pRaw": 0.04354215454429955,
+              "blockBootstrapCi95": [
+                -0.004694796246347684,
+                -0.00028113195330523575
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.6796801289550469
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": -0.00011049426639607924,
+              "dmStat": -1.0497787996376398,
+              "pRaw": 0.2938198811637509,
+              "blockBootstrapCi95": [
+                -0.0003523226499508002,
+                0.000051277726970981125
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": 0.0015176423772095523,
+              "dmStat": 2.2870331239160033,
+              "pRaw": 0.0221938272514981,
+              "blockBootstrapCi95": [
+                0.0002812323599458726,
+                0.00335600781769495
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.5326518540359544
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": 0.0011228434847117678,
+              "dmStat": 1.956076749757913,
+              "pRaw": 0.05045597569194715,
+              "blockBootstrapCi95": [
+                0.00005511498652230729,
+                0.0026382742500074916
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.7063836596872601
+            }
+          },
+          "verdict": "INCONCLUSIVE: no significant gain over persistence after Holm correction"
+        },
+        "2": {
+          "n": 2195,
+          "summary": {
+            "persistence": {
+              "mae": 0.003680631385877003,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 0.006177993938496557,
+              "chosenPerFold": [
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 0.004410968404688024,
+              "chosenPerFold": [
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 0.0018506450999088938,
+              "chosenPerFold": [
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 0.0036816466303528955,
+              "chosenPerFold": [
+                {
+                  "k": 6,
+                  "beta": 1,
+                  "lambda": 0.1
+                },
+                {
+                  "k": 8,
+                  "beta": 0.5,
+                  "lambda": 0.0001
+                },
+                {
+                  "k": 8,
+                  "beta": 0.5,
+                  "lambda": 0.0001
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                },
+                {
+                  "k": 16,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                }
+              ]
+            },
+            "ar": {
+              "mae": 0.003239071649361877,
+              "chosenPerFold": [
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                }
+              ]
+            }
+          },
+          "bestBaseline": "linearTrend",
+          "rbfFoldWinsVsBestBaseline": "1/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": 0.0000010152444759098556,
+              "dmStat": 0.0146410351500176,
+              "pRaw": 0.9883184979390152,
+              "blockBootstrapCi95": [
+                -0.00012588390115998818,
+                0.0001139701862895972
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.002496347308143676,
+              "dmStat": -2.1727826133107246,
+              "pRaw": 0.02979657727817342,
+              "blockBootstrapCi95": [
+                -0.005619691738903233,
+                -0.00032803440139119567
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.6257281228416418
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0007293217743351307,
+              "dmStat": -2.044828925564942,
+              "pRaw": 0.040871592540730584,
+              "blockBootstrapCi95": [
+                -0.0016825343986211318,
+                -0.00009892627638722721
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.6796801289550469
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": 0.001831001530444014,
+              "dmStat": 2.3563904965764872,
+              "pRaw": 0.018453474787095914,
+              "blockBootstrapCi95": [
+                0.0002983401949966668,
+                0.0038608573200156217
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.47979034446449376
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": 0.00044257498099103986,
+              "dmStat": 0.6066404914258177,
+              "pRaw": 0.5440894217107164,
+              "blockBootstrapCi95": [
+                -0.0008247545096062899,
+                0.002086000563661648
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            }
+          },
+          "verdict": "INCONCLUSIVE: no significant gain over persistence after Holm correction"
+        },
+        "4": {
+          "n": 2185,
+          "summary": {
+            "persistence": {
+              "mae": 0.0071514326846681886,
+              "chosenPerFold": [
+                {},
+                {},
+                {},
+                {},
+                {}
+              ]
+            },
+            "movingAverage": {
+              "mae": 0.009420895486384433,
+              "chosenPerFold": [
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                }
+              ]
+            },
+            "expSmoothing": {
+              "mae": 0.007816064420059169,
+              "chosenPerFold": [
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                },
+                {
+                  "a": 0.7
+                }
+              ]
+            },
+            "linearTrend": {
+              "mae": 0.004146571266564245,
+              "chosenPerFold": [
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 4
+                },
+                {
+                  "k": 8
+                },
+                {
+                  "k": 8
+                }
+              ]
+            },
+            "rbf": {
+              "mae": 0.008147294663609753,
+              "chosenPerFold": [
+                {
+                  "k": 6,
+                  "beta": 1,
+                  "lambda": 0.1
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                },
+                {
+                  "k": 6,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                },
+                {
+                  "k": 8,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                },
+                {
+                  "k": 12,
+                  "beta": 0.5,
+                  "lambda": 0.01
+                }
+              ]
+            },
+            "ar": {
+              "mae": 0.008680214226814779,
+              "chosenPerFold": [
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 2,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                },
+                {
+                  "p": 8,
+                  "ridge": 0.001
+                }
+              ]
+            }
+          },
+          "bestBaseline": "linearTrend",
+          "rbfFoldWinsVsBestBaseline": "2/5",
+          "comparisons": {
+            "persistence": {
+              "meanMaeDiff_rbfMinusBaseline": 0.000995861978941572,
+              "dmStat": 2.1641837215998145,
+              "pRaw": 0.030450144183803873,
+              "blockBootstrapCi95": [
+                0.00017102457577077796,
+                0.002182805662660242
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.6257281228416418
+            },
+            "movingAverage": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0012736008227746773,
+              "dmStat": -2.1040916709427377,
+              "pRaw": 0.03537032724289757,
+              "blockBootstrapCi95": [
+                -0.0027956100136947415,
+                -0.00020700378521228997
+              ],
+              "rbfBetter": true,
+              "rbfWorse": false,
+              "pHolm": 0.6366658903721563
+            },
+            "expSmoothing": {
+              "meanMaeDiff_rbfMinusBaseline": 0.0003312302435505888,
+              "dmStat": 1.3879333634680344,
+              "pRaw": 0.1651574510934446,
+              "blockBootstrapCi95": [
+                -2.4222469371378554e-7,
+                0.0009284472484400331
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            },
+            "linearTrend": {
+              "meanMaeDiff_rbfMinusBaseline": 0.00400072339704552,
+              "dmStat": 2.2232491701339367,
+              "pRaw": 0.02619891517009232,
+              "blockBootstrapCi95": [
+                0.0009018535240125643,
+                0.00815177543586629
+              ],
+              "rbfBetter": false,
+              "rbfWorse": true,
+              "pHolm": 0.6025750489121233
+            },
+            "ar": {
+              "meanMaeDiff_rbfMinusBaseline": -0.0005329195632050832,
+              "dmStat": -0.23106902257665896,
+              "pRaw": 0.8172612712111187,
+              "blockBootstrapCi95": [
+                -0.004983680741176544,
+                0.0032918532189394074
+              ],
+              "rbfBetter": false,
+              "rbfWorse": false,
+              "pHolm": 1
+            }
+          },
+          "verdict": "INCONCLUSIVE: no significant gain over persistence after Holm correction"
+        }
+      }
+    }
+  },
+  "notes": [
+    "RBF settings and every baseline are tuned on the training part of each fold only.",
+    "Significance: Diebold-Mariano with Newey-West variance, Holm-adjusted across all comparisons; interval: moving-block bootstrap.",
+    "Single recorded Sepolia window; generalisation to other periods or to Ethereum mainnet is not tested here."
+  ]
+}

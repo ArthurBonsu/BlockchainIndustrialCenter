@@ -42,6 +42,22 @@ baseFee, eip1559Rule & 0.0000 & 0.0000 & 100.0\% \\
 
 \begin{table}[t]
 \centering
+\caption{Speculative advantage versus an assumed lane delay to Base Sepolia (modelled from measured local times; delay configured, not measured) [C]}
+\label{tab:xchain}
+\begin{tabular}{lrrr}
+\toprule
+Lane delay (s) & Baseline (s) & Speculative (s) & Correct-usable speed-up \\
+\midrule
+0 & 2.8 & 1.02 & 2.18$\times$ \\
+30 & 32.8 & 1.02 & 7.67$\times$ \\
+120 & 122.8 & 1.02 & 9.25$\times$ \\
+600 & 602.8 & 1.02 & 9.84$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
 \caption{Local two-chain dual-transaction latency (30 trials, block times 1/1 s) [M]}
 \label{tab:dual}
 \begin{tabular}{lr}

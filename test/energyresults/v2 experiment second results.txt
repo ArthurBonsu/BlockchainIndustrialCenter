@@ -1,0 +1,147 @@
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test\energytest\onchain_validation_v2.js
+==============================================================================
+ON-CHAIN VALIDATION -- v2 swap contracts
+==============================================================================
+UTC hour 18 -> peak period. Output: test\energyresults\onchain_v2_peak_2026-11-18T18-59-59-186Z.json
+Account: 0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+
+[1/5] Vault + AMM authorization
+  ✓ setAuthorizedCaller_TWAMM
+  ✓ setAuthorizedCaller_GRAMM
+  ✓ vault_approveSpender_TWAMM
+  ✓ vault_approveSpender_GRAMM
+  ✗ ownerApprove_Vault_RE: Invalid signature. "Signer Error Signer Error  gasLimit is too low. given 21406, need at least 21944."
+  ✓ ownerApprove_TWAMM_RE
+  ✓ ownerApprove_GRAMM_RE
+  ✗ ownerApprove_Vault_NRE: Invalid signature. "Signer Error Signer Error  gasLimit is too low. given 21406, need at least 21944."
+  ✓ ownerApprove_TWAMM_NRE
+  ✓ ownerApprove_GRAMM_NRE
+
+[2/5] Grid Stability Oracle
+  ✓ readConstants
+  ✓ updateCondition_normal
+  ✓ readScore_normal
+  ✓ updateCondition_stress
+  ✓ readScore_stress
+
+[3/5] TimeWeightedAMM swaps
+  ✓ configuredValues
+  ✓ swap_0_RE_to_NRE
+  ✓ swap_1_NRE_to_RE
+  ✓ swap_2_RE_to_NRE
+  ✓ swap_3_NRE_to_RE
+  ✓ finalStatistics
+
+[4/5] GridResponsiveAMM swaps (normal vs. stressed)
+  ✓ setNormal
+  ✓ normal_swap_0_RE_to_NRE
+  ✓ normal_swap_1_NRE_to_RE
+  ✓ setStressed
+  ✓ stressed_swap_0_RE_to_NRE
+  ✓ stressed_swap_1_NRE_to_RE
+  ✓ finalStatistics
+  ✓ userGST
+
+[5/5] Summarizing
+
+==============================================================================
+Done. 25/28 operations succeeded.
+Results written to test\energyresults\onchain_v2_peak_2026-11-18T18-59-59-186Z.json
+==============================================================================
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test\energytest\verify_swap_v2.js
+file                          swap                tau    in      out(tokens) out(wei)              effPrice  eff*tau^2  design
+------------------------------------------------------------------------------------------------------
+onchain_v2_peak_2026-11-18T18-59-59-186Z.jsonswap_0_RE_to_NRE     1.35   5.000   3.6750    3674977436323292962    0.7350     1.3395   0.9922
+onchain_v2_peak_2026-11-18T18-59-59-186Z.jsonswap_1_NRE_to_RE     1.35   5.000   6.7423    6742300533954627492    1.3485     2.4576   0.9989
+onchain_v2_peak_2026-11-18T18-59-59-186Z.jsonswap_2_RE_to_NRE     1.35   5.000   3.6858    3685804910753748422    0.7372     1.3435   0.9952
+onchain_v2_peak_2026-11-18T18-59-59-186Z.jsonswap_3_NRE_to_RE     1.35   5.000   6.7226    6722589161912818537    1.3445     2.4504   0.9959
+
+NOTE: a 5-token swap into a ~1000-token pool should return a few tokens (about 3e18 to 7e18 wei, depending on tau). A single-digit out(wei) means the old scaling bug.
+For v2, the "design" column (eff*tau for RE->NRE, eff/tau for NRE->RE) should be ~0.99 in every period.
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test\energytest\read_onchain_swap_v2.js --date=2026-11-19
+That day has not started yet.
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> yarn run build
+yarn run v1.22.22
+$ next build
+ ✓ Linting and checking validity of types    
+   ▲ Next.js 14.0.4
+   - Environments: .env
+
+ ✓ Creating an optimized production build    
+ ✓ Compiled successfully
+ ✓ Collecting page data    
+ ✓ Generating static pages (3/3) 
+ ✓ Collecting build traces    
+ ✓ Finalizing page optimization    
+
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      350 B          78.2 kB
+├   /_app                                  0 B            77.9 kB
+└ ○ /404                                   181 B            78 kB
++ First Load JS shared by all              77.9 kB
+  ├ chunks/framework-1e817f2a1c5c711b.js   45.2 kB
+  ├ chunks/main-72cd581c1e9bd837.js        31.7 kB
+  ├ chunks/pages/_app-5099454b20d04271.js  287 B
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
+○  (Static)  prerendered as static content
+
+Done in 27.32s.
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> yarn run build
+yarn run v1.22.22
+$ next build
+ ✓ Linting and checking validity of types    
+   ▲ Next.js 14.0.4
+   - Environments: .env
+
+ ✓ Creating an optimized production build    
+ ✓ Compiled successfully
+ ✓ Collecting page data    
+ ✓ Generating static pages (3/3) 
+ ✓ Collecting build traces    
+ ✓ Finalizing page optimization    
+
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      350 B          78.2 kB
+├   /_app                                  0 B            77.9 kB
+└ ○ /404                                   181 B            78 kB
++ First Load JS shared by all              77.9 kB
+  ├ chunks/framework-1e817f2a1c5c711b.js   45.2 kB
+  ├ chunks/main-72cd581c1e9bd837.js        31.7 kB
+  ├ chunks/pages/_app-5099454b20d04271.js  287 B
+  └ chunks/webpack-4e7214a60fad8e88.js     712 B
+
+○  (Static)  prerendered as static content
+
+Done in 21.15s.
+PS C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform> node test\energytest\read_onchain_swap_v2.js --date=2026-11-18
+TimeWeightedAMMV2 0x8dF62B24137bc1739a65A08267c5948192E3F38c -- UTC day 2026-11-18, one block per hour (eth_call at that block)
+
+hourUTC  block      period    tau    priceRE   priceNRE  quote RE->NRE  quote NRE->RE (5 in, wei)
+--------------------------------------------------------------------------------------------------------------
+    0    skipped (before deployment)
+    1    skipped (before deployment)
+    2    skipped (before deployment)
+    3    skipped (before deployment)
+    4    skipped (before deployment)
+    5    skipped (before deployment)
+    6    skipped (before deployment)
+    7    skipped (before deployment)
+    8    skipped (before deployment)
+    9    skipped (before deployment)
+   10    skipped (before deployment)
+   11    skipped (before deployment)
+   12    skipped (before deployment)
+   13    skipped (before deployment)
+   14    skipped (before deployment)
+   15    skipped (before deployment)
+   16    skipped (before deployment)
+   17    12162787   peak      1.35    0.7407     1.3500   3674977436323292962  6686482351342359381
+   18    12163079   peak      1.35    0.7407     1.3500   3674977436323292962  6686482351342359381
+   19    12163365   peak      1.35    0.7407     1.3500   3674977436323292962  6686482351342359381
+   20    skipped (not reached yet)
+   21    skipped (not reached yet)
+   22    skipped (not reached yet)
+   23    skipped (not reached yet)
+
+Saved C:\Users\admin\Documents\Blockchain Multi Industrial Service Center\Blockchain MultiIndustrial Projects\BlockchainIndustrialPlatform\test\energyresults\onchain_price_quotes_v2_2026-11-18.json

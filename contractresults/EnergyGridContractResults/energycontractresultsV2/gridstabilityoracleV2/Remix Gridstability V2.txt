@@ -1,0 +1,56 @@
+
+[block:12162772 txIndex:6]
+from:
+0x792...ad36A
+to:
+GridResponsiveAMMV2.(constructor)
+value:
+0 wei
+data:
+0x60c...3d340
+logs:
+1
+hash:
+0xb7b...d75a7
+status	1 Transaction mined and execution completed
+transaction hash	0xd0400e8200939fe3083607aea9531484d96bd478b1cc151b839d63ab1fbe3045
+block hash	0xb7b94ced66cb44ce0ab853985399f51f7f4d06ef87378d70118367bfd0ed75a7
+block number	12162772
+contract address	0x5Ce434e6b49611Dbf9C82266a0a21E6822028600
+from	0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A
+to	GridResponsiveAMMV2.(constructor)
+transaction cost	15762604 gas 
+decoded input	{
+	"address _vault": "0x623bA68eb8c93D6204F449d1A2596078D094b13f",
+	"address _gridOracle": "0x9580429807f611A286255FF325e7C6812343D340"
+}
+decoded output	 - 
+logs	[
+	{
+		"from": "0x5Ce434e6b49611Dbf9C82266a0a21E6822028600",
+		"topic": "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+		"event": "OwnershipTransferred",
+		"args": {
+			"0": "0x0000000000000000000000000000000000000000",
+			"1": "0x7927E739C9B0b304610D4Ae35cBf5FDD0D5ad36A"
+		}
+	}
+]
+raw logs	[
+  {
+    "_type": "log",
+    "address": "0x5Ce434e6b49611Dbf9C82266a0a21E6822028600",
+    "blockHash": "0xb7b94ced66cb44ce0ab853985399f51f7f4d06ef87378d70118367bfd0ed75a7",
+    "blockNumber": 12162772,
+    "data": "0x",
+    "index": 1,
+    "topics": [
+      "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+      "0x0000000000000000000000000000000000000000000000000000000000000000",
+      "0x0000000000000000000000007927e739c9b0b304610d4ae35cbf5fdd0d5ad36a"
+    ],
+    "transactionHash": "0xd0400e8200939fe3083607aea9531484d96bd478b1cc151b839d63ab1fbe3045",
+    "transactionIndex": 6
+  }
+]
+>
